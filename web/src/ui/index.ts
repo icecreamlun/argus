@@ -21,6 +21,7 @@ import { createShakeAlert } from './alert';
 import { createFeedPanel } from './feed';
 import { createImpactPanel } from './impact';
 import { createInspector } from './inspector';
+import { createAirPanel } from './air';
 import { createFooter, createPlaybackIsland, createTimeIsland, createViewsIsland } from './bottombar';
 import { bindKeyboard } from './keyboard';
 import { fmtCompact, fmtInt, nightFactorFor, occupancyWeightDay } from './format';
@@ -63,13 +64,14 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
   const impact = createImpactPanel(hd);
   impact.overlay.set(state.overlay);
   const inspector = createInspector(() => closeInspector());
+  const air = createAirPanel(ctx.city);
   const tod = createTimeIsland(hd);
   const pb = createPlaybackIsland(hd, state.timeScale);
   pb.setActive(false);
   const views = createViewsIsland(hd, (params.get('cam') as CameraPresetId | null) ?? 'overview');
   const foot = createFooter();
 
-  const right = h('aside', { class: 'ag-col ag-col--right' }, impact.el, inspector.el);
+  const right = h('aside', { class: 'ag-col ag-col--right' }, impact.el, air.el, inspector.el);
   const app = h(
     'div',
     { class: 'ag', dataset: { theme: 'day', phase: 'monitoring' } },
@@ -127,6 +129,8 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
 
   // ── Inspector ──
   let impactAutoCollapsed = false;
+  let airFoldedImpact = false;
+  let airAutoCollapsed = false;
   let shownId: string | null = null;
   function closeInspector(): boolean {
     if (!inspector.open) return false;
@@ -138,6 +142,8 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
   function restoreImpact() {
     if (impactAutoCollapsed) impact.panel.setCollapsed(false, false);
     impactAutoCollapsed = false;
+    if (airAutoCollapsed) air.panel.setCollapsed(false, false);
+    airAutoCollapsed = false;
   }
 
   // ── Event bus ──
@@ -172,6 +178,8 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
   });
 
   function resetUi() {
+    ui.showAir?.(null);
+    inspector.setComparison(null);
     state.event = null;
     state.scenario = null;
     state.simSeconds = 0;
@@ -238,11 +246,16 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
       // Keep the right column on screen: fold Impact to its header if both don't fit.
       requestAnimationFrame(() => {
         // The inspector may have been closed before this frame (fast Esc) — don't fold Impact then.
-        if (!inspector.open || impact.panel.collapsed) return;
+        if (!inspector.open) return;
         const need = impact.panel.head.offsetHeight + impact.panel.body.scrollHeight + inspector.el.offsetHeight + 12;
-        if (need > right.clientHeight) {
+        if (!impact.panel.collapsed && need > right.clientHeight) {
           impact.panel.setCollapsed(true, false);
           impactAutoCollapsed = true;
+        }
+        // M3: fold the AIR panel too when the inspector still would not fit.
+        if (air.active && !air.panel.collapsed && impact.panel.head.offsetHeight + air.panel.el.offsetHeight + inspector.el.scrollHeight + 22 > right.clientHeight) {
+          air.panel.setCollapsed(true, false);
+          airAutoCollapsed = true;
         }
       });
     },
@@ -258,6 +271,22 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     },
     setCameraPresets(presets: CameraPreset[]) {
       views.setPresets(presets);
+    },
+    showAir(s) {
+      const wasActive = air.active;
+      air.set(s);
+      // First launch: fold Impact to its header so the reconstruction panel has room (not remembered).
+      if (s && !wasActive && !impact.panel.collapsed) {
+        impact.panel.setCollapsed(true, false);
+        airFoldedImpact = true;
+      }
+      if (!s && airFoldedImpact) {
+        airFoldedImpact = false;
+        impact.panel.setCollapsed(false, false);
+      }
+    },
+    showComparison(c) {
+      inspector.setComparison(c);
     },
     setCityStats(city: CityData) {
       let buildings = 0;

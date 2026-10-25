@@ -1,0 +1,22 @@
+{
+ "chunkIndex": 7,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9405,
+ "buildings": [],
+ "roads": [],
+ "crowds": [],
+ "summary": "No tagged buildings, roads, or crowds are visible in this segment over the bay.",
+ "hash": "b3ecce89b99a89f043dadd206ef08165",
+ "usage": {
+  "promptTokens": 2405,
+  "outputTokens": 43,
+  "totalTokens": 2448
+ },
+ "notes": [
+  "ffmpeg 160 ms",
+  "input: video+hires",
+  "gemini 9245 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

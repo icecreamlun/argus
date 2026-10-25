@@ -355,6 +355,8 @@ export interface BuildingsHandle {
   setDamageOverlay(on: boolean): void;
   /** Optional per-building tint for overlays such as ShakeMap MMI (null clears). RGB 0..1. */
   setOverlayColor(index: number, rgb: [number, number, number] | null): void;
+  /** Optional (M3 scan): slight grey veil for unscanned buildings, 0..1 (desaturate ~55%, darken ~18% at 1). Independent of the overlay tint. */
+  setVeil?(index: number, amount: number): void;
   /** Highlight one building (selection outline / glow). */
   setHighlight(id: string | null): void;
   /** Raycast pick → building id or null. */
@@ -569,4 +571,274 @@ export interface UiHandle {
   setScenarios(scenarios: QuakeScenario[]): void;
   setCameraPresets(presets: CameraPreset[]): void;
   setCityStats(city: CityData): void;
+  /** Optional (M3): AIR 1 aerial-reconstruction panel. null hides it (no flight / reset). */
+  showAir?(s: AirUiState | null): void;
+  /** Optional (M3): Predicted / Argon observed / Truth block in the inspector for the shown building (null clears). */
+  showComparison?(c: BuildingComparison | null): void;
+}
+
+// ═════════════════════════════ M3: aerial reconnaissance + Argon reconstruction ═════════════════════════════
+//
+// Flow: quake plays (truth world) → police helicopter "AIR 1" flies a HARD-CODED route → its gimbal camera is
+// rendered off-screen (never shown on screen) with an AR overlay (street names + building address tags, like
+// real police-helicopter AR mapping systems) → frames are batched into ~15 s chunks → server encodes an mp4
+// and asks gemini-4-argon to reconstruct buildings / people / roads seen in the footage (blind: no model
+// prediction is sent) → results are drawn on the city and compared with the quake model's prediction and
+// the hidden truth. Areas the helicopter has not scanned are veiled slightly grey.
+// Time base: everything is a pure function of quake simSeconds (deterministic seek for screenshots);
+// flightSeconds = simSeconds - AIR_LAUNCH_S(result). Frame capture & network only happen while playing.
+
+/** Ground-truth people generated from the quake result (src/truth/people). Hidden from Argon. */
+export interface PersonTruth {
+  id: string;
+  kind: 'trapped' | 'crowd';
+  /** Building the person is trapped on/in (trapped only). */
+  buildingId?: string;
+  /** Crowd id (crowd only). */
+  crowdId?: string;
+  x: number;
+  y: number;
+  z: number;
+  /** Visible from the air (standing on rubble / roof / street). Hidden = buried inside. */
+  visible: boolean;
+  /** Waving for help (trapped & visible). */
+  waving: boolean;
+  /** simSeconds when the person appears (trapped: building failTime + a few s; crowd: gathers after shaking). */
+  appearS: number;
+}
+
+export interface CrowdTruth {
+  id: string;
+  name?: string; // e.g. "Portsmouth Square"
+  x: number;
+  z: number;
+  radius: number;
+  count: number;
+  appearS: number;
+}
+
+export interface PeopleTruth {
+  persons: PersonTruth[];
+  crowds: CrowdTruth[];
+  /** Per building id: trapped people visible from the air / buried. */
+  byBuilding: Record<string, { visible: number; hidden: number }>;
+}
+
+export interface PeopleHandle {
+  object: THREE.Object3D;
+  /** Generate (deterministic) and instantiate people for a quake result. */
+  build(result: QuakeResult): PeopleTruth;
+  /** Pose/visibility at simSeconds (deterministic; waving animation may use wall-clock). */
+  update(simSeconds: number): void;
+  reset(): void;
+  readonly truth: PeopleTruth | null;
+}
+
+/** Helicopter pose at a flight time (src/air/heli). */
+export interface HeliPose {
+  flightS: number;
+  position: [number, number, number];
+  /** Heading in radians, 0 = north (-Z), clockwise positive. */
+  heading: number;
+  /** Where the gimbal camera looks (world point on the ground). */
+  cameraTarget: [number, number, number];
+  fovDeg: number;
+  /** Camera frustum ∩ ground (terrain) as a polygon, world x/z (≈ quad). */
+  footprint: XZ[];
+}
+
+export interface HelicopterHandle {
+  object: THREE.Object3D;
+  callsign: string; // "AIR 1 · SFPD"
+  /** Hard-coded route centreline (x/z) and timing. */
+  route: XZ[];
+  durationS: number;
+  altitudeAGL: number;
+  /** Deterministic pose for a flight time (clamped to [0, durationS]). */
+  poseAt(flightS: number): HeliPose;
+  /** Gimbal camera (PerspectiveCamera) kept in sync by setFlightTime; used for off-screen capture. */
+  camera: THREE.PerspectiveCamera;
+  /** Place helicopter + camera at flight time t; null hides it (not launched / reset). */
+  setFlightTime(t: number | null): void;
+  readonly flightTime: number | null;
+}
+
+/** One captured frame of the helicopter camera (src/air/scan). */
+export interface ScanFrame {
+  index: number; // global frame index within the flight
+  flightS: number;
+  simS: number;
+  pose: HeliPose;
+  /** JPEG, base64 without data: prefix. */
+  jpegBase64: string;
+  /** Buildings whose AR tag was drawn in this frame (inside the frustum, in range). */
+  taggedBuildingIds: string[];
+}
+
+export interface ScanChunk {
+  chunkIndex: number;
+  frames: ScanFrame[];
+  /** Union of tagged building ids across frames. */
+  buildingIds: string[];
+  startFlightS: number;
+  endFlightS: number;
+}
+
+export interface ScanHandle {
+  /** Ground veil + footprint trail visuals. */
+  object: THREE.Object3D;
+  /** Recompute coverage so everything under footprints for flight time 0..t is scanned (deterministic). null = nothing scanned / veil off. */
+  setCoverageUntil(t: number | null): void;
+  /** Building index → scanned? */
+  isScanned(index: number): boolean;
+  /** Fraction of the CORE area scanned (0..1). */
+  scannedFraction(): number;
+  /** Capture one frame from the helicopter camera with AR overlay (live playback only). */
+  captureFrame(pose: HeliPose, simS: number): ScanFrame;
+  /**
+   * Optional (integration): same, but the scene is rendered now and the pixels are read back asynchronously
+   * (no GPU-queue drain on the main thread). One capture at a time.
+   */
+  captureFrameAsync?(pose: HeliPose, simS: number): Promise<ScanFrame>;
+  reset(): void;
+}
+
+export type ObservedDamage = 'none' | 'slight' | 'moderate' | 'extensive' | 'collapsed';
+
+export interface ObservedBuilding {
+  id: string;
+  damage: ObservedDamage;
+  confidence: number; // 0..1
+  peopleVisible: number;
+  trappedSigns: boolean; // people on rubble/roof waving, SOS, etc.
+  fire: boolean;
+  smoke: boolean;
+  /** Seconds into the chunk video where the evidence is clearest (== frame offset within chunk). */
+  evidenceS: number;
+  notes?: string;
+}
+
+export interface ObservedRoad {
+  street: string;
+  nearBuildingId?: string;
+  status: 'blocked' | 'partial' | 'clear';
+  evidenceS: number;
+  notes?: string;
+}
+
+export interface ObservedCrowd {
+  place?: string;
+  nearBuildingId?: string;
+  approxCount: number;
+  evidenceS: number;
+}
+
+/** POST /api/reconstruct request body. */
+export interface ReconstructionRequest {
+  chunkIndex: number;
+  scenarioId: string;
+  localHour: number;
+  /** Frames in order; server encodes them at 1 fps so video second k == frames[k]. */
+  frames: { index: number; flightS: number; simS: number; position: [number, number, number]; heading: number; jpegBase64: string; taggedBuildingIds: string[] }[];
+  /** Candidate buildings (the AR-tagged ones) — geometry/identity only, NO predicted damage. */
+  buildings: { id: string; tag: string; address?: string; name?: string; x: number; z: number; height: number; levels: number; use: string }[];
+  /** Force mock/replay behaviour for debugging. */
+  mode?: 'auto' | 'mock' | 'replay-only';
+}
+
+export interface ReconstructionResult {
+  chunkIndex: number;
+  model: string;
+  mode: 'gemini' | 'replay' | 'mock';
+  latencyMs: number;
+  buildings: ObservedBuilding[];
+  roads: ObservedRoad[];
+  crowds: ObservedCrowd[];
+  summary: string;
+  error?: string;
+}
+
+/** Recon layer: applies results to the city, compares with prediction & truth (src/argus). */
+export interface ReconHandle {
+  object: THREE.Object3D;
+  /** Register the quake result + truth people for comparison. */
+  begin(result: QuakeResult, people: PeopleTruth): void;
+  apply(res: ReconstructionResult, chunk: ScanChunk): void;
+  /** Show/hide the recon colouring + markers. */
+  setVisible(on: boolean): void;
+  /** Comparison over scanned+observed buildings. */
+  stats(): ReconStats;
+  /** Per-building comparison for the inspector (null if never observed). */
+  compare(buildingId: string): BuildingComparison | null;
+  reset(): void;
+  /**
+   * Optional (recon): time gate. Results are revealed once simSeconds ≥ their chunk's last frame simS, so
+   * seeking back hides later results (pure function of simSeconds). Never called ⇒ everything applied is shown.
+   */
+  update?(simSeconds: number): void;
+  /** Optional (recon): count a chunk as sent (stats.chunksSent; pending = sent − done). */
+  markSent?(chunkIndex: number): void;
+  /**
+   * Optional (recon): temporarily strip building tints + markers (e.g. around the off-screen helicopter
+   * capture so Argon never sees its own results) without changing setVisible. Commits the buildings texture.
+   */
+  suspend?(on: boolean): void;
+  /** Optional (recon): applied results + chunk ids (debug / replay). */
+  readonly results?: readonly ReconstructionResult[];
+}
+
+/** M3 UI: AIR 1 aerial reconstruction panel state (UiHandle.showAir). */
+export interface AirUiState {
+  callsign: string;
+  status: 'standby' | 'en route' | 'scanning' | 'returning' | 'complete';
+  flightS: number;
+  durationS: number;
+  scannedFraction: number;
+  stats: ReconStats;
+  /** Chunks sent and still awaiting a result. */
+  pending: number;
+  mode: 'gemini' | 'replay' | 'mock' | null;
+  /** Optional: mean Argon latency (s) over completed chunks. */
+  avgLatencyS?: number;
+}
+
+export interface ReconStats {
+  chunksSent: number;
+  chunksDone: number;
+  buildingsObserved: number;
+  /** Accuracy vs truth (exact HAZUS state, collapsed counted as complete) of the model's most-likely state, over observed buildings. */
+  predictionAccuracy: number;
+  /** Accuracy vs truth of Argon's observation over the same buildings. */
+  reconAccuracy: number;
+  /** Within-one-state accuracy (more forgiving). */
+  predictionWithinOne: number;
+  reconWithinOne: number;
+  collapsesTruth: number;
+  collapsesPredicted: number;
+  collapsesObserved: number;
+  peopleTruthVisible: number;
+  peopleObserved: number;
+  crowdsObserved: number;
+  surprises: { id: string; predicted: DamageState; observed: ObservedDamage; truth: DamageState }[];
+  lastSummary: string;
+  model: string;
+  mode: ReconstructionResult['mode'] | null;
+  /** Optional: mean Argon latency (s) over completed chunks. */
+  avgLatencyS?: number;
+  /** Optional: candidate buildings in the revealed chunks (scanned + AR-tagged). */
+  buildingsCovered?: number;
+  /**
+   * Optional (headline): xBD-style 4-class accuracy over the same buildings — no damage (DS0) / minor (DS1) /
+   * major (DS2–3) / destroyed (DS4 or collapsed). Aerial footage cannot see interior damage; xBD is the standard
+   * aerial damage scale. Prediction class = argmax of the model's class-aggregated probabilities.
+   */
+  predictionXbd?: number;
+  reconXbd?: number;
+}
+
+export interface BuildingComparison {
+  id: string;
+  predicted: { mostLikely: DamageState; pCollapse: number; probs: [number, number, number, number, number] };
+  observed: ObservedBuilding & { chunkIndex: number; flightS: number };
+  truth: { state: DamageState; collapsed: boolean; trappedVisible: number; trappedHidden: number };
 }

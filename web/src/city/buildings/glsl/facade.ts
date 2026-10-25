@@ -487,7 +487,9 @@ void argFacade() {
 	if ( storefront ) lightC = argKelvin( shopH < 0.35 ? 0.9 : shopH < 0.6 ? 0.05 : 0.45 );
 	// Damage: blown-out windows.
 	float dmg = vDyn.x;
-	float broken = step( h21( vec2( col * 3.1 + key, flo * 7.7 + seed ) ), ( dmg - 1.3 ) * 0.32 ) * step( 1.3, dmg );
+	// Blown-out windows: ~8 % at slight, ~40 % moderate, ~70 % extensive, ~92 % complete.
+	float brokenF = min( 0.92, 0.08 * dmg + 0.24 * max( dmg - 1.0, 0.0 ) ) * step( 0.5, dmg );
+	float broken = step( h21( vec2( col * 3.1 + key, flo * 7.7 + seed ) ), brokenF );
 
 	if ( glass > 0.001 ) {
 		vec3 inter;
@@ -703,7 +705,14 @@ void argFacade() {
 	}
 
 	// ── Earthquake damage ─────────────────────────────────────────
+	// Two layers: a fine crack network for close views, and bold macro cues (1–8 m features) that stay
+	// legible from a helicopter 150–250 m away, escalating with the HAZUS state:
+	//   1 slight     a few dark (broken) windows, light dust streaks
+	//   2 moderate   blackened / spalled patches, stepped diagonal cracks, ~40 % windows out, parapet notches
+	//   3 extensive  gaping facade losses with exposed floor slabs, soot plumes, most windows out
+	//   4 complete   heavier still + the soft (ground) storey pancaked (vertex stage, argSoftK / argSoftH)
 	if ( dmg > 0.02 ) {
+		float ds = clamp( dmg, 0.0, 4.0 );
 		float pxM = max( max( fwS, fwV ), 1e-4 ); // metres per pixel
 		float wallOnly = 1.0 - glass;
 		// Crack network: jagged Voronoi borders; each border (cell pair) activates independently.
@@ -723,49 +732,99 @@ void argFacade() {
 		float edgeM = ( sqrt( d2 ) - sqrt( d1 ) ) * 0.5 / 0.42;
 		vec2 pk = id1 + id2;
 		vec2 pd = abs( id1 - id2 );
-		float act = step( h21( vec2( pk.x + pk.y * 7.13, pd.x * 3.1 + pd.y * 1.7 ) + seed ), 0.05 + 0.075 * dmg );
-		float wM = 0.0025 + 0.004 * dmg;         // crack half-width (m)
+		float act = step( h21( vec2( pk.x + pk.y * 7.13, pd.x * 3.1 + pd.y * 1.7 ) + seed ), 0.05 + 0.075 * ds );
+		float wM = 0.0025 + 0.004 * ds;          // crack half-width (m)
 		float wD = max( wM, pxM * 0.5 );
 		float cov = clamp( wM / pxM, 0.0, 1.0 ); // thinner than a pixel → fainter, never fatter
 		float crack = ( 1.0 - smoothstep( wD * 0.5, wD * 1.5, edgeM ) ) * cov * act;
-		crack *= smoothstep( 0.2, 1.0, dmg + vnoise( cp * 0.31 ) - 0.5 );
-		// Diagonal shear cracks through the piers between windows (moderate+).
-		if ( dmg > 1.5 && !ground ) {
-			float sg = h21( vec2( col, flo ) + key ) > 0.5 ? 1.0 : -1.0;
-			float jig = ( vnoise( vec2( s, v ) * 3.0 ) - 0.5 ) * 0.25;
-			float dg = abs( fract( ( fx + sg * yIn + jig ) / mw ) - 0.5 ) * mw * 0.7071;
-			float on = step( h21( vec2( col * 1.3, flo * 2.1 ) + seed ), ( dmg - 1.5 ) * 0.3 );
-			float wS = wM * 1.3;
-			float wSD = max( wS, pxM * 0.5 );
-			crack = max( crack, ( 1.0 - smoothstep( wSD * 0.5, wSD * 1.5, dg ) ) * clamp( wS / pxM, 0.0, 1.0 ) * on );
+		crack *= smoothstep( 0.2, 1.0, ds + vnoise( cp * 0.31 ) - 0.5 );
+		// Big stepped diagonal (shear) cracks running across several storeys (moderate+): 8–25 cm wide, so
+		// they survive as dark lines at ~0.3 m / pixel.
+		if ( ds > 1.4 ) {
+			vec2 dq = vec2( s + key * 11.0, v );
+			float P = 7.5;
+			float sg = h21( floor( vec2( dq.x / ( 2.0 * P ), dq.y / ( 2.0 * P ) ) ) + seed ) > 0.5 ? 1.0 : -1.0;
+			float u = ( dq.x + sg * dq.y ) / P + 0.35 * ( vnoise( dq * 0.9 ) - 0.5 ) + 0.12 * ( vnoise( dq * 3.7 ) - 0.5 );
+			vec2 cell = floor( vec2( u, ( dq.x - sg * dq.y ) / ( 1.6 * P ) ) );
+			float on = step( h21( cell + seed * 3.0 ), 0.12 + 0.16 * ( ds - 1.4 ) );
+			float dl = abs( fract( u ) - 0.5 ) * P * 0.7071;
+			float wB = 0.08 + 0.05 * ( ds - 1.4 );
+			float wBD = max( wB, pxM * 0.5 );
+			float bigC = ( 1.0 - smoothstep( wBD * 0.5, wBD * 1.5, dl ) ) * clamp( wB / pxM, 0.0, 1.0 ) * on;
+			crack = max( crack, bigC * smoothstep( 1.4, 1.9, ds ) );
 		}
 		crack *= wallOnly;
-		// Spalled patches exposing darker structure (extensive+), with a shadowed rim.
-		float sp = fbm3( fp * 0.3 + seed * 9.0 );
-		float thr = 0.86 - ( dmg - 2.0 ) * 0.07;
-		float spall = smoothstep( thr, thr + 0.02, sp ) * step( 2.0, dmg ) * wallOnly;
-		float rim = ( smoothstep( thr - 0.03, thr, sp ) - spall ) * step( 2.0, dmg ) * wallOnly;
-		vec3 structC = mat < 1.5 ? vec3( 0.22, 0.11, 0.07 ) : vec3( 0.26, 0.25, 0.23 );
-		alb = mix( alb, structC * ( 0.8 + 0.4 * vnoise( fp * 4.0 ) ), spall );
-		alb *= 1.0 - 0.35 * rim;
-		// Dust coating (less on glass, which reads as dulled rather than painted).
-		float dust = clamp( dmg * 0.11, 0.0, 0.45 ) * ( 0.5 + 0.5 * vnoise( fp * 0.45 ) );
-		alb = mix( alb, vec3( 0.55, 0.52, 0.47 ), dust * mix( 1.0, 0.35, glass ) );
+
+		// Dust staining: light streaks washing down the wall (slight+, strongest at slight / moderate).
+		float streak = smoothstep( 0.45, 0.85, vnoise( vec2( ( s + key * 5.0 ) * 0.7, v * 0.06 + seed ) ) );
+		float stain = streak * smoothstep( 0.2, 1.0, ds ) * 0.32 * ( 0.6 + 0.4 * vnoise( fp * 0.3 ) );
+		alb = mix( alb, vec3( 0.60, 0.57, 0.52 ), stain * mix( 1.0, 0.4, glass ) );
+
+		// Blackened / spalled patches (moderate+): 2–6 m blobs, soot-dark core over exposed brick / concrete.
+		vec2 mp = vec2( s + key * 23.0, v );
+		float pn = fbm3( mp * vec2( 0.21, 0.27 ) + seed * 17.0 );
+		float thrP = 0.76 - 0.06 * ds; // ~12 % of the wall at moderate, ~20 % extensive, ~30 % complete
+		float spall = smoothstep( thrP, thrP + 0.025, pn ) * smoothstep( 1.4, 1.9, ds );
+		float rim = ( smoothstep( thrP - 0.05, thrP, pn ) ) * smoothstep( 1.4, 1.9, ds ) * ( 1.0 - spall );
+		vec3 structC = mat < 1.5 ? vec3( 0.20, 0.10, 0.065 ) : vec3( 0.24, 0.23, 0.21 );
+		float soot = smoothstep( thrP + 0.04, thrP + 0.12, pn );
+		vec3 spallC = mix( structC * ( 0.75 + 0.5 * vnoise( fp * 2.0 ) ), vec3( 0.03, 0.028, 0.026 ), soot * 0.85 );
+
+		// Gaping facade losses (extensive+): the skin has fallen off whole bays — a dark void with the floor
+		// slab edges and the cut ends of walls showing. Moderate only loses parapet / cornice chunks at the top.
+		float hn = fbm3( mp * vec2( 0.13, 0.17 ) + seed * 31.0 + 5.0 );
+		float topZ = smoothstep( H - topBand - 2.5, H - 0.3, v );
+		float thrH = mix( 0.8, 0.56, smoothstep( 2.4, 4.0, ds ) ) - 0.16 * topZ * smoothstep( 1.5, 2.2, ds );
+		float hole = smoothstep( thrH, thrH + 0.02, hn + 0.06 * vnoise( mp * 1.7 ) ) * smoothstep( 1.5, 2.0, ds );
+		hole *= ds < 2.5 ? topZ : 1.0;
+		float holeRim = smoothstep( thrH - 0.035, thrH, hn ) * ( 1.0 - hole ) * smoothstep( 1.5, 2.0, ds );
+		// Inside the void: storey slabs (pale broken edges) every floor, deep shadow between them.
+		float slabY = fract( ( v - groundH ) / floorH );
+		float slab = ( 1.0 - smoothstep( 0.0, max( 0.3 / floorH, fwV / floorH ), slabY ) ) * step( groundH, v );
+		vec3 voidC = mix( vec3( 0.012, 0.011, 0.010 ), vec3( 0.42, 0.40, 0.37 ) * ( 0.7 + 0.5 * vnoise( mp * 3.0 ) ), slab * 0.9 );
+		// A few rubble-choked bays show debris heaped on the slab.
+		voidC = mix( voidC, vec3( 0.30, 0.27, 0.23 ) * ( 0.6 + 0.6 * vnoise( mp * 4.0 ) ), step( 0.75, slabY ) * step( 0.6, vnoise( mp * 0.5 + 3.0 ) ) * 0.8 );
+
+		// Dust coating (patchy, never a uniform whitewash that would read as a clean, intact wall).
+		float dust = clamp( ds * 0.06, 0.0, 0.2 ) * ( 0.3 + 0.7 * vnoise( fp * 0.45 ) );
+		alb = mix( alb, vec3( 0.52, 0.49, 0.45 ), dust * mix( 1.0, 0.35, glass ) );
+		// General grime / desaturation of a battered building.
+		alb *= 1.0 - 0.05 * ds;
+		alb = mix( alb, vec3( dot( alb, vec3( 0.3, 0.55, 0.15 ) ) ), 0.08 * ds );
 		alb = mix( alb, vec3( 0.025 ), crack );
-		ao *= 1.0 - 0.6 * crack - 0.2 * spall;
-		rough = mix( rough, 1.0, max( dust, spall ) );
-		metal *= 1.0 - dust;
-		glassy *= 1.0 - dust * 0.6;
-		emis *= 1.0 - dust * 0.5;
-		// Soot licking up from a few gutted windows (complete damage).
-		if ( dmg > 3.4 && !ground ) {
-			float sw = step( h21( vec2( col + key, flo ) + 0.7 ), 0.18 );
+		alb *= 1.0 - 0.35 * rim - 0.45 * holeRim;
+		alb = mix( alb, spallC, spall );
+		ao *= 1.0 - 0.6 * crack - 0.25 * spall;
+		rough = mix( rough, 1.0, max( dust, max( spall, hole ) ) );
+		metal *= 1.0 - max( dust, max( spall, hole ) );
+		glassy *= ( 1.0 - dust * 0.6 ) * ( 1.0 - spall ) * ( 1.0 - hole );
+		emis *= ( 1.0 - dust * 0.5 ) * ( 1.0 - spall ) * ( 1.0 - hole );
+		// Soot licking up from gutted windows (extensive+, more with complete damage).
+		if ( ds > 2.5 && !ground ) {
+			float sw = step( h21( vec2( col + key, flo ) + 0.7 ), 0.12 + 0.22 * ( ds - 2.5 ) );
 			float xc = 0.5 * ( x0 + x1 );
 			float hgt = ( yIn - y1 ) / ( floorH * 0.8 );
 			float width = ( x1 - x0 ) * 0.5 * ( 1.0 - 0.6 * clamp( hgt, 0.0, 1.0 ) ) + 0.15 * vnoise( vec2( fx, v ) * 2.0 );
 			float plume = step( 0.0, hgt ) * ( 1.0 - smoothstep( 0.4, 1.0, hgt ) ) * ( 1.0 - smoothstep( width * 0.7, width, abs( fx - xc ) ) );
 			alb = mix( alb, vec3( 0.03 ), max( plume, glass ) * sw * 0.85 );
 			glassy *= 1.0 - sw * glass;
+		}
+		alb = mix( alb, voidC, hole );
+		nt = mix( nt, vec3( 0.0, 0.0, 1.0 ), hole );
+		ao *= 1.0 - 0.5 * hole;
+		// Pancaked soft storey (complete, standing): the ground storey is crushed to a ragged dark band of
+		// broken storefronts, slabs and rubble (geometry squashed in argDeform).
+		float ssK = argSoftK( ds, vDyn.z );
+		if ( ssK > 0.001 ) {
+			float gh = argSoftH( H );
+			float band = ( 1.0 - aStep( gh + 0.5 * ( vnoise( vec2( s * 0.8 + key, 1.0 ) ) - 0.3 ), v, fwV ) ) * ssK;
+			float rub = vnoise( vec2( s, v ) * 1.3 + key );
+			vec3 bandC = mix( vec3( 0.015 ), vec3( 0.36, 0.33, 0.29 ) * ( 0.7 + 0.5 * rub ), smoothstep( 0.45, 0.6, rub ) );
+			bandC = mix( bandC, vec3( 0.45, 0.43, 0.40 ), ( 1.0 - smoothstep( 0.0, 0.25, abs( v - gh * 0.55 ) ) ) * 0.8 );
+			alb = mix( alb, bandC, band );
+			emis *= 1.0 - band;
+			glassy *= 1.0 - band;
+			nt = mix( nt, vec3( 0.0, 0.0, 1.0 ), band );
 		}
 		// Collapsed: everything reads as broken, dusty rubble.
 		float crush = vDyn.z;
@@ -798,11 +857,21 @@ void argFacade() {
 		fEmis = mix( fEmis, rc * 0.3, 0.9 );
 		fMetal *= 0.1;
 		fGlass *= 0.1;
-	} else if ( ovl.a > 0.5 ) {
+	} else if ( ovl.a > 1.5 ) {
 		fAlbedo = mix( fAlbedo, ovl.rgb, 0.78 );
 		fEmis = mix( fEmis, ovl.rgb * 0.18, 0.8 );
 		fMetal *= 0.2;
 		fGlass *= 0.2;
+	}
+	{
+		// Scan veil (overlay alpha minus the tint flag): slight grey for areas AIR 1 has not scanned.
+		float veil = ovl.a - step( 1.5, ovl.a ) * 2.0;
+		if ( veil > 0.001 ) {
+			float lum = dot( fAlbedo, vec3( 0.2126, 0.7152, 0.0722 ) );
+			fAlbedo = mix( fAlbedo, vec3( lum ), veil * 0.55 ) * ( 1.0 - veil * 0.18 );
+			fEmis = mix( fEmis, vec3( dot( fEmis, vec3( 0.2126, 0.7152, 0.0722 ) ) ), veil * 0.5 ) * ( 1.0 - veil * 0.25 );
+			fGlass *= 1.0 - veil * 0.3;
+		}
 	}
 	if ( vDyn.w > 0.5 ) {
 		float fres = pow( 1.0 - cosV, 2.5 );

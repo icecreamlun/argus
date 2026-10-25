@@ -7,7 +7,8 @@
  * Flow: load → ready → no console errors → every camera-preset button → time-of-day (Day marker, golden hour
  * via the slider, night via a real click on the slider track) → pick a building by clicking the canvas
  * (inspector opens) → every scenario via its Simulate button at 2× → pause / resume → overlays
- * None / ShakeMap / Damage → let HayWired finish → Reset → verify the city and HUD are restored.
+ * None / ShakeMap / Damage → let HayWired finish → M3 AIR 1 (air=mock: helicopter, veil, recon panel, seek
+ * time-gate) → Reset → verify the city, HUD and AIR state are restored.
  * Screenshots and an fps sample are taken at each checkpoint. Exits 1 on any failed check, console
  * error, page error or WebGL/shader warning. The dev server must be running.
  */
@@ -54,6 +55,8 @@ const browser = await chromium.launch({
   args: ['--use-angle=metal', '--enable-gpu', '--ignore-gpu-blocklist', '--enable-unsafe-swiftshader'],
 });
 const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
+// Swallow the Vite HMR websocket so concurrent source edits don't full-reload the page mid-test.
+await page.routeWebSocket(/token=/, () => {});
 page.on('console', (m) => {
   const t = m.text();
   if (m.type() === 'error') consoleProblems.push(`[${current}] console.error: ${t}`);
@@ -176,7 +179,8 @@ const appState = () =>
 // ───────────────────────── 1. load ─────────────────────────
 await step('load', async () => {
   const t0 = Date.now();
-  await page.goto(`${base}/?tod=14`, { waitUntil: 'load' });
+  // air=mock: deterministic Argon results, no network (the live Gemini path is exercised by shots/integration-m3/live.mjs).
+  await page.goto(`${base}/?tod=14&air=mock`, { waitUntil: 'load' });
   await page.waitForFunction(() => window.__argus && (window.__argus.ready || window.__argus.error), null, { timeout: 120000 });
   const err = await A(() => window.__argus.error);
   check(!err, `boot error: ${err}`);
@@ -440,6 +444,83 @@ await step('play to finish (hayward)', async () => {
   await page.locator('.ag-pb .ag-seg__btn[data-v="2"]').click();
 });
 
+// ───────────────────────── 6b. M3: AIR 1 aerial recon (mock) ─────────────────────────
+const airState = () =>
+  A(() => {
+    const a = window.__argus;
+    const { heli, scan, recon, people } = a.handles;
+    const panel = document.querySelector('.ag-air__status')?.closest('.ag-panel');
+    const st = recon.stats();
+    // Veiled = core buildings not yet scanned (scan veils them slightly grey).
+    let veiled = 0;
+    if (scan.coverageT !== null) a.ctx.city.buildings.forEach((b, i) => !b.isPart && !b.context && !scan.isScanned(i) && veiled++);
+    return {
+      heliVisible: heli.object.visible,
+      flightTime: heli.flightTime,
+      scanVisible: scan.object.visible,
+      coverageT: scan.coverageT,
+      scanned: scan.scannedFraction(),
+      chunksDone: st.chunksDone,
+      observed: st.buildingsObserved,
+      reconAcc: st.reconAccuracy,
+      predAcc: st.predictionAccuracy,
+      mode: st.mode,
+      panelVisible: !!panel && !panel.hidden && panel.offsetParent !== null,
+      status: document.querySelector('.ag-air__status')?.textContent?.trim() ?? null,
+      bigNum: document.querySelector('.ag-air__bignum--argon')?.textContent ?? null,
+      peopleTruth: people.truth ? people.truth.persons.length : null,
+      pins: document.querySelectorAll('.ag-pin, [class*="pin"]').length,
+      veiled,
+    };
+  });
+await step('M3 air recon (mock)', async () => {
+  await page.locator('.ag-pb .ag-seg__btn[data-v="2"]').click();
+  await A(() => {
+    window.__argus.trigger('san_andreas_1906');
+    window.__argus.pause();
+    window.__argus.seek(30);
+  });
+  await freshFrames(5);
+  let a = await airState();
+  check(!a.heliVisible, 'helicopter visible before launch (t=30)');
+  check(a.coverageT === null, `scan coverage active before launch (${a.coverageT})`);
+  check(a.peopleTruth > 0, `no truth people generated (${a.peopleTruth})`);
+  await A(() => window.__argus.seek(100));
+  await freshFrames(5);
+  a = await airState();
+  check(a.heliVisible && Math.abs(a.flightTime - 50) < 0.01, `helicopter not flying at t=100 (visible ${a.heliVisible}, flight ${a.flightTime})`);
+  check(a.scanVisible && a.scanned > 0.1, `veil/coverage missing at t=100 (visible ${a.scanVisible}, scanned ${a.scanned})`);
+  check(a.veiled > 100, `expected unscanned (veiled) core buildings at t=100, got ${a.veiled}`);
+  check(a.chunksDone >= 3 && a.observed > 50, `recon not applied at t=100 (chunks ${a.chunksDone}, observed ${a.observed})`);
+  check(a.mode === 'mock', `recon mode ${a.mode}, expected mock`);
+  check(a.panelVisible, 'AIR 1 panel not visible at t=100');
+  check(/scanning/i.test(a.status ?? ''), `AIR status '${a.status}' at t=100, expected Scanning`);
+  await shot('06b-air-t100');
+  await A(() => window.__argus.seek(175));
+  await freshFrames(5);
+  const end = await airState();
+  check(!end.heliVisible, 'helicopter still visible after the flight');
+  check(end.chunksDone > a.chunksDone, `no new chunks after the flight (${end.chunksDone} vs ${a.chunksDone})`);
+  check(/complete/i.test(end.status ?? ''), `AIR status '${end.status}' after the flight, expected Complete`);
+  check(end.reconAcc > end.predAcc, `mock Argon accuracy ${end.reconAcc} not above prediction ${end.predAcc}`);
+  console.log(`     t=175: ${end.observed} observed, prediction ${(end.predAcc * 100).toFixed(0)}% → Argon ${(end.reconAcc * 100).toFixed(0)}%, scanned ${(end.scanned * 100).toFixed(0)}%`);
+  await shot('06b-air-t175');
+  // Time gate: seeking back hides later results (pure function of simSeconds).
+  await A(() => window.__argus.seek(70));
+  await freshFrames(3);
+  const back = await airState();
+  check(back.chunksDone < end.chunksDone, `seek back did not hide later chunks (${back.chunksDone} vs ${end.chunksDone})`);
+  await A(() => window.__argus.seek(175));
+  await freshFrames(3);
+  // The AIR panel folds Impact on launch: fold AIR and unfold Impact like a user would (the reset step uses the
+  // overlay buttons; AIR + Impact + an open inspector do not fit the right column at 900 px).
+  const airToggle = page.locator('.ag-panel', { has: page.locator('.ag-air__status') }).locator('.ag-panel__toggle[aria-expanded="true"]');
+  if (await airToggle.count()) await airToggle.first().click();
+  const impactToggle = page.locator('.ag-panel', { has: page.locator('.ag-overlay') }).locator('.ag-panel__toggle[aria-expanded="false"]');
+  if (await impactToggle.count()) await impactToggle.first().click();
+  await page.waitForTimeout(400);
+});
+
 // ───────────────────────── 7. reset ─────────────────────────
 await step('reset', async () => {
   await clickOverlay('damage');
@@ -466,6 +547,13 @@ await step('reset', async () => {
     return out;
   });
   check(visible.length === 0, `fx objects still visible after reset: ${visible.slice(0, 8).join(', ')}`);
+  // M3: helicopter, veil, recon and AIR panel cleared.
+  const air = await airState();
+  check(!air.heliVisible, 'helicopter visible after reset');
+  check(!air.scanVisible && air.coverageT === null, 'scan veil still active after reset');
+  check(air.chunksDone === 0 && air.observed === 0, `recon not cleared (chunks ${air.chunksDone}, observed ${air.observed})`);
+  check(!air.panelVisible, 'AIR 1 panel still visible after reset');
+  check(air.peopleTruth === null, 'truth people not cleared after reset');
   // Selection survives a reset and the inspector drops the quake section.
   if (pickedId) check(!(await uiState()).inspectorDamage, 'inspector still shows damage after reset');
   await page.keyboard.press('Escape');

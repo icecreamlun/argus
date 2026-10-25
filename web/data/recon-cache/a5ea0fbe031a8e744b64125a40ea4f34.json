@@ -1,0 +1,799 @@
+{
+ "chunkIndex": 3,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 44885,
+ "buildings": [
+  {
+   "id": "B3161",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Facade streaks and roof debris visible"
+  },
+  {
+   "id": "B3081",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracking on facade and roof discoloration"
+  },
+  {
+   "id": "B3090",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Low structure covered in heavy rubble"
+  },
+  {
+   "id": "B2930",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof partially caved in with rubble"
+  },
+  {
+   "id": "B2960",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Upper floors and roof heavily damaged"
+  },
+  {
+   "id": "B3132",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Upper stories collapsed into rubble pile"
+  },
+  {
+   "id": "B3109",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Severe roof collapse and structural loss"
+  },
+  {
+   "id": "B3195",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Collapsed roof and pancaked upper floor"
+  },
+  {
+   "id": "B3231",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Dark facade cracking and minor debris"
+  },
+  {
+   "id": "B3320",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Visible facade cracking and corner damage"
+  },
+  {
+   "id": "B3403",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof damage and facade debris"
+  },
+  {
+   "id": "B3348",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Widespread facade cracking and fallen cladding"
+  },
+  {
+   "id": "B3583",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Partial roof collapse and heavy facade damage"
+  },
+  {
+   "id": "B3588",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Reduced to rubble heap along Grant Ave"
+  },
+  {
+   "id": "B3612",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Severe structural damage and roof collapse"
+  },
+  {
+   "id": "B3644",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Roof heavily damaged with debris"
+  },
+  {
+   "id": "B3778",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade cracking and rubble at base"
+  },
+  {
+   "id": "B3791",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade streaks and roof edge damage"
+  },
+  {
+   "id": "B3678",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Facade cracking and debris in alley"
+  },
+  {
+   "id": "B3255",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Heavy roof and facade damage with debris"
+  },
+  {
+   "id": "B3723",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Severe facade cracking and roof rubble"
+  },
+  {
+   "id": "B3548",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Dark vertical streaks and facade cracking"
+  },
+  {
+   "id": "B3711",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Roof caved in with heavy structural loss"
+  },
+  {
+   "id": "B3637",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Collapsed roof and rubble spilling out"
+  },
+  {
+   "id": "B3474",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Surface cracking and debris on top deck"
+  },
+  {
+   "id": "B4048",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Extensive facade spalling and dark cracking"
+  },
+  {
+   "id": "B3971",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Low building collapsed into rubble pile"
+  },
+  {
+   "id": "B4184",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roof collapsed into brick rubble"
+  },
+  {
+   "id": "B4182",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavily collapsed roof and interior rubble"
+  },
+  {
+   "id": "B4324",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Partial roof collapse and heavy debris"
+  },
+  {
+   "id": "B3072",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3118",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B2858",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3045",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3093",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3148",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3299",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3301",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3363",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3013",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B2835",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B2746",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B3236",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B3145",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B3142",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B3165",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B3017",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B3459",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B3576",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B3566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B3735",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4101",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B3519",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B3361",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B3911",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B3876",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B3925",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B3685",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  },
+  {
+   "id": "B4132",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B4036",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B3980",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4214",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B4417",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  },
+  {
+   "id": "B4367",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4366",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4144",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B3195",
+   "notes": "Debris spilling onto roadway near Brooklyn Place"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "partial",
+   "evidenceS": 7,
+   "nearBuildingId": "B3588",
+   "notes": "Rubble from collapsed buildings narrowing street"
+  },
+  {
+   "street": "VINTON COURT",
+   "status": "blocked",
+   "evidenceS": 7,
+   "nearBuildingId": "B3612",
+   "notes": "Alley blocked by heavy collapse debris"
+  },
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 11,
+   "nearBuildingId": "B3711",
+   "notes": "Debris along curb near 507 and 447 Bush"
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B3459",
+   "notes": "Main roadway clear of major obstructions"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 18,
+   "evidenceS": 0,
+   "place": "Waverly Place courtyard",
+   "nearBuildingId": "B3299"
+  },
+  {
+   "approxCount": 90,
+   "evidenceS": 7,
+   "place": "St. Mary's Square / Quincy Street park",
+   "nearBuildingId": "B4101"
+  }
+ ],
+ "summary": "Multiple older masonry buildings in Chinatown and the Financial District have suffered severe damage or collapse, notably along Stockton Street (B3132, B3195), Grant Avenue (B3588, B3612), Bush Street (B3637, B3711, B3971), and Kearny Street (B4182, B4184). Vinton Court is blocked and Grant Avenue, ",
+ "hash": "a5ea0fbe031a8e744b64125a40ea4f34",
+ "usage": {
+  "promptTokens": 15198,
+  "outputTokens": 2185,
+  "thoughtsTokens": 1427,
+  "totalTokens": 18810
+ },
+ "notes": [
+  "ffmpeg 1348 ms",
+  "input: video+hires",
+  "gemini 43536 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

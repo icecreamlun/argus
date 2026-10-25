@@ -1,0 +1,451 @@
+{
+ "chunkIndex": 1,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 21480,
+ "buildings": [
+  {
+   "id": "B5014",
+   "damage": "slight",
+   "confidence": 0.65,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 10,
+   "notes": "Dust plume rising along adjacent Clay and Battery streets"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.55,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 13,
+   "notes": "Heavy dust cloud enveloping building and Clay Street"
+  },
+  {
+   "id": "B4868",
+   "damage": "moderate",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "Dust and debris adjacent to rubble pile on Washington"
+  },
+  {
+   "id": "B4900",
+   "damage": "extensive",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 13,
+   "notes": "Large rubble and debris pile at corner next to tag"
+  },
+  {
+   "id": "B4848",
+   "damage": "slight",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "Dust cloud around base and debris on Sansome Street"
+  },
+  {
+   "id": "B5384",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5372",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5443",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5298",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5246",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5299",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5323",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5317",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5364",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5269",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5067",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5073",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5081",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5037",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5046",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B4893",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B4854",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4753",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4755",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5443",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 10,
+   "nearBuildingId": "B5014",
+   "notes": "Heavy dust and debris narrowing roadway along block"
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4848",
+   "notes": "Debris and crowd blocking roadway near intersection"
+  },
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4868",
+   "notes": "Rubble spill and dust at building collapse site"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 0,
+   "place": "Plaza at 4 The Embarcadero and Market Street",
+   "nearBuildingId": "B5384"
+  },
+  {
+   "approxCount": 35,
+   "evidenceS": 14,
+   "place": "SANSOME STREET",
+   "nearBuildingId": "B4848"
+  }
+ ],
+ "summary": "Eastern Embarcadero Center buildings (B5384, B5364, B5269) and Market Street appear intact with a large crowd evacuated into the plaza near B5384. Moving west past One Maritime Plaza (B5064), heavy dust plumes cover Clay, Battery, and Merchant streets around B5014 and B4906. Severe collapse debris i",
+ "hash": "f124bc24776dd5e349bd98301f996e57",
+ "usage": {
+  "promptTokens": 7721,
+  "outputTokens": 812,
+  "thoughtsTokens": 739,
+  "totalTokens": 9272
+ },
+ "notes": [
+  "ffmpeg 607 ms",
+  "input: video+hires",
+  "gemini 20873 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

@@ -1,0 +1,103 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13200,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Roof surface weathering streaks and minor base debris"
+  },
+  {
+   "id": "B5522",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Darkened roof and facade patches with small rubble skirt"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 2,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Intact Ferry Building tower with two people on ledge"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "Wide roadway completely free of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "Clear roadway intersection"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5504",
+   "notes": "Open street along park area"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 10,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 50,
+   "evidenceS": 14,
+   "place": "THE EMBARCADERO",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The waterfront and Ferry Building (B5504) are largely intact, though two people are visible high on the Ferry Building clock tower ledge. Minor to moderate damage is seen at B5587 on Ferry Plaza and commercial building B5522 near Don Chee Way. The Embarcadero, Don Chee Way, and Steuart Street remain",
+ "hash": "c7dea723f0a310923f7c01afdee894d4",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 452,
+  "thoughtsTokens": 278,
+  "totalTokens": 6810
+ },
+ "notes": [
+  "ffmpeg 2004 ms",
+  "input: video+hires",
+  "gemini 11195 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

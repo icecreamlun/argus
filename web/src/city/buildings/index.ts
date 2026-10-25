@@ -127,6 +127,10 @@ export function createBuildings(ctx: AppContext): BuildingsHandle & { stats: Bui
       } else store.setOverlay(i, null);
       overlayDirty = true;
     },
+    setVeil(i, amount) {
+      store.setVeil(i, amount);
+      overlayDirty = true;
+    },
     setHighlight(id) {
       uniforms.uHighlight.value = id ? (ids.get(id) ?? -1) : -1;
     },

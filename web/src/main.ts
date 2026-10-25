@@ -13,10 +13,16 @@ import { createUI } from './ui';
 import { createQuakeSession, type QuakeSession } from './app/quakeSession';
 import { bootProgress, bootDone, bootFailed } from './app/bootScreen';
 import { createFireLightGate } from './app/fireLightGate';
+import { createPeople } from './truth/people';
+import { createHelicopter } from './air/heli';
+import { createScan } from './air/scan';
+import { createRecon } from './argus';
+import { createAirSession, type AirMode } from './app/airSession';
 
 /**
  * Debug / automation surface used by scripts/shot.mjs, scripts/e2e.mjs and the console.
  * URL params: ?cam=<preset>&tod=<hours>&quake=<scenarioId>&t=<simSeconds>&overlay=<mode>&ui=0&select=<buildingId>&speed=<x>
+ *   M3: &air=live|mock|replay (default live) &inflight=<n> (concurrent Argon requests, default 2) &play=1 (keep playing after t)
  */
 declare global {
   interface Window {
@@ -46,6 +52,8 @@ declare global {
       timings?: Record<string, number>;
       /** Module handles for debugging from the console / harness. */
       handles?: Record<string, unknown>;
+      /** M3 AIR 1 session (chunk log, frames captured, captureNow()). */
+      air?: import('./app/airSession').AirSession;
     };
   }
 }
@@ -144,6 +152,19 @@ async function boot() {
   const fireGate = createFireLightGate(engine.scene, engine.camera, engine.renderer);
   mark('fx');
 
+  // ── M3: truth people, AIR 1 helicopter, scan coverage/capture, Argon recon layer ──
+  const people = createPeople(ctx);
+  cityRoot.add(people.object);
+  const heli = createHelicopter(ctx);
+  engine.scene.add(heli.object);
+  const recon = createRecon(ctx, { buildings, landmarks });
+  engine.scene.add(recon.object);
+  const scan = createScan(ctx, { engine, buildings, landmarks, heli, hideDuringCapture: [recon.object] });
+  engine.scene.add(scan.object);
+  const airParam = params.get('air');
+  const airMode: AirMode = airParam === 'mock' || airParam === 'replay' ? airParam : 'live';
+  mark('air');
+
   // ── Quake playback state ──
   let session: QuakeSession | null = null;
   let paused = false;
@@ -153,6 +174,9 @@ async function boot() {
   let selectedShownWithDamage = false;
 
   const setPlaying = (p: boolean) => ui.setPlaying(p);
+  // Created after the UI (below); declared here so the playback functions can reach it.
+  // eslint-disable-next-line prefer-const
+  let air: ReturnType<typeof createAirSession>;
 
   const triggerScenario = (scenario: QuakeScenario) => {
     // Move occupancy AND the USGS origin time to the scene's clock (the event card shows the right time).
@@ -160,6 +184,7 @@ async function boot() {
     const result = model.run(city, s, DEFAULT_SEED);
     session = createQuakeSession(result, buildings.indexOf);
     window.__argus.result = result;
+    air.begin(result); // people truth + recon baseline + fresh AIR state
     paused = false;
     alertShown = false;
     ui.hideShakeAlert();
@@ -186,6 +211,7 @@ async function boot() {
     setPlaying(true);
   };
   const reset = () => {
+    air.reset();
     fx.reset();
     fireGate.disable();
     session = null;
@@ -232,6 +258,7 @@ async function boot() {
       },
     },
   );
+  air = createAirSession({ ctx, buildings, ui, heli, scan, recon, people }, { mode: airMode, maxInFlight: Number(params.get('inflight') ?? 2) || 2 });
   ui.setScenarios(model.scenarios);
   ui.setCameraPresets(engine.cameraPresets);
   ui.setCityStats(city);
@@ -252,6 +279,8 @@ async function boot() {
     }
     ui.updateStats(session.statsAt(simSeconds), simSeconds);
     refreshSelection(false);
+    // "Playing" = the sim clock is running (fx.playing turns false after durationS, but the aftermath clock runs on).
+    air.tick(simSeconds, !paused);
   });
 
   // ── Selection / inspector ──
@@ -261,6 +290,7 @@ async function boot() {
     buildings.setHighlight(id);
     events.emit({ type: 'building-selected', id });
     refreshSelection(true);
+    air.select(id);
   };
   /** Re-show the inspector when the selected building's damage manifests (or on new/cleared results). */
   function refreshSelection(force: boolean) {
@@ -282,6 +312,7 @@ async function boot() {
       selectedId = null;
       window.__argus.selected = null;
       buildings.setHighlight(null);
+      air.select(null);
     }
   });
 
@@ -326,7 +357,8 @@ async function boot() {
   Object.assign(window.__argus, {
     ctx,
     timings,
-    handles: { engine, streets, buildings, landmarks, model, fx, ui },
+    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air },
+    air,
     flyTo: (p: CameraPresetId, d = 0) => engine.flyTo(p, d),
     setCamera: (position: [number, number, number], target: [number, number, number]) => engine.flyTo({ position, target }, 0),
     setTimeOfDay: (h: number) => {
@@ -361,6 +393,7 @@ async function boot() {
     if (t) {
       pause();
       window.__argus.seek(Number(t));
+      if (params.get('play') === '1') resume();
     }
   }
   const overlay = params.get('overlay') as OverlayMode | null;

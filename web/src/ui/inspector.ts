@@ -1,5 +1,6 @@
 /** Building inspector card: identity, structure, occupancy, provenance and (after a quake) shaking & damage. */
-import type { BuildingInfo, BuildingRecord, XZ } from '../contracts';
+import type { BuildingComparison, BuildingInfo, BuildingRecord, XZ } from '../contracts';
+import { comparisonBlock } from './air';
 import { h, replayClass, setText } from './dom';
 import { icon, type IconName } from './icons';
 import {
@@ -132,11 +133,27 @@ export function createInspector(onClose: () => void) {
   const el = h('section', { class: 'ag-panel ag-insp', 'aria-label': 'Building details', hidden: true });
   let open = false;
   let hideTimer = 0;
+  // M3: Predicted / Argon / Truth block for the shown building (kept across re-renders of the same building).
+  let comparison: BuildingComparison | null = null;
+  let shownRecord: BuildingRecord | null = null;
+  const cmpFor = (b: BuildingRecord | null) => (comparison && b && (comparison.id === b.id || comparison.id === b.parentId) ? comparison : null);
+  function placeComparison() {
+    el.querySelector('.ag-cmp')?.remove();
+    const c = cmpFor(shownRecord);
+    if (!c) return;
+    const after = el.querySelector('.ag-insp__quake') ?? el.querySelector('.ag-insp__badges') ?? el.querySelector('.ag-insp__head');
+    after?.after(comparisonBlock(c));
+  }
 
   return {
     el,
     get open() {
       return open;
+    },
+    /** M3: show (or clear) the comparison block; only rendered while its building is shown. */
+    setComparison(c: BuildingComparison | null) {
+      comparison = c;
+      if (open) placeComparison();
     },
     /** Advance live text (S-wave countdown) without rebuilding the card. */
     tick(simSeconds: number) {
@@ -188,6 +205,8 @@ export function createInspector(onClose: () => void) {
         ),
         provenance(b),
       );
+      shownRecord = b;
+      placeComparison();
       el.hidden = false;
       el.classList.remove('is-leaving');
       if (!open) replayClass(el, 'is-entering');

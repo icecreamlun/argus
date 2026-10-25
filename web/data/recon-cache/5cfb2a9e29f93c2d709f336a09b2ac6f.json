@@ -1,0 +1,358 @@
+{
+ "chunkIndex": 5,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 21392,
+ "buildings": [
+  {
+   "id": "B5403",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Light debris scattered across roof surface"
+  },
+  {
+   "id": "B5317",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Reduced to dark rubble pile next to neighbour"
+  },
+  {
+   "id": "B5298",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Collapsed into dark rubble heap on corner"
+  },
+  {
+   "id": "B5307",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracks and minor debris on low roof"
+  },
+  {
+   "id": "B5384",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Debris and surface cracking on lower podium roof"
+  },
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "heavily damaged shell with roof caved in"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5127",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5124",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5091",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5075",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5094",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5301",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5183",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5344",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5323",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5381",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5333",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5301",
+   "notes": "Carriageway open with pedestrians"
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5323",
+   "notes": "Roadway open and unobstructed"
+  },
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5307",
+   "notes": "Clear of debris"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5504",
+   "notes": "Wide waterfront roadway completely clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 4,
+   "place": "MARKET STREET",
+   "nearBuildingId": "B5301"
+  },
+  {
+   "approxCount": 110,
+   "evidenceS": 11,
+   "place": "THE EMBARCADERO",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 55,
+   "evidenceS": 12,
+   "place": "WASHINGTON STREET",
+   "nearBuildingId": "B5372"
+  }
+ ],
+ "summary": "Most high-rises along Market Street and Embarcadero Center remain intact, but three smaller structures near Drumm and Sacramento Streets (B5317, B5298, and B5372) have collapsed. Slight roof and podium debris is visible on B5403, B5307, and B5384. No fires, smoke plumes, or trapped individuals signa",
+ "hash": "5cfb2a9e29f93c2d709f336a09b2ac6f",
+ "usage": {
+  "promptTokens": 7078,
+  "outputTokens": 804,
+  "thoughtsTokens": 586,
+  "totalTokens": 8468
+ },
+ "notes": [
+  "ffmpeg 871 ms",
+  "input: video+hires",
+  "gemini 20521 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

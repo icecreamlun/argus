@@ -23,7 +23,7 @@ import { Family, type CityPrep, type GroupInfo } from './prep';
 import { G, collapseDuration } from './timeline';
 import { hashStr, mulberry32, range, type Rng } from './rng';
 
-export const CHUNK_CAP = 40000;
+export const CHUNK_CAP = 60000;
 export const SHARD_CAP = 7000;
 export const DUST_CAP = 30000;
 export { HIDE_CF };
@@ -173,12 +173,14 @@ export function spawnAll(ctx: AppContext, prep: CityPrep, result: QuakeResult): 
   const wantFacade = (f: GroupFail) => {
     const grp = prep.groups[f.g];
     const fam = grp.family === Family.Brick ? 1.7 : grp.family === Family.Glass || grp.family === Family.Metal ? 0.5 : 1;
-    return THREE.MathUtils.clamp(prep.perimeter[grp.rep] * 0.2 * (f.state - 2) * fam, 5, 45);
+    // The apron mound carries the debris signal; chunks only add relief (kept low: ~2.7k standing damaged buildings).
+    const k = f.state === 2 ? 0.045 : f.state === 3 ? 0.11 : 0.2;
+    return THREE.MathUtils.clamp(prep.perimeter[grp.rep] * k * fam, 3, 40);
   };
   let want = 0;
   for (const f of fails) {
     if (f.collapsed) want += wantCollapse(f);
-    else if (f.state >= 3) want += wantFacade(f);
+    else if (f.state >= 2) want += wantFacade(f);
   }
   for (const rb of result.roads) want += 4 + 15 * rb.coverage;
   const chunkScale = Math.min(1, CHUNK_CAP / Math.max(1, want));
@@ -391,6 +393,122 @@ export function spawnAll(ctx: AppContext, prep: CityPrep, result: QuakeResult): 
     }
   };
 
+  /**
+   * Debris apron of a standing damaged building: a low rubble strip hugging its own footprint (built as a ring
+   * strip, not a grid, so ~3k buildings stay cheap), spilling further on the lean side. Moderate: a patchy 1.5–3 m
+   * skirt on the sidewalk; extensive: a continuous 3.5–6 m apron into the street; complete: 5–9 m, heavy.
+   * Strips are tapered at convex corners so they never spread in front of the neighbours. Returns the width.
+   */
+  const buildApron = (f: GroupFail, grp: GroupInfo, ring: XZ[], ground: (x: number, z: number) => number, r: Rng): number => {
+    const st = f.state;
+    const wBase = st === 2 ? range(r, 1.5, 2.6) : st === 3 ? range(r, 3.5, 5.0) : range(r, 5.0, 7.5);
+    const W = Math.min(st === 2 ? 3 : st === 3 ? 6.5 : 9.5, Math.max(wBase, f.debrisR * (st === 2 ? 0.5 : 0.8)));
+    const hPk = st === 2 ? range(r, 0.45, 0.7) : st === 3 ? range(r, 0.8, 1.2) : range(r, 1.2, 1.9);
+    const lx = Math.cos(f.leanDir);
+    const lz = Math.sin(f.leanDir);
+    const n = ring.length;
+    if (n < 3) return W;
+    // Ring orientation: outward normal of edge (a → b) is (dz, −dx) for CCW (viewed from +Y, x right, z down)…
+    // decided from the signed area so either winding works.
+    let area2 = 0;
+    for (let i = 0, j = n - 1; i < n; j = i++) area2 += ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1];
+    const sgn = area2 > 0 ? 1 : -1;
+    const enx: number[] = [];
+    const enz: number[] = [];
+    for (let i = 0; i < n; i++) {
+      const a = ring[i];
+      const b = ring[(i + 1) % n];
+      const dx = b[0] - a[0];
+      const dz = b[1] - a[1];
+      const l = Math.hypot(dx, dz) || 1;
+      enx.push((sgn * dz) / l);
+      enz.push((-sgn * dx) / l);
+    }
+    // Samples: every vertex (bisector normal, tapered) + every ~1.8 m along each edge.
+    const sx: number[] = [];
+    const sz: number[] = [];
+    const snx: number[] = [];
+    const snz: number[] = [];
+    const sk: number[] = [];
+    for (let i = 0; i < n; i++) {
+      const a = ring[i];
+      const b = ring[(i + 1) % n];
+      const ip = (i + n - 1) % n;
+      let bx = enx[ip] + enx[i];
+      let bz = enz[ip] + enz[i];
+      const bl = Math.hypot(bx, bz);
+      if (bl < 1e-3) {
+        bx = enx[i];
+        bz = enz[i];
+      } else {
+        bx /= bl;
+        bz /= bl;
+      }
+      const turn = enx[ip] * enz[i] - enz[ip] * enx[i];
+      sx.push(a[0]);
+      sz.push(a[1]);
+      snx.push(bx);
+      snz.push(bz);
+      sk.push(Math.abs(turn) > 0.3 ? 0.45 : 1);
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const m = Math.floor(L / 1.8);
+      for (let k = 1; k < m; k++) {
+        const u = k / m;
+        sx.push(a[0] + (b[0] - a[0]) * u);
+        sz.push(a[1] + (b[1] - a[1]) * u);
+        snx.push(enx[i]);
+        snz.push(enz[i]);
+        // Taper the first / last metres of each edge toward the corner value.
+        const dEnd = Math.min(u, 1 - u) * L;
+        sk.push(0.45 + 0.55 * THREE.MathUtils.smoothstep(dEnd, 0.5, 4));
+      }
+    }
+    const m = sx.length;
+    if (m > 600) return W;
+    const offs = [-0.6, 0.22, 0.55, 1.0];
+    const prof = [0.85, 1.0, 0.55, 0];
+    const vStart = mound.positions.length / 3;
+    const hs: number[] = [];
+    const nseed = (hashStr(grp.key) % 997) * 0.53;
+    const t0 = f.tf + range(r, -0.5, 0.8);
+    for (let k = 0; k < m; k++) {
+      const nx = snx[k];
+      const nz = snz[k];
+      const facing = nx * lx + nz * lz;
+      const lean = st >= 3 ? 1 + 0.6 * Math.max(0, facing) - 0.35 * Math.max(0, -facing) : 1;
+      const ln = lumpNoise(sx[k] * 0.22 + nseed, sz[k] * 0.22 - nseed);
+      // Moderate: patchy skirt (gaps between heaps); heavier states: continuous with lumpy width.
+      const gate = st === 2 ? THREE.MathUtils.smoothstep(ln, 0.2, 0.4) : 1;
+      const w = W * sk[k] * lean * (0.7 + 0.6 * ln);
+      for (let j = 0; j < offs.length; j++) {
+        const o = offs[j] < 0 ? offs[j] : offs[j] * w;
+        const x = sx[k] + nx * o;
+        const z = sz[k] + nz * o;
+        const nz2 = lumpNoise(x * 0.9 + 17.3, z * 0.9 - 5.1);
+        let h = prof[j] * hPk * gate * sk[k] * (0.7 + 0.6 * nz2) * (0.75 + 0.5 * ln);
+        if (j === offs.length - 1) h = 0;
+        hs.push(h);
+        const gy = ground(x, z);
+        mound.positions.push(x, h > 0.04 ? gy + h : gy - 0.35, z);
+        mound.ground.push(gy);
+        const [cr, cg, cb] = chunkColour(grp, r, 0);
+        mound.colors.push(cr * 0.85, cg * 0.85, cb * 0.85);
+        mound.grow.push(t0 + 0.4 * j, 2.2);
+      }
+    }
+    const nr = offs.length;
+    for (let k = 0; k < m; k++) {
+      const k2 = (k + 1) % m;
+      for (let j = 0; j < nr - 1; j++) {
+        const a = k * nr + j;
+        const b = k2 * nr + j;
+        if (hs[a] <= 0.04 && hs[a + 1] <= 0.04 && hs[b] <= 0.04 && hs[b + 1] <= 0.04) continue;
+        mound.indices.push(vStart + a, vStart + a + 1, vStart + b, vStart + b, vStart + a + 1, vStart + b + 1);
+      }
+    }
+    return W;
+  };
+
   // ── Collapsed groups ──
   for (const f of fails) {
     if (!f.collapsed) continue;
@@ -534,7 +652,7 @@ export function spawnAll(ctx: AppContext, prep: CityPrep, result: QuakeResult): 
         puff({
           x: gx, y: ground(gx, gz) + range(r, 1.5, 4), z: gz,
           vx: st.seg.ux * sgn * sp + range(r, -2, 2), vy: range(r, 0.4, 1.8), vz: st.seg.uz * sgn * sp + range(r, -2, 2),
-          drag: range(r, 0.22, 0.32), t0: fall(r()), life: range(r, 55, 95), rise: range(r, 0.15, 0.45),
+          drag: range(r, 0.22, 0.32), t0: fall(r()), life: range(r, 30, 46), rise: range(r, 0.15, 0.45),
           size0: range(r, 12, 18) * big, size1: range(r, 36, 62) * big, expand: range(r, 5, 10),
           alpha: range(r, 0.55, 0.75), wind: range(r, 0.25, 0.45), turb: range(r, 2, 5), big: 0.5,
         });
@@ -548,7 +666,7 @@ export function spawnAll(ctx: AppContext, prep: CityPrep, result: QuakeResult): 
       puff({
         x: p.x + p.nx, y: ground(p.x, p.z) + range(r, 1.5, 5), z: p.z + p.nz,
         vx: p.nx * sp + lx * range(r, 0, 6), vy: range(r, 0.5, 2.5), vz: p.nz * sp + lz * range(r, 0, 6),
-        drag: range(r, 0.3, 0.5), t0: fall(r()), life: range(r, 45, 80), rise: range(r, 0.25, 0.7),
+        drag: range(r, 0.3, 0.5), t0: fall(r()), life: range(r, 26, 42), rise: range(r, 0.25, 0.7),
         size0: range(r, 10, 16) * big, size1: range(r, 30, 52) * big, expand: range(r, 4, 8),
         alpha: range(r, 0.5, 0.68), wind: 0.5, turb: range(r, 2, 6), big: 0.55,
       });
@@ -561,7 +679,7 @@ export function spawnAll(ctx: AppContext, prep: CityPrep, result: QuakeResult): 
       puff({
         x: px, y: grp.base + H * (1 - f.cf * u) * range(r, 0.2, 0.8), z: pz,
         vx: range(r, -2, 2), vy: range(r, 4, 10), vz: range(r, -2, 2),
-        drag: range(r, 0.1, 0.16), t0: f.tf + f.tc * (0.15 + 0.85 * u) + r() * 2, life: range(r, 70, 110), rise: range(r, 0.35, 0.8),
+        drag: range(r, 0.1, 0.16), t0: f.tf + f.tc * (0.15 + 0.85 * u) + r() * 2, life: range(r, 36, 52), rise: range(r, 0.35, 0.8),
         size0: range(r, 14, 22) * big, size1: range(r, 60, 100) * big, expand: range(r, 10, 18),
         alpha: range(r, 0.36, 0.5), wind: range(r, 0.65, 0.9), turb: range(r, 4, 10), big: 0.9,
       });
@@ -572,34 +690,36 @@ export function spawnAll(ctx: AppContext, prep: CityPrep, result: QuakeResult): 
       puff({
         x: px, y: ground(px, pz) + range(r, 4, 12), z: pz,
         vx: range(r, -1, 1), vy: 0.3, vz: range(r, -1, 1),
-        drag: 0.5, t0: f.tf + f.tc + range(r, 4, 18), life: range(r, 90, 140), rise: range(r, 0.05, 0.2),
-        size0: range(r, 18, 26) * big, size1: range(r, 40, 60) * big, expand: 20,
-        alpha: range(r, 0.2, 0.3), wind: 0.25, turb: 3, big: 0.6,
+        drag: 0.5, t0: f.tf + f.tc + range(r, 3, 8), life: range(r, 36, 48), rise: range(r, 0.05, 0.2),
+        size0: range(r, 14, 20) * big, size1: range(r, 30, 44) * big, expand: 14,
+        alpha: range(r, 0.16, 0.24), wind: 0.15, turb: 3, big: 0.6,
       });
     }
   }
 
-  // ── Extensive / complete but standing: facade & parapet fragments ──
+  // ── Moderate / extensive / complete but standing: a debris apron at the base + facade & parapet fragments ──
   for (const f of fails) {
-    if (f.collapsed || f.state < 3) continue;
+    if (f.collapsed || f.state < 2) continue;
     const grp = prep.groups[f.g];
     const ring = B[grp.rep].footprint as XZ[];
     const r = mulberry32(hashStr(grp.key) ^ 0xfa5ade);
     const ground = groundFn(grp);
     const H = grp.height;
+    const apronW = buildApron(f, grp, ring, ground, r);
     const N = Math.max(3, Math.round(wantFacade(f) * chunkScale));
-    const R = Math.max(1.5, f.debrisR);
+    const R = Math.max(1.2, apronW * 0.85);
+    const sizeK = f.state === 2 ? 0.75 : f.state === 3 ? 1.0 : 1.25;
     for (let k = 0; k < N; k++) {
       const p = pointOnRing(ring, r());
       // Lean side sheds more.
       const facing = p.nx * Math.cos(f.leanDir) + p.nz * Math.sin(f.leanDir);
       if (facing < -0.3 && r() < 0.6) continue;
-      const out = range(r, 0.4, R);
+      const out = range(r, 0.4, R * (facing > 0.3 ? 1.2 : 0.85));
       const x = p.x + p.nx * out;
       const z = p.z + p.nz * out;
       const y0 = grp.base + Math.max(1, H - range(r, 0, Math.min(6, H * 0.4)));
-      const kind: 0 | 1 | 2 = r() < 0.9 ? 0 : 2;
-      pushChunk(r, grp, kind, [x, ground(x, z) + 0.05, z], f.tf + range(r, -1.5, 2.5), [p.x + p.nx * 0.3, y0, p.z + p.nz * 0.3], 0.45);
+      const kind: 0 | 1 | 2 = r() < 0.86 ? 0 : r() < 0.6 ? 1 : 2;
+      pushChunk(r, grp, kind, [x, ground(x, z) + 0.05, z], f.tf + range(r, -1.5, 2.5), [p.x + p.nx * 0.3, y0, p.z + p.nz * 0.3], sizeK);
     }
     // Spalling puffs: pale dust pouring off the damaged facade (merges into one cloud, not discrete blobs).
     const np = grp.family === Family.Brick ? 5 : 3;

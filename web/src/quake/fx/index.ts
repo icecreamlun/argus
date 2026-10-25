@@ -160,7 +160,8 @@ export function createQuakeFx(ctx: AppContext, deps: QuakeFxDeps): QuakeFxHandle
     if (!spawn) return baseHaze;
     // Only a faint city-wide lift: the dust itself is local (particles, ground decals), not a global veil.
     let m = 0;
-    for (const c of spawn.collapses) m += c.mass * smoothstep(c.t, c.t + 25, time) * (1 - 0.6 * smoothstep(c.t + 60, c.t + 180, time));
+    // Settles with the plumes (~40–60 s), so later aerial footage is clear.
+    for (const c of spawn.collapses) m += c.mass * smoothstep(c.t, c.t + 15, time) * (1 - 0.8 * smoothstep(c.t + 25, c.t + 60, time));
     return Math.min(0.85, baseHaze + 0.05 * (1 - Math.exp(-m / 260000)));
   };
 

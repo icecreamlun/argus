@@ -1,0 +1,647 @@
+{
+ "chunkIndex": 2,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 35771,
+ "buildings": [
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Facade cracks and scorch-like dark patches, roof damage"
+  },
+  {
+   "id": "B4848",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Heavy dark facade patches, roof debris, rubble at base"
+  },
+  {
+   "id": "B4815",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Roof heavily blackened and damaged"
+  },
+  {
+   "id": "B4854",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Roof blackened and damaged"
+  },
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Facade heavily scarred with dark patches, rubble at base"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Facade cracks and dark patches, debris at base"
+  },
+  {
+   "id": "B4768",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Severe facade scarring and holes across upper floors"
+  },
+  {
+   "id": "B4675",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof and facade damaged with debris along street"
+  },
+  {
+   "id": "B4587",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 4,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof damaged, people visible on roof/rubble"
+  },
+  {
+   "id": "B4584",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof heavily damaged, debris around base"
+  },
+  {
+   "id": "B4514",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof damaged with dark patches and debris"
+  },
+  {
+   "id": "B4524",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof and facade damaged"
+  },
+  {
+   "id": "B4519",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof and upper facade damaged"
+  },
+  {
+   "id": "B4527",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof and facade show moderate damage"
+  },
+  {
+   "id": "B4402",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roof blackened, facade damaged with rubble skirt"
+  },
+  {
+   "id": "B4331",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof heavily blackened and damaged"
+  },
+  {
+   "id": "B4272",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof and facade damaged with dark patches"
+  },
+  {
+   "id": "B4215",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof cracked and damaged"
+  },
+  {
+   "id": "B4172",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof and facade damaged"
+  },
+  {
+   "id": "B4229",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Massive facade holes and cracking across high-rise face"
+  },
+  {
+   "id": "B3892",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Facade damaged with dark patches"
+  },
+  {
+   "id": "B3617",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Facade and roof heavily damaged, rubble in street"
+  },
+  {
+   "id": "B3670",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Facade and roof damaged, rubble skirt at base"
+  },
+  {
+   "id": "B3585",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade damaged with debris spilling onto Grant Ave"
+  },
+  {
+   "id": "B3661",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Roof and facade heavily scarred, rubble at base"
+  },
+  {
+   "id": "B3722",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Facade holes and roof damage, rubble on Clay St"
+  },
+  {
+   "id": "B3785",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Facade and roof damaged with rubble in street"
+  },
+  {
+   "id": "B3875",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Facade cracked and blackened, rubble on Commercial St"
+  },
+  {
+   "id": "B3879",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Roof and facade damaged, debris in street"
+  },
+  {
+   "id": "B3591",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade and roof damaged with rubble along Grant Ave"
+  },
+  {
+   "id": "B3613",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade cracked, roof damaged"
+  },
+  {
+   "id": "B3620",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3457",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Roof and facade damaged with dark patches"
+  },
+  {
+   "id": "B3463",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade and roof damaged, rubble skirt"
+  },
+  {
+   "id": "B3396",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Facade and roof damaged with dark streaks"
+  },
+  {
+   "id": "B3301",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged, rubble along Waverly Pl"
+  },
+  {
+   "id": "B3299",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3306",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3314",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3161",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3281",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged with rubble at base"
+  },
+  {
+   "id": "B3205",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3148",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3093",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3045",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof damaged"
+  },
+  {
+   "id": "B3072",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Slight facade marks, mostly intact"
+  },
+  {
+   "id": "B3090",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade and roof heavily scarred"
+  },
+  {
+   "id": "B4420",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B4438",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 0,
+   "nearBuildingId": "B4848",
+   "notes": "Heavy rubble across roadway between buildings"
+  },
+  {
+   "street": "MARK TWAIN PLACE",
+   "status": "blocked",
+   "evidenceS": 1,
+   "nearBuildingId": "B4755",
+   "notes": "Crowd and debris filling narrow alley"
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "partial",
+   "evidenceS": 2,
+   "nearBuildingId": "B4848",
+   "notes": "Debris aprons along curbs narrowing road"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4693",
+   "notes": "Open carriageway past Transamerica and Montgomery"
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4527",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "partial",
+   "evidenceS": 11,
+   "nearBuildingId": "B3875",
+   "notes": "Rubble from damaged buildings narrowing narrow street"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "partial",
+   "evidenceS": 11,
+   "nearBuildingId": "B3617",
+   "notes": "Debris skirts spilling into roadway along several blocks"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 12,
+   "nearBuildingId": "B3661",
+   "notes": "Rubble aprons along curbs narrowing street"
+  },
+  {
+   "street": "WAVERLY PLACE",
+   "status": "partial",
+   "evidenceS": 13,
+   "nearBuildingId": "B3301",
+   "notes": "Debris along narrow alley"
+  },
+  {
+   "street": "STOCKTON STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B3072",
+   "notes": "Main carriageway mostly clear with minor curb debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 60,
+   "evidenceS": 2,
+   "place": "Mark Twain Place / 535 Washington St",
+   "nearBuildingId": "B4693"
+  },
+  {
+   "approxCount": 50,
+   "evidenceS": 10,
+   "place": "Portsmouth Square",
+   "nearBuildingId": "B3892"
+  }
+ ],
+ "summary": "Widespread moderate to extensive facade and roof damage is visible across the Financial District and Chinatown, with severe facade failure on high-rises B4229 (750 Kearny St), B4768 (505 Sansome St), and B4848 (500 Sansome St). Several people appear trapped on the damaged roof of B4587 (580 Washingt",
+ "hash": "5878bb56fbbcee829aa02d2b073df4dd",
+ "usage": {
+  "promptTokens": 12567,
+  "outputTokens": 3112,
+  "thoughtsTokens": 345,
+  "totalTokens": 16024
+ },
+ "notes": [
+  "ffmpeg 1237 ms",
+  "input: video+hires",
+  "gemini 34534 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

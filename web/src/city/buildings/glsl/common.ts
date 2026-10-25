@@ -71,6 +71,11 @@ float argGlyph( vec2 uv, float seed ) {
 	return m * step( 0.06, uv.x ) * step( uv.x, 0.94 ) * step( 0.06, uv.y ) * step( uv.y, 0.94 );
 }
 
+// Pancaked soft storey of a standing building with complete damage: height of the crushed ground storey
+// (m, from the undeformed base) and how much of it is in effect (0..1; off while a collapse is under way).
+float argSoftH( float H ) { return clamp( H * 0.22, 2.8, 4.5 ); }
+float argSoftK( float dmg, float crush ) { return smoothstep( 3.3, 3.9, dmg ) * ( 1.0 - smoothstep( 0.0, 0.04, crush ) ); }
+
 // 5-step HAZUS damage ramp (none, slight, moderate, extensive, complete).
 vec3 argDamageRamp( float d ) {
 	// Linear RGB, saturated so the ramp survives lighting + tone mapping.
@@ -116,6 +121,18 @@ vec3 argDeform( vec3 p, vec4 A, vec4 B, vec4 S ) {
 		q.xz += dir * k * min( H * 0.09, 5.0 ) * ( 0.4 + n );
 		q.y += crush * ( n - 0.35 ) * min( H * 0.06, 2.5 );
 		q.y = max( q.y, base - 0.5 );
+	}
+	// Complete damage, still standing: the ground storey pancakes to ~1/3 of its height and everything above
+	// drops onto it (the soft-storey failure), the crushed storey bulging out a little.
+	float ssK = argSoftK( B.y, crush );
+	if ( ssK > 0.001 && h > 0.0 ) {
+		float gh = argSoftH( H );
+		float drop = gh * 0.66 * ssK;
+		if ( h < gh ) {
+			q.y -= drop * h / gh;
+			vec2 rel = p.xz - S.xy;
+			q.xz += rel / max( length( rel ), 0.01 ) * 0.35 * ssK * sin( 3.14159 * h / gh );
+		} else q.y -= drop;
 	}
 	vec3 c = vec3( S.x, base, S.y );
 	q = c + argTilt( q - c, A.zw );

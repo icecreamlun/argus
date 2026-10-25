@@ -1,0 +1,147 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11819,
+ "buildings": [
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "facade cracking and dark streaks on upper wall"
+  },
+  {
+   "id": "B5587",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5585",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5546",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B5522",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B5532",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 11,
+   "nearBuildingId": "B5504",
+   "notes": "roadway open and clear of debris"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "roadway clear of debris"
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 11,
+   "nearBuildingId": "B5532",
+   "notes": "roadway clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 9,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 45,
+   "evidenceS": 14,
+   "place": "THE EMBARCADERO",
+   "nearBuildingId": "B5384"
+  }
+ ],
+ "summary": "The waterfront and Ferry Building area (B5504, B5566, B5585, B5587) appear structurally intact with no collapses observed among tagged buildings. Moderate facade cracking is visible on B5384 (4 The Embarcadero) at the end of the pass. The Embarcadero, Steuart Street, and Mission Street are clear and",
+ "hash": "f9d9fe4a382b2dfd99e702c797b59051",
+ "usage": {
+  "promptTokens": 6169,
+  "outputTokens": 378,
+  "thoughtsTokens": 469,
+  "totalTokens": 7016
+ },
+ "notes": [
+  "ffmpeg 892 ms",
+  "input: video+hires",
+  "gemini 10927 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

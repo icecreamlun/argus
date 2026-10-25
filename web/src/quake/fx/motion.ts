@@ -69,6 +69,18 @@ interface LandmarkLink {
 }
 
 const SECTOR = 220;
+const DEG = Math.PI / 180;
+
+/**
+ * Visible lean of a standing damaged building (rad). The model's 2–6° (extensive) / 5–12° (complete) is kept in
+ * range but floored and mildly exaggerated so it reads from a helicopter 150–250 m away (a 2° lean on a 12 m
+ * building moves the roof 40 cm, under two pixels): extensive 3–6°, complete 6–13°.
+ */
+export function standingLean(state: number, leanAngle: number): number {
+  if (state === 3) return Math.min(6 * DEG, Math.max(3 * DEG, leanAngle * 1.25));
+  if (state >= 4) return Math.min(13 * DEG, Math.max(6 * DEG, leanAngle * 1.3));
+  return 0;
+}
 
 export class BuildingMotion {
   private gm: GroupMotion | null = null;
@@ -146,12 +158,13 @@ export class BuildingMotion {
       gm.pgv[g] = s.pgvCms;
       gm.state[g] = d.state;
       gm.collapsed[g] = d.collapsed ? 1 : 0;
-      gm.cf[g] = d.collapseFraction;
+      // Collapsed groups fall to their ruin's wall height (shells are capped at ~half height, rules.ts).
+      gm.cf[g] = d.collapsed ? Math.max(d.collapseFraction, 1 - ruinShape(H, d.collapseFraction, d.leanAngle).hS / H) : d.collapseFraction;
       gm.tf[g] = d.failTimeS;
       gm.tc[g] = collapseDuration(H, d.collapseFraction);
       gm.leanDir[g] = d.leanDirection;
       // Collapsed buildings fall into the pose of their ruin (ruins.ts), then swap to it under the dust burst.
-      gm.leanAng[g] = d.collapsed ? Math.max(d.leanAngle, ruinShape(H, d.collapseFraction, d.leanAngle).lean) : d.state >= 3 ? d.leanAngle : 0;
+      gm.leanAng[g] = d.collapsed ? Math.max(d.leanAngle, ruinShape(H, d.collapseFraction, d.leanAngle).lean) : standingLean(d.state, d.leanAngle);
       gm.hideAt[g] = d.collapsed ? ruinSwapTime(d.failTimeS, gm.tc[g]) : Infinity;
       gm.multi[g] = grp.members.length > 1 ? 1 : 0;
     }

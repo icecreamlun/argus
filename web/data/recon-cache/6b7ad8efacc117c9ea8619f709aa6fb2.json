@@ -1,0 +1,54 @@
+{
+ "chunkIndex": 6,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6982,
+ "buildings": [
+  {
+   "id": "B5478",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5504",
+   "notes": "roadway completely clear in front of Ferry Building"
+  }
+ ],
+ "crowds": [],
+ "summary": "No structural damage observed along the waterfront; both Pier 1 (B5478) and the Ferry Building (B5504) appear fully intact. The Embarcadero roadway is clear of debris, with no crowds or emergencies visible before the aircraft moves out over the bay.",
+ "hash": "6b7ad8efacc117c9ea8619f709aa6fb2",
+ "usage": {
+  "promptTokens": 5846,
+  "outputTokens": 127,
+  "thoughtsTokens": 157,
+  "totalTokens": 6130
+ },
+ "notes": [
+  "ffmpeg 553 ms",
+  "input: video+hires",
+  "gemini 6429 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

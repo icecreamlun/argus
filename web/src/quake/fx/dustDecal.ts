@@ -102,7 +102,8 @@ export class DustDecals {
     const STEP = 3;
     for (const s of sites) {
       if (s.overWater) continue;
-      const Rp = THREE.MathUtils.clamp(s.R * 3 + 14, 26, 72);
+      // Kept close to the site (≈1.6× debris radius) so the pale coat marks THIS ruin, not its neighbours' frontage.
+      const Rp = THREE.MathUtils.clamp(s.R * 1.6 + 9, 16, 40);
       const n = Math.ceil((2 * Rp) / STEP) + 1;
       const base = pos.length / 3;
       const keep = new Uint8Array(n * n);
@@ -116,7 +117,7 @@ export class DustDecals {
           const ox = x - s.x;
           const oz = z - s.z;
           const ol = Math.hypot(ox, oz) || 1;
-          const reach = Rp * (0.72 + 0.28 * ((ox * wx + oz * wz) / ol)) * 0.92;
+          const reach = Rp * (0.8 + 0.2 * ((ox * wx + oz * wz) / ol)) * 0.92;
           let c = 1 - THREE.MathUtils.smoothstep(d, 0, reach);
           c = Math.pow(c, 1.4);
           // Fade before the patch border no matter what.

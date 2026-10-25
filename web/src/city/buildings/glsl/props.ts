@@ -254,15 +254,93 @@ void argProps() {
 		if ( N.y > 0.5 ) fBump.x += ( fPulse( uv.x / 0.14, 0.0, 0.04, fw.x / 0.14 ) - fPulse( uv.x / 0.14, 0.04, 0.08, fw.x / 0.14 ) ) * 0.6 * lod;
 	}
 
-	// Damage: dust coating (props share the building's state).
+	// Damage (props share the building's state). Roofs carry most of the signal from an oblique helicopter view,
+	// so every state leaves a distinct, coarse (1–10 m) mark on the roof deck:
+	//   1 slight     dust and a few fallen bits
+	//   2 moderate   littered with parapet / chimney debris, broad cracks, dark gaps along the parapet
+	//   3 extensive  a partial roof collapse: a sagging, broken area (dark void, rubble, exposed joists)
+	//   4 complete   most of the roof broken in, charred and rubble-choked
 	float dmg = vDyn.x;
 	if ( dmg > 0.02 ) {
-		float dust = clamp( dmg * 0.22, 0.0, 0.85 ) * ( 0.6 + 0.4 * vnoise( vWPos.xz * 0.4 ) );
-		c = mix( c, vec3( 0.55, 0.52, 0.47 ), dust );
+		float ds = clamp( dmg, 0.0, 4.0 );
+		float seedB = argStyle( bi, 3 ).w;
+		vec2 w = vWPos.xz;
+		vec2 rel = vWPos.xz - vPiv.xy;
+		float wfw = max( fwidth( w.x ), fwidth( w.y ) ) + 1e-4;
+		float dust = clamp( ds * 0.07, 0.0, 0.24 ) * ( 0.4 + 0.6 * vnoise( w * 0.4 ) );
+		c = mix( c, vec3( 0.50, 0.47, 0.42 ), dust );
 		rough = mix( rough, 1.0, dust );
 		metal *= 1.0 - dust;
 		emis *= 1.0 - dust;
 		glassy *= 1.0 - dust;
+		bool deck = kind < 0.5 || ( kind > 12.5 && kind < 13.5 ) || kind > 19.5;
+		bool upF = N.y > 0.5;
+		if ( upF ) {
+			// Fallen debris littering the roof: irregular heaps of brick / plaster with dark gaps (two noise
+			// octaves → ragged shapes, no dots), coverage growing with the state.
+			vec2 lq = w + seedB * 41.0;
+			float ln1 = vnoise( lq * 0.55 );
+			float ln2 = vnoise( lq * 2.1 + 3.3 );
+			float litT = 0.88 - 0.07 * ds;
+			float lit = smoothstep( litT, litT + 0.06, ln1 * 0.7 + ln2 * 0.3 + 0.08 * ( 1.0 - lod ) );
+			float lgrain = vnoise( lq * 6.0 );
+			vec3 litC = mix( vec3( 0.40, 0.25, 0.18 ), vec3( 0.46, 0.43, 0.39 ), step( 0.5, vnoise( lq * 0.3 + 9.0 ) ) ) * ( 0.55 + 0.6 * lgrain );
+			litC = mix( litC, vec3( 0.05, 0.045, 0.04 ), smoothstep( 0.55, 0.75, ln2 ) * 0.7 * smoothstep( 2.3, 3.0, ds ) );
+			c = mix( c, litC, lit );
+			// Broad roof cracks (moderate+).
+			if ( ds > 1.4 ) {
+				vec2 cq = w * 0.16 + seedB * 7.0;
+				cq += ( vec2( vnoise( cq * 3.0 ), vnoise( cq * 3.0 + 7.7 ) ) - 0.5 ) * 0.3;
+				vec2 ci = floor( cq );
+				vec2 cf = fract( cq );
+				float e1 = 8.0, e2 = 8.0;
+				for ( int j = -1; j <= 1; j ++ ) for ( int i = -1; i <= 1; i ++ ) {
+					vec2 g = vec2( float( i ), float( j ) );
+					vec2 r = g + h22( ci + g ) - cf;
+					float dd = dot( r, r );
+					if ( dd < e1 ) { e2 = e1; e1 = dd; } else if ( dd < e2 ) e2 = dd;
+				}
+				float em = ( sqrt( e2 ) - sqrt( e1 ) ) * 0.5 / 0.16;
+				float cw = 0.04 + 0.05 * ( ds - 1.4 );
+				// Only some cell borders crack through.
+				em += 9.0 * step( 0.25 + 0.2 * ds, h21( floor( cq * 0.5 ) + seedB ) );
+				float cwD = max( cw, wfw * 0.5 );
+				float rc = ( 1.0 - smoothstep( cwD * 0.5, cwD * 1.5, em ) ) * clamp( cw / wfw, 0.0, 1.0 ) * smoothstep( 1.4, 2.0, ds );
+				c = mix( c, vec3( 0.03 ), rc * 0.9 );
+			}
+			// Partial / total roof collapse (extensive+): a broken area biased toward the middle of the roof.
+			if ( deck && ds > 2.4 ) {
+				float rr = length( rel );
+				float cn = fbm3( w * 0.11 + seedB * 23.0 ) + 0.06 * vnoise( w * 1.3 );
+				float bias = 0.3 * ( 1.0 - smoothstep( 3.0, 16.0, rr ) );
+				float thr = mix( 0.9, 0.56, smoothstep( 2.4, 4.0, ds ) );
+				float brk = smoothstep( thr, thr + 0.015, cn + bias ) * smoothstep( 2.4, 2.9, ds );
+				float rimB = smoothstep( thr - 0.06, thr, cn + bias ) * ( 1.0 - brk ) * smoothstep( 2.4, 2.9, ds );
+				// Inside: deep void, exposed joists / beams across it, rubble heaps and charring.
+				float ja = seedB * 6.2832;
+				float ju = dot( w, vec2( cos( ja ), sin( ja ) ) );
+				// A few surviving beams spanning the hole (each beam broken into segments, some missing).
+				float jv = dot( w, vec2( - sin( ja ), cos( ja ) ) );
+				float jid = floor( ju / 2.4 );
+				float joist = fPulse( ju / 2.4, 0.0, 0.1, wfw / 2.4 ) * step( 0.45, h11( jid + seedB * 7.0 ) ) * step( 0.4, vnoise( vec2( jv * 0.6, jid * 3.1 ) ) );
+				float heap = smoothstep( 0.62, 0.8, vnoise( w * 0.45 + seedB * 3.0 ) );
+				vec3 inC = vec3( 0.01, 0.009, 0.008 );
+				inC = mix( inC, vec3( 0.30, 0.27, 0.23 ) * ( 0.6 + 0.6 * vnoise( w * 2.5 ) ), heap * 0.7 );
+				inC = mix( inC, mix( vec3( 0.32, 0.24, 0.16 ), vec3( 0.05 ), step( 3.4, ds ) * 0.6 ), joist * 0.85 );
+				c *= 1.0 - 0.5 * rimB;
+				c = mix( c, inC, brk );
+				rough = mix( rough, 1.0, brk );
+				fBump *= 1.0 - brk;
+				ao *= 1.0 - 0.4 * rimB - 0.3 * brk;
+			}
+		} else if ( ds > 1.4 && ( kind > 0.5 && kind < 2.5 ) ) {
+			// Parapet / coping: chunks knocked off → dark raw gaps along the roof edge.
+			float gn = vnoise( vec2( ( vWPos.x + vWPos.z ) * 0.35 + seedB * 9.0, 0.5 ) );
+			float gap = smoothstep( mix( 0.8, 0.5, smoothstep( 1.4, 4.0, ds ) ), 0.95, gn );
+			c = mix( c, vec3( 0.05, 0.045, 0.04 ), gap );
+		}
+		// Rooftop clutter and edges also get battered: darker, rougher.
+		if ( !deck ) c *= 1.0 - 0.06 * ds;
 		c = mix( c, vec3( 0.42, 0.40, 0.37 ), smoothstep( 0.2, 0.6, vDyn.z ) );
 	}
 
@@ -280,11 +358,21 @@ void argProps() {
 		fEmis = mix( fEmis, rc * 0.3, 0.9 );
 		fMetal *= 0.2;
 		fGlass = 0.0;
-	} else if ( ovl.a > 0.5 ) {
+	} else if ( ovl.a > 1.5 ) {
 		fAlbedo = mix( fAlbedo, ovl.rgb, 0.78 );
 		fEmis = mix( fEmis, ovl.rgb * 0.18, 0.8 );
 		fMetal *= 0.2;
 		fGlass = 0.0;
+	}
+	{
+		// Scan veil (overlay alpha minus the tint flag): slight grey for areas AIR 1 has not scanned.
+		float veil = ovl.a - step( 1.5, ovl.a ) * 2.0;
+		if ( veil > 0.001 ) {
+			float lum = dot( fAlbedo, vec3( 0.2126, 0.7152, 0.0722 ) );
+			fAlbedo = mix( fAlbedo, vec3( lum ), veil * 0.55 ) * ( 1.0 - veil * 0.18 );
+			fEmis = mix( fEmis, vec3( dot( fEmis, vec3( 0.2126, 0.7152, 0.0722 ) ) ), veil * 0.5 ) * ( 1.0 - veil * 0.25 );
+			fGlass *= 1.0 - veil * 0.3;
+		}
 	}
 	if ( vDyn.w > 0.5 ) {
 		float pulse = 0.85 + 0.15 * sin( uTime * 3.0 );

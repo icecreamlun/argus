@@ -1,0 +1,380 @@
+{
+ "chunkIndex": 1,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 18429,
+ "buildings": [
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Facade damage and dark marks on walls, roof rubble"
+  },
+  {
+   "id": "B5372",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Severe upper floor damage, partial roof collapse"
+  },
+  {
+   "id": "B5298",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Heavy dark roof and facade damage, debris around"
+  },
+  {
+   "id": "B5014",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Extensive facade and roof damage, dark burn/cracks"
+  },
+  {
+   "id": "B4893",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Dark streaks and facade cracking on side"
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavy darkfacade scarring and roof debris"
+  },
+  {
+   "id": "B4906",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Major facade blackening and structural damage"
+  },
+  {
+   "id": "B4815",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into rubble pile with dust"
+  },
+  {
+   "id": "B4854",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Reduced to rubble heap next to Merchant St"
+  },
+  {
+   "id": "B4868",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into low rubble pile with cratering"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Completly collapsed into debris pile at corner"
+  },
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Facade damage and roof discoloration"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Visible facade damage and roof rubble"
+  },
+  {
+   "id": "B5443",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5299",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5323",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5317",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5364",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5269",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5443",
+   "notes": "Clear of debris"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5064",
+   "notes": "Clear roadway between highrises"
+  },
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4854",
+   "notes": "Blocked by rubble from collapsed adjacent buildings"
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "partial",
+   "evidenceS": 13,
+   "nearBuildingId": "B4815",
+   "notes": "Debris and crowd spilling into roadway"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Debris from collapsed buildings along south side"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 0,
+   "place": "Justin Herman Plaza / Market & Steuart",
+   "nearBuildingId": "B5384"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 13,
+   "place": "Sansome Street",
+   "nearBuildingId": "B4848"
+  }
+ ],
+ "summary": "Severe earthquake damage concentrated in the western blocks near Sansome, Merchant, and Washington Streets, where B4815, B4854, B4868, and B4900 have completely collapsed. High-rise towers along the Embarcadero and Market Street remain structurally intact, though low-rise annexes B5372, B5384, and B",
+ "hash": "1549897f2b8c4497b01fc0fc313f98d3",
+ "usage": {
+  "promptTokens": 7721,
+  "outputTokens": 1184,
+  "totalTokens": 8905
+ },
+ "notes": [
+  "ffmpeg 809 ms",
+  "input: video+hires",
+  "gemini 17619 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

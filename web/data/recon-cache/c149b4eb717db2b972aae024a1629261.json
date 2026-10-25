@@ -1,0 +1,153 @@
+{
+ "chunkIndex": 5,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8124,
+ "buildings": [
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Collapsed into jagged wall stubs and rubble core"
+  },
+  {
+   "id": "B5384",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof staining and debris near collapsed neighbor"
+  },
+  {
+   "id": "B5381",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Minor roof surface staining, structure fully upright"
+  },
+  {
+   "id": "B5317",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5381",
+   "notes": "Clear carriageway along Embarcadero Center"
+  },
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5307",
+   "notes": "Intersection and road clear of debris"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and clear"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5504",
+   "notes": "Wide waterfront boulevard completely clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 120,
+   "evidenceS": 2,
+   "place": "Justin Herman Plaza / The Embarcadero",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 35,
+   "evidenceS": 2,
+   "place": "Embarcadero Plaza lawn",
+   "nearBuildingId": "B5372"
+  }
+ ],
+ "summary": "B5372 (6F Office) has completely collapsed into a roofless rubble ruin adjacent to 4 The Embarcadero (B5384). Surrounding major high-rises including 5 Embarcadero Center (B5381) and the Ferry Building (B5504) remain structurally intact. Large crowds of over 150 evacuees have gathered in the plazas a",
+ "hash": "c149b4eb717db2b972aae024a1629261",
+ "usage": {
+  "promptTokens": 6259,
+  "outputTokens": 530,
+  "totalTokens": 6789
+ },
+ "notes": [
+  "ffmpeg 522 ms",
+  "input: video+hires",
+  "gemini 7602 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

@@ -1,0 +1,428 @@
+{
+ "chunkIndex": 2,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 22114,
+ "buildings": [
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Facade dark streaks, broken windows, sidewalk debris"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Dark facade streaks, roof damage, debris below"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Dark streaks on facade and roof"
+  },
+  {
+   "id": "B4768",
+   "damage": "moderate",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Heavy facade cracking, dark streaks, debris below"
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Roof debris and dark facade streaks"
+  },
+  {
+   "id": "B4693",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 25,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Low structure with roof damage, crowd around"
+  },
+  {
+   "id": "B4584",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof damage and dark streaks"
+  },
+  {
+   "id": "B4514",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof rubble and dark streaks"
+  },
+  {
+   "id": "B4538",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B4527",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof damage and dark streaks"
+  },
+  {
+   "id": "B4331",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy roof damage and dark streaks"
+  },
+  {
+   "id": "B4402",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roof damage and dark streaks"
+  },
+  {
+   "id": "B4272",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B4229",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Tall tower with heavy facade streaks, roof cracks"
+  },
+  {
+   "id": "B4151",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade damage and debris on Commercial St"
+  },
+  {
+   "id": "B4269",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Dark facade streaks and roof damage"
+  },
+  {
+   "id": "B4218",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roof and facade damage, debris in street"
+  },
+  {
+   "id": "B3875",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B3959",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B3872",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Facade streaks and roof damage"
+  },
+  {
+   "id": "B3722",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B3825",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B3810",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade and roof damage along Sacramento St"
+  },
+  {
+   "id": "B3635",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade streaks and roof damage"
+  },
+  {
+   "id": "B3514",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B3478",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Roof damage and facade streaks"
+  },
+  {
+   "id": "B3275",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roof and facade damage along Waverly Pl"
+  },
+  {
+   "id": "B4880",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4420",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B4438",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B4085",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B4627",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4591",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SANSOME STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B4753",
+   "notes": "Debris between B4768 and B4753"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B4420",
+   "notes": "Roadway open and clear"
+  },
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "partial",
+   "evidenceS": 11,
+   "nearBuildingId": "B3959",
+   "notes": "Debris along narrow street"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "partial",
+   "evidenceS": 12,
+   "nearBuildingId": "B3617",
+   "notes": "Some facade debris on sidewalk and road"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 3,
+   "place": "Redwood Park / 535 Washington St",
+   "nearBuildingId": "B4693"
+  },
+  {
+   "approxCount": 60,
+   "evidenceS": 10,
+   "place": "Portsmouth Square",
+   "nearBuildingId": "B3656"
+  }
+ ],
+ "summary": "Widespread moderate facade and roof damage observed across the Financial District and Chinatown, notably on 505 Sansome (B4768), 545 Sansome (B4755), and 750 Kearny (B4229). No complete building collapses, fires, or trapped survivors signalling for help were seen. Large crowds have evacuated into Re",
+ "hash": "2cd1c61ab5161e6ece8d151709ea5bb8",
+ "usage": {
+  "promptTokens": 13447,
+  "outputTokens": 1792,
+  "totalTokens": 15239
+ },
+ "notes": [
+  "ffmpeg 442 ms",
+  "input: video+hires",
+  "gemini 21672 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

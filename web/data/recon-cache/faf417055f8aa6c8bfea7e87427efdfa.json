@@ -1,0 +1,140 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8877,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5585",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5546",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B5522",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B5532",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  },
+  {
+   "id": "B5384",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway open and free of debris"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5522",
+   "notes": "Roadway clear around plaza"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 12,
+   "evidenceS": 9,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 45,
+   "evidenceS": 14,
+   "place": "THE EMBARCADERO / STEUART STREET plaza",
+   "nearBuildingId": "B5384"
+  }
+ ],
+ "summary": "No structural damage, fires, or collapses are observed along the Ferry Plaza and Embarcadero waterfront corridor, with the Ferry Building (B5504) and adjacent structures remaining intact. Major roadways including The Embarcadero and Steuart Street are completely clear. Approximately 45 people have g",
+ "hash": "faf417055f8aa6c8bfea7e87427efdfa",
+ "usage": {
+  "promptTokens": 6169,
+  "outputTokens": 287,
+  "thoughtsTokens": 207,
+  "totalTokens": 6663
+ },
+ "notes": [
+  "ffmpeg 485 ms",
+  "input: video+hires",
+  "gemini 8391 ms"
+ ],
+ "promptVersion": "argon-recon-v4"
+}

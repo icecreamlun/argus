@@ -2,7 +2,7 @@
  * Per-building GPU data textures (all RGBA32F, TEX_W texels per row):
  *   state   — 3 texels / building, layout exactly as documented in contracts.ts
  *   style   — STYLE_TEXELS texels / building (static, from styles.ts)
- *   overlay — 1 texel / building: rgb tint, a = 1 when set
+ *   overlay — 1 texel / building: rgb tint, a = (2 when the tint is set) + veil (0..1, scan veil)
  */
 import * as THREE from 'three';
 import type { BuildingDynamicState } from '../../contracts';
@@ -28,6 +28,8 @@ export class BuildingStateStore {
   readonly overlayTex: THREE.DataTexture;
   private dirty = false;
   private overlayDirty = false;
+  /** Scan veil per building (0..1), packed into the overlay alpha next to the tint flag. */
+  private readonly veil: Float32Array;
 
   constructor(readonly count: number, pivots: Float32Array, styleData: Float32Array) {
     const st = makeTexture(count * 3);
@@ -40,6 +42,7 @@ export class BuildingStateStore {
     const ov = makeTexture(count);
     this.overlayData = ov.data;
     this.overlayTex = ov.tex;
+    this.veil = new Float32Array(count);
   }
 
   set(i: number, s: BuildingDynamicState): void {
@@ -92,8 +95,19 @@ export class BuildingStateStore {
       this.overlayData[o] = rgb[0];
       this.overlayData[o + 1] = rgb[1];
       this.overlayData[o + 2] = rgb[2];
-      this.overlayData[o + 3] = 1;
-    } else this.overlayData[o + 3] = 0;
+      this.overlayData[o + 3] = 2 + this.veil[i];
+    } else this.overlayData[o + 3] = this.veil[i];
+    this.overlayDirty = true;
+  }
+
+  /** Scan veil (0..1): slight desaturate + darken in the shaders. */
+  setVeil(i: number, amount: number): void {
+    if (i < 0 || i >= this.count) return;
+    const v = Math.min(1, Math.max(0, amount));
+    if (v === this.veil[i]) return;
+    this.veil[i] = v;
+    const o = i * 4 + 3;
+    this.overlayData[o] = (this.overlayData[o] >= 1.5 ? 2 : 0) + v;
     this.overlayDirty = true;
   }
 
