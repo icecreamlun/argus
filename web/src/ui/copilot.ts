@@ -4,6 +4,7 @@
  * drawer renders the conversation, a plan card (priorities, routed assignments with road ETAs, route clearing)
  * and the Show-on-map / Dispatch decision. Model text is rendered through a tiny escaping markdown renderer.
  */
+import { focusBuilding } from './focus';
 import type { ChatMessage, CopilotSituation, IncidentKind, RescueIncident, RescuePlan, UiHandlers, UnitType } from '../contracts';
 import { h, setText } from './dom';
 import { icon, type IconName } from './icons';
@@ -302,6 +303,8 @@ export function createCopilot(handlers: UiHandlers, onOpenChange: (open: boolean
   // Click while an answer types out = skip to the end.
   log.addEventListener('click', (e) => {
     if ((e.target as Element).closest('button')) return;
+    const inc = (e.target as Element).closest<HTMLElement>('[data-incident]');
+    focusBuilding(inc?.dataset.incident?.match(/B\d+/)?.[0]);
     finishTyping();
   });
 

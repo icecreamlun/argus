@@ -3,6 +3,7 @@
  * matches the HUD, post-processing never touches them and the helicopter's off-screen camera never films them.
  * Pins behind terrain (hills) or behind the camera are hidden; overlapping pins are decluttered by priority.
  */
+import { focusBuilding, focusPoint } from '../ui/focus';
 import * as THREE from 'three';
 import type { AppContext } from '../contracts';
 import { icon, type IconName } from '../ui/icons';
@@ -40,7 +41,6 @@ const MAX_SHOWN = 36;
 export function createPins(ctx: AppContext) {
   const root = document.createElement('div');
   root.className = 'ag-root ag-rpins';
-  root.setAttribute('aria-hidden', 'true');
   const uiRoot = document.getElementById('ui-root');
   if (uiRoot?.parentElement) uiRoot.parentElement.insertBefore(root, uiRoot);
   else document.body.append(root);
@@ -63,7 +63,19 @@ export function createPins(ctx: AppContext) {
     } else el.title = 'Collapsed (Argon)';
     el.hidden = true;
     root.append(el);
-    return { spec, el, w: 0, h: 0, shown: false, tx: '' };
+    const pin: Pin = { spec, el, w: 0, h: 0, shown: false, tx: '' };
+    el.setAttribute('role', 'button');
+    el.tabIndex = 0;
+    el.setAttribute('aria-label', `${spec.text || 'Collapsed building'}: show on map`);
+    const go = () => (pin.spec.buildingId ? focusBuilding(pin.spec.buildingId) : focusPoint(pin.spec.x, pin.spec.y, pin.spec.z));
+    el.addEventListener('click', go);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        go();
+      }
+    });
+    return pin;
   }
 
   function occludedByTerrain(x: number, y: number, z: number): boolean {

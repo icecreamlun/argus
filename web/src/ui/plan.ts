@@ -3,6 +3,7 @@
  * most uncertain parts of the picture; the sim pauses until the commander approves (A) or rejects (X). Once
  * approved the card collapses into per-mission progress driven by the deterministic drone schedule.
  */
+import { focusBuilding } from './focus';
 import type { CityData, DroneId, DroneMission, DronePlan, DroneScheduleEntry, PlanUiState, UiHandlers } from '../contracts';
 import { h, setText } from './dom';
 import { icon } from './icons';
@@ -96,7 +97,7 @@ export function createPlanCard(city: CityData, handlers: UiHandlers) {
 
   function missionRow(m: DroneMission): HTMLElement {
     const names = m.targetBuildingIds.map(nameOf);
-    return h(
+    const row = h(
       'div',
       { class: 'ag-plan__mission', role: 'listitem', style: { '--dc': DRONE_COLORS[m.droneId] } as Partial<CSSStyleDeclaration> },
       droneChip(m.droneId),
@@ -113,6 +114,9 @@ export function createPlanCard(city: CityData, handlers: UiHandlers) {
       ),
       h('span', { class: `ag-plan__prio ${m.priority <= 1 ? 'is-top' : ''}`, title: `Priority ${m.priority} (1 = highest)` }, `P${m.priority}`),
     );
+    row.title = 'Show on map';
+    row.addEventListener('click', () => focusBuilding(m.targetBuildingIds[0]));
+    return row;
   }
 
   function note(ico: Parameters<typeof icon>[0], strong: string, text: string, cls = ''): HTMLElement {

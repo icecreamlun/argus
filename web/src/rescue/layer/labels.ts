@@ -3,6 +3,7 @@
  * unit count / ETA badges). DOM so type matches the HUD and post-processing never blurs it; hidden behind
  * hills / behind the camera; decluttered by priority. Own root + injected stylesheet (no shared CSS edits).
  */
+import { focusPoint } from '../../ui/focus';
 import * as THREE from 'three';
 import type { AppContext, FacilityKind } from '../../contracts';
 
@@ -225,6 +226,15 @@ export function createLabels(ctx: AppContext) {
         s.el.classList.add('rsq-l');
         s.el.hidden = true;
         root.append(s.el);
+        if (s.el.classList.contains('rsq-inc') && !s.el.dataset.focus) {
+          s.el.dataset.focus = '1';
+          s.el.style.pointerEvents = 'auto';
+          s.el.style.cursor = 'pointer';
+          s.el.addEventListener('click', () => {
+            const cur = byKey.get(s.key);
+            if (cur) focusPoint(cur.x, cur.y, cur.z, 220);
+          });
+        }
         const l: Label = { ...s, w: 0, h: 0, shown: false, tx: '' };
         byKey.set(s.key, l);
         return l;

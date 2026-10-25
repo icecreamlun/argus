@@ -3,6 +3,7 @@
  * (gemini-4-argon) progress, and the headline comparison: model prediction vs Argon reconstruction, both
  * scored against the simulation's ground truth. Plus the inspector's Predicted / Argon / Truth block.
  */
+import { focusBuilding } from './focus';
 import type { AirUiState, BuildingComparison, CityData, DamageState, ObservedDamage } from '../contracts';
 import { h, setText } from './dom';
 import { icon } from './icons';
@@ -242,7 +243,7 @@ export function createAirPanel(city: CityData) {
                   h('span', { class: 'ag-air__sarrow' }, '→'),
                   dsBadge(OBS_INDEX[x.observed], undefined, true),
                 );
-                row.addEventListener('click', () => (window as unknown as { __argus?: { select?(id: string): void } }).__argus?.select?.(x.id));
+                row.addEventListener('click', () => focusBuilding(x.id));
                 return row;
               })
             : [h('p', { class: 'ag-empty ag-air__none' }, has ? 'None yet. Argon agrees with the model so far.' : 'Buildings where Argon saw something the model did not predict will appear here.')]),

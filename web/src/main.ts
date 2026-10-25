@@ -51,6 +51,10 @@ declare global {
       reset(): void;
       setOverlay(mode: OverlayMode): void;
       select(id: string | null): void;
+      /** Select a building and fly the camera to it. */
+      focus?(id: string | null): void;
+      /** Fly the camera to a world point (span = viewing distance, m). */
+      focusPoint?(x: number, y: number, z: number, span?: number): void;
       renderOnce(): void;
       result: QuakeResult | null;
       /** Frames per second over the last full second. */
@@ -377,6 +381,33 @@ async function boot() {
     refreshSelection(true);
     air.select(id);
   };
+  // ── Click-to-focus: map pins, incident markers and list rows fly the camera in (keeps the current heading) ──
+  const focusPoint = (x: number, y: number, z: number, span = 180) => {
+    const c = engine.camera.position;
+    let dx = c.x - x;
+    let dz = c.z - z;
+    const len = Math.hypot(dx, dz) || 1;
+    dx /= len;
+    dz /= len;
+    engine.flyTo({ position: [x + dx * span * 0.75, y + span * 0.62, z + dz * span * 0.75], target: [x, y, z] }, 1.6);
+  };
+  const focusBuilding = (id: string | null) => {
+    if (!id) return select(null);
+    const i = buildings.indexOf(id);
+    if (i < 0) return;
+    if (id !== selectedId) select(id);
+    const b = city.buildings[i];
+    let cx = 0;
+    let cz = 0;
+    for (const [px, pz] of b.footprint) {
+      cx += px;
+      cz += pz;
+    }
+    cx /= b.footprint.length || 1;
+    cz /= b.footprint.length || 1;
+    const h = b.height || 20;
+    focusPoint(cx, (b.baseElevation || 0) + h * 0.5, cz, Math.min(420, Math.max(150, h * 2.6)));
+  };
   /** Re-show the inspector when the selected building's damage manifests (or on new/cleared results). */
   function refreshSelection(force: boolean) {
     if (!selectedId) {
@@ -452,6 +483,8 @@ async function boot() {
     drones,
     copilot,
     reports,
+    focus: focusBuilding,
+    focusPoint,
     flyTo: (p: CameraPresetId, d = 0) => engine.flyTo(p, d),
     setCamera: (position: [number, number, number], target: [number, number, number]) => engine.flyTo({ position, target }, 0),
     setTimeOfDay: (h: number) => {
