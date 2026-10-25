@@ -4,7 +4,7 @@
 
 ### The hundred-eyed watcher for the first hour after an earthquake
 
-**Gemini 4 Argon watches the city, corrects the disaster model, and tells rescuers where the trapped are.**
+**Argus doesn't just simulate an earthquake. It watches the city afterwards, keeps correcting its own physics model against what Gemini 4 Argon sees, and turns the most accurate picture of the damage into rescue decisions that save more people.**
 
 ![Gemini 4 Argon](https://img.shields.io/badge/Gemini_4-Argon-1a73e8?style=flat-square)
 ![three.js](https://img.shields.io/badge/three.js-r186-000?style=flat-square)
@@ -12,6 +12,8 @@
 ![Human in the loop](https://img.shields.io/badge/human-in_the_loop-ff6d00?style=flat-square)
 
 <img src="docs/img/hero.gif" alt="Argus Copilot routing rescue units across a damaged San Francisco, with resident reports and the Argon drone plan" width="100%"/>
+
+**[▶ Watch the 1-minute demo](https://youtu.be/SSVnPhdZpao)**
 
 *Gemini 4 Argon Hackathon · San Francisco · Track 2: More Dimensions*
 
@@ -31,7 +33,12 @@ Fifty years later, the first hour after a major quake is still a fog:
 
 ## What Argus does
 
-Argus closes the loop between **prediction → observation → correction → action**, with Gemini 4 Argon at every step and a human commander approving every move.
+Argus runs a physics-grounded earthquake over a real-data San Francisco, then watches the aftermath and keeps correcting itself. It is a real verification loop: **simulate → observe → correct the physics → act**, with Gemini 4 Argon at every step and a human commander approving every move.
+
+1. **Simulate, then keep correcting the physics.** Gemini 4 Argon watches helicopter video, drone close-ups and resident reports. Every building it sees tells Argus how hard the ground really shook there, and the correction propagates to the buildings no camera has reached yet. The physics model is updated continuously against evidence instead of standing as a one-time guess.
+2. **Build the best damage picture, then save more people.** Argon sends drones where the model is most uncertain, then turns the corrected model into ranked rescue priorities and routes around blocked streets.
+
+Seeing just 7% of the city, Argus nearly doubles damage accuracy on the buildings it sees (24% → 46%) and lifts it across the whole downtown core (33% → 43%), including buildings no camera ever saw.
 
 ```mermaid
 flowchart LR
