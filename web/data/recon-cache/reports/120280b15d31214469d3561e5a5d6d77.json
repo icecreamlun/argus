@@ -1,0 +1,245 @@
+{
+ "batchIndex": 1,
+ "analyses": [
+  {
+   "reportId": "R-0026",
+   "buildingId": "B4790",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to B4790 across Leidesdorff · tilted/buckled, ~2 trapped"
+  },
+  {
+   "reportId": "R-0027",
+   "buildingId": "B3635",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 700 Grant Ave · partial wall collapse, evacuated"
+  },
+  {
+   "reportId": "R-0028",
+   "buildingId": "B3467",
+   "damage": "collapsed",
+   "peopleTrapped": 4,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to Notre Dame Church (566 Bush) · collapse, 4 trapped"
+  },
+  {
+   "reportId": "R-0029",
+   "buildingId": "B4680",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to B4680 opposite 405 Jackson · upper floors collapsed"
+  },
+  {
+   "reportId": "R-0030",
+   "buildingId": "B2819",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 750 Pine St · parapet fell, facade cracks"
+  },
+  {
+   "reportId": "R-0031",
+   "buildingId": "B2881",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "vague collapse report near Fella & Pine · linked to 745 Pine"
+  },
+  {
+   "reportId": "R-0032",
+   "buildingId": "B4902",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "linked to 447 Battery St · total collapse reported next door"
+  },
+  {
+   "reportId": "R-0033",
+   "buildingId": "B4218",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 670 Commercial St · collapse, 1 person inside"
+  },
+  {
+   "reportId": "R-0034",
+   "buildingId": "B4476",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "linked to B4476 on Hardie Pl · partial back wall collapse"
+  },
+  {
+   "reportId": "R-0035",
+   "buildingId": "B3637",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 513 Bush St · 4-storey collapse, 1 person inside"
+  },
+  {
+   "reportId": "R-0036",
+   "buildingId": "B2406",
+   "damage": "collapsed",
+   "peopleTrapped": 4,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "vague collapse near Powell/Pacific · 4 trapped"
+  },
+  {
+   "reportId": "R-0037",
+   "buildingId": "B2895",
+   "damage": "collapsed",
+   "peopleTrapped": 5,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "collapse on Dashiell Hammett / 745 Pine · 5 stuck"
+  },
+  {
+   "reportId": "R-0038",
+   "buildingId": "B4870",
+   "damage": "collapsed",
+   "peopleTrapped": 6,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "vague collapse near Sacramento/Sansome · ~6 trapped"
+  },
+  {
+   "reportId": "R-0039",
+   "buildingId": "B2369",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 750 Bush St · pancaked collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0040",
+   "buildingId": "B4781",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.45,
+   "note": "linked to Leidesdorff Place (340 Pine) · unverified collapse"
+  },
+  {
+   "reportId": "R-0041",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "street blocked · Claude Ln near Bush St"
+  },
+  {
+   "reportId": "R-0042",
+   "buildingId": "B3720",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 562 Grant Ave · slight plaster cracks, all OK"
+  },
+  {
+   "reportId": "R-0043",
+   "buildingId": "B3028",
+   "damage": "collapsed",
+   "peopleTrapped": 5,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "vague collapse near Stockton & Pine · 5 trapped"
+  },
+  {
+   "reportId": "R-0044",
+   "buildingId": "B3093",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 868 Clay St · top corner fell, building tilting"
+  },
+  {
+   "reportId": "R-0045",
+   "buildingId": "B4548",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 28 Prescott Court · small cracks, residents OK"
+  },
+  {
+   "reportId": "R-0046",
+   "buildingId": "B3302",
+   "damage": "collapsed",
+   "peopleTrapped": 6,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "vague collapse near Emma & Stockton · at least 6 trapped"
+  },
+  {
+   "reportId": "R-0047",
+   "buildingId": "B2885",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 27 Dashiell Hammett St · total collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0048",
+   "buildingId": "B2486",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 1000 Powell St · parapet fell, facade cracks"
+  },
+  {
+   "reportId": "R-0049",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "street blocked · St George Alley near Bush St"
+  },
+  {
+   "reportId": "R-0050",
+   "buildingId": "B5420",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 181 Fremont St"
+  }
+ ],
+ "summary": "This batch reports multiple severe collapses and partial collapses concentrated along the Bush, Pine, Stockton, and Financial District corridors (including 566 Bush, 513 Bush, 750 Bush, 670 Commercial, 447 Battery, and 27 Dashiell Hammett), with up to 36 people reported trapped across several sites. Debris has blocked alleys near Bush and Kearny (Claude Ln, St. George Alley), while 181 Fremont Tower and smaller residences on Grant Ave and Prescott Ct report minimal or no damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 21303,
+ "hash": "120280b15d31214469d3561e5a5d6d77",
+ "promptVersion": "argon-reports-v1",
+ "usage": {
+  "promptTokens": 7776,
+  "outputTokens": 2428
+ },
+ "notes": []
+}

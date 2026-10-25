@@ -1,0 +1,153 @@
+{
+ "batchIndex": 2,
+ "analyses": [
+  {
+   "reportId": "R-0017",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.75,
+   "note": "street blocked · Hooker Alley by Mason St"
+  },
+  {
+   "reportId": "R-0018",
+   "buildingId": "B4657",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 565 Commercial St · slight damage, all OK"
+  },
+  {
+   "reportId": "R-0019",
+   "buildingId": "B3344",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 945 Grant Ave · extensive damage, 2 trapped"
+  },
+  {
+   "reportId": "R-0020",
+   "buildingId": "B3137",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 738 Stockton St · leaning, partial wall collapse"
+  },
+  {
+   "reportId": "R-0021",
+   "buildingId": "B4960",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 235 Pine St · partial collapse, leaning"
+  },
+  {
+   "reportId": "R-0022",
+   "buildingId": "B3063",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "linked to Central Ping Yuen, 711 Pacific Ave · collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0023",
+   "buildingId": "B3570",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 20 Romolo St · total collapse"
+  },
+  {
+   "reportId": "R-0024",
+   "buildingId": "B3134",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 858 Washington St · partial collapse, leaning"
+  },
+  {
+   "reportId": "R-0025",
+   "buildingId": "B3669",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 647 Jackson St · moderate facade and cornice damage"
+  },
+  {
+   "reportId": "R-0026",
+   "buildingId": "B4790",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 15-storey office across Leidesdorff St · buckled, 2 trapped"
+  },
+  {
+   "reportId": "R-0027",
+   "buildingId": "B3635",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 700 Grant Ave · back wall collapsed, evacuated"
+  },
+  {
+   "reportId": "R-0028",
+   "buildingId": "B3467",
+   "damage": "collapsed",
+   "peopleTrapped": 4,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to Notre Dame Des Victoires Church · collapse, 4 trapped"
+  },
+  {
+   "reportId": "R-0029",
+   "buildingId": "B4718",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 3-storey commercial building · upper floors caved in"
+  },
+  {
+   "reportId": "R-0030",
+   "buildingId": "B2819",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 750 Pine St · parapet fell, facade cracks"
+  },
+  {
+   "reportId": "R-0031",
+   "buildingId": "B2842",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "linked to 755 Pine St · unverified collapse near Fella and Pine"
+  }
+ ],
+ "summary": "This batch identifies up to 9 people trapped across four sites (945 Grant Ave, Notre Dame Des Victoires Church, near Pacific/Grant, and Leidesdorff St) alongside multiple full or partial building collapses concentrated in Chinatown, North Beach, and the Financial District. One road blockage is reported on Hooker Alley by Mason St, while 565 Commercial St reports only slight damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15344,
+ "hash": "e210085d852f5e15f3b83e5e197a9c83",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 5125,
+  "outputTokens": 1483
+ },
+ "notes": []
+}

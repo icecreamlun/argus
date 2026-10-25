@@ -1,0 +1,27 @@
+{
+ "batchIndex": 25,
+ "analyses": [
+  {
+   "reportId": "R-0198",
+   "buildingId": "B5064",
+   "damage": "collapsed",
+   "peopleTrapped": 6,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "linked to One Maritime Plaza, 300 Clay St · collapsed, 6 trapped"
+  }
+ ],
+ "summary": "One report indicates a complete collapse at 300 Clay St (One Maritime Plaza) with at least 6 people trapped inside and rubble blocking Washington St.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 3688,
+ "hash": "e3f64cb5072bfda090ed328d958259be",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 1685,
+  "outputTokens": 116
+ },
+ "notes": []
+}

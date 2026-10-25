@@ -1,0 +1,35 @@
+{
+ "batchIndex": 24,
+ "analyses": [
+  {
+   "reportId": "R-0196",
+   "buildingId": "B3016",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.45,
+   "note": "linked to 768 Jackson St (vague) · collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0197",
+   "buildingId": "B5490",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 222 Beale St"
+  }
+ ],
+ "summary": "Reports indicate a building collapse with one person trapped near Jackson and Ross Alley (tentatively linked to 768 Jackson St), while 222 Beale St checks in safe with no damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6644,
+ "hash": "f305d9fec56b17ae0fa99f06eb949079",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 1887,
+  "outputTokens": 176,
+  "thoughtsTokens": 259
+ },
+ "notes": []
+}

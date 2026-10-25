@@ -579,3 +579,25 @@ export function mockCopilotMessages(withPlan = true, planState: ChatMessage['pla
   if (withPlan) msgs.push({ id: 'a1', role: 'assistant', text: MOCK_REPLY, at: 749, plan: mockRescuePlan(), mode: 'gemini', latencyMs: 6400, planState });
   return msgs;
 }
+
+// ───────────────────────────── M6 resident reports ─────────────────────────────
+import type { ReportItem } from '../contracts';
+
+/** Resident reports with Argon analyses (some still pending) — posted from T+130 s, a batch every ~30 s. */
+export function mockReports(): ReportItem[] {
+  const rows: [string, number, ReportItem['report']['lang'], ReportItem['report']['category'], string, string, ReportItem['analysis']][] = [
+    ['R-0001', 134, 'zh', 'trapped', '我们楼塌了一半，三楼还有两个老人出不来，请快来！', 'Resident · Chinatown', { reportId: 'R-0001', buildingId: 'B0102', damage: 'collapsed', peopleTrapped: 2, hazards: ['gas'], credibility: 0.86, note: 'Specific floor + count; consistent with AIR 1 footage' }],
+    ['R-0002', 141, 'en', 'damage', 'Big cracks across the front wall of our apartment, plaster everywhere but everyone got out.', 'Resident · Nob Hill', { reportId: 'R-0002', buildingId: 'B0103', damage: 'moderate', peopleTrapped: 0, hazards: [], credibility: 0.72, note: 'Visible cracking, occupants safe' }],
+    ['R-0003', 158, 'es', 'fire', 'Sale humo del edificio de la esquina, huele a gas en toda la calle.', 'Resident · North Beach', { reportId: 'R-0003', buildingId: 'B0101', damage: 'extensive', peopleTrapped: 0, hazards: ['fire', 'gas'], credibility: 0.64, note: 'Smoke + gas smell; matches fire ignition nearby' }],
+    ['R-0004', 166, 'en', 'ok', 'Our building is totally fine, just some books fell off shelves.', 'Resident · Financial District', { reportId: 'R-0004', buildingId: 'B0301', damage: 'none', peopleTrapped: 0, hazards: [], credibility: 0.81, note: 'Reporter inside the building' }],
+    ['R-0005', 171, 'en', 'trapped', 'OMG the whole block is gone!!! hundreds of people trapped everywhere', 'Resident · Union Sq', { reportId: 'R-0005', buildingId: null, damage: null, peopleTrapped: 0, hazards: [], credibility: 0.18, note: 'Unspecific and exaggerated — low weight' }],
+    ['R-0006', 189, 'zh', 'road', '杰克逊街被倒下的电线杆堵住了，车过不去。', 'Resident · Chinatown', { reportId: 'R-0006', buildingId: null, damage: null, peopleTrapped: 0, hazards: ['blocked road'], credibility: 0.77, note: 'Street report — routed to road network' }],
+    ['R-0007', 196, 'en', 'damage', 'Corner store on Grant lost its whole facade, bricks on the sidewalk.', 'Resident · Chinatown', { reportId: 'R-0007', buildingId: 'B0202', damage: 'extensive', peopleTrapped: 0, hazards: [], credibility: 0.69, duplicateOf: 'R-0002', note: 'Brick facade failure, typical URM' }],
+    ['R-0008', 224, 'en', 'trapped', 'Hearing someone knocking under the rubble at 53 Waverly, please send help', 'Resident · Chinatown', null],
+    ['R-0009', 229, 'es', 'damage', 'Mi edificio se inclinó un poco, las puertas ya no cierran.', 'Resident · Telegraph Hill', null],
+  ];
+  return rows.map(([id, simS, lang, category, text, reporter, analysis], i) => ({
+    report: { id, simS, lat: 37.795, lon: -122.406, x: -400 + i * 80, z: -200 + i * 40, accuracyM: 12 + ((i * 17) % 40), text, lang, category, reporter },
+    analysis,
+  }));
+}

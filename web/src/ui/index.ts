@@ -25,6 +25,7 @@ import { createAirPanel } from './air';
 import { createPlanCard } from './plan';
 import { createDroneFeeds } from './droneFeeds';
 import { createCopilot } from './copilot';
+import { createReports } from './reports';
 import type { WaveMark } from './timeline';
 import { createFooter, createPlaybackIsland, createTimeIsland, createViewsIsland } from './bottombar';
 import { bindKeyboard } from './keyboard';
@@ -85,6 +86,12 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     if (open) highlightLauncher(false);
   });
   const highlightLauncher = (on: boolean) => copilot.launcher.classList.toggle('is-nudge', on);
+  // M6 resident reports: toasts beside the Seismic feed + COMMUNITY REPORTS card under it (folded while the feed is open).
+  const reports = createReports(ctx.city, (item) => {
+    const id = item.analysis?.buildingId;
+    if (id) ctx.events.emit({ type: 'building-selected', id });
+  });
+  if (!feed.panel.collapsed) reports.panel.setCollapsed(true, false);
   const topRight = h('div', { class: 'ag-top__right' }, copilot.launcher);
   const clockEl = top.el.querySelector('.ag-clock');
   if (clockEl) {
@@ -98,9 +105,10 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     { class: 'ag', dataset: { theme: 'day', phase: 'monitoring' } },
     top.el,
     h('div', { class: 'ag-alert-slot' }, alert.el),
-    h('aside', { class: 'ag-col ag-col--left' }, feed.el),
+    h('aside', { class: 'ag-col ag-col--left' }, feed.el, reports.el),
     right,
     m4,
+    reports.toastsEl,
     copilot.el,
     h('div', { class: 'ag-bottom' }, tod.el, pb.el, views.el),
     foot.el,
@@ -205,6 +213,7 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     ui.showAir?.(null);
     ui.showPlan?.(null, 'done');
     ui.showDroneFeeds?.([]);
+    reports.reset();
     waveMarks = [];
     air.setWaveMarks([]);
     inspector.setComparison(null);
@@ -246,6 +255,12 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
   });
 
   const ui: UiHandle = {
+    showReport(item) {
+      reports.show(item);
+    },
+    setReports(items, stats) {
+      reports.set(items, stats);
+    },
     copilotSetMessages(messages, situation) {
       copilot.setMessages(messages, situation);
       // A new answer while the drawer is closed: nudge the launcher.

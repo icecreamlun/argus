@@ -1,0 +1,70 @@
+{
+ "batchIndex": 20,
+ "analyses": [
+  {
+   "reportId": "R-0175",
+   "buildingId": "B4959",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 82 2nd St"
+  },
+  {
+   "reportId": "R-0176",
+   "buildingId": "B4429",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 930 Montgomery St · fallen cornice, wall cracks"
+  },
+  {
+   "reportId": "R-0177",
+   "buildingId": "B5574",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 201 Spear St"
+  },
+  {
+   "reportId": "R-0178",
+   "buildingId": "B2674",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "linked to 720 Powell St · reported collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0179",
+   "buildingId": "B3372",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to Europa Hotel · fallen cornice, wall cracks"
+  },
+  {
+   "reportId": "R-0180",
+   "buildingId": "B4407",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 471 Pine St · leaning badly, major cracks"
+  }
+ ],
+ "summary": "Reports indicate extensive leaning at 471 Pine St and a contradicted/exaggerated collapse claim with 1 person trapped behind a jammed door at 720 Powell St. Moderate facade damage (fallen cornices) is reported at 930 Montgomery St and Europa Hotel, while 82 2nd St and 201 Spear St report no damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7013,
+ "hash": "4b6ac50ee6bb6efa67e797cb6a268a36",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2906,
+  "outputTokens": 431
+ },
+ "notes": []
+}

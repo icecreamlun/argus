@@ -96,16 +96,20 @@ Argus packages the live situation: Argon-verified incidents, unverified model ri
 
 <img src="docs/img/dispatch.jpg" alt="Units dispatched along routes with ETAs" width="100%"/>
 
+### 6. Resident reports: the city talks back
+Simulated residents post short messages from a community app: *"Someone is trapped inside, we can hear them. My building at 27 Dashiell Hammett St…"*, or simply *"We're OK, just cracks."* The stream is noisy. People describe the building across the street, exaggerate, repeat each other and write in English, Chinese or Spanish. Every 30 seconds Gemini 4 Argon triages a batch: it links each report to a building, reads the damage and the number of trapped people, and rates credibility. The reports pop up as live cards and feed the fusion as a third, lower-weight evidence source. They sharpen the damage picture and leave drone planning and the Copilot unchanged.
+
 ## Results
 
 Measured on the recorded live run (1906 repeat, 15:00 local), scored against the simulator's hidden ground truth on the **xBD** aerial damage scale (no damage / minor / major / destroyed):
 
 | xBD macro-F1 | Model alone | Model + Argon |
 |---|---:|---:|
-| **Buildings Argon assessed** (135, scored on the same buildings) | 29% | **53%** |
-| **Whole core area** (1,902 buildings, including the ones nobody saw) | 33% | 37% after AIR 1 → **40%** after 2 drone waves |
+| **Whole core area** (1,902 buildings, including the ones nobody saw) | 33% | 38% after AIR 1 → 42% after drone wave 1 → **43%** at the end |
+| **Buildings seen on video** (111, scored on the same buildings) | 24% | **46%** |
+| Whole core area *without* resident reports | 33% | 39% |
 
-- **Drone targets:** Argon's close-up call was right on **14 of 20** targets; the model alone got 7.
+- **Resident reports:** Argon linked 77% of 198 reports to the right building, and read the damage correctly on 96% of those. Resident reports add about 4 points to the whole-area score.
 - **The model alone cannot tell intact from destroyed.** It labels nearly everything "major damage". Argon finds the buildings that are fine (no search needed) and the ones that fell (search first).
 - **Latency with gemini-4-argon:** ~20 s per 15-second helicopter chunk, ~13 s per drone orbit, ~6 s per drone plan, and 6–26 s per Copilot answer. Every response is recorded and replays offline in milliseconds.
 
@@ -169,14 +173,14 @@ The hackathon build covers aerial intelligence. These are the next sources Argus
 
 - **Voice of the city.** Ingest live 911 and non-emergency calls. Argon listens to the call audio natively, extracts location, people and hazards across languages, removes duplicate reports, and cross-checks each call against aerial evidence (*"the caller says 3 trapped; the drone shows 5 at 14 s"*).
 - **News, radio and hotline monitoring.** Broadcast and livestream feeds, scanner traffic and public hotlines turned into geolocated incident reports.
-- **Social signals.** Geotagged posts from survivors who cannot get through to 911.
+- **Social signals.** Geotagged public posts from survivors, beyond the community-app channel.
 - **Real feeds.** RTSP streams from police and fire aircraft and drones, CAD (computer-aided dispatch) integration and live unit positions (AVL).
 - **Night and thermal.** Thermal cameras for survivors after dark, and aftershock forecasts (USGS OAF) to drive re-inspection.
 - **Any city, any quake.** Point Argus at a live USGS event feed and a city's open data.
 
 ## Built at the hackathon
 
-Every Gemini 4 Argon capability in Argus was built during the event: AIR 1 video reconstruction, spatial correction of the city model, Argon-planned drone missions with commander approval, and Argus Copilot with routing and dispatch.
+Every Gemini 4 Argon capability in Argus was built during the event: AIR 1 video reconstruction, spatial correction of the city model, Argon-planned drone missions with commander approval, resident-report triage, and Argus Copilot with routing and dispatch.
 
 ## Credits and data
 

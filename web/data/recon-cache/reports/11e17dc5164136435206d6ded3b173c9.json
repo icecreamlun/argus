@@ -1,0 +1,61 @@
+{
+ "batchIndex": 7,
+ "analyses": [
+  {
+   "reportId": "R-0078",
+   "buildingId": "B2503",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to North Ping Yuen · slight damage, occupants fine"
+  },
+  {
+   "reportId": "R-0079",
+   "buildingId": "B3412",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "linked to 391 Sutter St · leaning badly, 1 trapped"
+  },
+  {
+   "reportId": "R-0080",
+   "buildingId": "B2339",
+   "damage": "collapsed",
+   "peopleTrapped": 4,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 1300 Powell St · total collapse, 4 trapped"
+  },
+  {
+   "reportId": "R-0081",
+   "buildingId": "B4808",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "linked to 6-storey office next to 701 Battery · collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0082",
+   "buildingId": "B3435",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to Taj Campton Place Hotel · tilting and partial collapse, 1"
+  }
+ ],
+ "summary": "This batch reports total collapses at 1300 Powell St (4 trapped) and next to 701 Battery St (1 trapped), alongside extensive damage with trapped individuals at Taj Campton Place Hotel and near Sutter and Campton Pl. North Ping Yuen (822 Pacific Ave) sustained only slight damage with residents safe.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6536,
+ "hash": "11e17dc5164136435206d6ded3b173c9",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2690,
+  "outputTokens": 568
+ },
+ "notes": []
+}

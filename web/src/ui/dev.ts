@@ -319,3 +319,37 @@ import type { ChatMessage } from '../contracts';
     ui.copilotOpen?.(true);
   }
 }
+
+// ── M6 resident reports: toasts + COMMUNITY REPORTS card with mock data ──
+//   rep=1      panel populated (all reports, two still pending) + the latest 3 toasted
+//   rep=live   reports arrive one by one every 1.6 s, Argon analyses land 2.5 s later
+//   repOpen=1  expand the panel
+import { mockReports } from './dev-mocks';
+import type { ReportItem } from '../contracts';
+{
+  const all = mockReports();
+  const rep = params.get('rep');
+  let items: ReportItem[] = [];
+  const stats = () => {
+    const ana = items.filter((it) => it.analysis);
+    return { received: items.length, analysed: ana.length, buildings: new Set(ana.map((it) => it.analysis!.buildingId).filter(Boolean)).size, mode: 'replay' as const };
+  };
+  const push = (it: ReportItem) => {
+    items = [...items.filter((x) => x.report.id !== it.report.id), it];
+    ui.setReports?.(items, stats());
+    ui.showReport?.(it);
+  };
+  const live = () => {
+    items = [];
+    ui.setReports?.([], stats());
+    all.forEach((it, k) => {
+      window.setTimeout(() => push({ ...it, analysis: null }), 400 + k * 1600);
+      if (it.analysis) window.setTimeout(() => push(it), 2900 + k * 1600);
+    });
+  };
+  if (rep === '1') {
+    for (const it of all) push(it);
+  } else if (rep === 'live') live();
+  if (params.get('repOpen') === '1') window.setTimeout(() => document.querySelector<HTMLElement>('.ag-reports .ag-panel__toggle')?.click(), 50);
+  Object.assign(window.__ui!, { rep: { all, push, live } });
+}

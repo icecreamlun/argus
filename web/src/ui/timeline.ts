@@ -38,6 +38,7 @@ export function createTimeline() {
     h('span', { class: 'ag-tl__key ag-tl__key--fused' }, h('i', {}), 'Model + Argon'),
     h('span', { class: 'ag-tl__key ag-tl__key--heli' }, h('i', {}), 'Heli'),
     h('span', { class: 'ag-tl__key ag-tl__key--drone' }, h('i', {}), 'Drone'),
+    h('span', { class: 'ag-tl__key ag-tl__key--citizen' }, h('i', {}), 'Residents'),
   );
   const el = h(
     'div',
@@ -99,7 +100,7 @@ export function createTimeline() {
       })
       .join('');
     const dots = history
-      .map((p) => `<circle class="ag-tl__dot ag-tl__dot--${p.source}" cx="${x(p.simS).toFixed(1)}" cy="${y(p.fusedF1).toFixed(1)}" r="3"/>`)
+      .map((p) => `<circle class="ag-tl__dot ag-tl__dot--${p.source}" cx="${x(p.simS).toFixed(1)}" cy="${y(p.fusedF1).toFixed(1)}" r="${p.source === 'citizen' ? 2.4 : 3}"/>`)
       .join('');
     svgHost.innerHTML = `<svg class="ag-tl__svg" width="${w}" height="${H}" viewBox="0 0 ${w} ${H}" role="img" aria-label="Accuracy over time: model alone ${pct(last.predictionF1)}, model plus Argon ${pct(last.fusedF1)}">
       ${grid}
@@ -127,7 +128,7 @@ export function createTimeline() {
     cross?.setAttribute('x2', cx.toFixed(1));
     cross?.setAttribute('visibility', 'visible');
     tip.replaceChildren(
-      h('b', {}, `T+${Math.round(best.simS)} s · ${best.source === 'drone' ? 'drone' : 'heli'}`),
+      h('b', {}, `T+${Math.round(best.simS)} s · ${best.source === 'drone' ? 'drone' : best.source === 'citizen' ? 'resident reports' : 'heli'}`),
       h('span', {}, `Model ${pct(best.predictionF1)} → `, h('em', {}, pct(best.fusedF1))),
       h('span', {}, `${best.observed} observed · ${best.collapsesConfirmed} collapses`),
     );

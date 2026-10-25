@@ -1,0 +1,99 @@
+{
+ "batchIndex": 12,
+ "analyses": [
+  {
+   "reportId": "R-0113",
+   "buildingId": "B5684",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "Slight damage · 3-storey industrial building near Embarcadero"
+  },
+  {
+   "reportId": "R-0114",
+   "buildingId": "B3108",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 618-626 Broadway"
+  },
+  {
+   "reportId": "R-0115",
+   "buildingId": "B2360",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Moderate damage, evacuated · Medico-Dental Building, 490 Post St"
+  },
+  {
+   "reportId": "R-0116",
+   "buildingId": "B3344",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Extensive damage, 1 trapped · 945 Grant Ave"
+  },
+  {
+   "reportId": "R-0117",
+   "buildingId": "B2783",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "Extensive damage · 1035 Stockton St (vague location)"
+  },
+  {
+   "reportId": "R-0118",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "Street blocked · Petrarch Pl near Pine St"
+  },
+  {
+   "reportId": "R-0119",
+   "buildingId": "B2339",
+   "damage": "collapsed",
+   "peopleTrapped": 4,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Collapse, 4 trapped · 1300 Powell St"
+  },
+  {
+   "reportId": "R-0120",
+   "buildingId": "B3911",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "Moderate facade damage · Orchard Garden Hotel, 466 Bush St"
+  },
+  {
+   "reportId": "R-0121",
+   "buildingId": "B2724",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "Extensive damage, 2 trapped · 698 Bush St"
+  }
+ ],
+ "summary": "This batch reports a building collapse with 4 trapped at 1300 Powell St, plus extensive damage with trapped individuals at 945 Grant Ave (1 trapped) and 698 Bush St (2 trapped). Additional extensive/moderate damage is noted around Stockton St, Post St, and Bush St, alongside a blocked road at Petrarch Pl and an OK check-in on Broadway.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7772,
+ "hash": "8aeac6da24a91f3c674fb99ff432b4ea",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 3636,
+  "outputTokens": 607
+ },
+ "notes": []
+}

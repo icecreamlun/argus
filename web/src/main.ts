@@ -23,6 +23,7 @@ import { createDroneSession } from './app/droneSession';
 import { createRouter } from './rescue/router';
 import { createRescueLayer } from './rescue/layer';
 import { createCopilotSession, type CopilotMode } from './app/copilotSession';
+import { createReportsSession, type ReportsMode } from './app/reportsSession';
 
 /**
  * Debug / automation surface used by scripts/shot.mjs, scripts/e2e.mjs and the console.
@@ -31,6 +32,8 @@ import { createCopilotSession, type CopilotMode } from './app/copilotSession';
  *   M4: drones + Argon planner follow ?air= (live: real /api/plan + drone capture; mock: heuristic; replay: recorded run)
  *   M5: Copilot chat follows ?air= too (replay → /api/chat replay-only, miss → live; mock → offline heuristic;
  *       live → auto); override with &chat=live|replay|mock. &copilot=1 opens the drawer at boot.
+ *   M6: resident reports follow ?air= too (replay → /api/reports replay-only, miss → live once, then mock; mock →
+ *       offline heuristic; live → auto); override with &reports=live|replay|mock|off.
  */
 declare global {
   interface Window {
@@ -66,6 +69,8 @@ declare global {
       drones?: import('./app/droneSession').DroneSession;
       /** M5 Argus Copilot session (messages, log, ask(), showPlan(), dispatch(), situation()). */
       copilot?: import('./app/copilotSession').CopilotSession;
+      /** M6 resident-reports session (reports, batch log, items(), evaluate(), settled()). */
+      reports?: import('./app/reportsSession').ReportsSession;
     };
   }
 }
@@ -188,6 +193,8 @@ async function boot() {
   const chatParam = params.get('chat') ?? airMode;
   const copilotMode: CopilotMode = chatParam === 'mock' ? 'mock' : chatParam === 'replay' ? 'replay-only' : 'auto';
   mark('rescue');
+  const repParam = params.get('reports');
+  const reportsMode: ReportsMode = repParam === 'off' || repParam === 'live' || repParam === 'mock' || repParam === 'replay' ? repParam : airMode;
 
   // ── Quake playback state ──
   let session: QuakeSession | null = null;
@@ -205,6 +212,8 @@ async function boot() {
   let drones: ReturnType<typeof createDroneSession>;
   // eslint-disable-next-line prefer-const
   let copilot: ReturnType<typeof createCopilotSession>;
+  // eslint-disable-next-line prefer-const
+  let reports: ReturnType<typeof createReportsSession>;
 
   const triggerScenario = (scenario: QuakeScenario) => {
     // Move occupancy AND the USGS origin time to the scene's clock (the event card shows the right time).
@@ -214,6 +223,7 @@ async function boot() {
     window.__argus.result = result;
     const truth = air.begin(result); // people truth + recon baseline + fresh AIR state
     drones.begin(result, truth); // M4: fleet + Argon planner state
+    reports.begin(result, truth); // M6: resident reports (generated from the truth world) + batch plan
     copilot.reset(); // M5: a new quake invalidates the chat + routes
     paused = false;
     alertShown = false;
@@ -242,6 +252,7 @@ async function boot() {
   };
   const reset = () => {
     copilot.reset();
+    reports.reset();
     drones.reset();
     air.reset();
     fx.reset();
@@ -330,6 +341,7 @@ async function boot() {
     },
     { mode: copilotMode },
   );
+  reports = createReportsSession({ ctx, ui, recon, refresh: () => air.refresh() }, { mode: reportsMode });
   ui.setScenarios(model.scenarios);
   ui.setCameraPresets(engine.cameraPresets);
   ui.setCityStats(city);
@@ -352,6 +364,7 @@ async function boot() {
     refreshSelection(false);
     // "Playing" = the sim clock is running (fx.playing turns false after durationS, but the aftermath clock runs on).
     air.tick(simSeconds, !paused);
+    reports.tick(simSeconds, !paused);
     drones.tick(simSeconds, !paused);
   });
 
@@ -379,7 +392,12 @@ async function boot() {
     ui.showBuilding({ record: city.buildings[i], shaking: r?.shaking[i], damage: withDamage ? r!.damage[i] : undefined });
   }
   // The inspector's close button / Esc deselects through the bus: drop the highlight too.
+  // A non-null id from the HUD (M6 report toast / panel row) selects that building.
   events.on('building-selected', ({ id }) => {
+    if (id && id !== selectedId) {
+      select(id);
+      return;
+    }
     if (id === null && selectedId !== null) {
       selectedId = null;
       window.__argus.selected = null;
@@ -429,10 +447,11 @@ async function boot() {
   Object.assign(window.__argus, {
     ctx,
     timings,
-    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air, fleet, drones, router, rescue, copilot },
+    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air, fleet, drones, router, rescue, copilot, reports },
     air,
     drones,
     copilot,
+    reports,
     flyTo: (p: CameraPresetId, d = 0) => engine.flyTo(p, d),
     setCamera: (position: [number, number, number], target: [number, number, number]) => engine.flyTo({ position, target }, 0),
     setTimeOfDay: (h: number) => {

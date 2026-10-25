@@ -1,0 +1,70 @@
+{
+ "batchIndex": 16,
+ "analyses": [
+  {
+   "reportId": "R-0145",
+   "buildingId": "B3249",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 143 Waverly Pl · leaning, partial wall collapse"
+  },
+  {
+   "reportId": "R-0146",
+   "buildingId": "B4659",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 576 Sacramento St · partial back wall collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0147",
+   "buildingId": "B4646",
+   "damage": "collapsed",
+   "peopleTrapped": 5,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 440 Jackson St · total collapse, 5 trapped"
+  },
+  {
+   "reportId": "R-0148",
+   "buildingId": "B5067",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "linked to 301 Sacramento St (vague) · leaning, partial wall collapse"
+  },
+  {
+   "reportId": "R-0149",
+   "buildingId": "B5524",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "OK check-in · 353 Folsom St"
+  },
+  {
+   "reportId": "R-0150",
+   "buildingId": "B4976",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · Saybrook University, 733 Front St"
+  }
+ ],
+ "summary": "This batch reports a total collapse at 440 Jackson St with 5 trapped, and extensive structural damage with partial wall collapses at 143 Waverly Pl, 576 Sacramento St (1 trapped), and near Front and Sacramento. Meanwhile, buildings at 353 Folsom St and 733 Front St report no damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7111,
+ "hash": "5b5e84b9f604dd9d2df83824703e5efe",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2896,
+  "outputTokens": 657
+ },
+ "notes": []
+}

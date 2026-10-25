@@ -1,0 +1,155 @@
+{
+ "batchIndex": 1,
+ "analyses": [
+  {
+   "reportId": "R-0002",
+   "buildingId": "B3852",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 400 Grant Ave · partial collapse, tilting, 1 trapped"
+  },
+  {
+   "reportId": "R-0003",
+   "buildingId": "B4629",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to Anglo Bank Building · total collapse"
+  },
+  {
+   "reportId": "R-0004",
+   "buildingId": "B3561",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 19 Wentworth Pl · leaning badly, 1 trapped"
+  },
+  {
+   "reportId": "R-0005",
+   "buildingId": "B5651",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 50 The Embarcadero · fallen bricks and broken glass"
+  },
+  {
+   "reportId": "R-0006",
+   "buildingId": "B4230",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "linked to 667 Clay St · collapse next door, 1 trapped"
+  },
+  {
+   "reportId": "R-0007",
+   "buildingId": "B2339",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 1300 Powell St · total collapse"
+  },
+  {
+   "reportId": "R-0008",
+   "buildingId": "B5316",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 39 Drumm St · fallen parapet, facade cracks"
+  },
+  {
+   "reportId": "R-0009",
+   "buildingId": "B4690",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "linked to 215 Leidesdorff St · collapse vs jammed door, 1 trapped"
+  },
+  {
+   "reportId": "R-0010",
+   "buildingId": "B3165",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.8,
+   "note": "linked to 790 California St · stairwell cracks, gas smell"
+  },
+  {
+   "reportId": "R-0011",
+   "buildingId": "B4604",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 451 Pacific Ave · fallen bricks and glass"
+  },
+  {
+   "reportId": "R-0012",
+   "buildingId": "B4717",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "linked to 705 Sansome St · collapse across street, 1 trapped"
+  },
+  {
+   "reportId": "R-0013",
+   "buildingId": "B2319",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.85,
+   "note": "linked to 776 Broadway · total collapse and gas leak"
+  },
+  {
+   "reportId": "R-0014",
+   "buildingId": "B3524",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.5,
+   "note": "linked to 854 Grant Ave · collapse across Grant Ave, 1 trapped"
+  },
+  {
+   "reportId": "R-0015",
+   "buildingId": "B3267",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.5,
+   "note": "linked to 1111 Grant Ave · reported collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0016",
+   "buildingId": "B2595",
+   "damage": "collapsed",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 800 Powell St · pancaked collapse, 2 trapped"
+  }
+ ],
+ "summary": "This batch reports nine building collapses and two extensively damaged structures across Chinatown, Financial District, and North Beach, with at least 10 people reported trapped. Gas leaks are reported at 790 California St and 776 Broadway, alongside multiple facade failures.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9698,
+ "hash": "9bd4f6bb4189601ea8073d16d55ccc50",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 5219,
+  "outputTokens": 937
+ },
+ "notes": []
+}

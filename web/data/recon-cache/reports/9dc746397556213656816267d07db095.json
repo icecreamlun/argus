@@ -1,0 +1,106 @@
+{
+ "batchIndex": 13,
+ "analyses": [
+  {
+   "reportId": "R-0122",
+   "buildingId": "B3986",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 473 Broadway · pancaked collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0123",
+   "buildingId": "B4209",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 660 Clay St · partial collapse, tilting, 1 trapped"
+  },
+  {
+   "reportId": "R-0124",
+   "buildingId": "B4565",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 468 Jackson St · partial collapse and leaning"
+  },
+  {
+   "reportId": "R-0125",
+   "buildingId": "B2674",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 720 Powell St · full collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0126",
+   "buildingId": "B4656",
+   "damage": "extensive",
+   "peopleTrapped": 3,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 300 Broadway · partial collapse, tilting, 3 trapped"
+  },
+  {
+   "reportId": "R-0127",
+   "buildingId": "B4860",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 560 Market St · fallen cornice, wall cracks"
+  },
+  {
+   "reportId": "R-0128",
+   "buildingId": "B2682",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 1201 Stockton St · large cracks, fallen facade bricks"
+  },
+  {
+   "reportId": "R-0129",
+   "buildingId": "B2858",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "linked to 925 Stockton St · partial collapse, leaning"
+  },
+  {
+   "reportId": "R-0130",
+   "buildingId": "B4798",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.4,
+   "note": "linked to 350 Jackson St · fallen parapet, facade cracks"
+  },
+  {
+   "reportId": "R-0131",
+   "buildingId": "B4007",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 700 Sacramento St · badly leaning, huge wall cracks"
+  }
+ ],
+ "summary": "This batch identifies two full collapses (473 Broadway and 720 Powell St) and five extensively damaged or partially collapsed structures across Broadway, Clay, Jackson, Stockton, and Sacramento streets. Six people are reported trapped in total (at 473 Broadway, 660 Clay St, 720 Powell St, and 300 Broadway), alongside moderate facade and masonry damage on Market, Stockton, and Jackson streets.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9425,
+ "hash": "9dc746397556213656816267d07db095",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 3917,
+  "outputTokens": 1038
+ },
+ "notes": []
+}

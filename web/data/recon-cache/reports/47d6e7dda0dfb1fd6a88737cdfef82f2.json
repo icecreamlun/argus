@@ -1,0 +1,52 @@
+{
+ "batchIndex": 23,
+ "analyses": [
+  {
+   "reportId": "R-0192",
+   "buildingId": "B4372",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 1030 Montgomery St · tilted, buckled ground floor"
+  },
+  {
+   "reportId": "R-0193",
+   "buildingId": "B2491",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 15 Stone St · partial back wall collapse, evacuated"
+  },
+  {
+   "reportId": "R-0194",
+   "buildingId": "B3303",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "linked to 530 Stockton St · partial back wall collapse, evacuated"
+  },
+  {
+   "reportId": "R-0195",
+   "buildingId": "B4229",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "Hilton SF Financial District · tilted, buckled floor, 2 trapped"
+  }
+ ],
+ "summary": "This batch reports extensive structural damage across four locations: tilted buildings with buckled ground floors at 1030 Montgomery St and the Hilton Financial District (where 2 people are reported trapped), plus partial rear wall collapses at 15 Stone St and near 530 Stockton St with occupants evacuated.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 4234,
+ "hash": "47d6e7dda0dfb1fd6a88737cdfef82f2",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2422,
+  "outputTokens": 311
+ },
+ "notes": []
+}

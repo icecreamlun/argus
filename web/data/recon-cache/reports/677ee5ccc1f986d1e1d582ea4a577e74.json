@@ -1,0 +1,81 @@
+{
+ "batchIndex": 8,
+ "analyses": [
+  {
+   "reportId": "R-0083",
+   "buildingId": "B3432",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.5,
+   "note": "linked to 1050 Grant Ave · leaning, partial wall collapse"
+  },
+  {
+   "reportId": "R-0084",
+   "buildingId": "B4470",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.7,
+   "note": "linked to One Montgomery Tower · upper floors caved in"
+  },
+  {
+   "reportId": "R-0085",
+   "buildingId": "B2680",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.3,
+   "note": "linked to 105 Miles Ct · conflicting collapse claim, 1 trapped"
+  },
+  {
+   "reportId": "R-0086",
+   "buildingId": "B3032",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 759 Jackson St · full collapse"
+  },
+  {
+   "reportId": "R-0087",
+   "buildingId": "B4373",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 735 Montgomery St · partial wall collapse, 1 inside"
+  },
+  {
+   "reportId": "R-0088",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "street blocked · Bush St near Battery St"
+  },
+  {
+   "reportId": "R-0089",
+   "buildingId": "B4439",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to Galleria Park Hotel · parapet fell, facade cracks"
+  }
+ ],
+ "summary": "This batch reports severe collapses at 759 Jackson St and One Montgomery Tower, plus extensive structural damage at 735 Montgomery St (1 person unaccounted for inside) and on Grant Ave near Pacific Ave. A questionable report claims a collapse with 1 person trapped on Miles Ct, while Galleria Park Hotel suffered moderate facade damage and debris is blocking Bush St near Battery St.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6115,
+ "hash": "677ee5ccc1f986d1e1d582ea4a577e74",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 3193,
+  "outputTokens": 481
+ },
+ "notes": []
+}

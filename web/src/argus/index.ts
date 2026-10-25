@@ -9,12 +9,19 @@
  *   - blocked / partially blocked streets as short red / amber dashes on the carriageway
  * Markers live on render layer RECON_LAYER (enabled on the main camera only) and the pins are DOM, so the
  * helicopter's off-screen camera never films them; suspend() also strips the building tints around a capture.
+ *
+ * M6: applyReports() adds analysed resident reports as a third, low-weight evidence source (≤3 per building,
+ * confidence = credibility × 0.6) to the fusion, the spatial correction and the metrics only. They never enter
+ * `effective` (tints, pins, observations(), compare(), buildingsObserved), so the drone planner and the Copilot
+ * situation are unchanged; recon.citizenEvidence() exposes them for the UI.
  */
 import * as THREE from 'three';
 import type {
   AppContext,
   BuildingComparison,
   BuildingsHandle,
+  CitizenEvidence,
+  CitizenReport,
   DamageState,
   LandmarksHandle,
   ObservedBuilding,
@@ -29,6 +36,7 @@ import type {
   ReconObservation,
   ReconStats,
   ReconstructionResult,
+  ReportsResponse,
   RoadRecord,
   ScanChunk,
   StructureType,
@@ -87,6 +95,33 @@ const entryKey = (res: ReconstructionResult, chunk: ScanChunk) =>
   chunk.source === 'drone' ? `drone:${chunk.missionId ?? chunk.droneId ?? ''}:${res.chunkIndex}` : `heli:${res.chunkIndex}`;
 /** Fusion: each source's call counts as independent evidence weighted by Argon's own confidence (no source overrides another). */
 const conf01 = (c: number) => Math.min(0.95, Math.max(0.3, c));
+/**
+ * M6: resident reports are a third, LOWER-weight source: confidence c = Argon's credibility × 0.6 (residents see one
+ * side of one building and exaggerate; capped at 0.6). Likelihood = mixture "with probability c the resident describes
+ * the building right, otherwise the report says nothing": L(t) = c·[t = call] + (1 − c)/4 — well-behaved down to c → 0
+ * (a barely credible report is ~uninformative). At most CITIZEN_MAX_PER_BUILDING (most credible) per building.
+ * In the spatial correction they count at c × CITIZEN_KERNEL: people mostly report DAMAGED buildings, so their reports
+ * are a biased sample of the shaking field (measured on synthetic reports: full weight pulls neighbours too high).
+ */
+const CITIZEN_WEIGHT = 0.6;
+const CITIZEN_MAX_PER_BUILDING = 3;
+const CITIZEN_KERNEL = 0.3;
+const citConf = (c: number) => Math.min(CITIZEN_WEIGHT, Math.max(0, c));
+/** One piece of fused evidence for a building (video call or resident report). */
+interface Evidence {
+  damage: ObservedDamage;
+  confidence: number;
+  source: 'heli' | 'drone' | 'citizen';
+}
+interface ReportEntry {
+  key: string;
+  res: ReportsResponse;
+  reports: CitizenReport[];
+  revealS: number;
+}
+const evConf = (ev: Evidence) => (ev.source === 'citizen' ? citConf(ev.confidence) : conf01(ev.confidence));
+/** Debug knobs (window.__argus.handles.recon.debug.tune) for tuning the resident-report fusion. */
+const TUNE = { citModel: 'mix' as 'adj' | 'mix', citKernel: CITIZEN_KERNEL };
 interface Predicted {
   mostLikely: DamageState;
   pCollapse: number;
@@ -149,6 +184,8 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
   let people: PeopleTruth | null = null;
   let predCache: (Predicted | undefined)[] = [];
   const entries: Entry[] = [];
+  /** M6: analysed resident-report batches (revealed at their revealS, like video entries). */
+  const reportEntries: ReportEntry[] = [];
   const sent = new Set<number>();
   let simNow = Infinity;
   let visible = true;
@@ -157,9 +194,31 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
 
   // Effective (revealed) state, rebuilt when the revealed set changes.
   let revealKey = '';
+  /**
+   * Integration (M6): apply()/applyReports() only mark the state dirty; the rebuild runs once on the next reader
+   * (update / stats / observations / compare / …) or in a microtask — a burst of applies (seek re-apply, 20 report
+   * batches at a deep link) costs ONE rebuild instead of one per result (each recomputes the whole history).
+   */
+  let dirty = false;
+  const ensure = () => {
+    if (dirty) rebuild();
+  };
+  const markDirty = () => {
+    if (dirty) return;
+    dirty = true;
+    queueMicrotask(ensure);
+  };
   let effective = new Map<string, Observed>();
   /** Per building: the best call from each source (heli, drone) — all of it is fused, none overrides. */
   let evidence = new Map<string, Observed[]>();
+  /**
+   * M6: per building, the (≤3 most credible) revealed resident reports. Kept OUT of `effective` (tints, pins,
+   * observations(), compare(), buildingsObserved) so the drone planner and the Copilot never see them; only the
+   * fusion (xbdFused), the spatial correction and the metrics use them.
+   */
+  let citizenEv = new Map<string, CitizenEvidence[]>();
+  let citizenCount = 0;
+  let revealedReports: ReportEntry[] = [];
   let effRoads: (ObservedRoad & { chunkIndex: number })[] = [];
   let effCrowds: (ObservedCrowd & { chunkIndex: number })[] = [];
   let covered = new Set<string>();
@@ -195,20 +254,82 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
   }
 
   // ── Rebuild effective state ──
+  /** M6: building id a report is fused on (anchor of a part, like the video observations). */
+  function citizenTarget(id: string | null): string | null {
+    if (!id) return null;
+    const i = idx.get(id);
+    if (i === undefined) return null;
+    const parent = city.buildings[i].parentId;
+    return parent && idx.has(parent) ? parent : id;
+  }
+
+  function addReports(r: ReportEntry) {
+    const byId = new Map(r.reports.map((x) => [x.id, x]));
+    for (const a of r.res.analyses) {
+      const bid = citizenTarget(a.buildingId);
+      if (!bid || !a.damage || !OBSERVED_DAMAGE.includes(a.damage)) continue;
+      citizenCount++;
+      const cred = Math.min(1, Math.max(0, Number(a.credibility) || 0));
+      const rep = byId.get(a.reportId);
+      const i = idx.get(bid)!;
+      const item: CitizenEvidence = {
+        source: 'citizen',
+        damage: a.damage,
+        confidence: Math.min(CITIZEN_WEIGHT, cred * CITIZEN_WEIGHT),
+        reportId: a.reportId,
+        buildingId: bid,
+        credibility: cred,
+        peopleTrapped: a.peopleTrapped ?? 0,
+        hazards: a.hazards ?? [],
+        revealS: r.revealS,
+        x: rep?.x ?? centre[i][0],
+        z: rep?.z ?? centre[i][1],
+      };
+      const list = (citizenEv.get(bid) ?? []).filter((x) => x.reportId !== a.reportId);
+      list.push(item);
+      list.sort((x, y) => y.confidence - x.confidence);
+      if (list.length > CITIZEN_MAX_PER_BUILDING) list.length = CITIZEN_MAX_PER_BUILDING;
+      citizenEv.set(bid, list);
+    }
+  }
+
+  /** All evidence fused for a building: best heli + best drone call + ≤3 resident reports. */
+  function allEvidence(id: string, fallback?: Evidence): Evidence[] {
+    const v: Evidence[] = evidence.get(id) ?? (fallback ? [fallback] : []);
+    const c = citizenEv.get(id);
+    return c ? [...v, ...c] : v;
+  }
+
   function rebuild(force = false) {
     const rev = entries.filter((e) => e.revealS <= simNow + 1e-6);
-    const key = rev.map((e) => e.key).join(',');
-    if (!force && key === revealKey) return;
+    const revR = reportEntries.filter((e) => e.revealS <= simNow + 1e-6);
+    const key = `${rev.map((e) => e.key).join(',')}|${revR.map((e) => e.key).join(',')}`;
+    if (!force && !dirty && key === revealKey) return;
+    dirty = false;
     revealKey = key;
     revealed = rev;
+    revealedReports = revR;
     statsCache = null;
     effective = new Map();
     evidence = new Map();
+    citizenEv = new Map();
+    citizenCount = 0;
     effRoads = [];
     effCrowds = [];
     covered = new Set();
     history = [];
+    // Video results and report batches in reveal order (ties: video first), so every history point is the state
+    // at that moment — recomputed from scratch ⇒ consistent on seek.
+    let ri = 0;
+    const flushReports = (upto: number) => {
+      while (ri < revR.length && revR[ri].revealS < upto) {
+        const r = revR[ri++];
+        addReports(r);
+        if (result) history.push({ simS: r.revealS, source: 'citizen', ...metricsOf(effective) });
+      }
+    };
     for (const e of rev) {
+      flushReports(e.revealS);
       for (const id of e.chunk.buildingIds) covered.add(id);
       for (const b of e.res.buildings) {
         if (!idx.has(b.id)) continue;
@@ -250,6 +371,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       // Accuracy timeline: one point per revealed result (recomputed from scratch ⇒ consistent on seek).
       if (result) history.push({ simS: e.revealS, source: e.source, ...metricsOf(effective) });
     }
+    flushReports(Infinity);
     applyVisuals();
   }
 
@@ -414,12 +536,21 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
    */
   function xbdFused(i: number, o: ObservedBuilding & { source?: 'heli' | 'drone' }): number {
     const q = predicted(i).probs;
-    const post = [q[0], q[1], q[2] + q[3], q[4]].map((v) => Math.max(v, 1e-4));
-    const calls = evidence.get(o.id) ?? [o as Observed];
+    return fuse4([q[0], q[1], q[2] + q[3], q[4]], allEvidence(o.id, o as Observed));
+  }
+
+  /** prior (xBD 4-class) × Π likelihood of each call given its (source-dependent) confidence → argmax class. */
+  function fuse4(prior: number[], calls: readonly Evidence[]): number {
+    const post = prior.map((v) => Math.max(v, 1e-4));
     for (const ev of calls) {
       const ox = XBD[obsState(ev.damage)];
-      const c = conf01(ev.confidence);
-      for (let t = 0; t < 4; t++) post[t] *= t === ox ? c : ((1 - c) / 3) * (Math.abs(t - ox) === 1 ? 1.5 : 0.75);
+      const c = evConf(ev);
+      if (ev.source === 'citizen' && TUNE.citModel === 'mix') {
+        for (let t = 0; t < 4; t++) post[t] *= (t === ox ? c : 0) + (1 - c) / 4;
+        continue;
+      }
+      const ca = ev.source === 'citizen' ? Math.max(1 / 3, c) : c; // 'adj' (video) form needs c > 1/3 to favour the call
+      for (let t = 0; t < 4; t++) post[t] *= t === ox ? ca : ((1 - ca) / 3) * (Math.abs(t - ox) === 1 ? 1.5 : 0.75);
     }
     let best = 0;
     for (let t = 1; t < 4; t++) if (post[t] > post[best]) best = t;
@@ -452,6 +583,8 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     if (!coreIdx) coreIdx = ctx.city.buildings.flatMap((b, i) => (b.context ? [] : [i]));
     return coreIdx;
   }
+  /** Debug: the last city-wide estimate per core building (index into coreSet()). */
+  let lastCityEst: Int8Array | null = null;
   /** Building centroids (for the spatial correction kernel). */
   let centroids: { x: Float64Array; z: Float64Array } | null = null;
   function centroid(): { x: Float64Array; z: Float64Array } {
@@ -505,39 +638,59 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     }
     const { x: cx, z: cz } = centroid();
     // Observation points: implied log demand scale + weight.
-    const pts: { x: number; z: number; lk: number; w: number }[] = [];
+    const pts: { x: number; z: number; lk: number; w: number; i: number }[] = [];
     const obsIdx = new Map<number, Observed>();
-    for (const [id, o] of eff) {
-      const i = idx.get(id);
-      if (i === undefined) continue;
-      obsIdx.set(i, o);
+    const addPts = (i: number, evs: readonly Evidence[]) => {
       const ek = result!.damage[i].predictedExceedanceK;
-      if (!ek) continue;
-      for (const ev of evidence.get(id) ?? [o]) {
+      if (!ek) return;
+      for (const ev of evs) {
         const ox = XBD[obsState(ev.damage)];
-        const c = conf01(ev.confidence);
+        const c = evConf(ev);
         let sum = 0;
         let lk = 0;
         const like = LN_K.map((_, j) => probs4(ek.slice(j * 4, j * 4 + 4))[ox] * c + (1 - c) / 4);
         for (const v of like) sum += v;
         LN_K.forEach((k, j) => (lk += (k * like[j]) / sum));
-        pts.push({ x: cx[i], z: cz[i], lk, w: c });
+        // Resident reports enter the kernel with their own (lower) weight.
+        pts.push({ x: cx[i], z: cz[i], lk, w: ev.source === 'citizen' ? ev.confidence * TUNE.citKernel : c, i });
       }
+    };
+    for (const [id, o] of eff) {
+      const i = idx.get(id);
+      if (i === undefined) continue;
+      obsIdx.set(i, o);
+      addPts(i, allEvidence(id, o));
+    }
+    // M6: buildings informed only by residents (no video) — kernel points + their own fused estimate below.
+    const citOnly = new Map<number, CitizenEvidence[]>();
+    for (const [id, list] of citizenEv) {
+      if (eff.has(id)) continue;
+      const i = idx.get(id);
+      if (i === undefined) continue;
+      citOnly.set(i, list);
+      addPts(i, list);
     }
     const cm = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
     let ok = 0;
     const inv2s2 = 1 / (2 * CORR_SIGMA_M * CORR_SIGMA_M);
+    const estOut = new Int8Array(core.length);
+    let ci = 0;
     for (const i of core) {
       const tx = XBD[truthState(result!, i)];
       let est: number;
       const o = obsIdx.get(i);
       const ek = result!.damage[i].predictedExceedanceK;
+      const cit = citOnly.get(i);
       if (o) est = xbdFused(i, o);
-      else if (!ek || !pts.length) est = xbdPredicted(i);
-      else {
+      else if (!ek || !pts.length) {
+        const q = predicted(i).probs;
+        est = cit ? fuse4([q[0], q[1], q[2] + q[3], q[4]], cit) : xbdPredicted(i);
+      } else {
         let num = 0;
         let den = CORR_PRIOR_W;
         for (const q of pts) {
+          // A resident-only building's own reports are fused below (likelihood), not counted twice in its prior.
+          if (cit && q.i === i) continue;
           const dx = q.x - cx[i];
           const dz = q.z - cz[i];
           const d2 = dx * dx + dz * dz;
@@ -551,11 +704,14 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
         while (j < LN_K.length - 2 && lk > LN_K[j + 1]) j++;
         const a = Math.min(1, Math.max(0, (lk - LN_K[j]) / (LN_K[j + 1] - LN_K[j])));
         const e = [0, 1, 2, 3].map((m) => ek[j * 4 + m] * (1 - a) + ek[(j + 1) * 4 + m] * a);
-        est = argmax(probs4(e));
+        // Resident-only: spatially corrected prior × the residents' likelihood.
+        est = cit ? fuse4(probs4(e), cit) : argmax(probs4(e));
       }
       cm[tx][est]++;
+      estOut[ci++] = est;
       if (est === tx) ok++;
     }
+    lastCityEst = estOut;
     return { predF1: cityPredCache.f1, predXbd: cityPredCache.xbd, fusedF1: classMetrics(cm).f1, fusedXbd: core.length ? ok / core.length : 0, n: core.length };
   }
 
@@ -622,6 +778,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
         return { cityPredictionF1: c.predF1, cityFusedF1: c.fusedF1, cityPredictionXbd: c.predXbd, cityFusedXbd: c.fusedXbd, cityBuildings: c.n };
       })() : {}),
       droneObserved: [...effective.values()].filter((o) => o.source === 'drone').length,
+      citizenReports: citizenCount,
     };
     const lastRev = revealed[revealed.length - 1];
     s.lastSummary = lastRev?.res.summary ?? '';
@@ -697,9 +854,17 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     get results() {
       return entries.map((e) => e.res);
     },
-    debug: { entries, get effective() { return effective; }, pins },
+    debug: { entries, reportEntries, get effective() { return effective; }, get citizen() { return citizenEv; }, get revealedReports() { return revealedReports; }, tune: TUNE, rebuild: () => rebuild(true), cityEst() { computeStats(); return { core: coreSet(), est: lastCityEst }; }, pins },
     begin(r, p) {
+      // Same quake re-begun (airSession re-applies video on a backward seek / replay load): keep the report batches.
+      const keep = r === result ? reportEntries.slice() : [];
+      const keepSim = simNow;
       handle.reset();
+      if (keep.length) {
+        reportEntries.push(...keep);
+        simNow = keepSim;
+        markDirty();
+      }
       result = r;
       people = p;
       predCache = new Array(r.damage.length);
@@ -714,7 +879,23 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       // Reveal order (heli chunk order == time order; drone chunks interleave by their last frame's simS).
       entries.sort((a, b) => a.revealS - b.revealS || (a.source === b.source ? a.res.chunkIndex - b.res.chunkIndex : a.source === 'heli' ? -1 : 1));
       sent.add(res.chunkIndex);
-      rebuild(true);
+      markDirty();
+    },
+    applyReports(res, reports, revealS) {
+      const key = `cit:${res.batchIndex}`;
+      const entry: ReportEntry = { key, res, reports, revealS: Number.isFinite(revealS) ? revealS : 0 };
+      const at = reportEntries.findIndex((e) => e.key === key);
+      const prev = at >= 0 ? reportEntries[at] : null;
+      if (at >= 0) reportEntries[at] = entry;
+      else reportEntries.push(entry);
+      reportEntries.sort((a, b) => a.revealS - b.revealS || a.res.batchIndex - b.res.batchIndex);
+      // Lazy: only a batch that is (or replaces one that was) revealed changes anything now; the rebuild happens once
+      // on the next update()/stats()/citizenEvidence() (applying 20 batches at a deep link costs one rebuild).
+      if (entry.revealS <= simNow + 1e-6 || (prev && prev.revealS <= simNow + 1e-6)) markDirty();
+    },
+    citizenEvidence() {
+      ensure();
+      return citizenEv;
     },
     setVisible(on) {
       if (visible === on) return;
@@ -722,20 +903,25 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       applyVisuals();
     },
     stats() {
+      ensure();
       if (!statsCache) statsCache = computeStats();
       return statsCache;
     },
     observations() {
+      ensure();
       return effective;
     },
     observedRoads() {
+      ensure();
       return effRoads;
     },
     observedCrowds() {
+      ensure();
       return effCrowds;
     },
     compare(id) {
       if (!result) return null;
+      ensure();
       let oid = id;
       let o = effective.get(id);
       if (!o) {
@@ -759,12 +945,17 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     },
     reset() {
       entries.length = 0;
+      reportEntries.length = 0;
+      revealedReports = [];
+      citizenEv = new Map();
+      citizenCount = 0;
       sent.clear();
       result = null;
       people = null;
       predCache = [];
       simNow = Infinity;
       revealKey = '';
+      dirty = false;
       revealed = [];
       effective = new Map();
       effRoads = [];

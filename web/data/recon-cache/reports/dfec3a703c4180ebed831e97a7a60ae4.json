@@ -1,0 +1,25 @@
+{
+ "batchIndex": 0,
+ "analyses": [
+  {
+   "reportId": "R-0001",
+   "buildingId": "B3212",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to Grand Hyatt San Francisco · fallen parapet, facade cracks"
+  }
+ ],
+ "summary": "This batch reports moderate facade and parapet damage at the Grand Hyatt San Francisco (345 Stockton St) with no trapped individuals or active utilities hazards stated.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 3985,
+ "hash": "dfec3a703c4180ebed831e97a7a60ae4",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 1645,
+  "outputTokens": 107
+ },
+ "notes": []
+}

@@ -1,0 +1,61 @@
+{
+ "batchIndex": 5,
+ "analyses": [
+  {
+   "reportId": "R-0058",
+   "buildingId": "B4649",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 434 Pacific Ave · full collapse"
+  },
+  {
+   "reportId": "R-0059",
+   "buildingId": "B4898",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 351 California St · extensive damage, 2 trapped"
+  },
+  {
+   "reportId": "R-0060",
+   "buildingId": "B3810",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 746 Sacramento St · extensive damage, 1 trapped"
+  },
+  {
+   "reportId": "R-0061",
+   "buildingId": "B2468",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 737 Bush St · moderate facade damage"
+  },
+  {
+   "reportId": "R-0062",
+   "buildingId": "B3401",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 911 Grant Ave · leaning, partial wall collapse"
+  }
+ ],
+ "summary": "This batch reports a full collapse at 434 Pacific Ave, extensive structural damage at 351 California St (2 trapped), 746 Sacramento St (1 trapped), and 911 Grant Ave, plus moderate facade damage at 737 Bush St.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6148,
+ "hash": "06341f2937afeeffcf9a879813fd692d",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2669,
+  "outputTokens": 360
+ },
+ "notes": []
+}

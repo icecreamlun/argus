@@ -1,0 +1,79 @@
+{
+ "batchIndex": 21,
+ "analyses": [
+  {
+   "reportId": "R-0181",
+   "buildingId": "B4910",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 52 2nd St"
+  },
+  {
+   "reportId": "R-0182",
+   "buildingId": "B4234",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Slight damage (hairline cracks) · 1047 Montgomery St"
+  },
+  {
+   "reportId": "R-0183",
+   "buildingId": "B2854",
+   "damage": "collapsed",
+   "peopleTrapped": 7,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Linked to 840 California St · collapsed, 7 trapped"
+  },
+  {
+   "reportId": "R-0184",
+   "buildingId": "B2372",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "Likely collapse · 845 Pine St (reported from opposite)"
+  },
+  {
+   "reportId": "R-0185",
+   "buildingId": "B4275",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Moderate damage (cracks, fallen bricks) · 117 Post St"
+  },
+  {
+   "reportId": "R-0186",
+   "buildingId": "B4172",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Linked to 646 Washington St · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0187",
+   "buildingId": "B2607",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "Vague report of collapse · near 850 Powell St"
+  }
+ ],
+ "summary": "This batch reports two high-confidence collapses with trapped occupants at 840 California St (7 trapped) and 646 Washington St (1 trapped), plus two unverified collapses near Pine St and Powell/Sacramento. Moderate facade damage is noted at 117 Post St, while 52 2nd St and 1047 Montgomery St held up well.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7421,
+ "hash": "6406ae3ae1a3de007091a74a5c36e349",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 3172,
+  "outputTokens": 500
+ },
+ "notes": []
+}

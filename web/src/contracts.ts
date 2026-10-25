@@ -580,6 +580,10 @@ export interface BuildingInfo {
 }
 
 export interface UiHandle {
+  /** M6: pop a resident-report toast (analysis null = just received). */
+  showReport?(item: ReportItem): void;
+  /** M6: community reports panel (list + counters). */
+  setReports?(items: ReportItem[], stats: { received: number; analysed: number; buildings: number; mode: ReportsResponse['mode'] | null }): void;
   /** M5: Copilot chat drawer. */
   copilotSetMessages?(messages: ChatMessage[], situation: CopilotSituation | null): void;
   copilotSetThinking?(thinking: boolean): void;
@@ -799,6 +803,10 @@ export interface ReconstructionResult {
 
 /** Recon layer: applies results to the city, compares with prediction & truth (src/argus). */
 export interface ReconHandle {
+  /** M6: fuse analysed resident reports as low-weight evidence (revealed at revealS). Planner/Copilot ignore them. */
+  applyReports?(res: ReportsResponse, reports: CitizenReport[], revealS: number): void;
+  /** M6 (recon): revealed resident reports fused per building id (≤3 most credible each). NOT in observations(). */
+  citizenEvidence?(): ReadonlyMap<string, readonly CitizenEvidence[]>;
   object: THREE.Object3D;
   /** Register the quake result + truth people for comparison. */
   begin(result: QuakeResult, people: PeopleTruth): void;
@@ -902,6 +910,8 @@ export interface ReconStats {
   predictionBal?: number;
   reconBal?: number;
   fusedBal?: number;
+  /** M6: resident reports fused so far (analysed, linked to a building). */
+  citizenReports?: number;
   /** M4: accuracy timeline, one point per applied result (audience only — never sent to Argon). */
   history?: ReconHistoryPoint[];
   /** M4: buildings observed by drones / confirmed collapses so far. */
@@ -1045,7 +1055,7 @@ export interface DroneFleetHandle {
 /** One point of the live accuracy timeline (for the audience; never sent to Argon). */
 export interface ReconHistoryPoint {
   simS: number;
-  source: 'heli' | 'drone';
+  source: 'heli' | 'drone' | 'citizen';
   observed: number;
   predictionF1: number;
   reconF1: number;
@@ -1239,4 +1249,96 @@ export interface RescueLayerHandle {
   readonly dispatched: boolean;
   setHighlight(incidentId: string | null): void;
   clear(): void;
+}
+
+// ═════════════════════════════ M6: Resident reports (community app) — a side channel that sharpens the model ═════════════════════════════
+//
+// Simulated residents post short reports from a community app (SF311-style): text + GPS. They are generated from
+// the truth world with realistic noise (wrong building, exaggeration, false alarms, "my building is fine"), like
+// the helicopter footage is rendered from it. Batches go to gemini-4-argon (/api/reports), which links each report
+// to a building, reads damage / trapped / hazards and rates credibility. The recon layer fuses them as a THIRD,
+// lower-weight evidence source (and in the spatial correction). Drone planning and the Copilot do NOT use them.
+
+export type ReportCategory = 'damage' | 'trapped' | 'fire' | 'gas' | 'road' | 'ok';
+
+export interface CitizenReport {
+  id: string; // "R-0042"
+  simS: number; // when it is posted
+  lat: number;
+  lon: number;
+  x: number;
+  z: number;
+  /** GPS accuracy (m) — the phone fix wanders. */
+  accuracyM: number;
+  text: string;
+  lang: 'en' | 'zh' | 'es';
+  category: ReportCategory;
+  /** Display-only reporter handle, e.g. "Resident · Chinatown". */
+  reporter: string;
+  /** HIDDEN (evaluation only, never sent to Argon): the building the reporter really means and how. */
+  truthRef?: { buildingId: string | null; kind: 'self' | 'neighbor' | 'false_alarm' | 'street' };
+}
+
+export interface ReportAnalysis {
+  reportId: string;
+  /** Building Argon linked the report to (null if it could not / road / not a building). */
+  buildingId: string | null;
+  damage: ObservedDamage | null;
+  peopleTrapped: number;
+  hazards: string[]; // "fire", "gas", "blocked road"…
+  /** 0..1 — Argon's credibility of the report (specificity, consistency, duplicates). */
+  credibility: number;
+  duplicateOf?: string;
+  note?: string; // short Argon note shown on the toast ("linked to B3291 · consistent with AIR 1")
+}
+
+/** POST /api/reports request body. */
+export interface ReportsRequest {
+  batchIndex: number;
+  scenarioId: string;
+  localHour: number;
+  reports: {
+    id: string;
+    simS: number;
+    text: string;
+    lang: CitizenReport['lang'];
+    x: number;
+    z: number;
+    accuracyM: number;
+    /** Nearest buildings to the GPS fix (identity only, no damage info). */
+    candidates: { id: string; label: string; distanceM: number; use: string; levels: number }[];
+  }[];
+  mode?: 'auto' | 'replay-only';
+}
+
+export interface ReportsResponse {
+  batchIndex: number;
+  analyses: ReportAnalysis[];
+  summary: string;
+  model: string;
+  mode: 'gemini' | 'replay' | 'mock';
+  latencyMs: number;
+  error?: string;
+}
+
+export interface ReportItem {
+  report: CitizenReport;
+  analysis: ReportAnalysis | null; // null = waiting for Argon
+}
+
+/** M6 (recon): one resident report fused on a building (ReconHandle.citizenEvidence). confidence = credibility × 0.6. */
+export interface CitizenEvidence {
+  source: 'citizen';
+  reportId: string;
+  /** Building the report is fused on (anchor of a part). */
+  buildingId: string;
+  damage: ObservedDamage;
+  confidence: number;
+  credibility: number;
+  peopleTrapped: number;
+  hazards: string[];
+  revealS: number;
+  /** Report GPS fix (falls back to the building centroid). */
+  x: number;
+  z: number;
 }

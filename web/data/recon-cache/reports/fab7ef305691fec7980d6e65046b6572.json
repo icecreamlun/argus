@@ -1,0 +1,143 @@
+{
+ "batchIndex": 10,
+ "analyses": [
+  {
+   "reportId": "R-0096",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.75,
+   "note": "street blocked by debris · Leidesdorff St near Sacramento St"
+  },
+  {
+   "reportId": "R-0097",
+   "buildingId": "B5384",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 4 The Embarcadero · parapet fell, big facade cracks"
+  },
+  {
+   "reportId": "R-0098",
+   "buildingId": "B5615",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to The Infinity II, 338 Spear St · slight damage, tiles"
+  },
+  {
+   "reportId": "R-0099",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.75,
+   "note": "street blocked · Grant Ave near Harlan Pl"
+  },
+  {
+   "reportId": "R-0100",
+   "buildingId": "B3053",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 638 Broadway · leaning badly, huge wall cracks"
+  },
+  {
+   "reportId": "R-0101",
+   "buildingId": "B3011",
+   "damage": "collapsed",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.9,
+   "note": "linked to 445 Sutter St · upper floors caved in, 2 trapped"
+  },
+  {
+   "reportId": "R-0102",
+   "buildingId": "B4737",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.45,
+   "note": "linked to Palace Hotel, 2 New Montgomery St · minor cracks"
+  },
+  {
+   "reportId": "R-0103",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.75,
+   "note": "street blocked by debris · Gibb St near Columbus Ave"
+  },
+  {
+   "reportId": "R-0104",
+   "buildingId": "B4331",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.85,
+   "note": "linked to 33 Columbus Ave · gas leak and wall cracks"
+  },
+  {
+   "reportId": "R-0105",
+   "buildingId": "B4406",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "linked to 52 Belden St · parapet fell, big facade cracks"
+  },
+  {
+   "reportId": "R-0106",
+   "buildingId": "B2885",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.85,
+   "note": "linked to 27 Dashiell Hammett St · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0107",
+   "buildingId": "B2858",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 925 Stockton St · partial collapse, tilting, 2 trapped"
+  },
+  {
+   "reportId": "R-0108",
+   "buildingId": "B3719",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to Great Star Theater, 636 Jackson St · tilted, buckled"
+  }
+ ],
+ "summary": "This batch reports two full building collapses (445 Sutter St and 27 Dashiell Hammett St) and three buildings with extensive structural damage (925 Stockton St, Great Star Theater at 636 Jackson St, and 638 Broadway), with a total of 5 people reported trapped across three sites. Additionally, there is a gas leak at 33 Columbus Ave and blocked roads on Leidesdorff St, Grant Ave, Gibb St, and Dashiell Hammett St.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8392,
+ "hash": "fab7ef305691fec7980d6e65046b6572",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 4749,
+  "outputTokens": 877
+ },
+ "notes": []
+}

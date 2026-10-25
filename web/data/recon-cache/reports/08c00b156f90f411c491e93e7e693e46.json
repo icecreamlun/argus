@@ -1,0 +1,248 @@
+{
+ "batchIndex": 0,
+ "analyses": [
+  {
+   "reportId": "R-0001",
+   "buildingId": "B3212",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Grand Hyatt San Francisco · parapet fell, facade cracks"
+  },
+  {
+   "reportId": "R-0002",
+   "buildingId": "B3852",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "400 Grant Ave · partial collapse, tilting, 1 trapped"
+  },
+  {
+   "reportId": "R-0003",
+   "buildingId": "B4629",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Anglo Bank Building, 500 Montgomery St · collapsed"
+  },
+  {
+   "reportId": "R-0004",
+   "buildingId": "B3561",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "19 Wentworth Pl · leaning badly, 1 trapped"
+  },
+  {
+   "reportId": "R-0005",
+   "buildingId": "B5651",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "50 The Embarcadero · bricks fell from facade, broken glass"
+  },
+  {
+   "reportId": "R-0006",
+   "buildingId": "B4230",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "667 Clay St · next door collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0007",
+   "buildingId": "B2339",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "1300 Powell St · total collapse"
+  },
+  {
+   "reportId": "R-0008",
+   "buildingId": "B5316",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "39 Drumm St · parapet fell, facade cracks"
+  },
+  {
+   "reportId": "R-0009",
+   "buildingId": "B4690",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "215 Leidesdorff St · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0010",
+   "buildingId": "B3165",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.85,
+   "note": "790 California St · stairwell cracks, gas smell"
+  },
+  {
+   "reportId": "R-0011",
+   "buildingId": "B4604",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "451 Pacific Ave · bricks fell from facade, broken glass"
+  },
+  {
+   "reportId": "R-0012",
+   "buildingId": "B4717",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "705 Sansome St · collapse across street, 1 trapped"
+  },
+  {
+   "reportId": "R-0013",
+   "buildingId": "B2319",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.85,
+   "note": "776 Broadway · total collapse, gas leak"
+  },
+  {
+   "reportId": "R-0014",
+   "buildingId": "B3524",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.55,
+   "note": "854 Grant Ave · collapse across Grant Ave, 1 trapped"
+  },
+  {
+   "reportId": "R-0015",
+   "buildingId": "B3267",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "1111 Grant Ave · building collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0016",
+   "buildingId": "B2595",
+   "damage": "collapsed",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "800 Powell St · pancaked collapse, 2 trapped"
+  },
+  {
+   "reportId": "R-0017",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "Hooker Alley by Mason St · road blocked by fallen facade"
+  },
+  {
+   "reportId": "R-0018",
+   "buildingId": "B4657",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "Station J, 565 Commercial St · slight damage, plaster cracks"
+  },
+  {
+   "reportId": "R-0019",
+   "buildingId": "B3344",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "945 Grant Ave · leaning badly, 2 trapped"
+  },
+  {
+   "reportId": "R-0020",
+   "buildingId": "B3137",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "738 Stockton St · tilting, partial wall collapse"
+  },
+  {
+   "reportId": "R-0021",
+   "buildingId": "B4981",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "201 Pine St · partial collapse on Pine St, leaning"
+  },
+  {
+   "reportId": "R-0022",
+   "buildingId": "B3283",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.35,
+   "duplicateOf": "R-0015",
+   "note": "near Pacific and Grant · pancaked collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0023",
+   "buildingId": "B3570",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "20 Romolo St · total collapse"
+  },
+  {
+   "reportId": "R-0024",
+   "buildingId": "B3134",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "858 Washington St · partial collapse on Ross Alley, leaning"
+  },
+  {
+   "reportId": "R-0025",
+   "buildingId": "B3669",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "647 Jackson St · cornice fell, facade cracks"
+  }
+ ],
+ "summary": "This batch indicates severe damage across Chinatown, North Beach, and the Financial District, including 10 building collapses and 6 partial collapses/leaning structures with at least 11 people reported trapped. Gas leaks are reported at 790 California St and 776 Broadway, Hooker Alley is blocked by debris near Mason St, and 565 Commercial St checked in with only slight damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 18812,
+ "hash": "08c00b156f90f411c491e93e7e693e46",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 7683,
+  "outputTokens": 2356
+ },
+ "notes": []
+}

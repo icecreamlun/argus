@@ -1,0 +1,61 @@
+{
+ "batchIndex": 15,
+ "analyses": [
+  {
+   "reportId": "R-0140",
+   "buildingId": "B4562",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 463 Jackson St · pancaked collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0141",
+   "buildingId": "B4870",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 350 Sansome St · tilted, buckled ground floor"
+  },
+  {
+   "reportId": "R-0142",
+   "buildingId": "B4685",
+   "damage": "collapsed",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 1 Montgomery St · total collapse, 2 trapped"
+  },
+  {
+   "reportId": "R-0143",
+   "buildingId": "B2333",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · 1059 Powell St"
+  },
+  {
+   "reportId": "R-0144",
+   "buildingId": "B4740",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to Exchange Block Building · leaning badly, 1 trapped"
+  }
+ ],
+ "summary": "This batch reports two full collapses at 463 Jackson St (1 trapped) and 1 Montgomery St (2 trapped), plus extensive leaning and structural damage at the Exchange Block Building (1 trapped) and 350 Sansome St. A residential building at 1059 Powell St checked in with no damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6704,
+ "hash": "34d9bb8a4da03e19ffb0901aec1b2e50",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2702,
+  "outputTokens": 555
+ },
+ "notes": []
+}

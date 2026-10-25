@@ -1,0 +1,72 @@
+{
+ "batchIndex": 9,
+ "analyses": [
+  {
+   "reportId": "R-0090",
+   "buildingId": "B3620",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 730 Grant Ave · partial collapse and leaning"
+  },
+  {
+   "reportId": "R-0091",
+   "buildingId": "B3208",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to SW Hotel, 615 Broadway · wall cracks, evacuated"
+  },
+  {
+   "reportId": "R-0092",
+   "buildingId": "B4101",
+   "damage": "none",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "OK check-in · St. Mary's Square, 500 Pine St"
+  },
+  {
+   "reportId": "R-0093",
+   "buildingId": "B4591",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 552 Montgomery St · partial collapse, tilting"
+  },
+  {
+   "reportId": "R-0094",
+   "buildingId": "B3930",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.6,
+   "note": "linked to 1020 Kearny St · gas leak and wall cracks"
+  },
+  {
+   "reportId": "R-0095",
+   "buildingId": "B4750",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 348 Pine St · total collapse, 1 trapped"
+  }
+ ],
+ "summary": "This batch reports a total collapse with 1 person trapped at 348 Pine St, extensive damage with partial collapse and leaning at 730 Grant Ave and 552 Montgomery St, and moderate damage at 615 Broadway. A gas leak is reported near Pacific Ave and Kearny St, while St. Mary's Square (500 Pine St) is reported safe with no damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6999,
+ "hash": "8689b421a87a833f592f63cda033efc3",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2916,
+  "outputTokens": 673
+ },
+ "notes": []
+}

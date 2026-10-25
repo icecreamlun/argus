@@ -11,7 +11,8 @@
  * time-gate) → Reset → verify the city, HUD and AIR state are restored → M4 drones (air=mock: Argon plan card
  * pauses the sim, Approve via the button, drones fly, accuracy timeline gains a drone point, Reset clears it) →
  * M5 Copilot (air=mock: open the drawer, quick prompt → plan card, routes auto-shown, Show on map re-draws,
- * Dispatch moves units, Reset clears chat + layer).
+ * Dispatch moves units, Reset clears chat + layer) → M6 resident reports (air=mock: toasts pop as reports arrive,
+ * panel counts grow with sim time, seek back hides later ones, recon fuses them outside observations(), Reset clears).
  * Screenshots and an fps sample are taken at each checkpoint. Exits 1 on any failed check, console
  * error, page error or WebGL/shader warning. The dev server must be running.
  */
@@ -708,6 +709,73 @@ await step('M5 copilot (mock)', async () => {
   check(m.messages === 0, `chat not cleared after reset (${m.messages} messages)`);
   check(!m.layerVisible, 'rescue layer still visible after reset');
   check(m.cards === 0, `plan cards still in the drawer after reset (${m.cards})`);
+});
+
+// ───────────────────────── 10. M6: resident reports (mock) ─────────────────────────
+const m6State = () =>
+  A(() => {
+    const a = window.__argus;
+    const r = a.reports;
+    const items = r?.items() ?? [];
+    const panel = document.querySelector('.ag-reports');
+    const st = a.handles.recon.stats();
+    return {
+      generated: r?.reports.length ?? 0,
+      batches: r?.log.length ?? 0,
+      received: items.length,
+      analysed: items.filter((i) => i.analysis).length,
+      toasts: document.querySelectorAll('.ag-rtoast').length,
+      toastsAnalysed: document.querySelectorAll('.ag-rtoast .ag-rep__argon:not(.is-pending)').length,
+      panelVisible: !!panel && !panel.hidden && panel.offsetParent !== null,
+      panelCount: document.querySelector('.ag-reports .ag-rep__headCount')?.textContent?.trim() ?? null,
+      statRecv: document.querySelector('.ag-reports .ag-rep__stat .ag-rep__statV')?.textContent?.trim() ?? null,
+      citizen: st.citizenReports ?? 0,
+      citizenPts: (st.history ?? []).filter((h) => h.source === 'citizen').length,
+      observed: st.buildingsObserved,
+      obsSize: a.handles.recon.observations?.().size ?? 0,
+    };
+  });
+await step('M6 resident reports (mock)', async () => {
+  await A(() => {
+    window.__argus.trigger('san_andreas_1906');
+    window.__argus.pause();
+    window.__argus.seek(40);
+  });
+  await freshFrames(3);
+  let m = await m6State();
+  check(m.generated > 100 && m.batches > 5, `reports not generated (${m.generated} reports, ${m.batches} batches)`);
+  check(m.received === 0 && m.toasts === 0, `reports before the first post time (received ${m.received}, toasts ${m.toasts})`);
+  // Play through the first burst at 4×: toasts pop as reports arrive, Argon (mock) fills them in.
+  await page.locator('.ag-pb .ag-seg__btn[data-v="4"]').click();
+  await A(() => window.__argus.resume());
+  await page.waitForFunction(() => (window.__argus.reports?.items().filter((i) => i.analysis).length ?? 0) >= 10, null, { timeout: 60000 });
+  m = await m6State();
+  await A(() => window.__argus.pause());
+  check(m.toasts >= 1 && m.toasts <= 3, `expected 1-3 report toasts while reports arrive, got ${m.toasts}`);
+  check(m.panelVisible, 'COMMUNITY REPORTS panel not visible after reports arrived');
+  check(m.received > 0 && m.analysed > 0, `no received / analysed reports (received ${m.received}, analysed ${m.analysed})`);
+  check(m.citizen > 0 && m.citizenPts > 0, `recon did not fuse resident reports (citizen ${m.citizen}, history points ${m.citizenPts})`);
+  check(m.obsSize === m.observed, `resident reports leaked into observations() (${m.obsSize} vs ${m.observed})`);
+  await shot('10-m6-toasts');
+  const first = m;
+  // Seek forward: panel counts grow (deterministic batches revealed by sim time).
+  await A(() => window.__argus.seek(400));
+  await freshFrames(3);
+  m = await m6State();
+  check(m.received > first.received && m.analysed > first.analysed, `panel counts did not grow (received ${first.received}→${m.received}, analysed ${first.analysed}→${m.analysed})`);
+  check(m.statRecv === String(m.received), `panel Received counter '${m.statRecv}', expected ${m.received}`);
+  // Seek back: later reports hidden again.
+  await A(() => window.__argus.seek(100));
+  await freshFrames(3);
+  const back = await m6State();
+  check(back.received < m.received && back.citizenPts < m.citizenPts, `seek back did not hide later reports (received ${back.received}, points ${back.citizenPts})`);
+  // Reset clears toasts, panel and the fused evidence.
+  await page.locator('.ag-feed__foot .ag-btn').click();
+  await page.waitForTimeout(600);
+  m = await m6State();
+  check(m.toasts === 0, `toasts still visible after reset (${m.toasts})`);
+  check(!m.panelVisible, 'COMMUNITY REPORTS panel still visible after reset');
+  check(m.generated === 0 && m.citizen === 0, `reports not cleared after reset (${m.generated} reports, ${m.citizen} fused)`);
 });
 
 await browser.close();

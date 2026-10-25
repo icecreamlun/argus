@@ -62,6 +62,9 @@ export const ICONS = {
   uAmbulance: `<svg class="ag-ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 3.2h4v4.8h4.8v4H12v4.8H8V12H3.2V8H8z" fill="currentColor"/></svg>`,
   uPolice: S('<path d="M10 2.6 16 5v4.4c0 3.7-2.5 6.6-6 8-3.5-1.4-6-4.3-6-8V5l6-2.4Z"/><path d="m10 6.6.95 1.95 2.15.3-1.55 1.5.37 2.13L10 11.48l-1.92 1 .37-2.13-1.55-1.5 2.15-.3L10 6.6Z" fill="currentColor" stroke-width="1"/>'),
   uHeli: S('<path d="M2.5 4.5h15M10 4.5v2.4"/><path d="M6.4 9.6c0-1.5 1.3-2.7 3.4-2.7h1.4c2.3 0 3.6 1.6 3.6 3.6 0 1.9-1.4 3.2-3.4 3.2H9.6c-1.9 0-3.2-1.6-3.2-4.1Z"/><path d="M6.6 10H2.8M2.8 8.6v2.8M9 13.7l-.8 2.3M13 13.7l.8 2.3M7 16h8.6"/>'),
+  /* M6 resident reports */
+  phone: S('<rect x="5.6" y="2.6" width="8.8" height="14.8" rx="1.8"/><path d="M8.8 4.9h2.4"/><circle cx="10" cy="14.6" r=".5" fill="currentColor"/>'),
+  phoneSignal: S('<rect x="3.6" y="4.2" width="7.6" height="12.8" rx="1.6"/><path d="M6.4 6.2h2"/><circle cx="7.4" cy="14.6" r=".45" fill="currentColor"/><path d="M13.6 6.4a3.6 3.6 0 0 1 0 5.2M15.8 4.4a6.6 6.6 0 0 1 0 9.2"/>'),
   /* ShakeAlert protective-action pictograms (24 grid, filled figures, after the Earthquake Country Alliance art). */
   drop: `<svg class="ag-picto" viewBox="0 0 32 32" aria-hidden="true" fill="currentColor">
       <circle cx="9" cy="10.2" r="2.7"/>

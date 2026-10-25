@@ -1,0 +1,112 @@
+{
+ "batchIndex": 17,
+ "analyses": [
+  {
+   "reportId": "R-0151",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.75,
+   "note": "street blocked · Brooklyn Pl near Stockton St"
+  },
+  {
+   "reportId": "R-0152",
+   "buildingId": "B2680",
+   "damage": "collapsed",
+   "peopleTrapped": 5,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 105 Miles Ct · collapse, 5 trapped"
+  },
+  {
+   "reportId": "R-0153",
+   "buildingId": "B2854",
+   "damage": "collapsed",
+   "peopleTrapped": 7,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 840 California St · collapse, 7 trapped"
+  },
+  {
+   "reportId": "R-0154",
+   "buildingId": "B4661",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 456 Montgomery St · moderate damage, evacuated"
+  },
+  {
+   "reportId": "R-0155",
+   "buildingId": "B3314",
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "fire"
+   ],
+   "credibility": 0.4,
+   "note": "linked to 29 Waverly Pl · fire reported near Clay St"
+  },
+  {
+   "reportId": "R-0156",
+   "buildingId": "B4848",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 500 Sansome St · partial collapse and leaning"
+  },
+  {
+   "reportId": "R-0157",
+   "buildingId": "B3316",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 590 Bush St · extensive damage, 1 trapped"
+  },
+  {
+   "reportId": "R-0158",
+   "buildingId": "B3647",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 341 Sutter St · facade and cornice damage"
+  },
+  {
+   "reportId": "R-0159",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.75,
+   "note": "street blocked · Sansome St at California St"
+  },
+  {
+   "reportId": "R-0160",
+   "buildingId": "B2524",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to Castro Hotel, 723 Vallejo St · moderate damage, evacuated"
+  }
+ ],
+ "summary": "This batch reports two full building collapses at 105 Miles Ct (5 trapped) and 840 California St (7 trapped), alongside extensive structural damage at 500 Sansome St and 590 Bush St (1 trapped). Additional reports detail a building fire on Waverly Pl, blocked roads at Brooklyn Pl/Stockton St and Sansome/California St, and moderate facade/wall damage at 456 Montgomery St, 341 Sutter St, and 723 Vallejo St.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10415,
+ "hash": "670887c65887a036d34b2c1235297157",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 3940,
+  "outputTokens": 1053
+ },
+ "notes": []
+}

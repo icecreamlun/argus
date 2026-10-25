@@ -751,7 +751,8 @@ export function createDroneSession(deps: DroneSessionDeps, opts: { mode: AirMode
     tick(sim, playing) {
       if (!result) return;
       // A new revealed result (heli or drone) → (debounced) planning trigger.
-      const hist = recon.stats().history ?? [];
+      // M6: resident-report batches are not new footage (and the planner never sees them) → ignore their points.
+      const hist = (recon.stats().history ?? []).filter((h) => h.source !== 'citizen');
       if (hist.length !== lastHistLen) {
         if (hist.length > lastHistLen && planState === 'idle') wantPlanAt = Math.max(wantPlanAt ?? -Infinity, sim + DEBOUNCE_S);
         lastHistLen = hist.length;

@@ -1,0 +1,54 @@
+{
+ "batchIndex": 11,
+ "analyses": [
+  {
+   "reportId": "R-0109",
+   "buildingId": "B5008",
+   "damage": "extensive",
+   "peopleTrapped": 2,
+   "hazards": [],
+   "credibility": 0.5,
+   "note": "linked to 220 Battery St · partial collapse, tilting, 2 trapped"
+  },
+  {
+   "reportId": "R-0110",
+   "buildingId": "B3556",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 665 Grant Ave · leaning and partial wall collapse"
+  },
+  {
+   "reportId": "R-0111",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "street blocked · Battery St near Bush St"
+  },
+  {
+   "reportId": "R-0112",
+   "buildingId": "B4912",
+   "damage": "collapsed",
+   "peopleTrapped": 12,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "linked to 750 Battery St · reported collapse, 12 trapped"
+  }
+ ],
+ "summary": "This batch reports extensive structural damage at 665 Grant Ave and 220 Battery St (with 2 people trapped), alongside a lower-credibility report of a collapse with 12 trapped on Battery St near Broadway. Additionally, Battery St is blocked by debris near Bush St.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5675,
+ "hash": "6bdd88a4da785d4678fe2d6d4a9cedab",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 2408,
+  "outputTokens": 459
+ },
+ "notes": []
+}

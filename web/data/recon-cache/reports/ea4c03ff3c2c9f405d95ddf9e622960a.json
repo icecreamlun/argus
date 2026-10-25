@@ -1,0 +1,121 @@
+{
+ "batchIndex": 3,
+ "analyses": [
+  {
+   "reportId": "R-0032",
+   "buildingId": "B4902",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "linked to 447 Battery St · total collapse"
+  },
+  {
+   "reportId": "R-0033",
+   "buildingId": "B4218",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.7,
+   "note": "linked to 670 Commercial St · collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0034",
+   "buildingId": "B4476",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.75,
+   "note": "linked to 1-storey office building on Hardie Pl · partial collapse"
+  },
+  {
+   "reportId": "R-0035",
+   "buildingId": "B3637",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 513 Bush St · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0036",
+   "buildingId": "B2406",
+   "damage": "collapsed",
+   "peopleTrapped": 4,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.4,
+   "note": "linked to West Ping Yuen, 895 Pacific Ave · collapse, 4 trapped"
+  },
+  {
+   "reportId": "R-0037",
+   "buildingId": "B2885",
+   "damage": "collapsed",
+   "peopleTrapped": 5,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.5,
+   "note": "linked to 27 Dashiell Hammett St · collapse, 5 trapped"
+  },
+  {
+   "reportId": "R-0038",
+   "buildingId": "B4870",
+   "damage": "collapsed",
+   "peopleTrapped": 6,
+   "hazards": [],
+   "credibility": 0.35,
+   "note": "linked to 350 Sansome St · unverified collapse, 6 trapped"
+  },
+  {
+   "reportId": "R-0039",
+   "buildingId": "B2369",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 750 Bush St · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0040",
+   "buildingId": "B4781",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.45,
+   "note": "linked to Leidesdorff Place, 340 Pine St · reported collapse"
+  },
+  {
+   "reportId": "R-0041",
+   "buildingId": null,
+   "damage": null,
+   "peopleTrapped": 0,
+   "hazards": [
+    "blocked road"
+   ],
+   "credibility": 0.8,
+   "note": "street blocked · Claude Ln near Bush St"
+  },
+  {
+   "reportId": "R-0042",
+   "buildingId": "B3720",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 562 Grant Ave · slight damage, everyone OK"
+  }
+ ],
+ "summary": "This batch reports multiple severe collapses across Bush, Battery, Commercial, Pine, and Pacific streets with up to 18 people reported trapped in total, alongside a partial wall collapse near Hardie Pl. Road blockages are noted on Claude Ln, Pacific Ave, and Dashiell Hammett St, while 562 Grant Ave reports only slight damage.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8051,
+ "hash": "ea4c03ff3c2c9f405d95ddf9e622960a",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 4238,
+  "outputTokens": 727
+ },
+ "notes": []
+}

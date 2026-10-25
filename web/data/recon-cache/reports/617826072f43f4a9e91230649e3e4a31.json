@@ -1,0 +1,155 @@
+{
+ "batchIndex": 6,
+ "analyses": [
+  {
+   "reportId": "R-0063",
+   "buildingId": "B3924",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 650 California St · moderate damage, evacuated"
+  },
+  {
+   "reportId": "R-0064",
+   "buildingId": "B4660",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 38 Hotaling Pl · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0065",
+   "buildingId": "B2854",
+   "damage": "collapsed",
+   "peopleTrapped": 7,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 840 California St · collapsed, 7 trapped"
+  },
+  {
+   "reportId": "R-0066",
+   "buildingId": "B4790",
+   "damage": "extensive",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 15-storey office building · partial collapse, 1 trapped"
+  },
+  {
+   "reportId": "R-0067",
+   "buildingId": "B4048",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.45,
+   "note": "linked to Hotel Des Arts, 447 Bush St · reported collapse"
+  },
+  {
+   "reportId": "R-0068",
+   "buildingId": "B3826",
+   "damage": "collapsed",
+   "peopleTrapped": 1,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 450 Grant Ave · collapsed, 1 trapped"
+  },
+  {
+   "reportId": "R-0069",
+   "buildingId": "B5443",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 1 Market St · moderate damage, evacuated"
+  },
+  {
+   "reportId": "R-0070",
+   "buildingId": "B3301",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [
+    "fire"
+   ],
+   "credibility": 0.8,
+   "note": "linked to 53 Waverly Pl · collapsed and on fire"
+  },
+  {
+   "reportId": "R-0071",
+   "buildingId": "B3617",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 808 Grant Ave · leaning, partial wall collapse"
+  },
+  {
+   "reportId": "R-0072",
+   "buildingId": "B3411",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 817 Clay St · tilting, partial corner collapse"
+  },
+  {
+   "reportId": "R-0073",
+   "buildingId": "B5312",
+   "damage": "moderate",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.85,
+   "note": "linked to 47 Drumm St · large cracks, evacuated"
+  },
+  {
+   "reportId": "R-0074",
+   "buildingId": "B3444",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.8,
+   "note": "linked to 831 Grant Ave · total collapse"
+  },
+  {
+   "reportId": "R-0075",
+   "buildingId": "B3539",
+   "damage": "collapsed",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.6,
+   "note": "linked to 28 Chatham Pl · total collapse reported"
+  },
+  {
+   "reportId": "R-0076",
+   "buildingId": "B3681",
+   "damage": "extensive",
+   "peopleTrapped": 0,
+   "hazards": [
+    "gas"
+   ],
+   "credibility": 0.85,
+   "note": "linked to 515-523 Broadway · partial collapse, gas leak"
+  },
+  {
+   "reportId": "R-0077",
+   "buildingId": "B3386",
+   "damage": "slight",
+   "peopleTrapped": 0,
+   "hazards": [],
+   "credibility": 0.65,
+   "note": "linked to 1122 Grant Ave · slight damage, everyone OK"
+  }
+ ],
+ "summary": "This batch reports seven building collapses and four extensively damaged structures across Chinatown and the Financial District, with 10 people reported trapped across 38 Hotaling Pl, 840 California St, 450 Grant Ave, and Sacramento/Sansome. Major hazards include an active fire in the collapsed building at 53 Waverly Pl and a gas leak at 515-523 Broadway.",
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9800,
+ "hash": "617826072f43f4a9e91230649e3e4a31",
+ "promptVersion": "argon-reports-v2",
+ "usage": {
+  "promptTokens": 5238,
+  "outputTokens": 958
+ },
+ "notes": []
+}
