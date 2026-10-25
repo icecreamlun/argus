@@ -6672,3 +6672,27 @@ body {
   height: 26px;
   padding: 0 12px;
 }
+
+/* ── Three layout details ── */
+/* Scenario cards: distance and depth read on their own; drop the small glyphs so "8 km deep" fits beside Simulate. */
+.ag-scn__meta .ag-ico {
+  display: none;
+}
+/* Reset city: label centred in its pill (no right-pushed icon). */
+.ag-feed__foot .ag-btn .ag-ico {
+  margin-left: 0;
+}
+/* Overlay control: room for "ShakeMap". */
+.ag-overlay__label .ag-ico {
+  display: none;
+}
+.ag-overlay .ag-seg {
+  flex: 1;
+  min-width: 0;
+}
+.ag-root .ag-overlay .ag-seg__btn {
+  padding: 0 3px;
+}
+.ag-overlay {
+  gap: 8px;
+}
