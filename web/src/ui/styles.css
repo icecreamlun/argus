@@ -5795,3 +5795,880 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .ag-rep__unread, .ag-rep__row.is-new, .ag-rep__argon.is-fill { animation: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+ * Glaze skin for the Argus HUD — built from the Glaze source (github.com/arla6ka/design.how →
+ * systems/glaze: tokens.css, styles.css, ui/button.tsx, badge, kbd, segmented-control), the system
+ * behind `npx skills add https://design.how`.
+ *
+ * Glaze rules applied as written:
+ *   - Tokens by role (paper / shell / field / ink alphas / line-faint / line / line-control), light by
+ *     day and dark at night, following the time-of-day slider the HUD already has.
+ *   - Inter for every word (Georgia's pick over Glaze Sans/Geist); mono only for ids, at 0.8 of the sans.
+ *   - Sentence case; weight 500 for labels, 600 only for a strong phrase, never 700; no letter-spaced caps.
+ *   - Pills for every one-line control (buttons, fields, chips, status, the segmented control);
+ *     11 px panels, 10 px overlays, 6 px tags.
+ *   - The Glaze glass recipe (sheen, core, rim, gloss, 0.75 px ring, 6 px blur) on pressables only;
+ *     flat (paper + faint ring) on secondary buttons; no drop shadows anywhere.
+ *   - Badges are tints (ok-tint / ok-text …), kbd is paper + line-control + code-xs, the segmented
+ *     control is a paper pill with a "glaze-sm" thumb.
+ * Georgia's three deliberate departures from the Glaze reject list:
+ *   1. the brand accent stays: Argus orange is the glass on the one action you press next
+ *      (Simulate / Approve / Dispatch / Copilot) — a fourth glass variant beside ink, coral and green;
+ *   2. floating panels keep a translucent, blurred surface so the city shows through;
+ *   3. fewer lines: a faint edge only on the floating containers, tints inside them.
+ * Appended at the end of styles.css so it overrides by order, not by specificity.
+ * ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+.ag-root {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --mono-scale: 0.8;
+  --tracking-heading: -0.025em;
+  --tracking-label: 0.02em;
+  --control-sm: 26px;
+  --control: 32px;
+  --icon-sm: 12px;
+  --icon: 14px;
+  --radius-pill: 999px;
+  --radius-panel: 11px;
+  --radius-overlay: 10px;
+  --radius-tag: 6px;
+  --line-width: 1px;
+  --glass-blur: 6px;
+  --gloss-inset: 0.28;
+  --gloss-top: 1.5px;
+  --gloss-height: 44%;
+  --dur-press: 120ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --ag-font: var(--font-sans);
+  --ag-font-cond: var(--font-sans);
+  --ag-font-mono: var(--font-mono);
+  --ag-r-panel: var(--radius-panel);
+  --ag-r-island: var(--radius-pill);
+  --ag-r-inner: var(--radius-overlay);
+  --ag-r-chip: var(--radius-tag);
+  --ag-ease: var(--ease-out);
+
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* Day = Glaze light. */
+.ag {
+  --paper: #ffffff;
+  --shell: #f1f1f0;
+  --field: #efefef;
+  --hover: rgb(5 5 5 / 0.06);
+  --hover-row: rgb(5 5 5 / 0.035);
+  --pressed: rgb(5 5 5 / 0.1);
+  --ink: #050505;
+  --text-1: rgb(5 5 5 / 0.8);
+  --text-2: rgb(5 5 5 / 0.6);
+  --text-3: rgb(5 5 5 / 0.45);
+  --text-disabled: rgb(5 5 5 / 0.32);
+  --text-inverse: #ffffff;
+  --line-faint: rgb(5 5 5 / 0.06);
+  --line: rgb(5 5 5 / 0.1);
+  --line-control: rgb(5 5 5 / 0.15);
+  --line-focus: rgb(5 5 5 / 0.32);
+  --focus: rgb(5 5 5 / 0.8);
+  --ok: #2c9a59;
+  --ok-text: #1a7640;
+  --ok-tint: #e6f4ea;
+  --warn: #d98a0b;
+  --warn-text: #8a5a00;
+  --warn-tint: #fbf0d9;
+  --fail: #e35e49;
+  --fail-text: #b23c29;
+  --fail-tint: #fbe9e5;
+  --glass-sheen: 0.12;
+  --glass-sheen-hover: 0.16;
+  --glass-core: 0.32;
+  --glass-core-held: 0.44;
+  --glass-rim: 0.24;
+  --glass-glaze: 0.06;
+  --glass-gloss: 0.28;
+  --glaze-sm-top: #6b6b6b;
+  --glaze-sm-mid: #3d3d3d;
+  --glaze-sm-bottom: #232323;
+  --glaze-sm-highlight: rgb(255 255 255 / 0.3);
+  --glaze-sm-rim: rgb(0 0 0 / 0.55);
+  --glaze-sm-text: rgb(255 255 255 / 0.92);
+  --glass-argus-base: rgb(242 98 27 / 0.9);
+  --glass-argus-text: rgb(255 255 255 / 0.92);
+  --glass-argus-ring: rgb(194 74 13 / 0.56);
+
+  --ag-glass: rgb(255 255 255 / 0.84); /* neutral white glass */
+  --ag-glass-hi: rgb(255 255 255 / 0.94);
+  --ag-raised: var(--hover-row);
+  --ag-sunken: var(--field);
+  --ag-hover: var(--hover);
+  --ag-line: var(--line-faint);
+  --ag-line-2: var(--line);
+  --ag-edge: transparent;
+  --ag-ink: var(--ink);
+  --ag-ink-2: var(--text-2);
+  --ag-ink-3: var(--text-3);
+  --ag-ink-inv: var(--text-inverse);
+  --ag-accent: #f2621b;
+  --ag-accent-ink: #c04a0d;
+  --ag-accent-soft: rgb(242 98 27 / 0.12);
+  --ag-green: var(--ok);
+  --ag-amber: var(--warn);
+  --ag-ok-ink: var(--ok-text);
+  --ag-warn-ink: var(--warn-text);
+  --ag-crit-ink: var(--fail-text);
+  --ag-shadow: none;
+  --ag-blur: blur(22px) saturate(0); /* the city shows through as grey shapes only: no warm cast on the glass */
+  --ag-text-halo: none;
+  --seis-trace: var(--ink);
+  --seis-grid: var(--line-faint);
+  --seis-label: var(--text-3);
+  --seis-hot: var(--fail);
+}
+
+/* Night = Glaze dark; glass flips the way Glaze does it (pale glass, dark text). */
+.ag[data-theme='night'] {
+  --paper: #1f1f1f;
+  --shell: #161616;
+  --field: #2a2a2a;
+  --hover: rgb(244 244 243 / 0.06);
+  --hover-row: rgb(244 244 243 / 0.04);
+  --pressed: rgb(244 244 243 / 0.1);
+  --ink: #f4f4f3;
+  --text-1: #f4f4f3;
+  --text-2: rgb(244 244 243 / 0.6);
+  --text-3: rgb(244 244 243 / 0.45);
+  --text-disabled: rgb(244 244 243 / 0.34);
+  --text-inverse: #050505;
+  --line-faint: rgb(244 244 243 / 0.06);
+  --line: rgb(244 244 243 / 0.1);
+  --line-control: rgb(244 244 243 / 0.15);
+  --line-focus: rgb(244 244 243 / 0.34);
+  --focus: #f4f4f3;
+  --ok: #3fbf75;
+  --ok-text: #6fd69a;
+  --ok-tint: #13261a;
+  --warn: #f0a531;
+  --warn-text: #f5c065;
+  --warn-tint: #2a2010;
+  --fail: #ec6f5a;
+  --fail-text: #f2917f;
+  --fail-tint: #2c1714;
+  --glass-sheen: 0.16;
+  --glass-sheen-hover: 0.24;
+  --glass-core: 0;
+  --glass-core-held: 0.06;
+  --glass-rim: 0.4;
+  --glass-glaze: 0.14;
+  --glass-gloss: 0.6;
+  --glaze-sm-top: #fbfbfa;
+  --glaze-sm-mid: #dcdcdb;
+  --glaze-sm-bottom: #bdbdbc;
+  --glaze-sm-highlight: rgb(255 255 255 / 0.9);
+  --glaze-sm-rim: rgb(255 255 255 / 0.22);
+  --glaze-sm-text: rgb(5 5 5 / 0.88);
+  --glass-argus-base: rgb(255 138 76 / 0.9);
+  --glass-argus-text: rgb(5 5 5 / 0.9);
+  --glass-argus-ring: rgb(255 138 76 / 0.4);
+
+  --ag-glass: rgb(14 14 14 / 0.74); /* neutral black glass */
+  --ag-glass-hi: rgb(42 42 42 / 0.92);
+  --ag-raised: rgb(244 244 243 / 0.05);
+  --ag-sunken: rgb(0 0 0 / 0.32);
+  --ag-hover: var(--hover);
+  --ag-line: rgb(244 244 243 / 0.08);
+  --ag-line-2: var(--line);
+  --ag-edge: transparent;
+  --ag-ink: var(--ink);
+  --ag-ink-2: var(--text-2);
+  --ag-ink-3: var(--text-3);
+  --ag-ink-inv: var(--text-inverse);
+  --ag-accent: #f2621b;
+  --ag-accent-ink: #ff8a4c;
+  --ag-accent-soft: rgb(242 98 27 / 0.18);
+  --ag-green: var(--ok);
+  --ag-amber: var(--warn);
+  --ag-ok-ink: var(--ok-text);
+  --ag-warn-ink: var(--warn-text);
+  --ag-crit-ink: var(--fail-text);
+  --ag-shadow: none;
+  --ag-blur: blur(22px) saturate(0);
+  --ag-text-halo: none;
+  --seis-trace: var(--ink);
+  --seis-grid: var(--line-faint);
+  --seis-label: var(--text-3);
+  --seis-hot: var(--fail);
+}
+
+/* ── Surfaces: one faint edge on the floating containers; nothing casts a shadow ── */
+.ag-island,
+.ag-panel,
+.ag-plan,
+.ag-cop,
+.ag-cop-launch,
+.ag-seis,
+.ag-event,
+.ag-scn,
+.ag-scn.is-running,
+.ag-field__box,
+.ag-dfeed,
+.ag-cop__box,
+.ag-unit,
+.ag-insp__fp,
+.ag-mmichip,
+.ag-mag,
+.ag-status.is-alert,
+.ag-alert[data-mode='now'] .ag-alert__now,
+.ag-alert__mmiChip {
+  box-shadow: none;
+}
+.ag-panel,
+.ag-island,
+.ag-plan,
+.ag-cop {
+  border: var(--line-width) solid var(--ag-line);
+}
+.ag-panel__head {
+  height: 40px;
+  border-bottom: var(--line-width) solid var(--ag-line);
+}
+.ag-plan[data-state='proposed'],
+.ag-tl__tip {
+  box-shadow: 0 0 0 var(--line-width) var(--line); /* an overlay is paper with a 1px ring */
+}
+.ag::before {
+  box-shadow: none; /* no red vignette glow; the banner is the alarm */
+}
+.ag-event,
+.ag-scn,
+.ag-hero,
+.ag-insp__quake,
+.ag-air__cmp,
+.ag-cmp,
+.ag-plan__mission,
+.ag-cop__sit,
+.ag-cop__sugg,
+.ag-cop__thinking .ag-cop__bubble,
+.ag-lb__cap {
+  border-color: transparent;
+  background: var(--ag-raised); /* a tint inside a container, not another box */
+}
+.ag-cpl {
+  border-color: transparent;
+  background: var(--ag-raised);
+}
+
+/* ── Type ── */
+.ag-label,
+.ag-status,
+.ag-kpis dt,
+.ag-event__facts dt,
+.ag-field__label,
+.ag-fact dt,
+.ag-prov__k,
+.ag-exceed__label,
+.ag-alert__head,
+.ag-alert__src,
+.ag-alert__unit,
+.ag-alert__act,
+.ag-alert__mmiLabel,
+.ag-clock__tz,
+.ag-tod__mark,
+.ag-pb__caption,
+.ag-air__mode,
+.ag-air__figLabel,
+.ag-air__trio--head,
+.ag-cmp__label,
+.ag-plan__title,
+.ag-plan__kind,
+.ag-lb__static span,
+.ag-dfeed__label,
+.ag-dfeed__sid,
+.ag-dfeed__rec,
+.ag-lb__label,
+.ag-tl__markLabel,
+.ag-cop__title,
+.ag-cop__sl,
+.ag-cop__fmode,
+.ag-md .ag-md__h,
+.ag-md__table th,
+.ag-cpl__aside,
+.ag-cpl__ver,
+.ag-section__aside {
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: var(--tracking-label);
+  font-weight: 500;
+}
+.ag-label {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text-2);
+}
+.ag-panel__title .ag-label,
+.ag-plan__title,
+.ag-cop__title {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-1);
+}
+.ag-brand__word {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.12em; /* the wordmark is the one allowed spread */
+  text-transform: uppercase;
+}
+.ag-mag__num,
+.ag-mmichip,
+.ag-range__out,
+.ag-mmi__cell,
+.ag-sum b,
+.ag-insp__trapped b,
+.ag-alert__num,
+.ag-alert__title,
+.ag-alert__mmiChip,
+.ag-alert__mmiWord,
+.ag-cmp__miss,
+.ag-dchip,
+.ag-root b,
+.ag-root strong {
+  font-weight: 600;
+}
+.ag-air__bignum {
+  font-weight: 500;
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+}
+.ag-air__bignum--argon,
+.ag-air__figLabel--argon {
+  color: var(--ok-text);
+}
+.ag-hero__num,
+.ag-sum {
+  color: var(--fail-text);
+}
+.ag-root code,
+.ag-root kbd,
+.ag-root .ag-mono {
+  font-family: var(--font-mono);
+  font-size: calc(1em * var(--mono-scale));
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Buttons: Glaze Button. secondary = flat (paper + faint ring); primary = glass ── */
+.ag-btn {
+  gap: 6px;
+  height: var(--control);
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background-color: var(--paper);
+  background-image: none;
+  box-shadow: 0 0 0 var(--line-width) var(--line-faint);
+  color: var(--text-1);
+  font: 500 13px/1.35 var(--font-sans);
+  letter-spacing: var(--tracking-label);
+  transition: background-image var(--dur-press) var(--ease-out), scale var(--dur-press) var(--ease-out), color var(--dur-press) var(--ease-out);
+}
+.ag-btn .ag-ico {
+  width: var(--icon);
+  height: var(--icon);
+}
+.ag-btn:hover {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--hover), var(--hover));
+  border-color: transparent;
+}
+.ag-btn:active {
+  transform: none;
+  scale: 0.99;
+  background-image: linear-gradient(var(--pressed), var(--pressed));
+}
+.ag-btn--sm {
+  height: var(--control-sm);
+  padding: 0 10px;
+  font-size: 12px;
+}
+.ag-btn--sm .ag-ico {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+.ag-btn--ghost {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--text-1);
+}
+.ag-btn--ghost:hover {
+  background-color: var(--hover);
+  background-image: none;
+}
+.ag-btn:focus-visible,
+.ag-seg__btn:focus-visible,
+.ag-view:focus-visible,
+.ag-cop-launch:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* The Glaze glass recipe (styles.css @utility glass) in Argus orange, on the pressables only. */
+.ag-btn--primary,
+.ag-scn .ag-btn,
+.ag-cpl__dispatch:not(:disabled):not(.is-done),
+.ag-cop-launch {
+  --gl-base: var(--glass-argus-base);
+  --gl-text: var(--glass-argus-text);
+  --gl-ring: var(--glass-argus-ring);
+  --gl-sheen-now: var(--glass-sheen);
+  --gl-core-now: var(--glass-core);
+  --gl-h: var(--control);
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  color: var(--gl-text);
+  background-color: var(--gl-base);
+  background-image:
+    radial-gradient(65.62% 65.62% at 50% 50%, rgb(0 0 0 / var(--gl-core-now)), transparent),
+    linear-gradient(rgb(255 255 255 / var(--gl-sheen-now)), transparent),
+    linear-gradient(rgb(255 255 255 / var(--glass-glaze)) 0%, rgb(255 255 255 / calc(var(--glass-glaze) * 0.4)) 50%, transparent 50%);
+  box-shadow:
+    inset 0 -12px 16px 0 rgb(255 255 255 / 0.06),
+    inset 0 4px 16px 0 rgb(255 255 255 / 0.16),
+    inset 0 0.75px 0.25px 0 rgb(255 255 255 / 0.12),
+    inset 0 0.25px 0.25px 0 rgb(255 255 255 / 0.32),
+    0 0 0 0.75px var(--gl-ring);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  transition: scale 200ms var(--ease-out), color 200ms var(--ease-out);
+}
+.ag-btn--primary::before,
+.ag-scn .ag-btn::before,
+.ag-cpl__dispatch:not(:disabled):not(.is-done)::before,
+.ag-cop-launch::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: 0;
+  padding: var(--line-width);
+  border-radius: inherit;
+  background-image: linear-gradient(#ffffff 0%, #999999 55%, #ffffff 80%, #999999 95%);
+  opacity: var(--glass-rim);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.ag-btn--primary::after,
+.ag-scn .ag-btn::after,
+.ag-cpl__dispatch:not(:disabled):not(.is-done)::after,
+.ag-cop-launch::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset-inline: calc(var(--gl-h) * var(--gloss-inset));
+  top: var(--gloss-top);
+  height: var(--gloss-height);
+  border-radius: var(--radius-pill);
+  background-image: linear-gradient(rgb(255 255 255 / var(--glass-gloss)), transparent);
+}
+.ag-btn--primary:hover,
+.ag-scn .ag-btn:hover,
+.ag-cpl__dispatch:not(:disabled):not(.is-done):hover,
+.ag-cop-launch:hover {
+  --gl-sheen-now: var(--glass-sheen-hover);
+  background-color: var(--gl-base);
+  color: var(--gl-text);
+}
+.ag-btn--primary:active,
+.ag-scn .ag-btn:active,
+.ag-cpl__dispatch:not(:disabled):not(.is-done):active,
+.ag-cop-launch:active {
+  --gl-sheen-now: 0;
+  --gl-core-now: var(--glass-core-held);
+  scale: 0.99;
+  transition-duration: 50ms;
+}
+.ag-scn .ag-btn {
+  --gl-h: var(--control-sm);
+}
+.ag-scn.is-running .ag-btn {
+  background-color: var(--field);
+  background-image: none;
+  box-shadow: 0 0 0 var(--line-width) var(--line-faint);
+  color: var(--text-disabled);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.ag-scn.is-running .ag-btn::before,
+.ag-scn.is-running .ag-btn::after {
+  display: none;
+}
+.ag-cop-launch {
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+}
+.ag-cop-launch__mark {
+  background: rgb(255 255 255 / 0.22);
+  color: inherit;
+}
+.ag-cop-launch.is-nudge .ag-cop-launch__mark {
+  box-shadow: none;
+}
+
+/* ── Segmented control: a paper pill with a faint line and a glaze-sm thumb ── */
+.ag-root .ag-seg {
+  height: 30px;
+  padding: 2px;
+  gap: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 0 0 var(--line-width) var(--line-faint);
+}
+.ag-root .ag-seg__thumb {
+  border-radius: var(--radius-pill);
+  background-color: var(--glaze-sm-mid);
+  background-image: linear-gradient(180deg, var(--glaze-sm-top), var(--glaze-sm-mid) 50%, var(--glaze-sm-bottom));
+  box-shadow: inset 0 var(--line-width) 0 var(--glaze-sm-highlight), 0 0 0 0.5px var(--glaze-sm-rim);
+}
+.ag-root .ag-seg__btn {
+  padding: 0 10px;
+  font: 500 12px/1.35 var(--font-sans);
+  letter-spacing: var(--tracking-label);
+  color: var(--text-2);
+}
+.ag-root .ag-seg__btn.is-on {
+  color: var(--glaze-sm-text);
+}
+.ag-view {
+  border-radius: var(--radius-pill);
+}
+.ag-view.is-on {
+  color: var(--glaze-sm-text);
+  background-color: var(--glaze-sm-mid);
+  background-image: linear-gradient(180deg, var(--glaze-sm-top), var(--glaze-sm-mid) 50%, var(--glaze-sm-bottom));
+  box-shadow: inset 0 var(--line-width) 0 var(--glaze-sm-highlight), 0 0 0 0.5px var(--glaze-sm-rim);
+  font-weight: 500;
+}
+
+/* ── Status: a word in its status colour, no filled pill ── */
+.ag-status {
+  height: var(--control-sm);
+  padding: 0 4px 0 2px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: 12px;
+}
+
+/* ── Badges and tags: tints, 6 px, label-sm ── */
+.ag-chip,
+.ag-dsbadge,
+.ag-air__mode,
+.ag-dchip {
+  border-radius: var(--radius-tag);
+  min-height: 20px;
+  font: 500 12px/1.35 var(--font-sans);
+  letter-spacing: var(--tracking-label);
+  box-shadow: none;
+  border: 0;
+}
+.ag-chip {
+  background: var(--field);
+  color: var(--text-1);
+}
+.ag-chip--warn {
+  background: var(--warn-tint);
+  color: var(--warn-text);
+}
+.ag-chip--alert {
+  background: var(--fail-tint);
+  color: var(--fail-text);
+}
+.ag-dsbadge {
+  background: color-mix(in srgb, var(--ds) 18%, var(--paper));
+}
+.ag-kbd,
+.ag-view__key {
+  border-radius: var(--radius-tag);
+  border: var(--line-width) solid var(--line-control);
+  background: var(--paper);
+  box-shadow: none;
+  color: var(--text-2);
+  font: 400 calc(12px * var(--mono-scale)) / 1.35 var(--font-mono);
+  letter-spacing: 0;
+}
+.ag-view.is-on .ag-view__key,
+.ag-kbd--inv {
+  background: rgb(255 255 255 / 0.18);
+  border-color: transparent;
+  color: inherit;
+}
+
+/* ── Fields: paper, line-control, pill; the line darkens on focus ── */
+.ag-field__box {
+  border: var(--line-width) solid var(--line-control);
+  background: var(--paper);
+  border-radius: var(--radius-pill);
+}
+.ag-cop__box {
+  border: var(--line-width) solid var(--line-control);
+  background: var(--paper);
+  border-radius: var(--radius-overlay);
+}
+.ag-field__box:focus-within,
+.ag-cop__box:focus-within {
+  box-shadow: none;
+  border-color: var(--line-focus);
+}
+
+/* ── ShakeAlert banner: flat alert red, a ring instead of a glow ── */
+.ag-alert {
+  --al-bg: #d7261e;
+  border-radius: var(--radius-panel);
+  box-shadow: 0 0 0 var(--line-width) rgb(120 6 2 / 0.4);
+}
+.ag-alert[data-mode='now'] {
+  box-shadow: 0 0 0 var(--line-width) rgb(120 6 2 / 0.4);
+}
+
+/* ── No icon tiles beside headings (Glaze anti-slop): panel titles stand alone ── */
+.ag-panel__icon {
+  display: none;
+}
+.ag-panel__head {
+  padding-left: 14px;
+}
+
+/* ── No textures: the Copilot drawer loses its grid pattern ── */
+.ag-cop,
+.ag-cop__log,
+.ag-cop__empty {
+  background-image: none;
+}
+
+/* ── Footer chips ── */
+.ag-foot__chip {
+  border-radius: var(--radius-tag);
+  background: color-mix(in srgb, var(--ag-glass) 88%, transparent);
+  color: var(--text-1);
+}
+
+/* ── Less generated-looking (Glaze anti-slop) ── */
+/* Icons keep their glyph but lose the tile behind them (no icon tiles). */
+.ag-cop__si {
+  display: none;
+}
+/* No status dots: the status is the coloured word. */
+.ag-chip__dot,
+.ag-status__dot,
+.ag-air__dot,
+.ag-live {
+  display: none;
+}
+/* The Copilot situation strip is a line of figures, not four equal stat cards. */
+.ag-cop__sit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin: 2px 14px 10px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.ag-cop__stat {
+  padding: 0;
+}
+.ag-cop__stat + .ag-cop__stat {
+  border-left: 0;
+}
+.ag-cop__stat > div {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 4px;
+}
+/* No shimmer on "planning…" text. */
+.ag-plan__shimmer,
+.ag-cop__shimmer {
+  animation: none;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text-2);
+}
+/* Mono only for what a person copies: clocks and figures go back to the sans, tabular. */
+.ag-clock__time,
+.ag-panel__time,
+.ag-pb__clock,
+.ag-event__time,
+.ag-air__mval,
+.ag-air__within,
+.ag-plan__sub,
+.ag-plan__eta,
+.ag-tl__axis,
+.ag-cop__sv,
+.ag-cpl__eta,
+.ag-cpl__count,
+.ag-cpl__gcount,
+.ag-seis__readout {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+/* ── One clock: the time sits on the time-of-day control (bottom left), T+ in the playback bar;
+ *    the top-right island keeps only the status ── */
+.ag-clock__tplus,
+.ag-clock__group {
+  display: none;
+}
+.ag-tod__time {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* ── Map labels keep Franklin's look; only the typeface follows the HUD. They are clickable (fly the camera in). ── */
+.ag-rpin,
+.rsq-root .rsq-inc {
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+.ag-rpins,
+.rsq-root {
+  line-height: 1.35; /* Franklin's label metrics */
+}
+.ag-plan__mission,
+.ag-cop [data-incident],
+.ag-air__srow {
+  cursor: pointer;
+}
+.ag-plan__mission:hover,
+.ag-cop [data-incident]:hover,
+.ag-air__srow:hover {
+  background: var(--hover);
+}
+
+/* Icons without tiles: the glyph stays, the background goes (Copilot launcher, drawer header, empty state, avatar). */
+.ag-cop-launch__mark,
+.ag-cop__mark,
+.ag-cop__emark,
+.ag-cop__av {
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.ag-cop-launch__mark {
+  color: inherit;
+}
+.ag-cop__mark,
+.ag-cop__emark,
+.ag-cop__av {
+  color: var(--ag-accent);
+}
+/* Buttons drop their key hints (C, R, A, X); the shortcuts still work and the tooltips name them. */
+.ag-cop-launch .ag-kbd,
+.ag-btn .ag-kbd {
+  display: none;
+}
+/* Copilot header: the title stands alone (the model name already shows on the plan card and the AIR panel). */
+.ag-cop__model {
+  display: none;
+}
+/* Copilot empty state: the opening text is centred; the conversation that follows stays left-aligned. */
+.ag-cop__empty {
+  text-align: center;
+}
+.ag-cop__emark {
+  align-self: center;
+  margin-inline: auto;
+}
+.ag-cop__etitle,
+.ag-cop__esub {
+  align-self: center;
+  margin-inline: auto;
+}
+.ag-cop__esub {
+  max-width: 38ch;
+}
+.ag-cop__suggest {
+  align-self: stretch;
+  text-align: left;
+}
+/* Seismic feed: no caption under the trace (the location is in the top bar; the status line names the site). */
+.ag-seis__caption {
+  display: none;
+}
+
+/* ── Layout pass ── */
+/* Plan card: the subtitle lines up with the title (there is no icon before it any more). */
+.ag-plan__sub {
+  padding-left: 13px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  letter-spacing: 0;
+}
+/* Reset city after an event: a flat secondary, not a warm bar. */
+.ag-btn--ghost.is-armed {
+  background-color: var(--paper);
+  background-image: none;
+  box-shadow: 0 0 0 var(--line-width) var(--line-faint);
+  color: var(--text-1);
+}
+.ag-btn--ghost.is-armed:hover {
+  background-image: linear-gradient(var(--hover), var(--hover));
+}
+/* Time of day: the sun / moon glyph without a tile. */
+.ag-tod__glyph {
+  width: auto;
+  height: auto;
+  padding: 0 2px;
+  border-radius: 0;
+  background: none;
+}
+/* Copilot launcher while the drawer is open: the same orange glass, held. */
+.ag-cop-launch.is-on {
+  --gl-sheen-now: 0;
+  --gl-core-now: var(--glass-core-held);
+  border-color: transparent;
+  background-color: var(--gl-base);
+  color: var(--gl-text);
+}
+/* Drone tiles: "Standby" in sentence case. */
+.ag-dfeed__word,
+.ag-lb__static span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+/* Scenario cards: "Simulate" without its play glyph, so "8 km deep" fits beside it. */
+.ag-scn .ag-btn .ag-ico {
+  display: none;
+}
+.ag-scn .ag-btn {
+  padding: 0 12px;
+}
+.ag-scn__meta {
+  gap: 8px;
+  min-width: 0;
+}
+/* Top-right controls: Glaze-sized horizontal padding. */
+.ag-cop-launch {
+  gap: 8px;
+  padding: 0 16px 0 14px;
+}
+.ag-root .ag-status {
+  height: 26px;
+  padding: 0 12px;
+}
