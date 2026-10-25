@@ -1,0 +1,68 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "With helicopter scanning complete and this being our final wave, we are deploying all three drones to resolve critical life-safety gaps. Drone 1 will verify trapped survivors at California Bank and Trust and resolve high-occupancy damage disagreements along California and Pine Streets. Drones 2 and 3 will sweep high-risk unscanned blocks in SoMa and the Financial District—including the Rincon Annex, 50 Fremont Center, and the unassessed 475 Sansome Street block—leaving no drones in reserve.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B4721",
+    "B5025",
+    "B5091",
+    "B5094"
+   ],
+   "purpose": "Confirm trapped survivors at California Bank and Trust and verify damage at 255 California, 201 California, and 100 Pine Center.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5381",
+    "B5528",
+    "B5400",
+    "B5391"
+   ],
+   "areaCentre": [
+    281,
+    145
+   ],
+   "purpose": "Verify Hyatt Regency damage and survey unscanned high-occupancy buildings at Rincon Annex, PG&E Building, and Park Tower.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4748",
+    "B4768",
+    "B4786",
+    "B4692"
+   ],
+   "areaCentre": [
+    -350,
+    -123
+   ],
+   "purpose": "Assess the high-risk 475 Sansome Street block where severe collapse is predicted and helicopter views were obstructed.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5862,
+ "createdAtSimS": 412,
+ "hash": "a352b992004f77578085c8c8aaed8f93",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5941,
+  "outputTokens": 328
+ },
+ "notes": []
+}

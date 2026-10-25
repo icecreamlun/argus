@@ -9,13 +9,32 @@
  *   tod=<hours>                          scene time (also picks day/night theme)
  *   collapse=feed,impact                 start with panels collapsed
  *   play=1                               play in real time instead of freezing
+ *   m4=thinking|hold|proposed|approved|executing|rejected|done   M4 drone plan card (+ AIR panel, timeline, feeds)
+ *   m4t=<simS>                           sim time for executing/approved (default 300); m4live=1 advances it
+ *   feeds=0                              hide the drone feed strip
  */
 import './styles.css';
 import type { CameraPresetId, EnvironmentState, OverlayMode, QuakeScenario } from '../contracts';
 import { createEventBus } from '../events';
 import { createUI } from './index';
 import { paintBackdrop } from './dev-backdrop';
-import { MOCK_PRESETS, MOCK_SCENARIOS, alertTiming, mockBuilding, mockBuildingQuake, mockCity, mockRun, type MockRun } from './dev-mocks';
+import {
+  M4_TARGETS,
+  MOCK_PRESETS,
+  MOCK_SCENARIOS,
+  alertTiming,
+  mockAirState,
+  mockBuilding,
+  mockBuildingQuake,
+  mockCity,
+  mockFeeds,
+  mockHistory,
+  mockPlan,
+  mockRun,
+  mockSchedule,
+  type MockRun,
+} from './dev-mocks';
+import type { PlanUiState } from '../contracts';
 import { nightFactorFor } from './format';
 
 declare global {
@@ -27,6 +46,7 @@ declare global {
 const params = new URLSearchParams(location.search);
 const bus = createEventBus();
 const city = mockCity();
+for (const b of city.buildings) if (M4_TARGETS[b.id]) Object.assign(b, { name: undefined, address: M4_TARGETS[b.id] });
 const backdrop = document.getElementById('backdrop') as HTMLCanvasElement;
 const root = document.getElementById('ui-root')!;
 
@@ -45,6 +65,15 @@ const env = (h: number): EnvironmentState => ({
 });
 
 const ui = createUI(root, { city, events: bus }, {
+  onApprovePlan() {
+    console.info('[dev] plan approved');
+    window.setTimeout(() => m4Set('approved', 238), 500);
+    window.setTimeout(() => m4Run(240), 1500);
+  },
+  onRejectPlan() {
+    console.info('[dev] plan rejected');
+    window.setTimeout(() => m4Set('rejected', 236), 400);
+  },
   onTriggerScenario(id) {
     const s = MOCK_SCENARIOS.find((x) => x.id === id);
     if (s) start(s, true);
@@ -199,3 +228,34 @@ window.__ui = { ui, bus, start: (id: string) => start(MOCK_SCENARIOS.find((s) =>
 void document.fonts.ready.then(() => {
   (window as unknown as { __argus: unknown }).__argus = { ready: true, fps: 0 };
 });
+
+// ── M4 drones: plan card / feeds / accuracy timeline with mock data ──
+const m4Plan = mockPlan(1, Number(params.get('m4missions') ?? 2));
+const m4Sched = mockSchedule(m4Plan, 238);
+const m4Name = (id: string) => M4_TARGETS[id] ?? id;
+let m4Timer = 0;
+function m4Set(state: PlanUiState, s: number) {
+  const executing = state === 'approved' || state === 'executing' || state === 'done';
+  const hist = mockHistory(executing ? s : 236);
+  ui.showAir?.(mockAirState(hist));
+  const wavesUsed = executing ? 1 : 0;
+  ui.showPlan?.(state === 'thinking' ? null : m4Plan, state, { schedule: executing ? m4Sched : undefined, simS: s, wavesUsed });
+  if (params.get('feeds') !== '0') ui.showDroneFeeds?.(mockFeeds(executing ? m4Sched : [], s, m4Name));
+}
+function m4Run(from: number) {
+  window.clearInterval(m4Timer);
+  let s = from;
+  const end = Math.max(...m4Sched.map((e) => e.endS)) + 2;
+  m4Timer = window.setInterval(() => {
+    s += 2;
+    m4Set(s >= end ? 'done' : 'executing', s);
+    if (s >= end) window.clearInterval(m4Timer);
+  }, 250);
+}
+const m4 = params.get('m4') as PlanUiState | null;
+if (m4) {
+  const s = Number(params.get('m4t') ?? (m4 === 'done' ? 420 : 300));
+  m4Set(m4, s);
+  if (params.get('m4live') === '1' && (m4 === 'executing' || m4 === 'approved')) m4Run(s);
+}
+Object.assign(window.__ui!, { m4Set, m4Run });

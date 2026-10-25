@@ -1,0 +1,155 @@
+{
+ "chunkIndex": 1211,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12358,
+ "buildings": [
+  {
+   "id": "B5025",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracks on facade, light base debris; California and Battery clear"
+  },
+  {
+   "id": "B4966",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 8,
+   "notes": "Flames on east facade, leaning, heavy rubble spilling onto Battery St"
+  },
+  {
+   "id": "B5091",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Facade cracking and spalling on upper floors, minor base debris"
+  },
+  {
+   "id": "B5042",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Minor roof and facade distress, no major debris skirt"
+  },
+  {
+   "id": "B5007",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5021",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5075",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5086",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5025",
+   "notes": "Clear along B5025, light debris near B4966"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 8,
+   "nearBuildingId": "B4966",
+   "notes": "Debris and fire hazard from B4966 spilling into street"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5042",
+   "notes": "Clear roadway behind B5025 and B5042"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5025 (255 California St) shows only slight damage with no people visible and clear access via California Street. Adjacent B4966 (311 California St) has extensive damage, active fire on its facade, and 2 people visible on the roof needing rescue, partially blocking Battery Street.",
+ "hash": "dd9558e7c869c48834aee2bfc2e4c408",
+ "usage": {
+  "promptTokens": 5474,
+  "outputTokens": 477,
+  "totalTokens": 5951
+ },
+ "notes": [
+  "ffmpeg 490 ms",
+  "input: video+hires",
+  "gemini 11868 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

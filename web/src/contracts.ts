@@ -548,6 +548,9 @@ export interface QuakeFxHandle {
 // ───────────────────────────── UI (src/ui) ─────────────────────────────
 
 export interface UiHandlers {
+  /** M4: commander approves / rejects the proposed Argon drone plan. */
+  onApprovePlan?(): void;
+  onRejectPlan?(): void;
   onTriggerScenario(scenarioId: string): void;
   onTriggerCustom(lat: number, lon: number, depthKm: number, mag: number): void;
   onReset(): void;
@@ -565,6 +568,10 @@ export interface BuildingInfo {
 }
 
 export interface UiHandle {
+  /** M4: Argon drone plan card (null hides). info.schedule shows mission progress while executing. */
+  showPlan?(plan: DronePlan | null, state: PlanUiState, info?: { schedule?: DroneScheduleEntry[]; simS?: number; wavesUsed?: number }): void;
+  /** M4: drone camera thumbnails (latest captured frame per drone). */
+  showDroneFeeds?(feeds: DroneFeed[]): void;
   /** Show the incoming USGS event card (as if received from the USGS feed). */
   showEvent(event: UsgsEvent, scenario: QuakeScenario): void;
   /** ShakeAlert banner: countdown seconds until strong shaking (≤0 hides countdown), expected MMI. */
@@ -682,6 +689,11 @@ export interface ScanFrame {
 }
 
 export interface ScanChunk {
+  /** M4: footage source; drone chunks carry their mission. Default 'heli'. */
+  source?: 'heli' | 'drone';
+  droneId?: DroneId;
+  missionId?: string;
+  targetBuildingIds?: string[];
   chunkIndex: number;
   frames: ScanFrame[];
   /** Union of tagged building ids across frames. */
@@ -750,6 +762,11 @@ export interface ReconstructionRequest {
   buildings: { id: string; tag: string; address?: string; name?: string; x: number; z: number; height: number; levels: number; use: string }[];
   /** Force mock/replay behaviour for debugging. */
   mode?: 'auto' | 'mock' | 'replay-only';
+  /** M4: footage source (drone = low-altitude close-up orbit of targetBuildingIds). Default 'heli'. */
+  source?: 'heli' | 'drone';
+  droneId?: DroneId;
+  missionId?: string;
+  targetBuildingIds?: string[];
 }
 
 export interface ReconstructionResult {
@@ -791,7 +808,23 @@ export interface ReconHandle {
   suspend?(on: boolean): void;
   /** Optional (recon): applied results + chunk ids (debug / replay). */
   readonly results?: readonly ReconstructionResult[];
+  /** M4 (recon): effective REVEALED observation per building id (drone outranks heli). Read-only view. */
+  observations?(): ReadonlyMap<string, ReconObservation>;
+  /** M4 (recon): effective revealed road / crowd observations (latest per street+building / place). */
+  observedRoads?(): readonly ObservedRoad[];
+  observedCrowds?(): readonly ObservedCrowd[];
 }
+
+/** M4: one effective observation with its provenance (ReconHandle.observations). */
+export type ReconObservation = ObservedBuilding & {
+  chunkIndex: number;
+  flightS: number;
+  source: 'heli' | 'drone';
+  droneId?: DroneId;
+  missionId?: string;
+  /** simSeconds the result was revealed at. */
+  revealS: number;
+};
 
 /** M3 UI: AIR 1 aerial reconstruction panel state (UiHandle.showAir). */
 export interface AirUiState {
@@ -853,6 +886,10 @@ export interface ReconStats {
   predictionBal?: number;
   reconBal?: number;
   fusedBal?: number;
+  /** M4: accuracy timeline, one point per applied result (audience only — never sent to Argon). */
+  history?: ReconHistoryPoint[];
+  /** M4: buildings observed by drones / confirmed collapses so far. */
+  droneObserved?: number;
 }
 
 export interface BuildingComparison {
@@ -860,4 +897,148 @@ export interface BuildingComparison {
   predicted: { mostLikely: DamageState; pCollapse: number; probs: [number, number, number, number, number] };
   observed: ObservedBuilding & { chunkIndex: number; flightS: number };
   truth: { state: DamageState; collapsed: boolean; trappedVisible: number; trappedHidden: number };
+}
+
+// ═════════════════════════════ M4: Argon-planned drone verification (human-approved) ═════════════════════════════
+//
+// After helicopter reconstruction results arrive, gemini-4-argon is asked (text-only, fast) whether to dispatch
+// drones and where. It reasons over UNCERTAINTY (unscanned areas, low-confidence calls, model/observation
+// disagreement, people at risk) — never over truth-based accuracy. A proposed plan pauses the sim and shows a
+// plan card; the commander clicks Approve (or Reject). Approved missions fly 3 drones (D1–D3) from a staging
+// point; each orbits its targets at low altitude, frames go to /api/reconstruct (source 'drone'), and the recon
+// layer updates (drone observations outrank helicopter ones). At most 2 approved waves. Scenario: 1906 repeat.
+
+export type DroneId = 'D1' | 'D2' | 'D3';
+
+export interface DroneMission {
+  id: string; // "W1-D1"
+  wave: 1 | 2;
+  droneId: DroneId;
+  kind: 'verify_building' | 'survey_area';
+  /** 1–4 buildings to inspect, in order (survey_area: buildings around the area centre). Must be candidate ids. */
+  targetBuildingIds: string[];
+  areaCentre?: XZ;
+  /** Argon's reason, shown to the commander. */
+  purpose: string;
+  priority: number; // 1 = highest
+}
+
+export interface DronePlan {
+  wave: 1 | 2;
+  /** false = Argon recommends holding for now (holdReason says why). */
+  dispatch: boolean;
+  rationale: string;
+  holdReason?: string;
+  missions: DroneMission[];
+  model: string;
+  mode: 'gemini' | 'replay' | 'mock';
+  latencyMs: number;
+  createdAtSimS: number;
+  error?: string;
+}
+
+export interface PlanCandidate {
+  id: string; // candidate id == building id for building targets, "A-<n>" for areas
+  buildingId?: string;
+  /** M4 (planner): area candidates — the 2–4 building ids of the cluster (a mission targeting the area expands to these). */
+  buildingIds?: string[];
+  /** M4 (planner): candidate category: unscanned risk / seen-not-assessed / low-confidence severe / disagreement / fire. */
+  kind?: 'unscanned' | 'unassessed' | 'low_confidence' | 'disagreement' | 'fire';
+  label: string; // "401 Washington St (B3291)"
+  x: number;
+  z: number;
+  scanned: boolean;
+  observed?: ObservedDamage;
+  observedConfidence?: number;
+  predicted: { mostLikely: DamageState; pMajorPlus: number; pDestroyed: number };
+  occupants: number;
+  peopleSeen?: number;
+  fire?: boolean;
+  /** Why it is a candidate (e.g. "unscanned URM cluster", "low-confidence collapse call", "model/observation disagree"). */
+  reason: string;
+  /** Code-side priority score (higher = more valuable to inspect). */
+  score: number;
+  distanceFromBaseM: number;
+}
+
+/** POST /api/plan request body. */
+export interface PlanRequest {
+  scenarioId: string;
+  localHour: number;
+  simS: number;
+  wave: 1 | 2;
+  dronesAvailable: DroneId[];
+  drone: { speedMs: number; altitudeAGL: number; orbitS: number; base: XZ; enduranceS: number };
+  coverage: { scannedFraction: number; heliStatus: string; chunksDone: number; chunksTotal: number };
+  situation: {
+    collapsesObserved: { id: string; label: string; confidence: number }[];
+    peopleSeen: number;
+    crowds: { place: string; approxCount: number }[];
+    fires: string[];
+    blockedRoads: string[];
+    latestSummary: string;
+  };
+  candidates: PlanCandidate[];
+  previousPlans?: { wave: number; approved: boolean; missions: string[]; outcome?: string }[];
+  mode?: 'auto' | 'replay-only';
+}
+
+export type DronePhase = 'idle' | 'transit' | 'orbit' | 'return' | 'done';
+
+export interface DronePose extends HeliPose {
+  droneId: DroneId;
+  phase: DronePhase;
+  missionId?: string;
+  /** Index into the mission's targetBuildingIds while orbiting/transiting. */
+  targetIndex?: number;
+}
+
+export interface DroneScheduleEntry {
+  missionId: string;
+  droneId: DroneId;
+  startS: number;
+  targets: { buildingId: string; arriveS: number; leaveS: number }[];
+  endS: number;
+}
+
+export interface DroneFleetHandle {
+  object: THREE.Object3D;
+  base: XZ;
+  speedMs: number;
+  altitudeAGL: number;
+  orbitS: number;
+  enduranceS: number;
+  /** Schedule approved missions starting at startSimS (deterministic flight plan from then on). */
+  assign(missions: DroneMission[], startSimS: number): void;
+  /** Deterministic poses of all 3 drones at simS (idle drones sit at the base). */
+  posesAt(simS: number): DronePose[];
+  /** Update visuals (drones, rotors, paths, target markers, footprints) to simS. */
+  setTime(simS: number): void;
+  schedule(): DroneScheduleEntry[];
+  /** Drones free (not on a mission) at simS. */
+  available(simS: number): DroneId[];
+  reset(): void;
+}
+
+/** One point of the live accuracy timeline (for the audience; never sent to Argon). */
+export interface ReconHistoryPoint {
+  simS: number;
+  source: 'heli' | 'drone';
+  observed: number;
+  predictionF1: number;
+  reconF1: number;
+  fusedF1: number;
+  fusedXbd: number;
+  collapsesConfirmed: number;
+  peopleSeen: number;
+}
+
+export type PlanUiState = 'thinking' | 'hold' | 'proposed' | 'approved' | 'rejected' | 'executing' | 'done';
+
+export interface DroneFeed {
+  droneId: DroneId;
+  phase: DronePhase;
+  label: string; // "D1 · orbit 401 Washington St"
+  jpegBase64: string | null; // latest captured frame
+  missionId?: string;
 }

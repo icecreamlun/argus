@@ -1,0 +1,123 @@
+{
+ "chunkIndex": 1113,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 19861,
+ "buildings": [
+  {
+   "id": "B4860",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracked facade and roof debris, rubble along Sutter and Market"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Crushed and leaning heavily between neighbouring buildings with rubble"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Severely crushed narrow structure with broken roof and debris"
+  },
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Completely reduced to a roofless rubble pile"
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Darkened cracked facade, roof damage and debris at base"
+  },
+  {
+   "id": "B4895",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Intact roofline with minor facade streaking and base debris on Sutter"
+  },
+  {
+   "id": "B4820",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 5,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Facade staining and minor debris along Market Street"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 9,
+   "nearBuildingId": "B4860",
+   "notes": "Debris apron along base of damaged buildings"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4860",
+   "notes": "Roadway mostly open with minor curb debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 9,
+   "place": "Market Street",
+   "nearBuildingId": "B4820"
+  }
+ ],
+ "summary": "Target B4860 (560 Market St) has moderate damage with facade cracking and roof debris, while adjacent B4879, B4869, and B4813 have collapsed. No trapped people are visible on the target, though a crowd of about 25 is gathered on Market Street near B4820. Market Street is clear for access while Sutte",
+ "hash": "6da985d08590cc211ca84ffa24d6466f",
+ "usage": {
+  "promptTokens": 4972,
+  "outputTokens": 594,
+  "thoughtsTokens": 633,
+  "totalTokens": 6199
+ },
+ "notes": [
+  "ffmpeg 597 ms",
+  "input: video+hires",
+  "gemini 19264 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

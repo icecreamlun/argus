@@ -1,0 +1,640 @@
+{
+ "chunkIndex": 3,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 31599,
+ "buildings": [
+  {
+   "id": "B3301",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 0,
+   "notes": "Fire and smoke on roof, heavy facade damage"
+  },
+  {
+   "id": "B3299",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Cracked facade and roof debris"
+  },
+  {
+   "id": "B3306",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Dark streaks and facade damage"
+  },
+  {
+   "id": "B3314",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Light facade cracking"
+  },
+  {
+   "id": "B3224",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Cracked facade and broken windows"
+  },
+  {
+   "id": "B3161",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Slight facade blemishes"
+  },
+  {
+   "id": "B3081",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Slight facade streaks"
+  },
+  {
+   "id": "B3093",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Broken windows and dark facade patches"
+  },
+  {
+   "id": "B3148",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked facade patches"
+  },
+  {
+   "id": "B3205",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Facade cracking and rubble at base"
+  },
+  {
+   "id": "B3281",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Cracked facade and debris along base"
+  },
+  {
+   "id": "B3231",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Severe facade holes, exposed floors, rubble skirt"
+  },
+  {
+   "id": "B3320",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Facade cracks and broken windows"
+  },
+  {
+   "id": "B3403",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked facade and roof damage"
+  },
+  {
+   "id": "B3132",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavy facade damage, holes and debris apron"
+  },
+  {
+   "id": "B3109",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Gaping facade holes and rubble at base"
+  },
+  {
+   "id": "B3137",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Slight facade streaks"
+  },
+  {
+   "id": "B3459",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Minor facade streaks"
+  },
+  {
+   "id": "B3566",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Dark facade patches and broken windows"
+  },
+  {
+   "id": "B3555",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Facade cracks and dark patches"
+  },
+  {
+   "id": "B3583",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof caved in, heavy charring and facade holes"
+  },
+  {
+   "id": "B3588",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Collapsed roof, heavy facade damage and debris"
+  },
+  {
+   "id": "B3348",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Large holes in facade, roof damage, debris"
+  },
+  {
+   "id": "B3571",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade damage and roof debris"
+  },
+  {
+   "id": "B3612",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roof and facade damage"
+  },
+  {
+   "id": "B3636",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade cracks and roof debris"
+  },
+  {
+   "id": "B3644",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Heavy facade charring and damage"
+  },
+  {
+   "id": "B3678",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Facade cracks and dark streaks"
+  },
+  {
+   "id": "B3587",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Slight facade streaks"
+  },
+  {
+   "id": "B3560",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Slight roof and facade marks"
+  },
+  {
+   "id": "B3319",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Facade cracks and dark patches"
+  },
+  {
+   "id": "B3255",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Cracked facade and broken windows"
+  },
+  {
+   "id": "B3361",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Slight facade streaks"
+  },
+  {
+   "id": "B3548",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Heavy facade holes and charring on upper floors"
+  },
+  {
+   "id": "B3723",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Cracked facade and dark patches"
+  },
+  {
+   "id": "B3474",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Large hole in roof deck with dark charring"
+  },
+  {
+   "id": "B3876",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Facade cracks and dark patches"
+  },
+  {
+   "id": "B3942",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Severe facade damage and charring"
+  },
+  {
+   "id": "B3911",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Slight facade streaks"
+  },
+  {
+   "id": "B4048",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Extensive facade holes and charring across multiple floors"
+  },
+  {
+   "id": "B4036",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Slight roof and facade marks"
+  },
+  {
+   "id": "B3947",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Slight facade streaks"
+  },
+  {
+   "id": "B3072",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B3118",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B3236",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B3142",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B3145",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B3165",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B3576",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B3623",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B3852",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "WAVERLY PLACE",
+   "status": "blocked",
+   "evidenceS": 0,
+   "nearBuildingId": "B3301",
+   "notes": "Debris and fire rubble spilling from B3301"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B3301",
+   "notes": "Debris narrowing roadway near B3301 and B3281"
+  },
+  {
+   "street": "STOCKTON STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B3081",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B3236",
+   "notes": "Dust/smoke plume across intersection near B3236"
+  },
+  {
+   "street": "CHATHAM PLACE",
+   "status": "blocked",
+   "evidenceS": 11,
+   "nearBuildingId": "B3548",
+   "notes": "Alley crowded with evacuees and light debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 2,
+   "place": "SACRAMENTO STREET",
+   "nearBuildingId": "B3363"
+  },
+  {
+   "approxCount": 80,
+   "evidenceS": 7,
+   "place": "QUINCY STREET",
+   "nearBuildingId": "B3762"
+  },
+  {
+   "approxCount": 60,
+   "evidenceS": 11,
+   "place": "CHATHAM PLACE",
+   "nearBuildingId": "B3548"
+  }
+ ],
+ "summary": "Active roof fire and heavy structural damage observed at B3301 (53 Waverly Pl), blocking Waverly Place. Extensive facade and roof damage is widespread, notably at B3231, B3132, B3109, B3583, B3348 (600 Stockton St), B3548, B3474, and B4048 (447 Bush St). Large crowds of evacuees have gathered in ope",
+ "hash": "10e85cfcca4ad212947febf5edac53de",
+ "usage": {
+  "promptTokens": 14473,
+  "outputTokens": 2691,
+  "thoughtsTokens": 13,
+  "totalTokens": 17177
+ },
+ "notes": [
+  "ffmpeg 1538 ms",
+  "input: video+hires",
+  "gemini 30061 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

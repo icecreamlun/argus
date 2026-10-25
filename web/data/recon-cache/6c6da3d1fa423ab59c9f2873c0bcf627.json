@@ -1,0 +1,118 @@
+{
+ "chunkIndex": 1222,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8463,
+ "buildings": [
+  {
+   "id": "B5400",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "High-rise facade continuous and upright, adjacent streets clear of debris"
+  },
+  {
+   "id": "B5376",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Collapsed into roofless ruin with rubble core, adjacent Main Street clear"
+  },
+  {
+   "id": "B5391",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Collapsed into roofless rubble ruin, Main Street remains clear"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris next to B5400"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris next to B5400"
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris next to B5400"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 70,
+   "evidenceS": 4,
+   "place": "Courtyard near Main Street",
+   "nearBuildingId": "B5357"
+  }
+ ],
+ "summary": "Target B5400 (77 Beale St) is intact with no visible structural damage, fire, or smoke, and surrounding Mission, Beale, and Main Streets are completely clear for access. Nearby low-rise buildings B5376 and B5391 along Main Street have collapsed into rubble ruins, though no people or trapped signs ar",
+ "hash": "6c6da3d1fa423ab59c9f2873c0bcf627",
+ "usage": {
+  "promptTokens": 4872,
+  "outputTokens": 469,
+  "totalTokens": 5341
+ },
+ "notes": [
+  "ffmpeg 569 ms",
+  "input: video+hires",
+  "gemini 7894 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

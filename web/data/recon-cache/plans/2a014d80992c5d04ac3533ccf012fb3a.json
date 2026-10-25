@@ -1,0 +1,36 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "With AIR 1's scan complete, I am deploying our final reserve drone D3 to survey the unscanned FiDi URM-infill block at One Sansome Street. This densely populated block holds roughly 9,000 occupants and carries a 65% predicted collapse risk, offering the highest life-saving information per minute. No drones remain in reserve after this final wave.",
+ "missions": [
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Survey unscanned URM-infill block at One Sansome Street for predicted collapses and trapped occupants.",
+   "priority": 1
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 4747,
+ "createdAtSimS": 170,
+ "hash": "2a014d80992c5d04ac3533ccf012fb3a",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5566,
+  "outputTokens": 156
+ },
+ "notes": []
+}

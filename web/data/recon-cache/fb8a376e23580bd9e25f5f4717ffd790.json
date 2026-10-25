@@ -1,0 +1,110 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15206,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracks and dark streaks on facade walls, shape intact"
+  },
+  {
+   "id": "B5522",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Darkened facade patches and surface damage on small building"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FERRY PLAZA",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5587",
+   "notes": "Promenade and roadway clear of debris"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "All lanes open and clear of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "Roadway open and clear"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway clear of rubble"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 12,
+   "evidenceS": 10,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 55,
+   "evidenceS": 14,
+   "place": "Embarcadero Plaza",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The waterfront around the Ferry Building (B5504) and Ferry Station Post Office (B5566) is largely intact with no collapses or fires observed. Minor to moderate facade damage is visible on B5587 at Ferry Plaza and B5522 near Don Chee Way, as well as on untagged buildings along Steuart Street. About 5",
+ "hash": "fb8a376e23580bd9e25f5f4717ffd790",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 475,
+  "thoughtsTokens": 536,
+  "totalTokens": 7091
+ },
+ "notes": [
+  "ffmpeg 881 ms",
+  "input: video+hires",
+  "gemini 14323 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

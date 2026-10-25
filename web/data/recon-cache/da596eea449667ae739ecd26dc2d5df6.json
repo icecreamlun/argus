@@ -1,0 +1,123 @@
+{
+ "chunkIndex": 1113,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15443,
+ "buildings": [
+  {
+   "id": "B4860",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Target collapsed between neighbours; Market Street and Sutter Street remain clear."
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Collapsed into a low ruin with exposed slabs between B4895 and B4869."
+  },
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Completely collapsed into a roofless rubble pile behind B4849."
+  },
+  {
+   "id": "B4869",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Standing upright between collapsed neighbours with cracked walls and roof debris."
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Upright with blackened facade patches, cracks and roof damage."
+  },
+  {
+   "id": "B4895",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Flatiron building intact and upright with minor debris along rear edge."
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4860",
+   "notes": "Roadway open and clear of major debris in front of target."
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4860",
+   "notes": "Roadway clear along the rear of the block despite minor curb debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 9,
+   "place": "Market Street near 576 Market St",
+   "nearBuildingId": "B4805"
+  }
+ ],
+ "summary": "Target B4860 (560 Market St) and adjacent B4879 (550 Market St) and B4813 have collapsed, while neighbouring B4869 and B4849 sustain moderate damage. No people or trapped signs are visible on the collapsed structures, though a crowd of about 35 people is gathered further southwest on Market Street. ",
+ "hash": "da596eea449667ae739ecd26dc2d5df6",
+ "usage": {
+  "promptTokens": 5389,
+  "outputTokens": 586,
+  "thoughtsTokens": 508,
+  "totalTokens": 6483
+ },
+ "notes": [
+  "ffmpeg 390 ms",
+  "input: video+hires",
+  "gemini 15053 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

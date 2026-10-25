@@ -46,6 +46,11 @@ export const ICONS = {
   keyboard: S('<rect x="2.5" y="5.5" width="15" height="9" rx="1.6"/><path d="M5.5 8.5h0M8.5 8.5h0M11.5 8.5h0M14.5 8.5h0M6.5 11.5h7"/>'),
   sliders: S('<path d="M4 6h12M4 14h12"/><circle cx="8" cy="6" r="1.8" fill="var(--ag-ico-fill, transparent)"/><circle cx="12.5" cy="14" r="1.8" fill="var(--ag-ico-fill, transparent)"/>'),
   arrowRight: S('<path d="M3.5 10h12M11.5 6l4 4-4 4"/>'),
+  /* M4 drones */
+  drone: S('<circle cx="5" cy="5" r="2.4"/><circle cx="15" cy="5" r="2.4"/><circle cx="5" cy="15" r="2.4"/><circle cx="15" cy="15" r="2.4"/><path d="m6.9 6.9 1.5 1.5M13.1 6.9l-1.5 1.5M6.9 13.1l1.5-1.5M13.1 13.1l-1.5-1.5"/><rect x="8.1" y="8.1" width="3.8" height="3.8" rx="1"/>'),
+  orbit: S('<path d="M7.6 14.2V7.2h4.8v7"/><path d="M5.2 10.6C3.4 11.3 2.5 12 2.5 12.8c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9c0-.8-.9-1.5-2.7-2.2"/><path d="m14.2 9.4 1.3 1-1.1 1.2"/>'),
+  survey: S('<path d="M3.5 7V3.5H7M13 3.5h3.5V7M16.5 13v3.5H13M7 16.5H3.5V13"/><circle cx="10" cy="10" r="2.3"/>'),
+  expand: S('<path d="M11.5 3.5h5v5M8.5 16.5h-5v-5M16.5 3.5l-5 5M3.5 16.5l5-5"/>'),
   /* ShakeAlert protective-action pictograms (24 grid, filled figures, after the Earthquake Country Alliance art). */
   drop: `<svg class="ag-picto" viewBox="0 0 32 32" aria-hidden="true" fill="currentColor">
       <circle cx="9" cy="10.2" r="2.7"/>

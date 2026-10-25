@@ -1,0 +1,272 @@
+{
+ "chunkIndex": 1230,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13932,
+ "buildings": [
+  {
+   "id": "B4748",
+   "damage": "moderate",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "19-story tower upright, broken windows, scorch marks, slight debris on Commercial/Sansome."
+  },
+  {
+   "id": "B4745",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Facade damaged, broken windows, blackened roof, small rubble skirt on Commercial."
+  },
+  {
+   "id": "B4763",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked facade, blackened roof, minor debris along Commercial St."
+  },
+  {
+   "id": "B4786",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Roof scorched and damaged, minor facade cracking along Sansome St."
+  },
+  {
+   "id": "B4690",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked facade and roof damage, upright."
+  },
+  {
+   "id": "B4699",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked facade and roof damage, upright."
+  },
+  {
+   "id": "B4627",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "10-story building with cracked facade and broken windows, upright."
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "8-story building with cracked facade, broken windows, minor base debris."
+  },
+  {
+   "id": "B4687",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roof scorched, minor facade cracking."
+  },
+  {
+   "id": "B4673",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Minor roof scorching and facade cracks."
+  },
+  {
+   "id": "B4692",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Minor facade cracks, roof intact."
+  },
+  {
+   "id": "B4693",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 150,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Small structure intact; large crowd gathered on lawn immediately adjacent."
+  },
+  {
+   "id": "B4768",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4728",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4777",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4788",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4672",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4657",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4665",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4618",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SANSOME STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4748",
+   "notes": "Mostly clear roadway with very light curb debris."
+  },
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4745",
+   "notes": "Passable with minor facade debris along curbs."
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B4687",
+   "notes": "Roadway open and clear of major debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 150,
+   "evidenceS": 10,
+   "place": "Mark Twain Place / Park near 535 Washington St",
+   "nearBuildingId": "B4693"
+  }
+ ],
+ "summary": "Target B4748 (475 Sansome St) sustained moderate damage with broken windows and facade scorching across multiple floors, but remains upright with no visible occupants or trapped signs. Surrounding streets (Sansome, Commercial, and Clay) are clear and accessible for emergency vehicles. A large crowd ",
+ "hash": "a9ab9f6cda607c078b1e434b143c91b9",
+ "usage": {
+  "promptTokens": 5995,
+  "outputTokens": 993,
+  "totalTokens": 6988
+ },
+ "notes": [
+  "ffmpeg 890 ms",
+  "input: video+hires",
+  "gemini 13041 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

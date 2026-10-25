@@ -1,0 +1,184 @@
+{
+ "chunkIndex": 1121,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13345,
+ "buildings": [
+  {
+   "id": "B4987",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Low office intact, straight roofline; Battery St clear, rubble on south side"
+  },
+  {
+   "id": "B4960",
+   "damage": "extensive",
+   "confidence": 0.92,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Severe facade damage, roof holes, person in pink on roof waving"
+  },
+  {
+   "id": "B4995",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Tall tower leaning, large facade holes, heavy rubble into Battery and Bush"
+  },
+  {
+   "id": "B4935",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Collapsed into roofless ruin with jagged wall stubs and rubble core"
+  },
+  {
+   "id": "B4916",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roofline intact, light facade cracks and minor roof streaks"
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Collapsed into low rubble pile, debris spilling onto Battery Street"
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roofline intact, dark patches on roof and minor facade streaks"
+  },
+  {
+   "id": "B4919",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4969",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4973",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5042",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 9,
+   "nearBuildingId": "B4987",
+   "notes": "Clear directly in front of B4987, blocked south by B5057 and B4995 debris"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B4981",
+   "notes": "Roadway completely clear between B4973, B4981, and B4960"
+  },
+  {
+   "street": "BUSH STREET",
+   "status": "blocked",
+   "evidenceS": 2,
+   "nearBuildingId": "B4995",
+   "notes": "Heavy rubble apron from B4995 and B4935 blocking roadway"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 6,
+   "place": "Bush Street east of Sansome",
+   "nearBuildingId": "B4935"
+  }
+ ],
+ "summary": "Target B4987 (65 Battery St) appears structurally intact with no visible casualties, though Battery Street just south of it is partially blocked by heavy debris from collapsed B5057 and extensively damaged B4995. Immediate rescue is needed at adjacent B4960 (235 Pine St), which has extensive damage ",
+ "hash": "19c4aad561e91de13c3a7ad8d7ac9ef5",
+ "usage": {
+  "promptTokens": 5359,
+  "outputTokens": 767,
+  "totalTokens": 6126
+ },
+ "notes": [
+  "ffmpeg 717 ms",
+  "input: video+hires",
+  "gemini 12628 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

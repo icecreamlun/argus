@@ -1,0 +1,268 @@
+{
+ "chunkIndex": 1,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 16907,
+ "buildings": [
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches, light roof distress"
+  },
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Crushed upper structure, roof caved in"
+  },
+  {
+   "id": "B5298",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof distress, minor facade damage"
+  },
+  {
+   "id": "B5307",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Darkened roof and facade streaks"
+  },
+  {
+   "id": "B5312",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roof discolouration and facade streaks"
+  },
+  {
+   "id": "B5313",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Darkened roof and minor facade marks"
+  },
+  {
+   "id": "B5299",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy blackened facade patches, roof damage"
+  },
+  {
+   "id": "B5269",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "High-rise with blackened facade patches on lower half"
+  },
+  {
+   "id": "B5014",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Heavy facade scorching, holes, debris at base"
+  },
+  {
+   "id": "B4893",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Blackened facade patches and rubble at base"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavy facade scorching, rubble skirt along base"
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Blackened facade patches and roof scorching"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Complete collapse into low rubble heap"
+  },
+  {
+   "id": "B4902",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into roofless ruin and rubble"
+  },
+  {
+   "id": "B4868",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into low rubble and wall stubs"
+  },
+  {
+   "id": "B4854",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed ruin with rubble spilling out"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5384",
+   "notes": "Clear of debris"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B4906",
+   "notes": "Rubble skirt encroaching near Battery and Washington"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Heavy collapse debris blocking roadway at Battery"
+  },
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4868",
+   "notes": "Blocked by collapse rubble from adjacent buildings"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 1,
+   "place": "Justin Herman Plaza / Embarcadero Plaza",
+   "nearBuildingId": "B5384"
+  }
+ ],
+ "summary": "Severe cluster of building collapses at Washington, Merchant, and Battery Streets (B4900, B4902, B4868, B4854) has completely blocked Washington and Merchant Streets with heavy rubble. B5372 near 4 The Embarcadero also shows a collapsed upper structure, and B5014 (1 The Embarcadero) has extensive fa",
+ "hash": "119028f9fbfe10839dc54450d81b4188",
+ "usage": {
+  "promptTokens": 7236,
+  "outputTokens": 1204,
+  "totalTokens": 8440
+ },
+ "notes": [
+  "ffmpeg 727 ms",
+  "input: video+hires",
+  "gemini 16180 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

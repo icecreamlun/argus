@@ -1,0 +1,145 @@
+{
+ "chunkIndex": 1213,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15038,
+ "buildings": [
+  {
+   "id": "B5094",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Tall white tower in crosshair intact on all sides; Pine Street clear."
+  },
+  {
+   "id": "B5091",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked and spalled facade panels with roof debris; upright."
+  },
+  {
+   "id": "B5042",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Minor roof debris and staining, structure upright and intact."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Roof caved in with heavy rubble across upper floors."
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5048",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5094",
+   "notes": "Roadway between 100 Pine and 111 Pine is clear of debris."
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5091",
+   "notes": "Street open and clear alongside 201 and 255 California."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 10,
+   "nearBuildingId": "B5057",
+   "notes": "Some debris near 32 Battery, mostly passable."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5094 (100 Pine St) is completely undamaged with no visible casualties or trapped occupants, and Pine Street provides clear access. Nearby B5091 (201 California St) shows moderate facade damage and B5057 (32 Battery St) has a collapsed roof.",
+ "hash": "4409a15127d95b015bb27b9e56d23c96",
+ "usage": {
+  "promptTokens": 5691,
+  "outputTokens": 468,
+  "thoughtsTokens": 218,
+  "totalTokens": 6377
+ },
+ "notes": [
+  "ffmpeg 539 ms",
+  "input: video+hires",
+  "gemini 14499 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

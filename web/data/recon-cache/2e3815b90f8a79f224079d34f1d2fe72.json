@@ -1,0 +1,185 @@
+{
+ "chunkIndex": 1210,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12189,
+ "buildings": [
+  {
+   "id": "B4721",
+   "damage": "collapsed",
+   "confidence": 0.92,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Severe lean, roof center broken in, facade holes, 2 people on roof; Leidesdorff blocked"
+  },
+  {
+   "id": "B4668",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof center collapsed, heavy facade damage, 1 person on roof"
+  },
+  {
+   "id": "B4694",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Blackened and cracked facade patches, broken windows, upright"
+  },
+  {
+   "id": "B4750",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavily damaged darkened facade and roof debris"
+  },
+  {
+   "id": "B4781",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Darkened damaged roof and upper walls"
+  },
+  {
+   "id": "B4804",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Heavily damaged facade and rubble apron along California St"
+  },
+  {
+   "id": "B4567",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4738",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4801",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4842",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4826",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "blocked",
+   "evidenceS": 3,
+   "nearBuildingId": "B4721",
+   "notes": "Blocked by heavy rubble apron from B4721"
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4721",
+   "notes": "Partially obstructed by debris near B4721 and B4668, crowd in street"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4750",
+   "notes": "Debris along base of B4750 and B4781"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 55,
+   "evidenceS": 2,
+   "place": "California Street intersection near 400 Montgomery",
+   "nearBuildingId": "B4668"
+  }
+ ],
+ "summary": "Target B4721 (75 Leidesdorff St) has suffered complete structural failure with a severe lean and broken-in roof; 2 trapped people are visible on its roof and Leidesdorff Street is blocked by rubble. Nearby B4668 (400 Montgomery St) also has a collapsed roof with 1 person trapped on top. A crowd of a",
+ "hash": "2e3815b90f8a79f224079d34f1d2fe72",
+ "usage": {
+  "promptTokens": 5568,
+  "outputTokens": 661,
+  "thoughtsTokens": 230,
+  "totalTokens": 6459
+ },
+ "notes": [
+  "ffmpeg 1147 ms",
+  "input: video+hires",
+  "gemini 11042 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

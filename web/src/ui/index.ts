@@ -22,6 +22,9 @@ import { createFeedPanel } from './feed';
 import { createImpactPanel } from './impact';
 import { createInspector } from './inspector';
 import { createAirPanel } from './air';
+import { createPlanCard } from './plan';
+import { createDroneFeeds } from './droneFeeds';
+import type { WaveMark } from './timeline';
 import { createFooter, createPlaybackIsland, createTimeIsland, createViewsIsland } from './bottombar';
 import { bindKeyboard } from './keyboard';
 import { fmtCompact, fmtInt, nightFactorFor, occupancyWeightDay } from './format';
@@ -65,6 +68,11 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
   impact.overlay.set(state.overlay);
   const inspector = createInspector(() => closeInspector());
   const air = createAirPanel(ctx.city);
+  // M4 drones: Argon plan card (decision moment) + drone camera thumbnails, centre-right of the scene.
+  const plan = createPlanCard(ctx.city, hd);
+  const feeds = createDroneFeeds();
+  const m4 = h('div', { class: 'ag-m4' }, plan.el, feeds.el);
+  let waveMarks: WaveMark[] = [];
   const tod = createTimeIsland(hd);
   const pb = createPlaybackIsland(hd, state.timeScale);
   pb.setActive(false);
@@ -79,8 +87,10 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     h('div', { class: 'ag-alert-slot' }, alert.el),
     h('aside', { class: 'ag-col ag-col--left' }, feed.el),
     right,
+    m4,
     h('div', { class: 'ag-bottom' }, tod.el, pb.el, views.el),
     foot.el,
+    feeds.lightbox,
   );
   root.classList.add('ag-root');
   root.replaceChildren(app);
@@ -179,6 +189,10 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
 
   function resetUi() {
     ui.showAir?.(null);
+    ui.showPlan?.(null, 'done');
+    ui.showDroneFeeds?.([]);
+    waveMarks = [];
+    air.setWaveMarks([]);
     inspector.setComparison(null);
     state.event = null;
     state.scenario = null;
@@ -287,6 +301,18 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     },
     showComparison(c) {
       inspector.setComparison(c);
+    },
+    showPlan(p, s, info) {
+      plan.set(p, s, info);
+      // Approved wave → vertical marker on the AIR accuracy timeline.
+      if (p && (s === 'approved' || s === 'executing') && !waveMarks.some((m) => m.wave === p.wave)) {
+        const starts = (info?.schedule ?? []).filter((e) => p.missions.some((m) => m.id === e.missionId)).map((e) => e.startS);
+        waveMarks = [...waveMarks, { wave: p.wave, simS: starts.length ? Math.min(...starts) : (info?.simS ?? p.createdAtSimS) }];
+        air.setWaveMarks(waveMarks);
+      }
+    },
+    showDroneFeeds(f) {
+      feeds.set(f);
     },
     setCityStats(city: CityData) {
       let buildings = 0;

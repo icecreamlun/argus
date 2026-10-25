@@ -1,0 +1,148 @@
+{
+ "chunkIndex": 1120,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10022,
+ "buildings": [
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Complete structural collapse into rubble pile; Battery St partial debris"
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof debris and slight facade damage adjacent to collapsed B5057"
+  },
+  {
+   "id": "B4995",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy blackened facade patches, severe cracking, and roof debris"
+  },
+  {
+   "id": "B5042",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Extensive roof debris, broken facade, and rubble spilling onto street"
+  },
+  {
+   "id": "B4973",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Upper floors severely damaged with collapsed roof sections"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5047",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4987",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4985",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B5057",
+   "notes": "Debris apron from B5057 and B4995 spilling into roadway"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5048",
+   "notes": "Roadway clear between Battery and Front"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5057 (32 Battery St) has completely collapsed into a rubble ruin with no people or trapped signs visible. Battery Street in front of B5057 is partially obstructed by debris, while nearby Pine Street remains clear for access. Surrounding buildings B4995, B5042, and B4973 also show extensive s",
+ "hash": "1b776ec4a5bae0ec8d40fde040fef811",
+ "usage": {
+  "promptTokens": 5238,
+  "outputTokens": 490,
+  "totalTokens": 5728
+ },
+ "notes": [
+  "ffmpeg 584 ms",
+  "input: video+hires",
+  "gemini 9438 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

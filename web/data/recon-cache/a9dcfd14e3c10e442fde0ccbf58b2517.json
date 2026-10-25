@@ -1,0 +1,273 @@
+{
+ "chunkIndex": 1,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 20732,
+ "buildings": [
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and light roof debris"
+  },
+  {
+   "id": "B5372",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof centre broken in with facade holes"
+  },
+  {
+   "id": "B5298",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Minor roof surface marks, structure upright"
+  },
+  {
+   "id": "B5307",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked roof and facade scorching"
+  },
+  {
+   "id": "B5299",
+   "damage": "extensive",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy facade scorching and roof damage"
+  },
+  {
+   "id": "B5269",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Tall tower with blackened patches on lower facade"
+  },
+  {
+   "id": "B5014",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Large holes in facade and damaged roof"
+  },
+  {
+   "id": "B4906",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavy facade damage and rubble skirt at base"
+  },
+  {
+   "id": "B4848",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Scorched facade, roof damage, debris at base"
+  },
+  {
+   "id": "B4893",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Blackened facade patches and debris along base"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 5,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roofless ruin reduced to rubble heap and stubs"
+  },
+  {
+   "id": "B4902",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 2,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into low rubble core with wall stubs"
+  },
+  {
+   "id": "B4868",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed roofless ruin filled with rubble"
+  },
+  {
+   "id": "B4854",
+   "damage": "collapsed",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Low ruin with collapsed roof and rubble"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5384",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5384",
+   "notes": "Roadway clear of rubble"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B4906",
+   "notes": "Debris apron along base of B4906"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B4906",
+   "notes": "Rubble spilling onto roadway at Clay and Washington"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Heavy rubble blocking intersection near collapsed buildings"
+  },
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Narrow alley obstructed by adjacent building rubble"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 70,
+   "evidenceS": 1,
+   "place": "Embarcadero Plaza / Market Street",
+   "nearBuildingId": "B5384"
+  },
+  {
+   "approxCount": 25,
+   "evidenceS": 14,
+   "place": "WASHINGTON STREET",
+   "nearBuildingId": "B4900"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 14,
+   "place": "SANSOME STREET",
+   "nearBuildingId": "B4848"
+  }
+ ],
+ "summary": "The heaviest damage is at the Battery and Washington Street block (s14), where B4900, B4902, B4868, and B4854 have completely collapsed into roofless rubble ruins. Adjacent buildings B4906, B4848, B5014, and B5372 suffered extensive facade and roof damage. Washington and Merchant Streets are blocked",
+ "hash": "a9dcfd14e3c10e442fde0ccbf58b2517",
+ "usage": {
+  "promptTokens": 7236,
+  "outputTokens": 1218,
+  "thoughtsTokens": 714,
+  "totalTokens": 9168
+ },
+ "notes": [
+  "ffmpeg 525 ms",
+  "input: video+hires",
+  "gemini 20207 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

@@ -1,0 +1,151 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14142,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Tall central tower completely intact; surrounding streets clear for access."
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Collapsed into a low roofless ruin with rubble core between neighbours."
+  },
+  {
+   "id": "B4879",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavily damaged roof and walls adjacent to collapsed B4869."
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Upright building with darkened cracked facade patches."
+  },
+  {
+   "id": "B4895",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Flatiron building upright with darkened patches and side wall damage."
+  },
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4860",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4839",
+   "notes": "Roadway open and clear of debris next to B4839 and B4895."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4895",
+   "notes": "Street open with minor rubble confined to building bases."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 2,
+   "place": "Market Street and 2nd Street",
+   "nearBuildingId": "B4805"
+  },
+  {
+   "approxCount": 25,
+   "evidenceS": 7,
+   "place": "Ecker Plaza",
+   "nearBuildingId": "B4827"
+  }
+ ],
+ "summary": "Target building B4839 (1 Sansome St) is undamaged with clear access along Sutter and Market Streets. Nearby on Market Street, B4869 has collapsed into a roofless ruin and adjacent B4879, B4895, and B4849 show moderate to extensive damage, though Market Street remains passable. Evacuee crowds are gat",
+ "hash": "ae9700a22dc73801e55e6f758a5026bd",
+ "usage": {
+  "promptTokens": 5141,
+  "outputTokens": 568,
+  "thoughtsTokens": 354,
+  "totalTokens": 6063
+ },
+ "notes": [
+  "ffmpeg 328 ms",
+  "input: video+hires",
+  "gemini 13814 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

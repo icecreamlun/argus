@@ -8,7 +8,8 @@
  * via the slider, night via a real click on the slider track) → pick a building by clicking the canvas
  * (inspector opens) → every scenario via its Simulate button at 2× → pause / resume → overlays
  * None / ShakeMap / Damage → let HayWired finish → M3 AIR 1 (air=mock: helicopter, veil, recon panel, seek
- * time-gate) → Reset → verify the city, HUD and AIR state are restored.
+ * time-gate) → Reset → verify the city, HUD and AIR state are restored → M4 drones (air=mock: Argon plan card
+ * pauses the sim, Approve via the button, drones fly, accuracy timeline gains a drone point, Reset clears it).
  * Screenshots and an fps sample are taken at each checkpoint. Exits 1 on any failed check, console
  * error, page error or WebGL/shader warning. The dev server must be running.
  */
@@ -562,6 +563,74 @@ await step('reset', async () => {
   await page.waitForTimeout(3000);
   await shot('07-reset');
   await sampleFps('overview day after reset');
+});
+
+// ───────────────────────── 8. M4: Argon-planned drone verification (mock) ─────────────────────────
+const m4State = () =>
+  A(() => {
+    const a = window.__argus;
+    const { fleet, recon, fx } = a.handles;
+    const card = document.querySelector('.ag-plan');
+    const feeds = document.querySelector('.ag-dfeeds');
+    const st = recon.stats();
+    return {
+      sim: fx.simSeconds,
+      fxPlaying: fx.playing,
+      card: card && !card.hidden ? card.dataset.state : null,
+      planState: a.drones?.planState ?? null,
+      schedule: fleet.schedule().length,
+      fleetVisible: fleet.object.visible,
+      phases: fleet.posesAt(fx.simSeconds).map((p) => p.phase),
+      feedsVisible: !!feeds && !feeds.hidden,
+      history: (st.history ?? []).length,
+      droneHistory: (st.history ?? []).filter((h) => h.source === 'drone').length,
+      droneObserved: st.droneObserved ?? 0,
+      waves: (a.drones?.waves ?? []).map((w) => `${w.wave}:${w.decision}`),
+      firstLeave: Math.min(...fleet.schedule().flatMap((e) => e.targets.map((t) => t.leaveS))),
+    };
+  });
+await step('M4 drones (mock)', async () => {
+  await page.locator('.ag-pb .ag-seg__btn[data-v="4"]').click();
+  await A(() => window.__argus.trigger('san_andreas_1906'));
+  // Wave 1 is planned once ≥ 2 heli chunks are revealed (mock: ~T+80 s) → the sim pauses on the proposed card.
+  await page.waitForSelector('.ag-plan[data-state="proposed"]', { timeout: 90000 });
+  await page.waitForTimeout(600);
+  let m = await m4State();
+  check(m.planState === 'proposed', `plan state ${m.planState}, expected proposed`);
+  check(!m.fxPlaying, 'sim not paused while the plan awaits approval');
+  check(m.schedule === 0, `drones scheduled before approval (${m.schedule})`);
+  await shot('08-m4-plan-proposed');
+  await page.locator('.ag-plan__approve').click();
+  await page.waitForTimeout(800);
+  m = await m4State();
+  check(m.schedule >= 1, `no drone missions scheduled after Approve (${m.schedule})`);
+  check(m.fxPlaying, 'sim did not resume after Approve');
+  check(m.card === 'executing', `plan card '${m.card}' after Approve, expected executing`);
+  check(m.feedsVisible, 'drone feed strip not shown after Approve');
+  check(m.waves.includes('1:approved'), `wave 1 not recorded as approved (${m.waves})`);
+  const h0 = m.history;
+  // Drones fly: wait until one is in the air, then jump past the first target's orbit (deterministic mock result).
+  await page.waitForFunction(() => window.__argus.handles.fleet.posesAt(window.__argus.handles.fx.simSeconds).some((p) => p.phase === 'transit' || p.phase === 'orbit'), null, { timeout: 60000 });
+  await A((t) => window.__argus.seek(t), m.firstLeave + 2);
+  await freshFrames(5);
+  m = await m4State();
+  check(m.phases.some((p) => p === 'transit' || p === 'orbit' || p === 'return'), `no drone flying after the first orbit (${m.phases})`);
+  check(m.droneHistory >= 1 && m.history > h0, `accuracy timeline did not grow with a drone point (history ${h0} → ${m.history}, drone ${m.droneHistory})`);
+  check(m.droneObserved >= 1, `no drone observation applied (${m.droneObserved})`);
+  const timeline = await A(() => !!document.querySelector('.ag-air svg, .ag-tl svg, [class*="timeline"] svg'));
+  check(timeline, 'accuracy timeline svg missing');
+  await shot('08-m4-drones');
+  await sampleFps('M4 drones flying (mock)');
+  // Reset clears drones, plan card, feeds.
+  await page.locator('.ag-feed__foot .ag-btn').click();
+  await page.waitForTimeout(800);
+  m = await m4State();
+  check(m.schedule === 0, `drone schedule not cleared after reset (${m.schedule})`);
+  check(!m.fleetVisible || m.phases.every((p) => p === 'idle'), 'drones still flying after reset');
+  check(m.card === null, `plan card '${m.card}' still visible after reset`);
+  check(!m.feedsVisible, 'drone feeds still visible after reset');
+  check(m.waves.length === 0, `waves not cleared after reset (${m.waves})`);
+  await page.locator('.ag-pb .ag-seg__btn[data-v="1"]').click();
 });
 
 await browser.close();

@@ -18,11 +18,14 @@ import { createHelicopter } from './air/heli';
 import { createScan } from './air/scan';
 import { createRecon } from './argus';
 import { createAirSession, type AirMode } from './app/airSession';
+import { createDroneFleet } from './drones';
+import { createDroneSession } from './app/droneSession';
 
 /**
  * Debug / automation surface used by scripts/shot.mjs, scripts/e2e.mjs and the console.
  * URL params: ?cam=<preset>&tod=<hours>&quake=<scenarioId>&t=<simSeconds>&overlay=<mode>&ui=0&select=<buildingId>&speed=<x>
  *   M3: &air=live|mock|replay (default live) &inflight=<n> (concurrent Argon requests, default 2) &play=1 (keep playing after t)
+ *   M4: drones + Argon planner follow ?air= (live: real /api/plan + drone capture; mock: heuristic; replay: recorded run)
  */
 declare global {
   interface Window {
@@ -54,11 +57,15 @@ declare global {
       handles?: Record<string, unknown>;
       /** M3 AIR 1 session (chunk log, frames captured, captureNow()). */
       air?: import('./app/airSession').AirSession;
+      /** M4 drone session (plan log, drone chunk log, approve() / reject()). */
+      drones?: import('./app/droneSession').DroneSession;
     };
   }
 }
 
 const params = new URLSearchParams(location.search);
+/** FX keeps the aftermath clock running this long after the shaking (keep in sync with src/quake/fx). */
+const AFTERMATH_S = 1500;
 
 window.__argus = {
   ready: false,
@@ -161,6 +168,8 @@ async function boot() {
   engine.scene.add(recon.object);
   const scan = createScan(ctx, { engine, buildings, landmarks, heli, hideDuringCapture: [recon.object] });
   engine.scene.add(scan.object);
+  const fleet = createDroneFleet(ctx);
+  engine.scene.add(fleet.object);
   const airParam = params.get('air');
   const airMode: AirMode = airParam === 'mock' || airParam === 'replay' ? airParam : 'live';
   mark('air');
@@ -177,6 +186,8 @@ async function boot() {
   // Created after the UI (below); declared here so the playback functions can reach it.
   // eslint-disable-next-line prefer-const
   let air: ReturnType<typeof createAirSession>;
+  // eslint-disable-next-line prefer-const
+  let drones: ReturnType<typeof createDroneSession>;
 
   const triggerScenario = (scenario: QuakeScenario) => {
     // Move occupancy AND the USGS origin time to the scene's clock (the event card shows the right time).
@@ -184,7 +195,8 @@ async function boot() {
     const result = model.run(city, s, DEFAULT_SEED);
     session = createQuakeSession(result, buildings.indexOf);
     window.__argus.result = result;
-    air.begin(result); // people truth + recon baseline + fresh AIR state
+    const truth = air.begin(result); // people truth + recon baseline + fresh AIR state
+    drones.begin(result, truth); // M4: fleet + Argon planner state
     paused = false;
     alertShown = false;
     ui.hideShakeAlert();
@@ -211,6 +223,7 @@ async function boot() {
     setPlaying(true);
   };
   const reset = () => {
+    drones.reset();
     air.reset();
     fx.reset();
     fireGate.disable();
@@ -256,9 +269,19 @@ async function boot() {
         if (paused) resume();
         else pause();
       },
+      onApprovePlan() {
+        drones.approve();
+      },
+      onRejectPlan() {
+        drones.reject();
+      },
     },
   );
   air = createAirSession({ ctx, buildings, ui, heli, scan, recon, people }, { mode: airMode, maxInFlight: Number(params.get('inflight') ?? 2) || 2 });
+  drones = createDroneSession(
+    { ctx, ui, fleet, scan, recon, air, simNow: () => fx.simSeconds, running: () => !!session && !paused, pause, resume },
+    { mode: airMode },
+  );
   ui.setScenarios(model.scenarios);
   ui.setCameraPresets(engine.cameraPresets);
   ui.setCityStats(city);
@@ -281,6 +304,7 @@ async function boot() {
     refreshSelection(false);
     // "Playing" = the sim clock is running (fx.playing turns false after durationS, but the aftermath clock runs on).
     air.tick(simSeconds, !paused);
+    drones.tick(simSeconds, !paused);
   });
 
   // ── Selection / inspector ──
@@ -346,7 +370,7 @@ async function boot() {
       frames = 0;
       acc = 0;
       // FX stops its aftermath clock ~10 min after the event; reflect that on the play button.
-      if (session && !paused && !fx.playing && fx.simSeconds > session.result.durationS + 599) {
+      if (session && !paused && !fx.playing && fx.simSeconds > session.result.durationS + AFTERMATH_S - 1) {
         paused = true;
         setPlaying(false);
       }
@@ -357,8 +381,9 @@ async function boot() {
   Object.assign(window.__argus, {
     ctx,
     timings,
-    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air },
+    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air, fleet, drones },
     air,
+    drones,
     flyTo: (p: CameraPresetId, d = 0) => engine.flyTo(p, d),
     setCamera: (position: [number, number, number], target: [number, number, number]) => engine.flyTo({ position, target }, 0),
     setTimeOfDay: (h: number) => {

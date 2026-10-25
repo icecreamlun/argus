@@ -1,0 +1,173 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15474,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Central tower in crosshairs intact, facade straight, surrounding streets clear"
+  },
+  {
+   "id": "B4849",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked and blackened facade, damaged roof, debris at base"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Reduced to rubble core and wall stubs between neighbours"
+  },
+  {
+   "id": "B4879",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavily damaged low structure amidst rubble next to B4869"
+  },
+  {
+   "id": "B5040",
+   "damage": "collapsed",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Collapsed low structure with rubble pile near Ecker Plaza"
+  },
+  {
+   "id": "B5053",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked facade and visible lean next to collapsed B5040"
+  },
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4860",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4869",
+   "notes": "Rubble spilling onto roadway near B4869"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4895",
+   "notes": "Roadway open with evacuees gathering near 2nd Street"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 3,
+   "place": "Market Street and 2nd Street",
+   "nearBuildingId": "B4805"
+  },
+  {
+   "approxCount": 30,
+   "evidenceS": 7,
+   "place": "Ecker Plaza",
+   "nearBuildingId": "B4827"
+  }
+ ],
+ "summary": "Target building B4839 (1 Sansome St) is undamaged with no people in distress and clear access around its base. Nearby along Market and Sutter Streets, B4869 is collapsed and B4849 and B4879 have extensive damage with debris partially obstructing Sutter Street. Large groups of evacuees are gathered a",
+ "hash": "fd23a44c297649b37573769e066a13fa",
+ "usage": {
+  "promptTokens": 5141,
+  "outputTokens": 614,
+  "thoughtsTokens": 515,
+  "totalTokens": 6270
+ },
+ "notes": [
+  "ffmpeg 523 ms",
+  "input: video+hires",
+  "gemini 14950 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,54 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "Dispatching two drones to the highest-risk URM-infill and steel blocks south of the helicopter's current path, where the model predicts up to 65% probability of complete destruction across buildings housing over 15,000 people. D1 will survey the One Sansome Street block, while D2 assesses the 32 Battery Street block—which AIR 1 could not see—and nearby unscanned blocks at 50 Fremont Center and the PG&E Building. D3 is held in reserve for follow-up on new collapses or trapped survivors.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Survey the One Sansome Street URM-infill block (~9,000 occupants, 65% collapse risk) for catastrophic structural failure.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5057",
+    "B4987",
+    "B5103",
+    "B5048"
+   ],
+   "areaCentre": [
+    35,
+    228
+   ],
+   "purpose": "Assess the unassessed 32 Battery Street URM block and adjacent PG&E and 50 Fremont Center blocks for collapse.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5588,
+ "createdAtSimS": 127,
+ "hash": "10502bb64644ccb1d48cbdb49a0f50ed",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 4344,
+  "outputTokens": 267
+ },
+ "notes": []
+}

@@ -1,0 +1,49 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "Dispatching D1 to verify three buildings in the Financial District where trapped survivors were spotted by AIR 1 (B4902, B4721, B4960) to guide immediate rescue deployment. Dispatching D2 to survey high-occupancy unscanned SoMa targets (A-11 and B5528, ~8,450 total occupants) with high predicted collapse and major damage risks that AIR 1 has not yet reached. D3 is held in reserve for follow-up verification and emerging fire or collapse calls.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B4902",
+    "B4721",
+    "B4960"
+   ],
+   "purpose": "Confirm collapse severity and locate trapped survivors reported at 447 Battery, California Bank, and 235 Pine.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5400",
+    "B5391",
+    "B5528"
+   ],
+   "areaCentre": [
+    319,
+    154
+   ],
+   "purpose": "Survey unscanned high-risk PG&E block and Rincon Annex (~8,450 occupants) for structural collapse and casualties.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 16641,
+ "createdAtSimS": 150,
+ "hash": "2d22bf39a7a6afa3bbc7398d6e77a1d4",
+ "promptVersion": "argon-plan-v1",
+ "usage": {
+  "promptTokens": 5636,
+  "outputTokens": 269,
+  "thoughtsTokens": 871
+ },
+ "notes": []
+}

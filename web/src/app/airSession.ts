@@ -76,6 +76,18 @@ export interface AirSession {
   readonly framesCaptured: number;
   /** Debug: capture one frame now at the current flight time (returns it). */
   captureNow(): ScanFrame | null;
+  /** M4: extra deterministic chunks (drone, mock/replay) merged into the planned list (applied by end sim time). */
+  setExtraPlanned(items: { chunk: ScanChunk; res: ReconstructionResult }[]): void;
+  /** M4: number of helicopter chunks the flight produces (≈ frames / 15). */
+  readonly chunksTotal: number;
+  /** M4: helicopter status at a sim time. */
+  heliStatus(simSeconds: number): AirUiState['status'];
+  /** M4: force an AIR panel refresh (after a drone result). */
+  refresh(): void;
+  /** M4: a helicopter frame capture is in flight (the scan capture target is shared, one at a time). */
+  readonly captureBusy: boolean;
+  /** M4: another capturer (drones) holds the shared capture target → the helicopter waits. */
+  blockCapture: (() => boolean) | null;
 }
 
 function pointInPoly(x: number, z: number, poly: XZ[]): boolean {
@@ -124,6 +136,8 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
   const log: AirChunkLog[] = [];
   // Deterministic (mock / replay): pre-built chunk + result list, applied lazily up to the current flight time.
   let planned: { chunk: ScanChunk; res: ReconstructionResult }[] = [];
+  let heliPlanned: { chunk: ScanChunk; res: ReconstructionResult }[] = [];
+  let extraPlanned: { chunk: ScanChunk; res: ReconstructionResult }[] = [];
   let appliedCount = 0;
   let replayLoaded = false;
   let lastUiAt = 0;
@@ -133,6 +147,18 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
   let shownAir = false;
 
   const flightOf = (sim: number) => sim - AIR_LAUNCH_S;
+  const endSimOf = (c: ScanChunk) => {
+    const last = c.frames[c.frames.length - 1];
+    return last ? last.simS : AIR_LAUNCH_S + c.endFlightS;
+  };
+  /** planned = heli + extra (drone) chunks, ordered by their last frame's simS (= reveal order). */
+  function mergePlanned(reapply: boolean) {
+    planned = [...heliPlanned, ...extraPlanned].sort((a, b) => endSimOf(a.chunk) - endSimOf(b.chunk) || a.chunk.chunkIndex - b.chunk.chunkIndex);
+    if (reapply && result && truth && appliedCount > 0) {
+      recon.begin(result, truth);
+      appliedCount = 0;
+    }
+  }
 
   // ── Request building list (identity/geometry only, NO predicted damage) ──
   function requestBuildings(ids: string[]): ReconstructionRequest['buildings'] {
@@ -324,23 +350,23 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
       const r = await fetch(`/api/replay?scenario=${encodeURIComponent(result.scenario.id)}&hour=${result.scenario.localHour}`);
       const j = (await r.json()) as { chunks: { result: ReconstructionResult; chunk: Omit<ScanChunk, 'frames'> & { frames: Omit<ScanFrame, 'pose' | 'jpegBase64'>[] & { position: [number, number, number]; heading: number }[] } }[] };
       if (myGen !== gen) return;
-      planned = (j.chunks ?? []).map(({ result: res, chunk }) => ({
+      heliPlanned = (j.chunks ?? []).map(({ result: res, chunk }) => ({
         res,
         chunk: {
           ...chunk,
           frames: chunk.frames.map((f) => ({ ...f, jpegBase64: '', pose: heli.poseAt(f.flightS) })),
         } as ScanChunk,
       }));
-      planned.sort((a, b) => a.chunk.chunkIndex - b.chunk.chunkIndex);
-      if (!planned.length) {
+      if (!heliPlanned.length) {
         console.warn('[air] no cached Argon run for this scenario/hour; falling back to mock');
-        planned = virtualChunks().map((c) => ({ chunk: c, res: createMockReconstruction(c, result!, truth, 7 + c.chunkIndex, { city }) }));
-      } else console.info(`[air] replay: ${planned.length} cached chunks`);
+        heliPlanned = virtualChunks().map((c) => ({ chunk: c, res: createMockReconstruction(c, result!, truth, 7 + c.chunkIndex, { city }) }));
+      } else console.info(`[air] replay: ${heliPlanned.length} cached chunks`);
     } catch (err) {
       console.warn('[air] replay fetch failed; falling back to mock', err);
       if (myGen !== gen || !result) return;
-      planned = virtualChunks().map((c) => ({ chunk: c, res: createMockReconstruction(c, result!, truth, 7 + c.chunkIndex, { city }) }));
+      heliPlanned = virtualChunks().map((c) => ({ chunk: c, res: createMockReconstruction(c, result!, truth, 7 + c.chunkIndex, { city }) }));
     }
+    mergePlanned(true);
     replayLoaded = true;
     appliedCount = 0;
     lastUiKey = '';
@@ -357,9 +383,7 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
     if (!result || !truth) return;
     let want = 0;
     for (const p of planned) {
-      const last = p.chunk.frames[p.chunk.frames.length - 1];
-      const endSim = last ? last.simS : AIR_LAUNCH_S + p.chunk.endFlightS;
-      if (endSim <= sim + 1e-6) want++;
+      if (endSimOf(p.chunk) <= sim + 1e-6) want++;
       else break;
     }
     if (want < appliedCount) {
@@ -441,7 +465,8 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
       truth = people.build(r);
       recon.begin(r, truth);
       if (mode === 'mock') {
-        planned = virtualChunks().map((c) => ({ chunk: c, res: createMockReconstruction(c, r, truth, 7 + c.chunkIndex, { city }) }));
+        heliPlanned = virtualChunks().map((c) => ({ chunk: c, res: createMockReconstruction(c, r, truth, 7 + c.chunkIndex, { city }) }));
+        mergePlanned(false);
         replayLoaded = true;
       } else if (mode === 'replay') {
         void loadReplay(gen);
@@ -461,7 +486,7 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
         // Capture only while playing forward (not on seeks): one frame per FRAME_DT of flight time.
         const forward = playing && dSim > 0 && dSim < 2;
         if (forward && flightS >= 0) {
-          if (!capturing && nextK <= lastFrameK && flightS >= nextK * FRAME_DT) {
+          if (!capturing && !session.blockCapture?.() && nextK <= lastFrameK && flightS >= nextK * FRAME_DT) {
             const k = Math.min(lastFrameK, Math.floor(flightS / FRAME_DT + 1e-6));
             nextK = k + 1;
             captureAsyncAt(k, sim);
@@ -491,6 +516,8 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
       inFlight = 0;
       log.length = 0;
       planned = [];
+      heliPlanned = [];
+      extraPlanned = [];
       appliedCount = 0;
       replayLoaded = false;
       lastUiKey = '';
@@ -507,6 +534,33 @@ export function createAirSession(deps: AirSessionDeps, opts: { mode: AirMode; ma
       selectedId = id;
       lastCmpKey = '#';
       refreshComparison();
+    },
+    setExtraPlanned(items) {
+      extraPlanned = items.slice();
+      mergePlanned(true);
+      lastUiKey = '';
+      if (replayLoaded && Number.isFinite(lastSim)) {
+        applyPlannedUpTo(lastSim);
+        recon.update?.(lastSim);
+        pushUi(lastSim, true);
+      }
+    },
+    get captureBusy() {
+      return capturing;
+    },
+    blockCapture: null,
+    get chunksTotal() {
+      return Math.ceil((lastFrameK + 1) / CHUNK_FRAMES);
+    },
+    heliStatus(sim) {
+      return statusAt(flightOf(sim));
+    },
+    refresh() {
+      lastUiKey = '';
+      if (Number.isFinite(lastSim)) {
+        recon.update?.(lastSim);
+        pushUi(lastSim, true);
+      }
     },
     captureNow() {
       if (!result) return null;

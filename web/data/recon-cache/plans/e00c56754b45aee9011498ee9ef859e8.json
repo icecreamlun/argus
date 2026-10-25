@@ -1,0 +1,64 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "With AIR 1 finished scanning, we are deploying all three drones in this final wave to cover our highest-priority life-safety gaps. D1 will verify trapped survivors at California Bank and Trust and 348 Pine St while checking the fire at 201 California St; D2 will sweep high-occupancy unscanned blocks in SoMa including Rincon Annex; and D3 will verify reports of trapped people at 447 Battery St and 401 Washington St alongside high-occupancy buildings with conflicting damage assessments. No drones are held in reserve as this is our final wave.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5091",
+    "B5094",
+    "B4721",
+    "B4750"
+   ],
+   "purpose": "Assess the fire at 201 California St, check 100 Pine Center, and confirm trapped survivors at California Bank and Trust and 348 Pine St.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5528",
+    "B5400",
+    "B5391",
+    "B5381"
+   ],
+   "areaCentre": [
+    272,
+    83
+   ],
+   "purpose": "Survey unscanned high-occupancy buildings at Rincon Annex and the Pacific Gas & Electric block, and verify Hyatt Regency.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5269",
+    "B5064",
+    "B4902",
+    "B4900"
+   ],
+   "purpose": "Confirm trapped survivors at 447 Battery St and 401 Washington St, and resolve damage disagreements at Embarcadero Center 3 and One Maritime Plaza.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8149,
+ "createdAtSimS": 412,
+ "hash": "e00c56754b45aee9011498ee9ef859e8",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5688,
+  "outputTokens": 373
+ },
+ "notes": []
+}

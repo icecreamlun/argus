@@ -8,6 +8,7 @@ import { h, setText } from './dom';
 import { icon } from './icons';
 import { createPanel } from './panel';
 import { DAMAGE_STATES, buildingTitle, fmtInt } from './format';
+import { createTimeline, type WaveMark } from './timeline';
 
 const OBS_INDEX: Record<ObservedDamage, DamageState> = { none: 0, slight: 1, moderate: 2, extensive: 3, collapsed: 4 };
 const STATE_SHORT = ['None', 'Slight', 'Moderate', 'Extensive', 'Collapsed'];
@@ -97,6 +98,10 @@ export function createAirPanel(city: CityData) {
   const collapses = trio('Collapses', 'collapse');
   collapses.el.title = 'HAZUS complete damage (DS4), incl. collapse. Model = expected count';
   const peopleRow = trio('People seen', 'trapped');
+  // M4 drones: accuracy timeline under the headline figures.
+  const timeline = createTimeline();
+  let waveMarks: WaveMark[] = [];
+  let lastHistory: AirUiState['stats']['history'];
   const compare = h(
     'div',
     { class: 'ag-air__cmp' },
@@ -109,6 +114,7 @@ export function createAirPanel(city: CityData) {
       h('div', { class: 'ag-air__fig' }, reconNum, h('span', { class: 'ag-air__figLabel ag-air__figLabel--argon' }, 'Model + Argon')),
     ),
     h('div', { class: 'ag-air__foot' }, h('span', { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed. Macro-F1 = mean per-class F1 (the xBD challenge damage score)' }, 'xBD macro-F1 · vs ground truth (sim)'), within),
+    timeline.el,
     h(
       'div',
       { class: 'ag-air__table' },
@@ -150,6 +156,11 @@ export function createAirPanel(city: CityData) {
     get active() {
       return !!active;
     },
+    /** M4: approved drone waves (vertical markers on the accuracy timeline). [] = infer from history. */
+    setWaveMarks(marks: WaveMark[]) {
+      waveMarks = marks.slice();
+      timeline.set(lastHistory, waveMarks);
+    },
     set(s: AirUiState | null) {
       if (!s) {
         setActive(false);
@@ -190,7 +201,9 @@ export function createAirPanel(city: CityData) {
       within.title = has
         ? `xBD 4-class. Balanced accuracy: model ${pct(st.predictionBal ?? 0)}, Argon ${pct(st.reconBal ?? 0)}, model+Argon ${pct(st.fusedBal ?? 0)}. Exact HAZUS state: ${pct(st.predictionAccuracy)} → Argon ${pct(st.reconAccuracy)}.`
         : '';
-      setText(basis, has ? `${fmtInt(st.buildingsObserved)} buildings reconstructed${st.buildingsCovered ? ` of ${fmtInt(st.buildingsCovered)} in view` : ''}. Model = HAZUS most likely state; model complete = expected count.` : 'Comparison appears when the first chunk comes back.');
+      setText(basis, has ? `${fmtInt(st.buildingsObserved)} buildings reconstructed${st.buildingsCovered ? ` of ${fmtInt(st.buildingsCovered)} in view` : ''}${st.droneObserved ? ` (${fmtInt(st.droneObserved)} by drone close-up)` : ''}. Model = HAZUS most likely state; model complete = expected count.` : 'Comparison appears when the first chunk comes back.');
+      lastHistory = st.history;
+      timeline.set(has ? st.history : [], waveMarks);
       setText(collapses.a, has ? fmtInt(st.collapsesPredicted) : '–');
       setText(collapses.b, has ? fmtInt(st.collapsesObserved) : '–');
       setText(collapses.c, has ? fmtInt(st.collapsesTruth) : '–');

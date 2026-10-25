@@ -16,7 +16,7 @@ import type {
   ReconstructionRequest,
   ReconstructionResult,
 } from '../src/contracts';
-import { PROMPT_VERSION, buildPrompt, responseSchema } from './prompt';
+import { DRONE_PROMPT_VERSION, PROMPT_VERSION, buildPrompt, promptVersionFor, responseSchema } from './prompt';
 
 export interface ReconConfig {
   apiKey: string;
@@ -67,7 +67,7 @@ export function validateRequest(body: unknown): ReconstructionRequest {
 
 function hashRequest(model: string, prompt: string, req: ReconstructionRequest): string {
   const h = createHash('sha256');
-  h.update(model + '\n' + PROMPT_VERSION + '\n' + prompt + '\n');
+  h.update(model + '\n' + promptVersionFor(req) + '\n' + prompt + '\n');
   for (const f of req.frames) h.update(f.jpegBase64);
   h.update(JSON.stringify(req.buildings));
   return h.digest('hex').slice(0, 32);
@@ -259,7 +259,7 @@ export async function reconstruct(cfg: ReconConfig, req: ReconstructionRequest, 
   }
   if (req.mode === 'replay-only') {
     // Frames differ byte-wise between runs (wall-clock animation): fall back to the run index (scenario/hour/chunk).
-    const idx = runIndexFile(cfg, req.scenarioId, req.localHour, req.chunkIndex);
+    const idx = runIndexFor(cfg, req);
     if (existsSync(idx)) {
       const { hash: h } = JSON.parse(await readFile(idx, 'utf8')) as { hash: string };
       const f = join(cfg.root, 'data', 'recon-cache', `${h}.json`);
@@ -295,7 +295,7 @@ export async function reconstruct(cfg: ReconConfig, req: ReconstructionRequest, 
       hash,
       usage,
       notes,
-      promptVersion: PROMPT_VERSION,
+      promptVersion: promptVersionFor(req),
     };
     await mkdir(join(cfg.root, 'data', 'recon-cache'), { recursive: true });
     await writeFile(cacheFile, JSON.stringify(result, null, 1));
@@ -316,26 +316,38 @@ const runDir = (cfg: ReconConfig, scenarioId: string, localHour: number) =>
   join(cfg.root, 'data', 'recon-cache', 'runs', `${scenarioId.replace(/[^\w-]/g, '_')}_h${Math.round(localHour * 10)}`);
 const runIndexFile = (cfg: ReconConfig, scenarioId: string, localHour: number, chunkIndex: number) =>
   join(runDir(cfg, scenarioId, localHour), `chunk_${String(chunkIndex).padStart(3, '0')}.json`);
+/** M4: drone chunks live in runs/<scenario>_h<h>/drone/<missionId>_chunk_<n>.json (not mixed into the heli replay). */
+const droneIndexFile = (cfg: ReconConfig, req: Pick<ReconstructionRequest, 'scenarioId' | 'localHour' | 'chunkIndex' | 'missionId' | 'droneId'>) =>
+  join(
+    runDir(cfg, req.scenarioId, req.localHour),
+    'drone',
+    `${String(req.missionId ?? req.droneId ?? 'drone').replace(/[^\w-]/g, '_')}_chunk_${String(req.chunkIndex).padStart(3, '0')}.json`,
+  );
+const runIndexFor = (cfg: ReconConfig, req: ReconstructionRequest) =>
+  req.source === 'drone' ? droneIndexFile(cfg, req) : runIndexFile(cfg, req.scenarioId, req.localHour, req.chunkIndex);
 
 async function writeRunIndex(cfg: ReconConfig, req: ReconstructionRequest, hash: string) {
   const dir = runDir(cfg, req.scenarioId, req.localHour);
   // Chunk 0 starts a new run: drop the previous run's chunks so a replay never mixes two flights.
-  if (req.chunkIndex === 0 && existsSync(dir)) await rm(dir, { recursive: true, force: true });
-  await mkdir(dir, { recursive: true });
+  if (req.source !== 'drone' && req.chunkIndex === 0 && existsSync(dir)) await rm(dir, { recursive: true, force: true });
+  const file = runIndexFor(cfg, req);
+  await mkdir(join(file, '..'), { recursive: true });
   const frames = req.frames.map((f) => ({ index: f.index, flightS: f.flightS, simS: f.simS, position: f.position, heading: f.heading, taggedBuildingIds: f.taggedBuildingIds }));
   const chunk = {
+    ...(req.source === 'drone' ? { source: 'drone', droneId: req.droneId, missionId: req.missionId, targetBuildingIds: req.targetBuildingIds } : {}),
     chunkIndex: req.chunkIndex,
     startFlightS: frames[0]?.flightS ?? 0,
     endFlightS: frames[frames.length - 1]?.flightS ?? 0,
     buildingIds: req.buildings.map((b) => b.id),
     frames,
   };
-  await writeFile(runIndexFile(cfg, req.scenarioId, req.localHour, req.chunkIndex), JSON.stringify({ hash, chunk }));
+  await writeFile(file, JSON.stringify({ hash, chunk }));
 }
 
-/** GET /api/replay?scenario=&hour= → every cached chunk of the latest run for that scenario/hour. */
-export async function listReplay(cfg: ReconConfig, scenarioId: string, localHour: number) {
-  const dir = runDir(cfg, scenarioId, localHour);
+/** GET /api/replay?scenario=&hour=[&source=drone] → every cached chunk of the latest run for that scenario/hour. */
+export async function listReplay(cfg: ReconConfig, scenarioId: string, localHour: number, source: 'heli' | 'drone' = 'heli') {
+  const dir = source === 'drone' ? join(runDir(cfg, scenarioId, localHour), 'drone') : runDir(cfg, scenarioId, localHour);
+  const version = source === 'drone' ? DRONE_PROMPT_VERSION : PROMPT_VERSION;
   if (!existsSync(dir)) return [];
   const out: { result: ServerReconResult; chunk: unknown }[] = [];
   for (const f of (await readdir(dir)).filter((x) => x.endsWith('.json')).sort()) {
@@ -344,7 +356,7 @@ export async function listReplay(cfg: ReconConfig, scenarioId: string, localHour
       const rf = join(cfg.root, 'data', 'recon-cache', `${hash}.json`);
       if (!existsSync(rf)) continue;
       const result = JSON.parse(await readFile(rf, 'utf8')) as ServerReconResult;
-      if (result.promptVersion && result.promptVersion !== PROMPT_VERSION) continue; // stale prompt
+      if (result.promptVersion && result.promptVersion !== version) continue; // stale prompt
       out.push({ result: { ...result, chunkIndex: chunk.chunkIndex, mode: 'replay' }, chunk });
     } catch {
       /* skip corrupt entry */

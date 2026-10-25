@@ -1,0 +1,224 @@
+{
+ "chunkIndex": 1233,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14553,
+ "buildings": [
+  {
+   "id": "B4692",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracks on facade, light rubble skirt; Commercial St partially blocked."
+  },
+  {
+   "id": "B4627",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Darkened roof and cracked upper walls; person signalling on roof."
+  },
+  {
+   "id": "B4665",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Large dark patches and cracks on facade, rubble along base."
+  },
+  {
+   "id": "B4659",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Leaning with roof holes and heavy debris spilling into street."
+  },
+  {
+   "id": "B4690",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Broken-in roof and damaged upper walls."
+  },
+  {
+   "id": "B4673",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Broken-in roof centre and blackened interior visible from above."
+  },
+  {
+   "id": "B4653",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Large hole in roof, blackened interior."
+  },
+  {
+   "id": "B4629",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Reduced to a low pile of rubble on the corner."
+  },
+  {
+   "id": "B4618",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Debris and cracks on roof and facade."
+  },
+  {
+   "id": "B4748",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Facade shows widespread cracks and missing panels, rubble at base."
+  },
+  {
+   "id": "B4745",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Hole in roof and facade cracks."
+  },
+  {
+   "id": "B4699",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Damaged roof and cracked facade."
+  },
+  {
+   "id": "B4657",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4728",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4687",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4692",
+   "notes": "Light debris along kerbs near B4692 and B4748, still passable."
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "blocked",
+   "evidenceS": 4,
+   "nearBuildingId": "B4629",
+   "notes": "Heavy rubble pile from collapsed B4629 blocking roadway."
+  },
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "blocked",
+   "evidenceS": 10,
+   "nearBuildingId": "B4659",
+   "notes": "Debris from B4659 and B4629 spilling across the intersection."
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4673",
+   "notes": "Roadway appears clear of major debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 9,
+   "place": "Park north of Clay Street",
+   "nearBuildingId": "B4591"
+  }
+ ],
+ "summary": "Target B4692 (554 Commercial St) has only slight damage with no people visible, and Commercial Street in front is partially passable. Nearby, one person is trapped and signalling on the roof of B4627 (538 Montgomery St) and another on the roof of extensively damaged B4659 (576 Sacramento St). B4629 ",
+ "hash": "eff566c6acd465cd2c9e66a0475604be",
+ "usage": {
+  "promptTokens": 5770,
+  "outputTokens": 999,
+  "totalTokens": 6769
+ },
+ "notes": [
+  "ffmpeg 675 ms",
+  "input: video+hires",
+  "gemini 13878 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

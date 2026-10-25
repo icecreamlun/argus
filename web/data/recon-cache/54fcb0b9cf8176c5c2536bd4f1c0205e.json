@@ -1,0 +1,127 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12014,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Target reduced to rubble and debris between high-rises; Sutter Street accessible."
+  },
+  {
+   "id": "B4849",
+   "damage": "collapsed",
+   "confidence": 0.82,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavily damaged low ruin with large debris pile spilling toward Market."
+  },
+  {
+   "id": "B4869",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Darkened damaged roof and facade with debris at base along Sutter."
+  },
+  {
+   "id": "B4820",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Small building in alley showing blackened facade patches and light debris."
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B4813",
+   "notes": "Roadway mostly clear between high-rises with minor curb debris near B4813."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B4849",
+   "notes": "Debris spilling onto sidewalk and edge of roadway near B4849."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) has collapsed into rubble in the canyon between 100 Montgomery and 44 Montgomery, alongside collapsed B4849 (562 Market St) and moderately damaged B4869 (554 Market St). No people, trapped individuals, fire, or smoke are visible from this high-altitude orbit. Sutter Street r",
+ "hash": "54fcb0b9cf8176c5c2536bd4f1c0205e",
+ "usage": {
+  "promptTokens": 5029,
+  "outputTokens": 463,
+  "thoughtsTokens": 283,
+  "totalTokens": 5775
+ },
+ "notes": [
+  "ffmpeg 968 ms",
+  "input: video+hires",
+  "gemini 11046 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,149 @@
+{
+ "chunkIndex": 1212,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10028,
+ "buildings": [
+  {
+   "id": "B5091",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Light facade cracks and streaks on multiple sides; Front and California clear"
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5042",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5124",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5075",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5086",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5081",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5007",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5091",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5091",
+   "notes": "Roadway open and clear of debris"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5091 (201 California St) shows slight damage with surface cracking and streaks across its facades and roof, while remaining structurally intact with no visible people or trapped signs. Surrounding buildings are largely undamaged, and both California Street and Front Street remain clear for a",
+ "hash": "7d149c80cf9895bfe4e3eeaba92aef4f",
+ "usage": {
+  "promptTokens": 5530,
+  "outputTokens": 255,
+  "thoughtsTokens": 295,
+  "totalTokens": 6080
+ },
+ "notes": [
+  "ffmpeg 310 ms",
+  "input: video+hires",
+  "gemini 9718 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

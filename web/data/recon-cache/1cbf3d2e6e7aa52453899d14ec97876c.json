@@ -1,0 +1,100 @@
+{
+ "chunkIndex": 1223,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8680,
+ "buildings": [
+  {
+   "id": "B5391",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Visible lean, facade cracks, roof damage, Main Street clear of major blockages"
+  },
+  {
+   "id": "B5376",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof surface cracked and damaged, upright structure"
+  },
+  {
+   "id": "B5357",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Slight facade streaking and minor roof debris, upright"
+  },
+  {
+   "id": "B5334",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Minor roof surface marks, facade upright and intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5391",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5334",
+   "notes": "Roadway clear and passable"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 8,
+   "place": "Beale Street sidewalk",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5391 (58 Main St) shows extensive damage with a noticeable lean and facade cracking, though no people or trapped signs are visible on it. Adjacent B5376 has moderate roof damage while B5357 and B5334 show slight damage; Main Street and Beale Street remain clear for access, with a crowd of ab",
+ "hash": "1cbf3d2e6e7aa52453899d14ec97876c",
+ "usage": {
+  "promptTokens": 4807,
+  "outputTokens": 430,
+  "totalTokens": 5237
+ },
+ "notes": [
+  "ffmpeg 836 ms",
+  "input: video+hires",
+  "gemini 7843 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

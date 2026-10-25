@@ -1,0 +1,103 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 18483,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked facade and roof patches, minor base debris"
+  },
+  {
+   "id": "B5522",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Blackened facade patches and small rubble skirt"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway open and free of debris"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway clear of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "Turnaround and tracks clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 12,
+   "evidenceS": 10,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 60,
+   "evidenceS": 14,
+   "place": "Embarcadero Plaza",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The Ferry Building (B5504) and Ferry Station Post Office (B5566) appear intact with no structural failure. Slight to moderate damage is visible on smaller structures B5587 and B5522, while larger buildings further inland along Steuart Street show facade damage. The Embarcadero, Don Chee Way, and Ste",
+ "hash": "16c13978964b21aa9238326e71fc678d",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 406,
+  "thoughtsTokens": 460,
+  "totalTokens": 6946
+ },
+ "notes": [
+  "ffmpeg 451 ms",
+  "input: video+hires",
+  "gemini 18031 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

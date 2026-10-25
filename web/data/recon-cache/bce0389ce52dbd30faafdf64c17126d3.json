@@ -1,0 +1,141 @@
+{
+ "chunkIndex": 1231,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15382,
+ "buildings": [
+  {
+   "id": "B4768",
+   "damage": "moderate",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Upright tower with blackened cracked facade patches; Sansome and Clay clear"
+  },
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Blackened facade patches and rubble skirt along base; upright"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked blackened facade with rubble skirt; one person on roof"
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Heavy blackened facade patches and debris along base; upright"
+  },
+  {
+   "id": "B4748",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked roof and blackened facade patches on east wall; upright"
+  },
+  {
+   "id": "B4815",
+   "damage": "moderate",
+   "confidence": 0.82,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked roof and debris skirt at corner of Sansome"
+  },
+  {
+   "id": "B4630",
+   "damage": "moderate",
+   "confidence": 0.78,
+   "peopleVisible": 3,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Damaged low building on Clay Street with people on roof"
+  },
+  {
+   "id": "B4653",
+   "damage": "moderate",
+   "confidence": 0.78,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Damaged roof adjacent to 559 Clay with people visible"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SANSOME STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4768",
+   "notes": "Roadway clear along east side of B4768; minor curb debris"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4768",
+   "notes": "Roadway open and clear south of B4768"
+  },
+  {
+   "street": "MARK TWAIN PLACE",
+   "status": "partial",
+   "evidenceS": 7,
+   "nearBuildingId": "B4755",
+   "notes": "Alley/plaza occupied by large evacuated crowd"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 9,
+   "place": "Plaza at Mark Twain Place and 535 Washington St",
+   "nearBuildingId": "B4693"
+  }
+ ],
+ "summary": "Target B4768 (505 Sansome St) has moderate facade damage with cracking and dark spalling across multiple floors, but remains upright with no collapse and no people visible on it. Surrounding mid-rise office buildings (B4755, B4753, B4848, B4748) also show moderate facade damage, with one person on t",
+ "hash": "bce0389ce52dbd30faafdf64c17126d3",
+ "usage": {
+  "promptTokens": 5391,
+  "outputTokens": 791,
+  "thoughtsTokens": 468,
+  "totalTokens": 6650
+ },
+ "notes": [
+  "ffmpeg 455 ms",
+  "input: video+hires",
+  "gemini 14927 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

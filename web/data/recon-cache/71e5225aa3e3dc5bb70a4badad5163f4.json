@@ -1,0 +1,294 @@
+{
+ "chunkIndex": 2,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15458,
+ "buildings": [
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Blackened roof and facade patches, some debris"
+  },
+  {
+   "id": "B4848",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Heavy facade scorching and holes, debris at base"
+  },
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked and blackened facade patches, upright"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Dark streaks and broken windows on facade"
+  },
+  {
+   "id": "B4584",
+   "damage": "extensive",
+   "confidence": 0.75,
+   "peopleVisible": 6,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "People gathered on damaged roof, rubble around"
+  },
+  {
+   "id": "B4402",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked roof and facade damage"
+  },
+  {
+   "id": "B4331",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Damaged roof and debris along base"
+  },
+  {
+   "id": "B3892",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Scorched facade, surrounded by crowd in plaza"
+  },
+  {
+   "id": "B3722",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Broken roof and damaged upper walls"
+  },
+  {
+   "id": "B3785",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Roof caved in, heavy facade damage"
+  },
+  {
+   "id": "B3617",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Roof broken in with bright debris, rubble skirt"
+  },
+  {
+   "id": "B3591",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Facade cracks and roof damage"
+  },
+  {
+   "id": "B3457",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roof and upper floors heavily broken in"
+  },
+  {
+   "id": "B3301",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Reduced to rubble heap with debris spilling out"
+  },
+  {
+   "id": "B3299",
+   "damage": "collapsed",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into low rubble pile next to B3301"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4768",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4420",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B4229",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MERCHANT STREET",
+   "status": "partial",
+   "evidenceS": 0,
+   "nearBuildingId": "B4848",
+   "notes": "Debris and dust across narrow street"
+  },
+  {
+   "street": "MARK TWAIN PLACE",
+   "status": "blocked",
+   "evidenceS": 1,
+   "nearBuildingId": "B4755",
+   "notes": "Crowded with evacuees and debris"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4755",
+   "notes": "Main carriageway open between buildings"
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4527",
+   "notes": "Roadway clear at Washington intersection"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "partial",
+   "evidenceS": 12,
+   "nearBuildingId": "B3617",
+   "notes": "Debris spilling onto street near 808 Grant"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B3457",
+   "notes": "Heavy rubble blocking street near 805 Clay"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 2,
+   "place": "MARK TWAIN PLACE",
+   "nearBuildingId": "B4755"
+  },
+  {
+   "approxCount": 80,
+   "evidenceS": 3,
+   "place": "Plaza near 535 Washington St",
+   "nearBuildingId": "B4693"
+  },
+  {
+   "approxCount": 120,
+   "evidenceS": 11,
+   "place": "Portsmouth Square (Walter U. Lum Place)",
+   "nearBuildingId": "B3892"
+  }
+ ],
+ "summary": "Widespread moderate to extensive facade and roof damage across the Financial District and Chinatown, with severe collapses around Waverly Place and Clay Street (B3301, B3299). A group of about 6 people is stranded on the roof of B4584 near Montgomery and Washington Streets needing rescue. Large crow",
+ "hash": "71e5225aa3e3dc5bb70a4badad5163f4",
+ "usage": {
+  "promptTokens": 12068,
+  "outputTokens": 1260,
+  "totalTokens": 13328
+ },
+ "notes": [
+  "ffmpeg 1010 ms",
+  "input: video+hires",
+  "gemini 14445 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

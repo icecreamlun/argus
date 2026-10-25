@@ -1,0 +1,119 @@
+{
+ "chunkIndex": 1111,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 24291,
+ "buildings": [
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Target facade and roofline intact on all sides; Bush Street partially obstructed."
+  },
+  {
+   "id": "B4731",
+   "damage": "extensive",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Large hole broken into roof centre with radiating cracks across roof."
+  },
+  {
+   "id": "B4833",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened and cracked facade patches on multiple sides with debris on Bush Street."
+  },
+  {
+   "id": "B4957",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 55,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Circular retail building intact with large crowd gathered on surrounding plaza."
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B4860",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 2,
+   "nearBuildingId": "B4827",
+   "notes": "Debris and rubble along roadway between 220 and 225 Bush St."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B4957",
+   "notes": "Roadway open with pedestrians evacuating near plaza."
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4827",
+   "notes": "Roadway appears clear of rubble."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 55,
+   "evidenceS": 6,
+   "place": "Plaza at 532 Market St and Bush St",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target B4827 (225 Bush St) is structurally intact with no visible facade damage and no people or trapped signs observed. Adjacent B4833 (220 Bush St) has moderate facade damage spilling some debris into Bush Street, while B4731 (180 Montgomery St) shows extensive roof collapse. A crowd of about 55 p",
+ "hash": "d6dd1e4914c9af5b165cd0ee85b6f13a",
+ "usage": {
+  "promptTokens": 5052,
+  "outputTokens": 521,
+  "thoughtsTokens": 726,
+  "totalTokens": 6299
+ },
+ "notes": [
+  "ffmpeg 743 ms",
+  "input: video+hires",
+  "gemini 23548 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

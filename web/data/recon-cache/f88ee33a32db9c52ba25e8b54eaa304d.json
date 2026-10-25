@@ -1,0 +1,184 @@
+{
+ "chunkIndex": 1121,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13034,
+ "buildings": [
+  {
+   "id": "B4987",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Low roof intact, minor streaks; Battery St clear, rear rubble from B4995."
+  },
+  {
+   "id": "B4995",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Severe facade holes, floor slabs exposed, large rubble apron on Bush St."
+  },
+  {
+   "id": "B4960",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Visible lean, heavily cracked facade, person in pink on damaged roof."
+  },
+  {
+   "id": "B4916",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Moderate facade cracking and streaking, roof intact, upright."
+  },
+  {
+   "id": "B4935",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Crushed upper levels, jagged walls around rubble core, leans heavily."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roofless ruin with caved-in interior and rubble pile."
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Dark streaks on facade, minor roof debris, structure upright."
+  },
+  {
+   "id": "B4981",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Light facade streaking, roof and walls intact."
+  },
+  {
+   "id": "B4919",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4969",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4973",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5042",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4987",
+   "notes": "Roadway open and clear of debris in front of B4987 and B4981."
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4981",
+   "notes": "Clear roadway between Battery and Sansome."
+  },
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 2,
+   "nearBuildingId": "B4995",
+   "notes": "Heavy rubble apron from B4995 and B4935 spilling onto street."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 7,
+   "place": "Intersection near Bush and Sansome",
+   "nearBuildingId": "B4935"
+  }
+ ],
+ "summary": "Target B4987 (65 Battery St) has only slight damage with no people visible, and Battery Street in front is clear for access. Immediately adjacent, high-rise B4960 (235 Pine St) has extensive damage with 1 person trapped on the roof, while B4935 (100 Sansome St) and B5057 (32 Battery St) have collaps",
+ "hash": "f88ee33a32db9c52ba25e8b54eaa304d",
+ "usage": {
+  "promptTokens": 5309,
+  "outputTokens": 784,
+  "totalTokens": 6093
+ },
+ "notes": [
+  "ffmpeg 604 ms",
+  "input: video+hires",
+  "gemini 12430 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

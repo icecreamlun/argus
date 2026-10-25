@@ -1,0 +1,168 @@
+{
+ "chunkIndex": 1220,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10583,
+ "buildings": [
+  {
+   "id": "B5381",
+   "damage": "slight",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Slight facade streaks, shape fully intact; surrounding streets clear of debris."
+  },
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Blackened and cracked roof and facade patches, upright."
+  },
+  {
+   "id": "B5372",
+   "damage": "moderate",
+   "confidence": 0.82,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Damaged roof dome and blackened facade streaks, upright."
+  },
+  {
+   "id": "B5443",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Extensive dark facade streaks and broken windows on upper floors."
+  },
+  {
+   "id": "B5298",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roof surface cracked and scorched, building upright."
+  },
+  {
+   "id": "B5317",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Roof completely broken in, reduced to a roofless ruin."
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SPEAR STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and clear of debris."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and clear of debris."
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and clear of debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 120,
+   "evidenceS": 2,
+   "place": "Plaza north of 4 The Embarcadero",
+   "nearBuildingId": "B5384"
+  },
+  {
+   "approxCount": 90,
+   "evidenceS": 8,
+   "place": "Plaza at Market and Spear",
+   "nearBuildingId": "B5381"
+  }
+ ],
+ "summary": "Target B5381 (5 Embarcadero Center) shows only slight damage with no visible people or trapped signs, and surrounding streets (Market, Spear, Drumm) are clear for access. Nearby B5317 is collapsed while B5384, B5372, B5443, and B5298 have moderate damage. Large crowds (~90-120 people) have gathered ",
+ "hash": "38fd00b4a8c322af7d1205f36017c38e",
+ "usage": {
+  "promptTokens": 5147,
+  "outputTokens": 659,
+  "totalTokens": 5806
+ },
+ "notes": [
+  "ffmpeg 488 ms",
+  "input: video+hires",
+  "gemini 10095 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

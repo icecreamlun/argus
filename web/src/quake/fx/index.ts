@@ -218,7 +218,7 @@ export function createQuakeFx(ctx: AppContext, deps: QuakeFxDeps): QuakeFxHandle
     if (running) {
       t += dt * timeScale;
       // Stop the aftermath clock eventually (dust long gone, fires steady).
-      if (t > result.durationS + 600) running = false;
+      if (t > result.durationS + 1500) running = false; // M4: drone waves run ~10+ min after the event
     }
     const a0 = performance.now();
     if (t !== lastApplied) applyState(t);

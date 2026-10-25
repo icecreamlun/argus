@@ -25,6 +25,8 @@ import type {
   PeopleTruth,
   QuakeResult,
   ReconHandle,
+  ReconHistoryPoint,
+  ReconObservation,
   ReconStats,
   ReconstructionResult,
   RoadRecord,
@@ -71,12 +73,19 @@ export const obsState = (d: ObservedDamage): DamageState => OBSERVED_DAMAGE.inde
 /** HAZUS state (collapsed = 4) → xBD class: 0 no damage, 1 minor, 2 major (DS2–3), 3 destroyed. */
 export const XBD = [0, 1, 2, 2, 3] as const;
 
-type Observed = ObservedBuilding & { chunkIndex: number; flightS: number };
+type Observed = ReconObservation;
 interface Entry {
   res: ReconstructionResult;
   chunk: ScanChunk;
   revealS: number;
+  /** Unique per chunk: heli and drone chunks may reuse chunk indices. */
+  key: string;
+  source: 'heli' | 'drone';
 }
+const entryKey = (res: ReconstructionResult, chunk: ScanChunk) =>
+  chunk.source === 'drone' ? `drone:${chunk.missionId ?? chunk.droneId ?? ''}:${res.chunkIndex}` : `heli:${res.chunkIndex}`;
+/** Fusion: a drone close-up is trusted at least this much (Argon's own confidence otherwise). */
+const DRONE_MIN_CONFIDENCE = 0.85;
 interface Predicted {
   mostLikely: DamageState;
   pCollapse: number;
@@ -153,6 +162,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
   let covered = new Set<string>();
   let revealed: Entry[] = [];
   let statsCache: ReconStats | null = null;
+  let history: ReconHistoryPoint[] = [];
   const tinted = new Set<number>();
 
   const pins = createPins(ctx);
@@ -184,7 +194,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
   // ── Rebuild effective state ──
   function rebuild(force = false) {
     const rev = entries.filter((e) => e.revealS <= simNow + 1e-6);
-    const key = rev.map((e) => e.res.chunkIndex).join(',');
+    const key = rev.map((e) => e.key).join(',');
     if (!force && key === revealKey) return;
     revealKey = key;
     revealed = rev;
@@ -193,15 +203,26 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     effRoads = [];
     effCrowds = [];
     covered = new Set();
+    history = [];
     for (const e of rev) {
       for (const id of e.chunk.buildingIds) covered.add(id);
       for (const b of e.res.buildings) {
         if (!idx.has(b.id)) continue;
         covered.add(b.id);
         const prev = effective.get(b.id);
-        // Later chunks win unless clearly less confident.
-        if (prev && b.confidence < prev.confidence - 0.05) continue;
-        effective.set(b.id, { ...b, chunkIndex: e.res.chunkIndex, flightS: flightOf(e.chunk, b.evidenceS) });
+        // Drone close-ups outrank helicopter observations regardless of confidence; within the same source,
+        // later chunks win unless clearly less confident.
+        if (prev && prev.source === 'drone' && e.source === 'heli') continue;
+        if (prev && prev.source === e.source && b.confidence < prev.confidence - 0.05) continue;
+        effective.set(b.id, {
+          ...b,
+          chunkIndex: e.res.chunkIndex,
+          flightS: flightOf(e.chunk, b.evidenceS),
+          source: e.source,
+          droneId: e.chunk.droneId,
+          missionId: e.chunk.missionId,
+          revealS: e.revealS,
+        });
       }
       for (const r of e.res.roads) {
         const k = `${normStreet(r.street)}|${r.nearBuildingId ?? ''}`;
@@ -213,6 +234,8 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
         effCrowds = effCrowds.filter((x) => (x.place ?? x.nearBuildingId ?? '') !== k || !k);
         effCrowds.push({ ...c, chunkIndex: e.res.chunkIndex });
       }
+      // Accuracy timeline: one point per revealed result (recomputed from scratch ⇒ consistent on seek).
+      if (result) history.push({ simS: e.revealS, source: e.source, ...metricsOf(effective) });
     }
     applyVisuals();
   }
@@ -373,11 +396,12 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
   }
 
   /** Model corrected by Argon: xBD prior (model) × likelihood of Argon's call given its confidence → argmax. */
-  function xbdFused(i: number, o: ObservedBuilding): number {
+  function xbdFused(i: number, o: ObservedBuilding & { source?: 'heli' | 'drone' }): number {
     const q = predicted(i).probs;
     const prior = [q[0], q[1], q[2] + q[3], q[4]].map((v) => Math.max(v, 1e-4));
     const ox = XBD[obsState(o.damage)];
-    const c = Math.min(0.95, Math.max(0.3, o.confidence));
+    const conf = o.source === 'drone' ? Math.max(o.confidence, DRONE_MIN_CONFIDENCE) : o.confidence;
+    const c = Math.min(0.95, Math.max(0.3, conf));
     let best = 0;
     let bestP = -1;
     for (let t = 0; t < 4; t++) {
@@ -407,6 +431,37 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     return { f1: classes ? f1 / classes : 0, bal: classes ? bal / classes : 0 };
   }
 
+  /** Timeline metrics over an effective observation map (truth used for the audience chart only). */
+  function metricsOf(eff: Map<string, Observed>): Omit<ReconHistoryPoint, 'simS' | 'source'> {
+    const cmP = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+    const cmR = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+    const cmF = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+    let fx = 0;
+    let collapses = 0;
+    let ppl = 0;
+    for (const [id, o] of eff) {
+      const i = idx.get(id)!;
+      const tx = XBD[truthState(result!, i)];
+      const ob = obsState(o.damage);
+      const fxc = xbdFused(i, o);
+      cmP[tx][xbdPredicted(i)]++;
+      cmR[tx][XBD[ob]]++;
+      cmF[tx][fxc]++;
+      if (fxc === tx) fx++;
+      if (ob === 4) collapses++;
+      ppl += o.peopleVisible;
+    }
+    return {
+      observed: eff.size,
+      predictionF1: classMetrics(cmP).f1,
+      reconF1: classMetrics(cmR).f1,
+      fusedF1: classMetrics(cmF).f1,
+      fusedXbd: eff.size ? fx / eff.size : 0,
+      collapsesConfirmed: collapses,
+      peopleSeen: ppl,
+    };
+  }
+
   function computeStats(): ReconStats {
     const s: ReconStats = {
       chunksSent: Math.max(sent.size, entries.length),
@@ -427,6 +482,8 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       model: entries.length ? entries[entries.length - 1].res.model : 'gemini-4-argon',
       mode: entries.length ? entries[entries.length - 1].res.mode : null,
       buildingsCovered: covered.size,
+      history: history.slice(),
+      droneObserved: [...effective.values()].filter((o) => o.source === 'drone').length,
     };
     const lastRev = revealed[revealed.length - 1];
     s.lastSummary = lastRev?.res.summary ?? '';
@@ -510,11 +567,13 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       predCache = new Array(r.damage.length);
     },
     apply(res, chunk) {
-      const at = entries.findIndex((e) => e.res.chunkIndex === res.chunkIndex);
-      const entry: Entry = { res, chunk, revealS: revealTime(chunk) };
+      const key = entryKey(res, chunk);
+      const at = entries.findIndex((e) => e.key === key);
+      const entry: Entry = { res, chunk, revealS: revealTime(chunk), key, source: chunk.source === 'drone' ? 'drone' : 'heli' };
       if (at >= 0) entries[at] = entry;
       else entries.push(entry);
-      entries.sort((a, b) => a.res.chunkIndex - b.res.chunkIndex);
+      // Reveal order (heli chunk order == time order; drone chunks interleave by their last frame's simS).
+      entries.sort((a, b) => a.revealS - b.revealS || (a.source === b.source ? a.res.chunkIndex - b.res.chunkIndex : a.source === 'heli' ? -1 : 1));
       sent.add(res.chunkIndex);
       rebuild(true);
     },
@@ -526,6 +585,15 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     stats() {
       if (!statsCache) statsCache = computeStats();
       return statsCache;
+    },
+    observations() {
+      return effective;
+    },
+    observedRoads() {
+      return effRoads;
+    },
+    observedCrowds() {
+      return effCrowds;
     },
     compare(id) {
       if (!result) return null;
@@ -563,6 +631,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       effRoads = [];
       effCrowds = [];
       covered = new Set();
+      history = [];
       statsCache = null;
       clearTints();
       pins.set([]);

@@ -1,0 +1,186 @@
+{
+ "chunkIndex": 5,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11245,
+ "buildings": [
+  {
+   "id": "B5403",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked and darkened patches across upper facade"
+  },
+  {
+   "id": "B5323",
+   "damage": "slight",
+   "confidence": 0.78,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roof surface cracked with dark damaged patches"
+  },
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Roofless jagged wall stubs around rubble core"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5094",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5183",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5301",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5344",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5381",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B5384",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5301",
+   "notes": "Carriageway free of debris; evacuees on roadway"
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5323",
+   "notes": "Roadway open and clear of rubble"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5381",
+   "notes": "Wide waterfront roadway completely clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 55,
+   "evidenceS": 4,
+   "place": "MARKET STREET",
+   "nearBuildingId": "B5301"
+  },
+  {
+   "approxCount": 85,
+   "evidenceS": 12,
+   "place": "THE EMBARCADERO PLAZA",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 45,
+   "evidenceS": 12,
+   "place": "EMBARCADERO PARK",
+   "nearBuildingId": "B5372"
+  }
+ ],
+ "summary": "Worst damage is the complete collapse of 6-story office building B5372 near the Embarcadero Center into a roofless ruin. B5403 (101 Market St) shows moderate facade damage and B5323 has slight roof damage, while major high-rises along Market Street and 5 Embarcadero Center (B5381) appear intact. No ",
+ "hash": "2cada9d0be040d55aa31bc80b383ea45",
+ "usage": {
+  "promptTokens": 7026,
+  "outputTokens": 550,
+  "thoughtsTokens": 356,
+  "totalTokens": 7932
+ },
+ "notes": [
+  "ffmpeg 424 ms",
+  "input: video+hires",
+  "gemini 10821 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

@@ -1,0 +1,49 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "Dispatching D1 to verify three damaged buildings along Pine, California, and Bush Streets where trapped occupants were spotted (~2,800 total occupants), and D2 to sweep the unscanned One Sansome Street URM-infill block (~9,000 occupants, 65% collapse risk). This immediately addresses confirmed life-safety signs and our highest-risk blind spot while holding D3 in reserve for follow-up or emerging collapses.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B4960",
+    "B4721",
+    "B4463"
+   ],
+   "purpose": "Confirm structural damage and locate trapped occupants spotted at 235 Pine St, California Bank and Trust, and 350 Bush St.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Sweep unscanned One Sansome Street URM-infill block (~9,000 occupants) to check for predicted severe collapses.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5680,
+ "createdAtSimS": 150,
+ "hash": "9517bbfc277b37bff869fd56fb84e01d",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5597,
+  "outputTokens": 243
+ },
+ "notes": []
+}

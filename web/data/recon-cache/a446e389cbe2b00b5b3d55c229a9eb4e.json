@@ -1,0 +1,467 @@
+{
+ "chunkIndex": 2,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 26513,
+ "buildings": [
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "blackened facade patches, roof stains, base debris"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "roof and facade blackened, debris at base"
+  },
+  {
+   "id": "B4854",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "roof partially caved in, debris in street"
+  },
+  {
+   "id": "B4902",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 3,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "damaged roof and facade, people at base"
+  },
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "heavily blackened facade, rubble skirt at base"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "blackened facade, debris along base"
+  },
+  {
+   "id": "B4693",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "low structure with dark damaged roof"
+  },
+  {
+   "id": "B4587",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 6,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "completely pancaked into rubble heap with people"
+  },
+  {
+   "id": "B4584",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 4,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "collapsed into rubble pile next to B4587"
+  },
+  {
+   "id": "B4675",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "roof caved in, heavy facade damage"
+  },
+  {
+   "id": "B4514",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "roof broken in, rubble spilling out"
+  },
+  {
+   "id": "B4524",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "damaged roof and facade cracks"
+  },
+  {
+   "id": "B4519",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "darkened roof, facade damage"
+  },
+  {
+   "id": "B4402",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "cracked facade, dark patches on roof"
+  },
+  {
+   "id": "B4331",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "heavily damaged roof and darkened walls"
+  },
+  {
+   "id": "B4215",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "roof caved in, dark damage"
+  },
+  {
+   "id": "B4172",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "damaged roof, debris in alley"
+  },
+  {
+   "id": "B3892",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 10,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "blackened facade, people gathered at base"
+  },
+  {
+   "id": "B3670",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 12,
+   "notes": "collapsed into low rubble with dust"
+  },
+  {
+   "id": "B3617",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "heavily damaged, leaning into rubble"
+  },
+  {
+   "id": "B3668",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "facade and roof damage, rubble at base"
+  },
+  {
+   "id": "B3872",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "leaning with broken roof and facade"
+  },
+  {
+   "id": "B3785",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "roof broken in, heavy facade damage"
+  },
+  {
+   "id": "B3722",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "severe lean and broken roof"
+  },
+  {
+   "id": "B3761",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "leaning, facade blackened and cracked"
+  },
+  {
+   "id": "B3613",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "blackened facade, debris skirt"
+  },
+  {
+   "id": "B3591",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "roof and facade damage, debris on street"
+  },
+  {
+   "id": "B3457",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "slight facade cracks, intact shape"
+  },
+  {
+   "id": "B3301",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "collapsed on fire with heavy flames"
+  },
+  {
+   "id": "B3299",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "adjacent to fire, heavy roof damage"
+  },
+  {
+   "id": "B3463",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "roof broken in, facade blackened"
+  },
+  {
+   "id": "B3402",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "facade cracks and debris at base"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4420",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 0,
+   "nearBuildingId": "B4848",
+   "notes": "debris across roadway between B4848 and B4854"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B4906",
+   "notes": "rubble along base of B4906"
+  },
+  {
+   "street": "MARK TWAIN PLACE",
+   "status": "blocked",
+   "evidenceS": 1,
+   "nearBuildingId": "B4755",
+   "notes": "narrow alley blocked by debris and crowd"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4402",
+   "notes": "clear roadway near Montgomery intersection"
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4527",
+   "notes": "clear roadway at Washington intersection"
+  },
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "blocked",
+   "evidenceS": 12,
+   "nearBuildingId": "B3785",
+   "notes": "blocked by heavy rubble between B3875 and B3785"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "blocked",
+   "evidenceS": 13,
+   "nearBuildingId": "B3670",
+   "notes": "rubble spilling across street from B3670 collapse"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B3457",
+   "notes": "debris narrowing street near Waverly Place"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 60,
+   "evidenceS": 3,
+   "place": "plaza near 535 Washington St",
+   "nearBuildingId": "B4693"
+  },
+  {
+   "approxCount": 120,
+   "evidenceS": 11,
+   "place": "Portsmouth Square",
+   "nearBuildingId": "B3892"
+  }
+ ],
+ "summary": "Severe earthquake damage across the Financial District and Chinatown with multiple complete collapses, notably at 580 Washington St (B4587/B4584), 800 Grant Ave (B3670), and 53 Waverly Pl (B3301). Active structure fire with heavy flames is burning in the collapsed ruins of B3301 at Waverly Place and",
+ "hash": "a446e389cbe2b00b5b3d55c229a9eb4e",
+ "usage": {
+  "promptTokens": 12068,
+  "outputTokens": 2256,
+  "totalTokens": 14324
+ },
+ "notes": [
+  "ffmpeg 549 ms",
+  "input: video+hires",
+  "gemini 25964 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

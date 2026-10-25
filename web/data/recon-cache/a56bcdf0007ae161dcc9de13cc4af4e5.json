@@ -1,0 +1,177 @@
+{
+ "chunkIndex": 1120,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10441,
+ "buildings": [
+  {
+   "id": "B5057",
+   "damage": "extensive",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roof broken in, heavy rubble spilling onto Battery St blocking access"
+  },
+  {
+   "id": "B5048",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked facade, scattered roof debris, upright"
+  },
+  {
+   "id": "B4995",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Heavy blackening and façade holes across upper floors"
+  },
+  {
+   "id": "B4969",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Dark façade streaks and damage visible on roof"
+  },
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Debris scattered on roof and cracked facade"
+  },
+  {
+   "id": "B5032",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Scattered roof debris and façade cracks"
+  },
+  {
+   "id": "B4973",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked facade and roof debris"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5047",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4985",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4987",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "blocked",
+   "evidenceS": 5,
+   "nearBuildingId": "B5057",
+   "notes": "Heavy rubble apron from B5057 spilling across roadway"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5048",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5047",
+   "notes": "Roadway clear and passable"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5057 (32 Battery St) has extensive damage with its roof caved in and a large debris apron blocking Battery Street; no people or trapped signs are visible. Nearby B4995 (100 Bush St) also shows extensive facade damage, while B5048, B5042, B5032, and B4973 have moderate damage. Pine Street and",
+ "hash": "a56bcdf0007ae161dcc9de13cc4af4e5",
+ "usage": {
+  "promptTokens": 5238,
+  "outputTokens": 626,
+  "totalTokens": 5864
+ },
+ "notes": [
+  "ffmpeg 430 ms",
+  "input: video+hires",
+  "gemini 10011 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

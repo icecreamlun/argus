@@ -1,0 +1,54 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "We are dispatching D1 to the One Sansome Street URM-infill block to assess a potential catastrophic collapse with over 9,000 occupants, and D2 to the 32 Battery Street URM-infill block where helicopter footage could not assess a high-risk block of over 1,100 occupants. Both blocks have a 65% predicted probability of destruction and require immediate life-safety verification. D3 is held in reserve at Embarcadero Plaza for follow-up rescues and emerging collapses.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Survey the unscanned One Sansome Street URM-infill block for catastrophic collapse and trapped occupants.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5057",
+    "B4987",
+    "B5103",
+    "B5048"
+   ],
+   "areaCentre": [
+    -124,
+    169
+   ],
+   "purpose": "Assess the 32 Battery Street URM-infill block which AIR 1 could not evaluate despite high collapse risk.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6151,
+ "createdAtSimS": 139,
+ "hash": "0b40aa85ebb3252e6bea5204257062cc",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 4507,
+  "outputTokens": 237
+ },
+ "notes": []
+}

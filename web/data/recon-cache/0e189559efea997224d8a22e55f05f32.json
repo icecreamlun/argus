@@ -1,0 +1,116 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14600,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Upright 3-story building with cracked facade patches and rubble at base"
+  },
+  {
+   "id": "B4849",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Reduced to a low rubble ruin with debris spilling toward Market Street"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Collapsed into a roofless rubble pile between adjacent buildings"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Collapsed structure reduced to dark rubble next to 544 Market"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B4759",
+   "notes": "Roadway between 100 Montgomery and 44 Montgomery is clear of debris"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B4849",
+   "notes": "Debris apron along the sidewalk and curb from collapsed adjacent buildings"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) has moderate damage with facade cracking and base rubble, though the structure remains upright with no people or trapped signs visible. Immediately adjacent buildings B4849 (562 Market St), B4869 (554 Market St), and B4879 (550 Market St) have collapsed into rubble piles, pa",
+ "hash": "0e189559efea997224d8a22e55f05f32",
+ "usage": {
+  "promptTokens": 5029,
+  "outputTokens": 446,
+  "thoughtsTokens": 545,
+  "totalTokens": 6020
+ },
+ "notes": [
+  "ffmpeg 310 ms",
+  "input: video+hires",
+  "gemini 14290 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

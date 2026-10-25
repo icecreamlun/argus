@@ -1,0 +1,232 @@
+{
+ "chunkIndex": 1232,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12072,
+ "buildings": [
+  {
+   "id": "B4786",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Target reduced to roofless ruin, debris spilling onto Commercial and Sansome"
+  },
+  {
+   "id": "B4745",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roofless ruin with jagged walls, rubble spilling into Commercial Street"
+  },
+  {
+   "id": "B4763",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roofless ruin with collapsed interior, adjacent to B4786"
+  },
+  {
+   "id": "B4790",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Large dark scorch and damage patches on roof and upper facade"
+  },
+  {
+   "id": "B4748",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Light facade cracks and minor debris at base along Commercial Street"
+  },
+  {
+   "id": "B4699",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Collapsed roof and hollowed interior visible on Sacramento Street"
+  },
+  {
+   "id": "B4672",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Collapsed roof and hollowed-out interior next to B4699"
+  },
+  {
+   "id": "B4665",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Facade damage and debris skirt along Commercial Street"
+  },
+  {
+   "id": "B4692",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Visible facade damage and debris on Commercial Street"
+  },
+  {
+   "id": "B4728",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4777",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4788",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4795",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4746",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4893",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B4690",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4657",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "partial",
+   "evidenceS": 6,
+   "nearBuildingId": "B4786",
+   "notes": "Debris apron from collapsed B4786, B4763, and B4745"
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "partial",
+   "evidenceS": 7,
+   "nearBuildingId": "B4786",
+   "notes": "Rubble from B4786 along western curb, roadway mostly passable"
+  },
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4788",
+   "notes": "Roadway clear of major debris near B4788 and B4728"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4786 (415 Sansome St) is completely collapsed into a roofless ruin, along with adjacent buildings B4763 and B4745 on Commercial Street. No people or trapped signs are visible at the target. Commercial Street and Sansome Street have partial debris aprons alongside B4786, while Sacramento Stre",
+ "hash": "b77846e3777021eaf2fd46b260d4e47c",
+ "usage": {
+  "promptTokens": 5656,
+  "outputTokens": 807,
+  "totalTokens": 6463
+ },
+ "notes": [
+  "ffmpeg 615 ms",
+  "input: video+hires",
+  "gemini 11457 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

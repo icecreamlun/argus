@@ -270,3 +270,207 @@ export function mockBuildingQuake(run: MockRun): { shaking: BuildingShaking; dam
     },
   };
 }
+
+// ───────────────────────────── M4 drones (plan card, feeds, accuracy timeline) ─────────────────────────────
+import type { AirUiState, DroneFeed, DroneId, DronePhase, DronePlan, DroneScheduleEntry, PlanUiState, ReconHistoryPoint } from '../contracts';
+
+/** Named targets for the mock plan (dev.ts writes these onto the mock city's records). */
+export const M4_TARGETS: Record<string, string> = {
+  B0101: '401 Washington St',
+  B0102: '53 Waverly Pl',
+  B0103: '750 Kearny St',
+  B0201: 'Sun Yat-sen Plaza',
+  B0202: '920 Grant Ave',
+  B0301: '1 Embarcadero Center',
+  B0302: '100 Pine St',
+};
+
+/** Heli results from T+98 s, then drone wave 1 approved at T+236 s. */
+export function mockHistory(upToS = 420): ReconHistoryPoint[] {
+  const out: ReconHistoryPoint[] = [];
+  const heli = [98, 116, 134, 152, 170, 188];
+  heli.forEach((s, i) => {
+    const pred = 0.27 + 0.02 * Math.sin(i * 1.7);
+    out.push({ simS: s, source: 'heli', observed: 24 * (i + 1), predictionF1: pred, reconF1: 0.36 + i * 0.012, fusedF1: 0.4 + i * 0.022, fusedXbd: 0.6 + i * 0.01, collapsesConfirmed: 2 + i * 2, peopleSeen: 10 * (i + 1) });
+  });
+  const drone = [268, 289, 305, 327, 349, 372, 394];
+  drone.forEach((s, i) => {
+    out.push({ simS: s, source: 'drone', observed: 150 + 3 * (i + 1), predictionF1: 0.29, reconF1: 0.44 + i * 0.015, fusedF1: 0.53 + i * 0.022, fusedXbd: 0.68 + i * 0.012, collapsesConfirmed: 13 + i, peopleSeen: 64 + 4 * i });
+  });
+  return out.filter((p) => p.simS <= upToS);
+}
+
+export function mockAirState(history: ReconHistoryPoint[]): AirUiState {
+  const last = history[history.length - 1];
+  return {
+    callsign: 'AIR 1',
+    status: 'complete',
+    flightS: 112,
+    durationS: 112,
+    scannedFraction: 0.43,
+    pending: 0,
+    mode: 'gemini',
+    avgLatencyS: 19.6,
+    stats: {
+      chunksSent: 6,
+      chunksDone: 6,
+      buildingsObserved: last?.observed ?? 0,
+      predictionAccuracy: 0.31,
+      reconAccuracy: 0.42,
+      predictionWithinOne: 0.7,
+      reconWithinOne: 0.78,
+      collapsesTruth: 64,
+      collapsesPredicted: 17,
+      collapsesObserved: last?.collapsesConfirmed ?? 0,
+      peopleTruthVisible: 58,
+      peopleObserved: last?.peopleSeen ?? 0,
+      crowdsObserved: 11,
+      surprises: [],
+      lastSummary: 'Drone D1 confirms 401 Washington St has pancaked at the second floor; two people visible on the rubble at the Washington St frontage.',
+      model: 'gemini-4-argon',
+      mode: 'gemini',
+      avgLatencyS: 19.6,
+      buildingsCovered: 322,
+      predictionXbd: 0.62,
+      reconXbd: 0.58,
+      fusedXbd: last?.fusedXbd ?? 0,
+      predictionF1: last?.predictionF1 ?? 0,
+      reconF1: last?.reconF1 ?? 0,
+      fusedF1: last?.fusedF1 ?? 0,
+      history,
+      droneObserved: history.filter((p) => p.source === 'drone').length * 3,
+    },
+  };
+}
+
+export function mockPlan(wave: 1 | 2 = 1, missions = 2): DronePlan {
+  const all: DronePlan['missions'] = [
+    {
+      id: `W${wave}-D1`,
+      wave,
+      droneId: 'D1',
+      kind: 'verify_building',
+      targetBuildingIds: ['B0101', 'B0102', 'B0103'],
+      purpose: 'Low-confidence collapse call (0.41) on a URM walk-up with ~60 occupants; confirm collapse and look for trapped people.',
+      priority: 1,
+    },
+    {
+      id: `W${wave}-D2`,
+      wave,
+      droneId: 'D2',
+      kind: 'survey_area',
+      targetBuildingIds: ['B0201', 'B0202'],
+      areaCentre: [-760, -230],
+      purpose: 'Unscanned high-risk URM cluster west of Grant Ave; the helicopter route never covered it.',
+      priority: 2,
+    },
+    {
+      id: `W${wave}-D3`,
+      wave,
+      droneId: 'D3',
+      kind: 'verify_building',
+      targetBuildingIds: ['B0301', 'B0302'],
+      purpose: 'Model expects extensive damage; helicopter saw only slight. Resolve the disagreement.',
+      priority: 3,
+    },
+  ];
+  return {
+    wave,
+    dispatch: true,
+    rationale:
+      'The helicopter covered 43% of the area. The largest remaining uncertainty is in Chinatown: one collapse call at 0.41 confidence with people likely inside, and an unscanned block of pre-1933 brick buildings. Two drones close those gaps within about 3 minutes; D3 stays in reserve for wave 2.',
+    holdReason: 'Coverage is still growing and no low-confidence call involves people. Re-assess after the next helicopter chunk.',
+    missions: all.slice(0, missions),
+    model: 'gemini-4-argon',
+    mode: 'gemini',
+    latencyMs: 8400,
+    createdAtSimS: 236,
+  };
+}
+
+export function mockSchedule(plan: DronePlan, startS: number): DroneScheduleEntry[] {
+  return plan.missions.map((m, k) => {
+    let t = startS + 4 + k * 2;
+    const targets = m.targetBuildingIds.map((id, i) => {
+      t += i === 0 ? 34 + k * 8 : 9;
+      const arriveS = t;
+      t += 18;
+      return { buildingId: id, arriveS, leaveS: t };
+    });
+    return { missionId: m.id, droneId: m.droneId, startS, targets, endS: t + 36 + k * 6 };
+  });
+}
+
+/** Phase of a drone at simS under a schedule (for mock feeds). */
+export function mockDronePhase(e: DroneScheduleEntry | undefined, s: number): { phase: DronePhase; target?: string } {
+  if (!e || s < e.startS) return { phase: 'idle' };
+  if (s >= e.endS) return { phase: 'done' };
+  for (const t of e.targets) {
+    if (s < t.arriveS) return { phase: 'transit', target: t.buildingId };
+    if (s < t.leaveS) return { phase: 'orbit', target: t.buildingId };
+  }
+  return { phase: 'return' };
+}
+
+/** Synthetic aerial frame with AR tags (canvas → JPEG base64, no data: prefix). */
+export function mockFrame(id: DroneId, label: string, seed: number): string {
+  const c = document.createElement('canvas');
+  c.width = 640;
+  c.height = 360;
+  const g = c.getContext('2d')!;
+  const r = rng(seed);
+  g.fillStyle = '#5d6157';
+  g.fillRect(0, 0, 640, 360);
+  g.save();
+  g.translate(320, 180);
+  g.rotate(-0.35 + r() * 0.2);
+  g.fillStyle = '#3d4044';
+  g.fillRect(-700, -24, 1400, 48);
+  g.fillRect(-30, -500, 60, 1000);
+  for (let i = 0; i < 40; i++) {
+    const x = -640 + r() * 1280;
+    const y = -400 + r() * 800;
+    if (Math.abs(y) < 40 || Math.abs(x) < 46) continue;
+    const w = 40 + r() * 90;
+    const hh = 40 + r() * 90;
+    const v = 120 + Math.floor(r() * 90);
+    g.fillStyle = `rgb(${v + 20},${v},${v - 18})`;
+    g.fillRect(x, y, w, hh);
+    g.fillStyle = 'rgba(0,0,0,.25)';
+    g.fillRect(x + w, y + 6, 8, hh);
+  }
+  // Rubble at the target.
+  g.fillStyle = '#8a7a66';
+  for (let i = 0; i < 80; i++) g.fillRect(60 + r() * 90 - 45, -110 + r() * 70, 3 + r() * 9, 3 + r() * 9);
+  g.restore();
+  g.strokeStyle = 'rgba(255,255,255,.8)';
+  g.lineWidth = 2;
+  g.strokeRect(300, 120, 120, 90);
+  g.font = '600 15px Barlow, sans-serif';
+  g.fillStyle = 'rgba(15,20,25,.75)';
+  g.fillRect(300, 94, g.measureText(label).width + 14, 22);
+  g.fillStyle = '#fff';
+  g.fillText(label, 307, 110);
+  g.font = '500 12px "IBM Plex Mono", monospace';
+  g.fillStyle = 'rgba(255,255,255,.85)';
+  g.fillText(`${id}  ALT 70m  37.7952N 122.4058W`, 12, 348);
+  return c.toDataURL('image/jpeg', 0.72).split(',')[1];
+}
+
+export function mockFeeds(schedule: DroneScheduleEntry[], s: number, nameOf: (id: string) => string): DroneFeed[] {
+  return (['D1', 'D2', 'D3'] as DroneId[]).map((id, k) => {
+    const e = schedule.find((x) => x.droneId === id);
+    const { phase, target } = mockDronePhase(e, s);
+    const name = target ? nameOf(target) : '';
+    const word = { idle: 'standby', transit: `transit ${name}`, orbit: `orbit ${name}`, return: 'returning', done: 'landed' }[phase];
+    return {
+      droneId: id,
+      phase,
+      label: `${id} · ${word}`,
+      jpegBase64: phase === 'idle' || phase === 'done' ? null : mockFrame(id, name || 'EMBARCADERO PLAZA', 11 + k * 7 + Math.floor(s / 6)),
+      missionId: e?.missionId,
+    };
+  });
+}
+
+export type { PlanUiState };
