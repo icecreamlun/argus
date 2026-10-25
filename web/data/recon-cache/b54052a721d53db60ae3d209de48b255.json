@@ -1,0 +1,133 @@
+{
+ "chunkIndex": 1122,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8131,
+ "buildings": [
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof and facade completely intact, Pine Street clear in front."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Roofless ruin with heavy rubble core next to B5048."
+  },
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy roof debris and blackened facade damage, upright."
+  },
+  {
+   "id": "B5047",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5048",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5074",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5106",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5103",
+   "notes": "Clear roadway along target B5103."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5048",
+   "notes": "Clear along B5042 and B5048."
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5106",
+   "notes": "Clear alongside B5106."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target building B5103 (111 Pine St) is completely intact with no visible damage or people, and Pine Street is clear for access. Nearby, B5057 (32 Battery St) has completely collapsed into a rubble ruin, and B5042 (100 Battery St) shows moderate roof and facade damage.",
+ "hash": "b54052a721d53db60ae3d209de48b255",
+ "usage": {
+  "promptTokens": 5062,
+  "outputTokens": 402,
+  "totalTokens": 5464
+ },
+ "notes": [
+  "ffmpeg 415 ms",
+  "input: video+hires",
+  "gemini 7716 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

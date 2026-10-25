@@ -1,0 +1,156 @@
+{
+ "reply": "若Pine Street清通，地面力量可直接进入**I-B4721 (75 Leidesdorff St)** 与 **I-B4750 (348 Pine St)** 区域，方案调整如下：\n\n**前三大优先任务与调整：**\n1. **I-B3301 (53 Waverly Pl，坍塌起火4人受困)**：维持最高优先级，派SFFD-2和SFFD-28共2辆消防车、Chinese医院1辆救护车（2.3分钟）灭火救人。\n2. **I-B4721 (B4721，屋顶3人受困，建筑812人)**：Pine街畅通后，改派STAGE-EMB的1辆消防车（3.3分钟）与Saint Francis医院1辆救护车（4.8分钟）由地面接应；仍保留1架直升机（3.4分钟）吊救受损屋顶3人（因无云梯车），随后就近空中核实**I-B4804**。\n3. **I-B4584 (6人受困，路阻) 与 I-B4902 (5人受困)**：I-B4584派SFFD-13的1辆消防车、1架直升机（3.3分钟，兼侦察**I-B4670**）；I-B4902派STAGE-EMB的1辆消防车和1辆救护车（2.8分钟）。\n\n**警力与清障转移**：原清理Pine街的5名警察转去清理紧邻B4721的 **Leidesdorff Street** 及封锁 **I-B4750** 倾斜危楼；其余警力继续清通Waverly Place、Grant Avenue和Battery Street。",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed building on fire, 4 trapped survivors confirmed"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4584",
+    "reason": "6 trapped survivors in collapse; road access likely blocked"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4721",
+    "reason": "3 stranded on damaged roof; Pine St open enables ground support"
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4902",
+    "reason": "5 trapped survivors in collapsed 60-occupant building"
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B5528",
+    "reason": "5 trapped survivors in 5,670-occupant Rincon Annex"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "Suppress fire and rescue 4 trapped survivors"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B3301",
+    "task": "Support fire suppression and light rescue"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "Triage and transport casualties from B3301 and Chinatown"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4584",
+    "task": "Light rescue for 6 trapped survivors"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4584",
+    "task": "Medevac at B4584 and aerial recon of unverified B4670"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4721",
+    "task": "Ground access via cleared Pine St for rescue"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Hoist 3 people on roof; recon unverified B4804"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4721",
+    "task": "Stage via Pine St for rooftop and B4721 casualties"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Rescue 5 trapped at B4902 and cover nearby B4900"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Transport patients from B4902 and B5528"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "Search and rescue 5 trapped at Rincon Annex"
+   },
+   {
+    "unitType": "police",
+    "count": 20,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4721",
+    "task": "Split 4 teams: clear Leidesdorff/Waverly/Grant, cordon B4750/Crowd-1"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "Clear final block off Pine St to reach I-B4721"
+   },
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "Open access for engines and ambulances to I-B3301"
+   },
+   {
+    "roadName": "Grant Avenue",
+    "unitType": "police",
+    "reason": "Clear access to Chinatown fires I-B3617 and I-B3670"
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "Keep corridor open for I-B4902 and I-B5057"
+   }
+  ],
+  "reassessInMinutes": 5,
+  "assumptions": [
+   "Using commander's 8 engines (facility max), 20 police, 2 helis, 6 ambulances.",
+   "2 remaining engines requested from mutual aid for Grant Ave fires (I-B3617/B3670).",
+   "Requesting ladder trucks and USAR for B4721 roof and heavy collapses."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 24034,
+ "hash": "3010cb3251a94a50f8566a333651f997",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 9043,
+  "outputTokens": 1359
+ }
+}

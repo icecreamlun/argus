@@ -1,0 +1,148 @@
+{
+ "chunkIndex": 1123,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8719,
+ "buildings": [
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof debris, light facade streaks; Pine and Battery clear at corner."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Low roofless ruin with heavy rubble spilling into Battery Street."
+  },
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened and cracked facade patches, roof debris, upright."
+  },
+  {
+   "id": "B4973",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked and stained facade, roof debris; fire visible to west."
+  },
+  {
+   "id": "B4981",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Light facade staining and roof debris; shape intact."
+  },
+  {
+   "id": "B4987",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof debris and facade staining, small rubble at base."
+  },
+  {
+   "id": "B5047",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4985",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5048",
+   "notes": "Clear of debris along B5048 and B5042."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B5057",
+   "notes": "Clear at Pine intersection, blocked south by B5057 rubble."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5048 (98 Battery St) shows only slight damage with roof debris and light facade streaks; no people or trapped signs are visible. Adjacent B5057 (32 Battery St) has collapsed, spilling rubble partially across Battery Street, while Pine Street remains clear for access.",
+ "hash": "f522ca8fbfd0734a96b30e7ce8085225",
+ "usage": {
+  "promptTokens": 5128,
+  "outputTokens": 529,
+  "totalTokens": 5657
+ },
+ "notes": [
+  "ffmpeg 437 ms",
+  "input: video+hires",
+  "gemini 8282 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,126 @@
+{
+ "chunkIndex": 1233,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10538,
+ "buildings": [
+  {
+   "id": "B4941",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Extensive roof and wall damage, large debris apron blocking Battery Street; 1 person on roof."
+  },
+  {
+   "id": "B4963",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Moderate roof and facade damage, small debris skirt along Jackson Street; 1 person on roof."
+  },
+  {
+   "id": "B4999",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Heavily blackened roof and facade patches, moderate damage."
+  },
+  {
+   "id": "B4996",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened roof and facade patches, moderate damage."
+  },
+  {
+   "id": "B4988",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 4,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Collapsed into a low roofless ruin with rubble core; several people on debris."
+  },
+  {
+   "id": "B4958",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Slight roof cracking and staining, structure upright and intact."
+  },
+  {
+   "id": "B4990",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Moderate facade cracks and roof staining, still upright."
+  },
+  {
+   "id": "B5000",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Moderate roof staining and facade damage."
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B4941",
+   "notes": "Large rubble apron from B4941 spilling across the roadway and sidewalk."
+  },
+  {
+   "street": "JACKSON STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4963",
+   "notes": "Small debris along the curb near B4963, roadway mostly open."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4941 (3F Office) has extensive damage with a large debris apron partially blocking Battery Street and 1 person trapped on the roof. Adjacent B4963 has moderate damage with 1 person on the roof, and nearby B4988 is completely collapsed with 4 people on the rubble. Jackson Street remains mostl",
+ "hash": "cd315742d24107fc0e1a38f51295e318",
+ "usage": {
+  "promptTokens": 5030,
+  "outputTokens": 639,
+  "totalTokens": 5669
+ },
+ "notes": [
+  "ffmpeg 712 ms",
+  "input: video+hires",
+  "gemini 9826 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

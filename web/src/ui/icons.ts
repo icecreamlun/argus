@@ -51,6 +51,17 @@ export const ICONS = {
   orbit: S('<path d="M7.6 14.2V7.2h4.8v7"/><path d="M5.2 10.6C3.4 11.3 2.5 12 2.5 12.8c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9c0-.8-.9-1.5-2.7-2.2"/><path d="m14.2 9.4 1.3 1-1.1 1.2"/>'),
   survey: S('<path d="M3.5 7V3.5H7M13 3.5h3.5V7M16.5 13v3.5H13M7 16.5H3.5V13"/><circle cx="10" cy="10" r="2.3"/>'),
   expand: S('<path d="M11.5 3.5h5v5M8.5 16.5h-5v-5M16.5 3.5l-5 5M3.5 16.5l5-5"/>'),
+  /* M5 copilot */
+  spark: `<svg class="ag-ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2c.55 4.05 3.05 6.95 7.6 7.8-4.55.85-7.05 3.75-7.6 7.8-.55-4.05-3.05-6.95-7.6-7.8 4.55-.85 7.05-3.75 7.6-7.8Z" fill="currentColor"/><path d="M15.6 2.4c.2 1.3.9 2 2.1 2.2-1.2.2-1.9.9-2.1 2.2-.2-1.3-.9-2-2.1-2.2 1.2-.2 1.9-.9 2.1-2.2Z" fill="currentColor" opacity=".6"/></svg>`,
+  send: S('<path d="M10 16V4.5M5 9.2l5-5 5 5"/>'),
+  route: S('<circle cx="5" cy="15" r="1.8"/><circle cx="15" cy="5" r="1.8"/><path d="M6.8 15h5.4a2.6 2.6 0 0 0 0-5.2H7.8a2.6 2.6 0 0 1 0-5.2h5.4"/>'),
+  chat: S('<path d="M4 4.5h12a1.5 1.5 0 0 1 1.5 1.5v6.5A1.5 1.5 0 0 1 16 14H9l-3.8 2.8V14H4a1.5 1.5 0 0 1-1.5-1.5V6A1.5 1.5 0 0 1 4 4.5Z"/>'),
+  uEngine: S('<path d="M2.5 13.5V8.2h8.2v5.3M10.7 9.6h3.4l2.4 2.4v1.5"/><path d="M2.5 13.5h14"/><circle cx="5.6" cy="14.2" r="1.5" fill="currentColor"/><circle cx="13.6" cy="14.2" r="1.5" fill="currentColor"/><path d="M3.5 6.2 10 4.4"/>'),
+  uTruck: S('<path d="M2.5 13.5V9.5h9.5v4M12 10.5h2.6l1.9 1.9v1.1M2.5 13.5h14"/><circle cx="5.6" cy="14.2" r="1.5" fill="currentColor"/><circle cx="13.6" cy="14.2" r="1.5" fill="currentColor"/><path d="M3 7.6 14.5 3.5M5.4 6.8l-.5-1.4M8.4 5.7l-.5-1.4M11.4 4.6l-.5-1.4"/>'),
+  uUsar: S('<path d="M3.5 12.5a6.5 6.5 0 0 1 13 0"/><path d="M2.5 12.5h15v1.8h-15z"/><path d="M10 6v3.2M7.4 6.7l.7 2.6M12.6 6.7l-.7 2.6"/>'),
+  uAmbulance: `<svg class="ag-ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M8 3.2h4v4.8h4.8v4H12v4.8H8V12H3.2V8H8z" fill="currentColor"/></svg>`,
+  uPolice: S('<path d="M10 2.6 16 5v4.4c0 3.7-2.5 6.6-6 8-3.5-1.4-6-4.3-6-8V5l6-2.4Z"/><path d="m10 6.6.95 1.95 2.15.3-1.55 1.5.37 2.13L10 11.48l-1.92 1 .37-2.13-1.55-1.5 2.15-.3L10 6.6Z" fill="currentColor" stroke-width="1"/>'),
+  uHeli: S('<path d="M2.5 4.5h15M10 4.5v2.4"/><path d="M6.4 9.6c0-1.5 1.3-2.7 3.4-2.7h1.4c2.3 0 3.6 1.6 3.6 3.6 0 1.9-1.4 3.2-3.4 3.2H9.6c-1.9 0-3.2-1.6-3.2-4.1Z"/><path d="M6.6 10H2.8M2.8 8.6v2.8M9 13.7l-.8 2.3M13 13.7l.8 2.3M7 16h8.6"/>'),
   /* ShakeAlert protective-action pictograms (24 grid, filled figures, after the Earthquake Country Alliance art). */
   drop: `<svg class="ag-picto" viewBox="0 0 32 32" aria-hidden="true" fill="currentColor">
       <circle cx="9" cy="10.2" r="2.7"/>

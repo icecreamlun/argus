@@ -1,0 +1,114 @@
+{
+ "chunkIndex": 1230,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9010,
+ "buildings": [
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Tall office tower completely intact; surrounding streets clear of debris"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Collapsed into rubble pile; person visible on top of debris"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and broken windows, rubble along base"
+  },
+  {
+   "id": "B5014",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavily damaged facade and roof with blackened patches and debris"
+  },
+  {
+   "id": "B5116",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Blackened roof and damaged facade with debris around base"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5064",
+   "notes": "Clear roadway along target building"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5064",
+   "notes": "Clear roadway along target building"
+  },
+  {
+   "street": "DAVIS STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5064",
+   "notes": "Clear roadway along target building"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5064",
+   "notes": "Clear roadway along target building"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B4900",
+   "notes": "Partially obstructed by debris near collapsed building"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target building B5064 (300 Clay St) is completely undamaged with all adjacent streets (Front, Washington, Davis, Clay) clear for access and no people visible. Nearby B4900 (401 Washington St) has collapsed with one person visible on the rubble needing rescue, and B5014 (1 The Embarcadero) has extens",
+ "hash": "e5e34409e4c73198fbf7bd3ee635ad2a",
+ "usage": {
+  "promptTokens": 4873,
+  "outputTokens": 554,
+  "totalTokens": 5427
+ },
+ "notes": [
+  "ffmpeg 426 ms",
+  "input: video+hires",
+  "gemini 8584 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

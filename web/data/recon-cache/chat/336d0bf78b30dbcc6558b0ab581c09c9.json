@@ -1,0 +1,14 @@
+{
+ "reply": "There are **27 people confirmed seen across 7 verified trapped sites** (with 43% of the area scanned so far):\n\n1. **I-B4584 — 2-storey commercial (B4584)**: **6 people** seen, trapped signs in collapsed building (conf 0.85, ~8 occupants).\n2. **I-B4902 — 447 Battery St (B4902)**: **5 people** seen, trapped signs in collapsed building (conf 0.95, ~60 occupants).\n3. **I-B5528 — Rincon Annex (B5528)**: **5 people** seen, trapped signs in moderately damaged building (conf 0.92, ~5,670 occupants).\n4. **I-B3301 — 53 Waverly Pl (B3301)**: **4 people** seen, trapped signs in collapsed building **with active fire** (conf 0.90, ~59 occupants).\n5. **I-B4900 — 401 Washington St (B4900)**: **4 people** seen at collapsed building (conf 0.90, ~8 occupants).\n6. **I-B4721 — California Bank and Trust / 75 Leidesdorff St (B4721)**: **2 people** logged in incident data (latest Argon summary notes **3 stranded on the damaged roof**), extensive damage (conf 0.92, ~812 occupants).\n7. **I-B4941 — 3-storey office (B4941)**: **1 person** seen, trapped signs in extensively damaged building (conf 0.95, ~111 occupants).\n\n**Uncertain / To Re-check:** 10 other verified collapses have no visible survivors on aerial passes yet, and 8 high-occupancy suspected collapses (e.g., **I-B4670**, **I-B4804**) remain unverified.",
+ "plan": null,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 27031,
+ "hash": "336d0bf78b30dbcc6558b0ab581c09c9",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8570,
+  "outputTokens": 487
+ }
+}

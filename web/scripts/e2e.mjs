@@ -9,7 +9,9 @@
  * (inspector opens) → every scenario via its Simulate button at 2× → pause / resume → overlays
  * None / ShakeMap / Damage → let HayWired finish → M3 AIR 1 (air=mock: helicopter, veil, recon panel, seek
  * time-gate) → Reset → verify the city, HUD and AIR state are restored → M4 drones (air=mock: Argon plan card
- * pauses the sim, Approve via the button, drones fly, accuracy timeline gains a drone point, Reset clears it).
+ * pauses the sim, Approve via the button, drones fly, accuracy timeline gains a drone point, Reset clears it) →
+ * M5 Copilot (air=mock: open the drawer, quick prompt → plan card, routes auto-shown, Show on map re-draws,
+ * Dispatch moves units, Reset clears chat + layer).
  * Screenshots and an fps sample are taken at each checkpoint. Exits 1 on any failed check, console
  * error, page error or WebGL/shader warning. The dev server must be running.
  */
@@ -631,6 +633,77 @@ await step('M4 drones (mock)', async () => {
   check(!m.feedsVisible, 'drone feeds still visible after reset');
   check(m.waves.length === 0, `waves not cleared after reset (${m.waves})`);
   await page.locator('.ag-pb .ag-seg__btn[data-v="1"]').click();
+});
+
+// ───────────────────────── 9. M5: Argus Copilot (mock) ─────────────────────────
+const m5State = () =>
+  A(() => {
+    const a = window.__argus;
+    const { rescue } = a.handles;
+    const c = a.copilot;
+    const last = c?.messages.at(-1);
+    return {
+      open: !!document.querySelector('.ag.is-copilot'),
+      messages: c?.messages.length ?? 0,
+      log: c?.log.length ?? 0,
+      mode: last?.mode ?? null,
+      planState: last?.planState ?? null,
+      hasPlan: !!last?.plan,
+      cards: document.querySelectorAll('.ag-cpl').length,
+      routed: c?.routed.length ?? 0,
+      layerVisible: !!rescue?.object.visible,
+      dispatched: !!rescue?.dispatched,
+      invalid: c?.log.at(-1)?.invalidIds ?? [],
+      routes: c?.log.at(-1)?.routes ?? 0,
+    };
+  });
+await step('M5 copilot (mock)', async () => {
+  // A quake with Argon recon to reason about: San Andreas at T+12:40 (mock helicopter results revealed by seek).
+  await A(() => {
+    window.__argus.trigger('san_andreas_1906');
+    window.__argus.pause();
+    window.__argus.seek(760);
+  });
+  await freshFrames(5);
+  await page.locator('.ag-cop-launch').click();
+  await page.waitForTimeout(500);
+  let m = await m5State();
+  check(m.open, 'copilot drawer did not open from the launcher');
+  check(m.messages === 0, `chat not empty at start (${m.messages})`);
+  // Quick prompt → mock answer with a plan card; the plan is auto-shown on the map.
+  await page.locator('.ag-cop__sugg').first().click();
+  await page.waitForFunction(() => (window.__argus.copilot?.log.length ?? 0) >= 1, null, { timeout: 30000 });
+  await page.waitForTimeout(2000);
+  m = await m5State();
+  check(m.mode === 'mock', `answer mode '${m.mode}', expected mock`);
+  check(m.hasPlan && m.cards >= 1, `no plan card after the quick prompt (plan ${m.hasPlan}, cards ${m.cards})`);
+  check(m.invalid.length === 0, `plan references unknown ids (${m.invalid})`);
+  check(m.routed > 0 && m.layerVisible, `routes not drawn (routed ${m.routed}, layer ${m.layerVisible})`);
+  check(m.planState === 'shown', `planState '${m.planState}', expected shown`);
+  await shot('09-m5-plan');
+  // Show on map re-draws the plan after the layer was cleared.
+  await A(() => window.__argus.handles.rescue.clear());
+  await page.locator('.ag-cpl__show').last().click();
+  await page.waitForTimeout(800);
+  m = await m5State();
+  check(m.layerVisible && m.routed > 0, 'Show on map did not draw the routes');
+  check(!m.dispatched, 'units dispatched before Dispatch');
+  // Dispatch moves the units.
+  await page.locator('.ag-cpl__dispatch').last().click();
+  await page.waitForTimeout(3000);
+  m = await m5State();
+  check(m.dispatched, 'rescue layer not dispatched after Dispatch');
+  check(m.planState === 'dispatched', `planState '${m.planState}', expected dispatched`);
+  await shot('09-m5-dispatched');
+  await sampleFps('M5 routes + units moving (mock)');
+  // Reset clears chat + layer.
+  await page.locator('.ag-cop__close').click();
+  await page.locator('.ag-feed__foot .ag-btn').click();
+  await page.waitForTimeout(800);
+  m = await m5State();
+  check(m.messages === 0, `chat not cleared after reset (${m.messages} messages)`);
+  check(!m.layerVisible, 'rescue layer still visible after reset');
+  check(m.cards === 0, `plan cards still in the drawer after reset (${m.cards})`);
 });
 
 await browser.close();

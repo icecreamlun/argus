@@ -1,0 +1,109 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9407,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "small rubble skirt at base, surface streaks"
+  },
+  {
+   "id": "B5566",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "cracked facade streaks, small debris at base"
+  },
+  {
+   "id": "B5522",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FERRY PLAZA",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5587",
+   "notes": "open pedestrian plaza and seawall path"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5504",
+   "notes": "roadway and transit tracks clear of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "clear roadway"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5522",
+   "notes": "clear roadway"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 12,
+   "evidenceS": 10,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 45,
+   "evidenceS": 14,
+   "place": "Embarcadero Plaza",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The waterfront and Ferry Building (B5504) are intact with only slight damage observed on B5587 and the Ferry Station Post Office Building (B5566). No building collapses, fires, or trapped individuals were seen along the Embarcadero. All major roadways including The Embarcadero, Steuart Street, and D",
+ "hash": "6a22cac5d7e56a9445bb2a3d8c7c9562",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 431,
+  "totalTokens": 6511
+ },
+ "notes": [
+  "ffmpeg 707 ms",
+  "input: video+hires",
+  "gemini 8700 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

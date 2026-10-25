@@ -1,0 +1,156 @@
+{
+ "reply": "Deploy your **2 helicopters from HELI-P27 (Pier 27)** immediately to bypass road blockages and perform rooftop rescues:\n\n1. **Helicopter 1 → I-B4721 (California Bank & Trust, 75 Leidesdorff St) — 3.4 min air ETA:**\n   * **Primary Task:** Hoist rescue of **3 people stranded on the damaged roof** (812 total occupants, extensive damage), as ground access on Pine and Leidesdorff is verified blocked.\n   * **Secondary Recon:** Orbit nearby unverified high-risk collapses **I-B4804 (400 California, 55 occ, p=0.64)** and **I-B4629 (Anglo Bank, 31 occ, p=0.66)**.\n\n2. **Helicopter 2 → I-B4584 (2-storey commercial) — 3.3 min air ETA:**\n   * **Primary Task:** Aerial recon, rooftop access, and medevac for **6 trapped survivors** in a collapsed building where all ground routes are likely blocked.\n   * **Secondary Recon:** Check nearby **I-B5057 (32 Battery St, 90 occ, collapsed, route likely blocked)** and unverified **I-B4670 (30 Hotaling Pl, 69 occ, p=0.60, route likely blocked)** before ground units commit.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B4721",
+    "reason": "3 stranded on damaged roof; Pine & Leidesdorff roads blocked"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4584",
+    "reason": "6 trapped in collapse; all ground access routes likely blocked"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B5057",
+    "reason": "Collapsed with 90 occupants; ground routes likely blocked"
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4670",
+    "reason": "Unverified collapse (69 occupants, p=0.60) with likely blocked roads"
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4804",
+    "reason": "Unverified collapse (55 occupants, p=0.64) needing aerial verification"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Hoist 3 people from roof (3.4m air); recon I-B4804 & I-B4629"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4584",
+    "task": "Recon & medevac for 6 trapped (3.3m air); check I-B5057 & I-B4670"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "Suppress collapse fire and rescue 4 trapped (2.6m)"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4902",
+    "task": "Rescue 5 trapped in collapsed building (2.0m)"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "Search and rescue 5 trapped at Rincon Annex (2.6m)"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4900",
+    "task": "Rescue 4 seen at collapsed building (2.6m)"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B3670",
+    "task": "Contain Grant Ave collapse fires I-B3670 & I-B3617 (3.7m)"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "Treat and transport trapped fire victims (2.3m)"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Transport 5 trapped survivors from Battery St (2.8m)"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4721",
+    "task": "Stage at perimeter for helicopter hoist patients (4.8m)"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3301",
+    "task": "Clear Waverly Pl & Grant Ave fire/ambulance corridors (3.1m)"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4721",
+    "task": "Clear Pine/Leidesdorff & Battery St access corridors (3.7m)"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Pine Street",
+    "unitType": "police",
+    "reason": "Restore ground access to I-B4721 and collapsed I-B4750"
+   },
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "Clear debris blocking perimeter of I-B4721 rooftop rescue"
+   },
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "Open access for engines and ambulances to I-B3301 fire"
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "Secure N-S corridor to I-B4902, I-B5057, and I-B4584"
+   }
+  ],
+  "reassessInMinutes": 5,
+  "assumptions": [
+   "Both helicopters launch from HELI-P27 (Pier 27) with hoist capability.",
+   "Ground units remain on prior life-safety assignments while helicopters deploy.",
+   "Requesting mutual-aid USAR and ladder trucks for heavy collapses."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 24114,
+ "hash": "69b5029ba06dc500dcf620eed0f811a0",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8954,
+  "outputTokens": 1327
+ }
+}

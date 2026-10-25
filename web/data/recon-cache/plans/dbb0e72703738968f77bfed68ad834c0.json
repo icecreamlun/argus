@@ -1,0 +1,64 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "With AIR 1's scan complete and no further drone waves remaining, we are deploying all three drones to maximize life-saving reconnaissance. D1 will verify trapped survivors and fire spread across damaged buildings along California and Pine Streets, D2 will survey unscanned high-occupancy blocks at Rincon Annex and the PG&E and Park Tower blocks in SoMa, and D3 will check trapped signs at 447 Battery St and the unscanned 600 Battery St URM block while resolving the model disagreement at One Maritime Plaza.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5091",
+    "B5042",
+    "B4721",
+    "B4750"
+   ],
+   "purpose": "Confirm trapped survivors and fire conditions at 201 California St, 100 Battery St, California Bank and Trust, and 348 Pine St.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5528",
+    "B5400",
+    "B5391",
+    "B5474"
+   ],
+   "areaCentre": [
+    314,
+    213
+   ],
+   "purpose": "Survey unscanned high-occupancy structures at Rincon Annex, the Pacific Gas & Electric Building block, and Park Tower at Transbay.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5064",
+    "B4902",
+    "B4958",
+    "B4941"
+   ],
+   "purpose": "Confirm trapped survivors at 447 Battery St, resolve damage disagreement at One Maritime Plaza, and sweep 600 Battery St block.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6425,
+ "createdAtSimS": 395,
+ "hash": "dbb0e72703738968f77bfed68ad834c0",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5869,
+  "outputTokens": 351
+ },
+ "notes": []
+}

@@ -1,0 +1,14 @@
+{
+ "entries": {
+  "howmanypeopleareconfirmedtrappedandwhere": {
+   "hash": "336d0bf78b30dbcc6558b0ab581c09c9",
+   "question": "How many people are confirmed trapped and where?",
+   "simS": 760
+  },
+  "whichroadsshouldpoliceclearfirst": {
+   "hash": "6432c2baae9d03a6c67d444fc99725fa",
+   "question": "Which roads should police clear first?",
+   "simS": 760
+  }
+ }
+}

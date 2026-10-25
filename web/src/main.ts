@@ -20,12 +20,17 @@ import { createRecon } from './argus';
 import { createAirSession, type AirMode } from './app/airSession';
 import { createDroneFleet } from './drones';
 import { createDroneSession } from './app/droneSession';
+import { createRouter } from './rescue/router';
+import { createRescueLayer } from './rescue/layer';
+import { createCopilotSession, type CopilotMode } from './app/copilotSession';
 
 /**
  * Debug / automation surface used by scripts/shot.mjs, scripts/e2e.mjs and the console.
  * URL params: ?cam=<preset>&tod=<hours>&quake=<scenarioId>&t=<simSeconds>&overlay=<mode>&ui=0&select=<buildingId>&speed=<x>
  *   M3: &air=live|mock|replay (default live) &inflight=<n> (concurrent Argon requests, default 2) &play=1 (keep playing after t)
  *   M4: drones + Argon planner follow ?air= (live: real /api/plan + drone capture; mock: heuristic; replay: recorded run)
+ *   M5: Copilot chat follows ?air= too (replay → /api/chat replay-only, miss → live; mock → offline heuristic;
+ *       live → auto); override with &chat=live|replay|mock. &copilot=1 opens the drawer at boot.
  */
 declare global {
   interface Window {
@@ -59,6 +64,8 @@ declare global {
       air?: import('./app/airSession').AirSession;
       /** M4 drone session (plan log, drone chunk log, approve() / reject()). */
       drones?: import('./app/droneSession').DroneSession;
+      /** M5 Argus Copilot session (messages, log, ask(), showPlan(), dispatch(), situation()). */
+      copilot?: import('./app/copilotSession').CopilotSession;
     };
   }
 }
@@ -174,6 +181,14 @@ async function boot() {
   const airMode: AirMode = airParam === 'mock' || airParam === 'replay' ? airParam : 'live';
   mark('air');
 
+  // ── M5: road router (built once) + 3D rescue layer ──
+  const router = createRouter(city, terrain);
+  const rescue = createRescueLayer(ctx);
+  engine.scene.add(rescue.object);
+  const chatParam = params.get('chat') ?? airMode;
+  const copilotMode: CopilotMode = chatParam === 'mock' ? 'mock' : chatParam === 'replay' ? 'replay-only' : 'auto';
+  mark('rescue');
+
   // ── Quake playback state ──
   let session: QuakeSession | null = null;
   let paused = false;
@@ -188,6 +203,8 @@ async function boot() {
   let air: ReturnType<typeof createAirSession>;
   // eslint-disable-next-line prefer-const
   let drones: ReturnType<typeof createDroneSession>;
+  // eslint-disable-next-line prefer-const
+  let copilot: ReturnType<typeof createCopilotSession>;
 
   const triggerScenario = (scenario: QuakeScenario) => {
     // Move occupancy AND the USGS origin time to the scene's clock (the event card shows the right time).
@@ -197,6 +214,7 @@ async function boot() {
     window.__argus.result = result;
     const truth = air.begin(result); // people truth + recon baseline + fresh AIR state
     drones.begin(result, truth); // M4: fleet + Argon planner state
+    copilot.reset(); // M5: a new quake invalidates the chat + routes
     paused = false;
     alertShown = false;
     ui.hideShakeAlert();
@@ -223,6 +241,7 @@ async function boot() {
     setPlaying(true);
   };
   const reset = () => {
+    copilot.reset();
     drones.reset();
     air.reset();
     fx.reset();
@@ -275,12 +294,41 @@ async function boot() {
       onRejectPlan() {
         drones.reject();
       },
+      onCopilotAsk(text) {
+        void copilot.ask(text);
+      },
+      onCopilotShowPlan(id) {
+        copilot.showPlan(id);
+      },
+      onCopilotDispatch(id) {
+        copilot.dispatch(id);
+      },
+      onCopilotHighlight(id) {
+        copilot.highlight(id);
+      },
+      onCopilotToggle(open) {
+        copilot.toggled(open);
+      },
     },
   );
   air = createAirSession({ ctx, buildings, ui, heli, scan, recon, people }, { mode: airMode, maxInFlight: Number(params.get('inflight') ?? 2) || 2 });
   drones = createDroneSession(
     { ctx, ui, fleet, scan, recon, air, simNow: () => fx.simSeconds, running: () => !!session && !paused, pause, resume },
     { mode: airMode },
+  );
+  copilot = createCopilotSession(
+    {
+      ctx,
+      ui,
+      recon,
+      scan,
+      router,
+      rescue,
+      flyTo: (pose, d) => engine.flyTo(pose, d),
+      result: () => session?.result ?? null,
+      simNow: () => fx.simSeconds,
+    },
+    { mode: copilotMode },
   );
   ui.setScenarios(model.scenarios);
   ui.setCameraPresets(engine.cameraPresets);
@@ -381,9 +429,10 @@ async function boot() {
   Object.assign(window.__argus, {
     ctx,
     timings,
-    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air, fleet, drones },
+    handles: { engine, streets, buildings, landmarks, model, fx, ui, people, heli, scan, recon, air, fleet, drones, router, rescue, copilot },
     air,
     drones,
+    copilot,
     flyTo: (p: CameraPresetId, d = 0) => engine.flyTo(p, d),
     setCamera: (position: [number, number, number], target: [number, number, number]) => engine.flyTo({ position, target }, 0),
     setTimeOfDay: (h: number) => {
@@ -425,6 +474,10 @@ async function boot() {
   if (overlay) setOverlay(overlay);
   const sel = params.get('select');
   if (sel) select(sel);
+  if (params.get('copilot') === '1') {
+    ui.copilotOpen?.(true);
+    copilot.toggled(true);
+  }
 
   bootDone(hudOff);
   window.__argus.ready = true;

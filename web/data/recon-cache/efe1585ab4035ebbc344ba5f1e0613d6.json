@@ -1,0 +1,54 @@
+{
+ "chunkIndex": 6,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6839,
+ "buildings": [
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5478",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5504",
+   "notes": "roadway clear of debris"
+  }
+ ],
+ "crowds": [],
+ "summary": "Aerial pass over the San Francisco Ferry Building (B5504) and Pier 1 (B5478) before heading out over the bay. Both structures appear completely intact with no visible structural damage, fire, or smoke. The Embarcadero in front of the Ferry Building is clear and passable.",
+ "hash": "efe1585ab4035ebbc344ba5f1e0613d6",
+ "usage": {
+  "promptTokens": 5969,
+  "outputTokens": 129,
+  "thoughtsTokens": 120,
+  "totalTokens": 6218
+ },
+ "notes": [
+  "ffmpeg 517 ms",
+  "input: video+hires",
+  "gemini 6322 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

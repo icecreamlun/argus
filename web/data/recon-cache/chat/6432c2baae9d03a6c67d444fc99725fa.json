@@ -1,0 +1,100 @@
+{
+ "reply": "Police should prioritize clearing four critical corridors to reach trapped survivors and active fires:\n\n1. **Waverly Place (2 segments verified blocked):** Highest priority. Blocks access to **I-B3301 (53 Waverly Pl)**, a collapsed building on fire with 4 trapped survivors (59 occupants). Deploy 6 officers from SFPD-CENTRAL (3.1 min) to clear the ambulance corridor to Chinese Hospital (2.3 min).\n2. **Pine Street (3 verified blocked, 3 partial) & Leidesdorff Street (1 verified blocked):** Directly blocks ground access to **I-B4721 (75 Leidesdorff St, 812 occupants, people stranded on roof)** and **I-B4750 (348 Pine St, collapsed, 70 occupants)**. Send 5 officers from SFPD-CENTRAL (3.7 min).\n3. **Battery Street (1 likely blocked, 6 partial):** Critical N-S corridor serving **I-B4902 (447 Battery St, 5 trapped)**, **I-B5057 (32 Battery St, 90 occupants)**, and **I-B4584 (6 trapped, route likely blocked)**. Send 5 officers from STAGE-EMB (2.8 min).\n4. **Grant Avenue (1 verified blocked) & Clay Street (1 verified blocked):** Blocks fire engines reaching active collapse-fires at **I-B3670 (800 Grant)**, **I-B3617 (808 Grant)**, and **I-B3457 (805 Clay)**. Send 4 officers from SFPD-CENTRAL (3.3 min).",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed with fire, 4 trapped; Waverly Place has 2 blocked segments."
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4721",
+    "reason": "812-occupant building, roof stranded survivors; Pine and Leidesdorff blocked."
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4902",
+    "reason": "Collapsed, 5 trapped; Battery Street has 1 likely blocked, 6 partial."
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4584",
+    "reason": "Collapsed, 6 trapped; all road approaches flagged likely blocked."
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B3670",
+    "reason": "Collapsed on fire; Grant Avenue and Clay Street have blocked segments."
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "police",
+    "count": 6,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3301",
+    "task": "Clear Waverly Place access and secure Chinese Hospital ambulance corridor."
+   },
+   {
+    "unitType": "police",
+    "count": 5,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4721",
+    "task": "Clear Pine Street and Leidesdorff Street for ground rescue access."
+   },
+   {
+    "unitType": "police",
+    "count": 5,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Clear Battery Street corridor for I-B4902, I-B5057, and I-B4584."
+   },
+   {
+    "unitType": "police",
+    "count": 4,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3670",
+    "task": "Clear Grant Avenue and Clay Street for fire engine access."
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "2 blocked segments; open access to I-B3301 collapse-fire with 4 trapped."
+   },
+   {
+    "roadName": "Pine Street",
+    "unitType": "police",
+    "reason": "3 blocked segments; open access to I-B4721 and I-B4750 collapses."
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "1 likely blocked, 6 partial; vital corridor for I-B4902 and I-B5057."
+   },
+   {
+    "roadName": "Grant Avenue",
+    "unitType": "police",
+    "reason": "1 blocked segment; open fire corridor to I-B3670 and I-B3617."
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "Using your previously stated 20 police officers (split between SFPD-CENTRAL and STAGE-EMB).",
+   "Heavy debris on Pine, Bush, or Waverly will require SFFD trucks/engines to assist police.",
+   "Police on Grant Ave and Pine St will simultaneously clear adjacent Clay St and Leidesdorff St."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 22352,
+ "hash": "6432c2baae9d03a6c67d444fc99725fa",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8568,
+  "outputTokens": 996
+ }
+}

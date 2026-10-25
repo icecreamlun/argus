@@ -1,0 +1,101 @@
+{
+ "chunkIndex": 1222,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11182,
+ "buildings": [
+  {
+   "id": "B5391",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked facade, broken windows, rubble skirt at base; Main St clear"
+  },
+  {
+   "id": "B5376",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked roof, damaged south wall with rubble at base"
+  },
+  {
+   "id": "B5334",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5391",
+   "notes": "Clear of debris along east side of block"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5334",
+   "notes": "Roadway open, crowd gathered on sidewalk"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 20,
+   "evidenceS": 6,
+   "place": "Beale Street sidewalk",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5391 (58 Main St) shows moderate damage with facade cracking and a small rubble skirt at its base, and adjacent B5376 also has moderate damage. No trapped individuals, fire, or smoke are observed at the target, though a crowd of about 20 people has gathered on Beale Street near B5334. Both M",
+ "hash": "8aac9929fd5ad6f90eb4e659c28751bb",
+ "usage": {
+  "promptTokens": 4810,
+  "outputTokens": 337,
+  "thoughtsTokens": 263,
+  "totalTokens": 5410
+ },
+ "notes": [
+  "ffmpeg 301 ms",
+  "input: video+hires",
+  "gemini 10881 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

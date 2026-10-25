@@ -1,0 +1,140 @@
+{
+ "chunkIndex": 1232,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10475,
+ "buildings": [
+  {
+   "id": "B4958",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof centre broken in, large rubble skirt onto Pacific Ave"
+  },
+  {
+   "id": "B4988",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 5,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Collapsed into roofless ruin with rubble core, 5 people trapped inside"
+  },
+  {
+   "id": "B4990",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Heavy facade charring and cracks, leaning against neighbours"
+  },
+  {
+   "id": "B4941",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Charred and cracked roof and walls, 1 person trapped on roof"
+  },
+  {
+   "id": "B4996",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Blackened roof and facade damage, leaning slightly"
+  },
+  {
+   "id": "B4857",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracks on roof and facade, rubble skirt along base"
+  },
+  {
+   "id": "B4925",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4903",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PACIFIC AVENUE",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4958",
+   "notes": "Debris apron from B4958 spilling into north side of roadway"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B4958",
+   "notes": "Roadway clear of debris along east side of B4958"
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4988",
+   "notes": "Roadway open on west side near park"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 20,
+   "evidenceS": 3,
+   "place": "Park north of Front Street",
+   "nearBuildingId": "B4988"
+  }
+ ],
+ "summary": "Target B4958 (600 Battery St) has extensive damage with a caved-in roof centre and heavy debris spilling onto Pacific Avenue, though no people are visible on it. Immediately adjacent, B4988 (643 Front St) has completely collapsed into a roofless rubble ruin with 5 people trapped inside the debris, a",
+ "hash": "784ec01250c1d282b62198a7b85206d5",
+ "usage": {
+  "promptTokens": 4819,
+  "outputTokens": 634,
+  "totalTokens": 5453
+ },
+ "notes": [
+  "ffmpeg 395 ms",
+  "input: video+hires",
+  "gemini 10079 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

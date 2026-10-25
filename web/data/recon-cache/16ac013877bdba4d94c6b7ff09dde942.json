@@ -1,0 +1,161 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10333,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Central tower upright and intact on all visible sides, Sutter clear"
+  },
+  {
+   "id": "B4849",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Crushed into low rubble pile, debris spilling onto Market Street"
+  },
+  {
+   "id": "B4895",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Severe lean, rear facade sheared with exposed floors and debris"
+  },
+  {
+   "id": "B4879",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof broken in, heavy debris between buildings"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof collapsed and covered in rubble"
+  },
+  {
+   "id": "B4860",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Crushed roof and heavy facade damage"
+  },
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5040",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4895",
+   "notes": "Some rubble along base of B4895, roadway passable"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4849",
+   "notes": "Debris apron along sidewalk from B4849, main lanes open"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 3,
+   "place": "Market Street & 2nd Street intersection",
+   "nearBuildingId": "B4805"
+  },
+  {
+   "approxCount": 25,
+   "evidenceS": 7,
+   "place": "Ecker Plaza",
+   "nearBuildingId": "B4827"
+  }
+ ],
+ "summary": "Target B4839 (1 Sansome St) is completely intact with no visible damage or trapped people. Adjacent buildings along Market Street (B4849, B4869, B4860, B4879, B4895) have suffered extensive damage to complete collapse, partially obstructing Market and Sutter Streets with debris. Large crowds have ga",
+ "hash": "16ac013877bdba4d94c6b7ff09dde942",
+ "usage": {
+  "promptTokens": 5141,
+  "outputTokens": 607,
+  "totalTokens": 5748
+ },
+ "notes": [
+  "ffmpeg 535 ms",
+  "input: video+hires",
+  "gemini 9798 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

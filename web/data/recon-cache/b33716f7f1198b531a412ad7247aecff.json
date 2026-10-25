@@ -1,0 +1,122 @@
+{
+ "chunkIndex": 1113,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9978,
+ "buildings": [
+  {
+   "id": "B4860",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "560 Market is a collapsed narrow ruin between neighbours; Market Street clear."
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "550 Market collapsed into a dark slot of rubble beside B4895."
+  },
+  {
+   "id": "B4869",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "554 Market heavily damaged with exposed floors and debris on roof."
+  },
+  {
+   "id": "B4895",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "544 Market flatiron has slight facade staining and base rubble on Sutter."
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "562 Market has blackened facade patches and rubble at rear base."
+  },
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "3F Office collapsed into a roofless rubble pile in interior block."
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4860",
+   "notes": "Roadway open and clear in front of 544-562 Market row."
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4895",
+   "notes": "Minor curb rubble along 544-562 Market, roadway passable."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 20,
+   "evidenceS": 9,
+   "place": "Market Street southwest of 570 Market",
+   "nearBuildingId": "B4820"
+  }
+ ],
+ "summary": "Target B4860 (560 Market St) and adjacent B4879 (550 Market St) have collapsed into narrow rubble slots, while B4869 (554 Market St) has extensive damage and interior B4813 is also collapsed. Neighbouring B4849 (moderate) and B4895 (slight) remain standing; no people or trapped individuals were spot",
+ "hash": "b33716f7f1198b531a412ad7247aecff",
+ "usage": {
+  "promptTokens": 5330,
+  "outputTokens": 619,
+  "totalTokens": 5949
+ },
+ "notes": [
+  "ffmpeg 594 ms",
+  "input: video+hires",
+  "gemini 9384 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

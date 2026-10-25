@@ -548,6 +548,12 @@ export interface QuakeFxHandle {
 // ───────────────────────────── UI (src/ui) ─────────────────────────────
 
 export interface UiHandlers {
+  /** M5: Copilot chat. */
+  onCopilotAsk?(text: string): void;
+  onCopilotShowPlan?(messageId: string): void;
+  onCopilotDispatch?(messageId: string): void;
+  onCopilotToggle?(open: boolean): void;
+  onCopilotHighlight?(incidentId: string | null): void;
   /** M4: commander approves / rejects the proposed Argon drone plan. */
   onApprovePlan?(): void;
   onRejectPlan?(): void;
@@ -568,6 +574,10 @@ export interface BuildingInfo {
 }
 
 export interface UiHandle {
+  /** M5: Copilot chat drawer. */
+  copilotSetMessages?(messages: ChatMessage[], situation: CopilotSituation | null): void;
+  copilotSetThinking?(thinking: boolean): void;
+  copilotOpen?(open: boolean): void;
   /** M4: Argon drone plan card (null hides). info.schedule shows mission progress while executing. */
   showPlan?(plan: DronePlan | null, state: PlanUiState, info?: { schedule?: DroneScheduleEntry[]; simS?: number; wavesUsed?: number }): void;
   /** M4: drone camera thumbnails (latest captured frame per drone). */
@@ -1041,4 +1051,170 @@ export interface DroneFeed {
   label: string; // "D1 · orbit 401 Washington St"
   jpegBase64: string | null; // latest captured frame
   missionId?: string;
+}
+
+// ═════════════════════════════ M5: Argus Copilot — rescue planning chat ═════════════════════════════
+//
+// The commander asks in a chat drawer (right side), e.g. "I have 10 engines, 20 officers and 2 helicopters —
+// how do I route them and what are the priorities?". Code packages the current situation (Argon-verified
+// incidents + unverified model risk, verified/likely blocked roads, real facilities, road-network ETAs —
+// NEVER truth). gemini-4-argon returns a reply + a structured RescuePlan; code computes the actual routes on
+// the road graph and the 3D rescue layer draws them (flowing route ribbons, moving units, priority markers).
+// Units move only after the commander clicks Dispatch.
+
+export type UnitType = 'engine' | 'truck' | 'usar' | 'ambulance' | 'police' | 'helicopter';
+export type FacilityKind = 'fire_station' | 'police_station' | 'hospital' | 'staging' | 'helipad';
+
+export interface Facility {
+  id: string; // "SFFD-13", "SFPD-CENTRAL", "HOSP-CHINESE", "STAGE-EMB"
+  kind: FacilityKind;
+  name: string;
+  address?: string;
+  lat: number;
+  lon: number;
+  x: number;
+  z: number;
+  /** Units normally based here (defaults; the commander's numbers override). */
+  units?: Partial<Record<UnitType, number>>;
+}
+
+export type IncidentKind = 'trapped' | 'fire' | 'suspected_collapse' | 'crowd' | 'collapse';
+
+export interface RescueIncident {
+  id: string; // "I-B3291", "I-CROWD-2"
+  kind: IncidentKind;
+  buildingId?: string;
+  label: string; // "401 Washington St (B3291)"
+  x: number;
+  z: number;
+  /** true = seen by Argon in helicopter/drone footage; false = model-predicted risk only. */
+  verified: boolean;
+  confidence: number;
+  damage?: ObservedDamage;
+  peopleSeen?: number;
+  trappedSigns?: boolean;
+  fire?: boolean;
+  crowdSize?: number;
+  /** Building occupants at this hour (database estimate). */
+  occupants?: number;
+  /** Model probability of destruction (unverified incidents). */
+  pDestroyed?: number;
+  evidence?: string; // "drone D2 · W1 · t+14 s" / "AIR 1 chunk 3"
+}
+
+export interface RoadStatus {
+  roadId: string;
+  segment: number;
+  name?: string;
+  status: 'verified_blocked' | 'likely_blocked' | 'partial';
+  source: 'argon' | 'model';
+}
+
+export interface RouteResult {
+  mode: 'road' | 'air';
+  reachable: boolean;
+  /** World-space polyline (x, y, z) following streets (road) or an arc (air). */
+  points: [number, number, number][];
+  lengthM: number;
+  etaMin: number;
+  avoidedBlocked: number;
+  passesLikelyBlocked: boolean;
+  /** Street names along the route, in order, deduplicated. */
+  via: string[];
+}
+
+export interface TravelTime {
+  fromFacilityId: string;
+  incidentId: string;
+  roadMin: number | null; // null = unreachable by road
+  airMin: number;
+  passesLikelyBlocked: boolean;
+}
+
+export interface RouterHandle {
+  /** Verified/likely road blockages to respect (verified = impassable, likely = heavy time penalty). */
+  setRoadStatus(list: RoadStatus[]): void;
+  route(from: XZ, to: XZ, opts?: { unitType?: UnitType }): RouteResult;
+  travelTimes(facilities: Facility[], incidents: RescueIncident[]): TravelTime[];
+}
+
+export interface CopilotSituation {
+  scenarioId: string;
+  simS: number;
+  localTime: string; // "15:07 PDT"
+  minutesSinceQuake: number;
+  summary: {
+    buildingsAssessed: number;
+    collapsesVerified: number;
+    peopleSeen: number;
+    trappedSitesVerified: number;
+    fires: number;
+    crowds: number;
+    areaScannedPct: number;
+    latestArgonSummary: string;
+  };
+  incidents: RescueIncident[];
+  roads: RoadStatus[];
+  facilities: Facility[];
+  travelTimes: TravelTime[];
+}
+
+export interface RescuePlan {
+  priorities: { rank: number; incidentId: string; reason: string }[];
+  assignments: { unitType: UnitType; count: number; fromFacilityId: string; incidentId: string; task: string }[];
+  routeClearing: { roadName: string; unitType: UnitType; reason: string }[];
+  reassessInMinutes: number;
+  assumptions?: string[];
+}
+
+export interface ChatTurn {
+  role: 'user' | 'assistant';
+  text: string;
+}
+
+/** POST /api/chat request body. */
+export interface ChatRequest {
+  messages: ChatTurn[]; // full history, last = the new user question
+  situation: CopilotSituation;
+  mode?: 'auto' | 'replay-only';
+}
+
+export interface ChatResponse {
+  reply: string; // markdown
+  plan: RescuePlan | null;
+  model: string;
+  mode: 'gemini' | 'replay' | 'mock';
+  latencyMs: number;
+  error?: string;
+}
+
+export interface ChatMessage extends ChatTurn {
+  id: string;
+  at: number; // simS when asked/answered
+  plan?: RescuePlan | null;
+  mode?: ChatResponse['mode'];
+  latencyMs?: number;
+  /** UI state of the plan attached to this message. */
+  planState?: 'none' | 'shown' | 'dispatched';
+}
+
+/** One routed assignment ready to draw / animate. */
+export interface RoutedAssignment {
+  key: string; // "a0-2" (assignment 0, unit 2)
+  unitType: UnitType;
+  fromFacilityId: string;
+  incidentId: string;
+  task: string;
+  route: RouteResult;
+}
+
+export interface RescueLayerHandle {
+  object: THREE.Object3D;
+  /** Draw a plan: routes (static, flowing), incident priority markers, used facilities. Replaces any previous plan. */
+  show(plan: RescuePlan, situation: CopilotSituation, routed: RoutedAssignment[]): void;
+  /** Start moving units along their routes (visual clock; ETA labels count down). */
+  dispatch(): void;
+  readonly dispatched: boolean;
+  setHighlight(incidentId: string | null): void;
+  clear(): void;
 }

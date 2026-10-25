@@ -1,0 +1,19 @@
+{
+ "entries": {
+  "ifpinestreetisclearedwhatchanges": {
+   "hash": "f8c500cca66b4b2e4f6f585561bd7d2e",
+   "question": "If Pine Street is cleared, what changes?",
+   "simS": 760
+  },
+  "如果pinestreet清通了方案怎么调整": {
+   "hash": "3010cb3251a94a50f8566a333651f997",
+   "question": "如果Pine Street清通了，方案怎么调整？",
+   "simS": 760
+  },
+  "whereshouldthehelicoptersgo": {
+   "hash": "69b5029ba06dc500dcf620eed0f811a0",
+   "question": "Where should the helicopters go?",
+   "simS": 760
+  }
+ }
+}

@@ -1,0 +1,122 @@
+{
+ "chunkIndex": 1111,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7481,
+ "buildings": [
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Intact roofline and facade on all sides; Bush St partially blocked nearby."
+  },
+  {
+   "id": "B4833",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened and cracked facade patches on east and south sides."
+  },
+  {
+   "id": "B4731",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked roof surface with minor structural scoring."
+  },
+  {
+   "id": "B4957",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 60,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Intact circular structure surrounded by large evacuated crowd in plaza."
+  },
+  {
+   "id": "B4860",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B4869",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B4833",
+   "notes": "Debris and rubble in street near 220 Bush St"
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4827",
+   "notes": "Clear roadway beside target building"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 60,
+   "evidenceS": 7,
+   "place": "Plaza at 532 Market St",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target B4827 (225 Bush St) is completely intact with no visible structural damage or trapped people. Adjacent B4833 (220 Bush St) shows moderate facade damage with debris partially obstructing Bush Street, while Sutter Street remains clear. A large crowd of approximately 60 people has gathered in th",
+ "hash": "d081fb3a9731ff2dbcfa662b80c7df4b",
+ "usage": {
+  "promptTokens": 5304,
+  "outputTokens": 463,
+  "totalTokens": 5767
+ },
+ "notes": [
+  "ffmpeg 382 ms",
+  "input: video+hires",
+  "gemini 7099 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

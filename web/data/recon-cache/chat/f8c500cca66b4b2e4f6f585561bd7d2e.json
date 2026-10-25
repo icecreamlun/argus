@@ -1,0 +1,156 @@
+{
+ "reply": "Clearing **PINE STREET** (2 verified blocked segments) changes three critical things:\n\n1. **Frees 1 Helicopter from I-B4721 (California Bank, 75 Leidesdorff St)**: Currently, Pine and Leidesdorff block direct apparatus positioning for the 3 people stranded on the roof of B4721. With Pine cleared, ground units from **SFFD-13** (2.8 min ETA) and **HOSP-CHINESE** (4.4 min) can access the Pine/Leidesdorff perimeter directly. We can then reassign the second **HELI-PIER27** helicopter to aerial recon of unverified high-occupancy blocks (**I-A-2** at Salesforce Tower, 12,268 est. occupants; **I-A-8** at 50 Fremont, 3,184 occupants).\n2. **Direct Ground Access to I-B4750 (348 Pine St)**: Opens curb access for heavy search at this collapsed 70-occupant building (3.0 min from SFFD-13).\n3. **Faster East–West Corridor**: Removes detours for **STAGE-EMB** and **HOSP-STFRANCIS** units heading into the Financial District.\n\n**What does NOT change**: **I-B4902 (447 Battery St, 5 trapped)** remains unreachable by road (`roadMin: null`) and still requires a helicopter (2.3 min) and clearing along **BATTERY STREET** / **CLAY STREET**.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed with active fire, 4 trapped seen, 59 occupants"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4584",
+    "reason": "Collapsed commercial building, 6 trapped seen (highest count)"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4902",
+    "reason": "Collapsed, 5 trapped seen, all road access blocked"
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4721",
+    "reason": "Extensive damage, 3 stranded on roof, Pine St access opened"
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B5528",
+    "reason": "5 trapped seen, 5670 occupants, high-risk structure"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-PIER27",
+    "incidentId": "I-B4902",
+    "task": "Hoist rescue 5 trapped; road access still blocked"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-PIER27",
+    "incidentId": "I-A-2",
+    "task": "Freed from B4721; aerial recon of 12,268-occupant block"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "Suppress fire and rescue 4 trapped (3.6 min)"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-41",
+    "incidentId": "I-B3301",
+    "task": "Assist fire suppression and extrication (4.6 min)"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4584",
+    "task": "Rescue 6 confirmed trapped survivors (2.0 min)"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-1",
+    "incidentId": "I-B4721",
+    "task": "Access via cleared Pine St for roof rescue"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "Extricate 5 trapped at Rincon Annex (3.8 min)"
+   },
+   {
+    "unitType": "engine",
+    "count": 3,
+    "fromFacilityId": "SFFD-8",
+    "incidentId": "I-B3670",
+    "task": "Contain Grant/Clay fires (I-B3670, I-B3617, I-B3457)"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-1",
+    "incidentId": "I-B4900",
+    "task": "Rescue 4 seen at 401 Washington and check B4750"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 3,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "Triage and transport at I-B3301, I-B4584, I-B4721"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 3,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B5528",
+    "task": "Stage for casualties at I-B5528 and I-B4900"
+   },
+   {
+    "unitType": "police",
+    "count": 20,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4721",
+    "task": "Split 4 teams: clear Leidesdorff/Waverly, cordon B4721, manage crowds"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "LEIDESDORFF STREET",
+    "unitType": "police",
+    "reason": "Clear remaining blockage adjacent to I-B4721 roof rescue"
+   },
+   {
+    "roadName": "WAVERLY PLACE",
+    "unitType": "police",
+    "reason": "Open corridor for SFFD-2 and ambulances to I-B3301"
+   },
+   {
+    "roadName": "GRANT AVENUE",
+    "unitType": "police",
+    "reason": "Clear access to Chinatown fires I-B3617 and I-B3670"
+   },
+   {
+    "roadName": "CLAY STREET",
+    "unitType": "police",
+    "reason": "Clear 2 blocked segments toward I-B3457 and I-B4902"
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "Pine Street is cleared; commander still has 10 engines, 20 police, 2 helicopters, 6 ambulances.",
+   "Request mutual-aid ladder trucks and USAR for I-B4721 rooftop access and I-B4750 heavy rescue.",
+   "10 engines are pooled across SFFD stations as in prior turn."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15018,
+ "hash": "f8c500cca66b4b2e4f6f585561bd7d2e",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8977,
+  "outputTokens": 1343
+ }
+}

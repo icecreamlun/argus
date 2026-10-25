@@ -474,3 +474,108 @@ export function mockFeeds(schedule: DroneScheduleEntry[], s: number, nameOf: (id
 }
 
 export type { PlanUiState };
+
+// ───────────────────────────── M5 copilot (chat drawer) ─────────────────────────────
+import type { ChatMessage, CopilotSituation, Facility, RescueIncident, RescuePlan, TravelTime } from '../contracts';
+
+export function mockCopilotSituation(): CopilotSituation {
+  const fac = (id: string, kind: Facility['kind'], name: string, x: number, z: number): Facility => ({ id, kind, name, lat: 37.79, lon: -122.4, x, z });
+  const facilities: Facility[] = [
+    fac('SFFD-13', 'fire_station', 'Station 13 · Sansome', 420, -180),
+    fac('SFFD-2', 'fire_station', 'Station 2 · Powell', -260, -120),
+    fac('SFFD-1', 'fire_station', 'Station 1 · Folsom', 300, 520),
+    fac('SFPD-CENTRAL', 'police_station', 'SFPD Central · Vallejo', -40, -420),
+    fac('HOSP-CHINESE', 'hospital', 'Chinese Hospital', -180, -260),
+    fac('STAGE-EMB', 'staging', 'Staging · Ferry Plaza', 820, 60),
+    fac('HELI-PIER', 'helipad', 'Helipad · Pier 27', 640, -720),
+  ];
+  const inc = (o: Partial<RescueIncident> & Pick<RescueIncident, 'id' | 'kind' | 'label' | 'verified'>): RescueIncident => ({ x: 0, z: 0, confidence: 0.8, ...o });
+  const incidents: RescueIncident[] = [
+    inc({ id: 'I-B3291', kind: 'trapped', label: '401 Washington St', verified: true, confidence: 0.92, peopleSeen: 6, trappedSigns: true, damage: 'collapsed', occupants: 140, evidence: 'drone D2 · W1 · t+14 s' }),
+    inc({ id: 'I-B2207', kind: 'fire', label: '750 Kearny St', verified: true, confidence: 0.88, fire: true, peopleSeen: 2, damage: 'extensive', evidence: 'AIR 1 chunk 3' }),
+    inc({ id: 'I-B1180', kind: 'trapped', label: '53 Waverly Pl', verified: true, confidence: 0.81, peopleSeen: 3, trappedSigns: true, damage: 'collapsed', evidence: 'AIR 1 chunk 5' }),
+    inc({ id: 'I-CROWD-2', kind: 'crowd', label: 'Portsmouth Square', verified: true, confidence: 0.9, crowdSize: 85, evidence: 'AIR 1 chunk 2' }),
+    inc({ id: 'I-B4410', kind: 'suspected_collapse', label: '920 Grant Ave', verified: false, confidence: 0.55, pDestroyed: 0.62, occupants: 60 }),
+  ];
+  const roads: CopilotSituation['roads'] = [
+    { roadId: 'r12', segment: 3, name: 'Washington St', status: 'verified_blocked', source: 'argon' },
+    { roadId: 'r40', segment: 1, name: 'Kearny St', status: 'partial', source: 'argon' },
+    { roadId: 'r77', segment: 0, name: 'Grant Ave', status: 'likely_blocked', source: 'model' },
+  ];
+  const tt = (from: string, incident: string, roadMin: number | null, airMin: number, risk = false): TravelTime => ({ fromFacilityId: from, incidentId: incident, roadMin, airMin, passesLikelyBlocked: risk });
+  const travelTimes: TravelTime[] = [
+    tt('SFFD-13', 'I-B3291', 4.2, 1.1),
+    tt('SFFD-13', 'I-B2207', 6.8, 1.4, true),
+    tt('SFFD-2', 'I-B1180', null, 1.0),
+    tt('SFFD-2', 'I-B2207', 3.6, 0.9),
+    tt('SFFD-1', 'I-B3291', 9.4, 2.2),
+    tt('HOSP-CHINESE', 'I-B3291', 5.1, 1.3),
+    tt('HOSP-CHINESE', 'I-B1180', 2.4, 0.6),
+    tt('SFPD-CENTRAL', 'I-CROWD-2', 3.1, 0.8),
+    tt('SFPD-CENTRAL', 'I-B3291', 5.6, 1.2),
+    tt('HELI-PIER', 'I-B1180', 12.5, 3.4),
+    tt('HELI-PIER', 'I-B4410', 11.2, 3.0),
+    tt('STAGE-EMB', 'I-B4410', 7.9, 2.0, true),
+  ];
+  return {
+    scenarioId: 'san_andreas_1906',
+    simS: 760,
+    localTime: '15:12 PDT',
+    minutesSinceQuake: 13,
+    summary: { buildingsAssessed: 412, collapsesVerified: 17, peopleSeen: 86, trappedSitesVerified: 5, fires: 3, crowds: 2, areaScannedPct: 64, latestArgonSummary: 'Drone wave 2 confirms collapse at 401 Washington St with people on the rubble.' },
+    incidents,
+    roads,
+    facilities,
+    travelTimes,
+  };
+}
+
+export function mockRescuePlan(): RescuePlan {
+  return {
+    priorities: [
+      { rank: 1, incidentId: 'I-B3291', reason: 'Verified collapse, 6 people seen on rubble, ~140 occupants at this hour.' },
+      { rank: 2, incidentId: 'I-B2207', reason: 'Verified fire next to a damaged block; spread risk toward Chinatown.' },
+      { rank: 3, incidentId: 'I-B1180', reason: 'Verified collapse with 3 people waving; road access blocked.' },
+      { rank: 4, incidentId: 'I-B4410', reason: 'Unverified model risk (62% destroyed). Send a helicopter to look first.' },
+    ],
+    assignments: [
+      { unitType: 'engine', count: 4, fromFacilityId: 'SFFD-13', incidentId: 'I-B3291', task: 'Heavy rescue + debris lift' },
+      { unitType: 'engine', count: 4, fromFacilityId: 'SFFD-2', incidentId: 'I-B2207', task: 'Fire attack, protect exposures' },
+      { unitType: 'engine', count: 2, fromFacilityId: 'SFFD-1', incidentId: 'I-B3291', task: 'Second alarm, water supply' },
+      { unitType: 'ambulance', count: 3, fromFacilityId: 'HOSP-CHINESE', incidentId: 'I-B3291', task: 'Triage at Washington & Montgomery' },
+      { unitType: 'ambulance', count: 3, fromFacilityId: 'HOSP-CHINESE', incidentId: 'I-B1180', task: 'Casualty collection point' },
+      { unitType: 'police', count: 12, fromFacilityId: 'SFPD-CENTRAL', incidentId: 'I-CROWD-2', task: 'Crowd control, open evacuation lane' },
+      { unitType: 'police', count: 8, fromFacilityId: 'SFPD-CENTRAL', incidentId: 'I-B3291', task: 'Perimeter + traffic control' },
+      { unitType: 'helicopter', count: 1, fromFacilityId: 'HELI-PIER', incidentId: 'I-B1180', task: 'Roof extraction (no road access)' },
+      { unitType: 'helicopter', count: 1, fromFacilityId: 'HELI-PIER', incidentId: 'I-B4410', task: 'Verify suspected collapse' },
+    ],
+    routeClearing: [
+      { roadName: 'Washington St', unitType: 'police', reason: 'Verified blocked; the only direct access to P1 from Station 13.' },
+      { roadName: 'Grant Ave', unitType: 'engine', reason: 'Likely blocked (model): needed for P3 by road.' },
+    ],
+    reassessInMinutes: 10,
+    assumptions: ['Unit counts from your message; facilities from SFFD/SFPD station lists.', 'ETAs avoid Argon-verified blockages; likely blockages add a time penalty.'],
+  };
+}
+
+const MOCK_REPLY = `**Priorities (Argon-verified first):**
+
+1. **401 Washington St** \`I-B3291\` — verified collapse, 6 people seen on the rubble. Send the heaviest rescue package now.
+2. **750 Kearny St** — verified fire next to damaged buildings; contain before it spreads.
+3. **53 Waverly Pl** — 3 people waving, but **no open road**: use a helicopter.
+
+**Routing**
+- 10 engines: 4 from *Station 13* to P1 (4 min), 4 from Station 2 to the fire, 2 as a second alarm.
+- 20 officers: 12 to Portsmouth Square for crowd control, 8 for the P1 perimeter. Clear **Washington St** first.
+- 6 ambulances split between P1 and P3 from Chinese Hospital.
+- 2 helicopters: one extraction at Waverly Pl, one to *verify* 920 Grant Ave (model risk only).
+
+Reassess in 10 min when drone wave 2 lands.`;
+
+export function mockCopilotMessages(withPlan = true, planState: ChatMessage['planState'] = 'none'): ChatMessage[] {
+  const msgs: ChatMessage[] = [
+    { id: 'u1', role: 'user', text: '我有10辆消防车、20名警察、2架直升机、6辆救护车，如何安排救援路线和优先级？', at: 742 },
+  ];
+  if (withPlan) msgs.push({ id: 'a1', role: 'assistant', text: MOCK_REPLY, at: 749, plan: mockRescuePlan(), mode: 'gemini', latencyMs: 6400, planState });
+  return msgs;
+}

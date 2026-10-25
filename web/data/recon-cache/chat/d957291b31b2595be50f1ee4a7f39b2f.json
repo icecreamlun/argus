@@ -1,0 +1,156 @@
+{
+ "reply": "当前已确认7处受困点（见27人）、14处坍塌、4处火灾。\n\n**前三大优先任务：**\n1. **I-B3301 (53 Waverly Pl)**：坍塌起火且4人受困（共59人），派SFFD-2/28的2辆消防车灭火救人，Chinese医院救护车（2.3分钟）转运。\n2. **I-B4584 与 I-B4902 (447 Battery St)**：分别有6人和5人受困坍塌建筑。I-B4584道路疑似受阻，派1架直升机（3.3分钟）及SFFD-13消防车；I-B4902派STAGE-EMB消防车与救护车（2.8分钟）。\n3. **I-B4721 (75 Leidesdorff St) 与 I-B5528 (Rincon Annex)**：B4721屋顶3人受困且周边Pine/Leidesdorff路阻，派1架直升机吊救；B5528（5人受困，5670人建筑）派SFFD-35的2辆消防车。\n\n其余消防车扑救I-B3670/I-B3617火灾；20名警察分4组清理Waverly、Pine、Grant通道并管控Portsmouth广场人群。**待核实**：直升机顺路侦察未确认高危建筑I-B4670与I-B4804，并立即请求云梯车和USAR重型救援增援。",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "坍塌且起火，已见4人受困，火势直接威胁幸存者"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4584",
+    "reason": "确认坍塌且见6人受困（人数最多），地面道路疑似受阻"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4902",
+    "reason": "高置信度坍塌，见5人受困，建筑内有60人"
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4721",
+    "reason": "重度受损见人受困（含屋顶3人），周边道路受阻需直升机"
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B5528",
+    "reason": "见5人受困，5670人超高密度建筑，需快速救援疏散"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "扑灭坍塌建筑火灾并营救4名受困者（含SFFD-28联派）"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "抢救伤员并转运至Chinese Hospital"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4584",
+    "task": "空中侦察与救援6名受困者，顺路核实I-B4670"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4584",
+    "task": "地面突进开展轻型搜救，兼顾邻近I-B4900"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "营救5名已确认受困幸存者"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "现场医疗分检与伤员转运"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "屋顶吊救3名受困人员，并空中核实I-B4804"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "营救5名受困者并协助疏散高密人群"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B3670",
+    "task": "控制Grant Ave坍塌点及邻近I-B3617火势"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4721",
+    "task": "接应屋顶与地面伤员并送往Saint Francis医院"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3301",
+    "task": "疏通Waverly Place与Grant Avenue救援通道"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-CROWD-1",
+    "task": "管控Portsmouth广场150人并清理Pine Street"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "清除2处阻塞，保障I-B3301消防与救护车通行"
+   },
+   {
+    "roadName": "Pine Street",
+    "unitType": "police",
+    "reason": "打通3处阻塞，建立通往I-B4721和I-B4750走廊"
+   },
+   {
+    "roadName": "Grant Avenue",
+    "unitType": "police",
+    "reason": "清除路障以保障I-B3670与I-B3617灭火通道"
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "疏导疑似受阻路段，保障I-B4902救援进出"
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "10辆消防车均按基础灭火救援车(engine)调配，跨站点就近合派。",
+   "当前无云梯车(truck)与重型搜救队(usar)，已假设立即请求上级增援。",
+   "未核实高危坍塌点(如I-B4670、I-B4804)先由直升机/无人机侦察后再投入主力。"
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 24809,
+ "hash": "d957291b31b2595be50f1ee4a7f39b2f",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8176,
+  "outputTokens": 1942
+ }
+}

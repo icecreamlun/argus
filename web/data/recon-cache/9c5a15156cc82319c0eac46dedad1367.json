@@ -1,0 +1,130 @@
+{
+ "chunkIndex": 1223,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13769,
+ "buildings": [
+  {
+   "id": "B5474",
+   "damage": "moderate",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "High-rise with widespread blackened facade patches and broken windows; Howard Street clear."
+  },
+  {
+   "id": "B5444",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Low annex roof shows surface cracks and light debris."
+  },
+  {
+   "id": "B5437",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roof surface shows cracking and light debris marks."
+  },
+  {
+   "id": "B5529",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5517",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5441",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "HOWARD STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5474",
+   "notes": "Roadway open and clear of debris beside target tower."
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5474",
+   "notes": "Roadway clear of debris adjacent to tower."
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5517",
+   "notes": "Roadway clear along the park and tower block."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 140,
+   "evidenceS": 1,
+   "place": "Park at 200 Main St",
+   "nearBuildingId": "B5517"
+  }
+ ],
+ "summary": "Target B5474 (250 Howard St) has moderate facade damage with blackened patches and broken windows across multiple floors, but remains upright with no visible fire, smoke, or trapped people. Surrounding streets including Howard, Beale, and Main are clear for access. Approximately 140 people are gathe",
+ "hash": "9c5a15156cc82319c0eac46dedad1367",
+ "usage": {
+  "promptTokens": 4945,
+  "outputTokens": 442,
+  "thoughtsTokens": 327,
+  "totalTokens": 5714
+ },
+ "notes": [
+  "ffmpeg 580 ms",
+  "input: video+hires",
+  "gemini 13189 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

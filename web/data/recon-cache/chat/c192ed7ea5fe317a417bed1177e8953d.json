@@ -1,0 +1,156 @@
+{
+ "reply": "全城已确认7处受困点（27人可见）、14处倒塌、4处火灾。**前三优先级**：\n1. **I-B3301 (53 Waverly Pl)**：倒塌兼起火，4人受困（共59人），SFFD-2消防车(3.6分)与HOSP-CHINESE救护车(2.6分)立即前往。\n2. **I-B4584**（倒塌，6人受困）与 **I-B4902 (447 Battery St)**（倒塌，5人受困，道路阻断）：SFFD-13派车2分钟抵I-B4584；HELI-PIER27派直升机2.3分钟抵I-B4902空中救援。\n3. **I-B4721 (California Bank)**（屋顶3人受困，PINE/LEIDESDORFF阻断）与 **I-B5528 (Rincon Annex)**（5人受困，5670人建筑）：派第二架直升机(2.4分)救I-B4721屋顶人员，SFFD-35及13前往救援。\n\n其余消防车扑灭I-B3670/I-B3457火灾及救援I-B4900；警察分4组清理WAVERLY、PINE等阻断道路并疏散I-CROWD-2/4人群。**不确定性**：I-A-2/I-A-8等高风险区未核实，直升机完成屋顶救援后立即侦察。",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "倒塌且起火，4人受困，火势严重威胁幸存者"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4584",
+    "reason": "确认倒塌，可见6人受困，人数最多"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4902",
+    "reason": "确认倒塌，5人受困，陆路完全阻断需直升机"
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4721",
+    "reason": "严重受损，3人困于屋顶且周边道路阻断"
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B5528",
+    "reason": "5人受困，超高密度建筑(5670人)"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-PIER27",
+    "incidentId": "I-B4902",
+    "task": "空中吊运救援5名受困者（陆路阻断）"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-PIER27",
+    "incidentId": "I-B4721",
+    "task": "解救屋顶受困人员，随后侦察I-A-2"
+   },
+   {
+    "unitType": "engine",
+    "count": 3,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4584",
+    "task": "轻型搜救6名受困人员及急救"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "灭火并解救4名受困幸存者"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "搜救5名受困者并评估建筑"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-41",
+    "incidentId": "I-B3670",
+    "task": "扑灭倒塌建筑火灾并控火至I-B3617"
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-1",
+    "incidentId": "I-B4900",
+    "task": "搜救倒塌建筑内4名可见人员"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "转运火灾倒塌点重伤员至医院"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4584",
+    "task": "救治并转运获救受困人员"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4900",
+    "task": "医疗支援及转运伤员"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3301",
+    "task": "清理Waverly/Grant通道并设警戒线"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-TENDERLOIN",
+    "incidentId": "I-B4721",
+    "task": "清理Pine/Leidesdorff路障并疏导人群"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "WAVERLY PLACE",
+    "unitType": "police",
+    "reason": "打通I-B3301消防与救护车救援通道"
+   },
+   {
+    "roadName": "PINE STREET",
+    "unitType": "police",
+    "reason": "恢复通往I-B4721与I-B4750的地面路线"
+   },
+   {
+    "roadName": "LEIDESDORFF STREET",
+    "unitType": "police",
+    "reason": "清除I-B4721周边障碍以允许地面接近"
+   },
+   {
+    "roadName": "GRANT AVENUE",
+    "unitType": "police",
+    "reason": "保障I-B3670与I-B3617灭火通道畅通"
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "10辆消防车均按engine（泵浦消防车）配置，分布于各消防站。",
+   "重型倒塌急需USAR和云梯车(truck)，已假设正在申请互助支援。",
+   "未核实高风险区(I-A-2, I-A-8)暂不盲目派地面主力，待空中侦察确认。"
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 23070,
+ "hash": "c192ed7ea5fe317a417bed1177e8953d",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8155,
+  "outputTokens": 1863
+ }
+}

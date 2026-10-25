@@ -65,6 +65,22 @@ const env = (h: number): EnvironmentState => ({
 });
 
 const ui = createUI(root, { city, events: bus }, {
+  onCopilotAsk(text) {
+    console.info('[dev] copilot ask', text);
+    (window.__ui?.cop as { fakeAsk(t: string): void } | undefined)?.fakeAsk(text);
+  },
+  onCopilotShowPlan(id) {
+    console.info('[dev] copilot show plan', id);
+  },
+  onCopilotDispatch(id) {
+    console.info('[dev] copilot dispatch', id);
+  },
+  onCopilotToggle(open) {
+    console.info('[dev] copilot toggle', open);
+  },
+  onCopilotHighlight(id) {
+    console.info('[dev] copilot highlight', id);
+  },
   onApprovePlan() {
     console.info('[dev] plan approved');
     window.setTimeout(() => m4Set('approved', 238), 500);
@@ -259,3 +275,47 @@ if (m4) {
   if (params.get('m4live') === '1' && (m4 === 'executing' || m4 === 'approved')) m4Run(s);
 }
 Object.assign(window.__ui!, { m4Set, m4Run });
+
+// ── M5 copilot: chat drawer with mock messages / plan ──
+//   cop=open|empty|thinking|plan|shown|dispatched   (closed when absent; press C to toggle)
+//   copLive=1 → asking runs a fake 2.5 s Argon round-trip with the mock plan
+import { mockCopilotMessages, mockCopilotSituation } from './dev-mocks';
+import type { ChatMessage } from '../contracts';
+{
+  const sit = mockCopilotSituation();
+  let msgs: ChatMessage[] = [];
+  const set = () => ui.copilotSetMessages?.(msgs, sit);
+  const cop = params.get('cop');
+  const fakeAsk = (text: string) => {
+    msgs = [...msgs, { id: `u${msgs.length}`, role: 'user', text, at: 760 }];
+    set();
+    ui.copilotSetThinking?.(true);
+    window.setTimeout(() => {
+      ui.copilotSetThinking?.(false);
+      const a = mockCopilotMessages(true)[1];
+      msgs = [...msgs, { ...a, id: `a${msgs.length}`, at: 766 }];
+      set();
+    }, 2500);
+  };
+  // Re-wire the handlers the dev page passed to createUI (dev only): mutate the object createUI keeps.
+  Object.assign(window.__ui!, {
+    cop: {
+      sit,
+      set: (m: ChatMessage[]) => {
+        msgs = m;
+        set();
+      },
+      fakeAsk,
+      thinking: (t: boolean) => ui.copilotSetThinking?.(t),
+      open: (o: boolean) => ui.copilotOpen?.(o),
+    },
+  });
+  if (cop) {
+    if (cop === 'empty' || cop === 'open') msgs = [];
+    else if (cop === 'thinking') msgs = mockCopilotMessages(false);
+    else msgs = mockCopilotMessages(true, cop === 'dispatched' ? 'dispatched' : cop === 'shown' ? 'shown' : 'none');
+    set();
+    if (cop === 'thinking') ui.copilotSetThinking?.(true);
+    ui.copilotOpen?.(true);
+  }
+}

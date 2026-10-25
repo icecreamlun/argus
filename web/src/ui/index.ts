@@ -24,6 +24,7 @@ import { createInspector } from './inspector';
 import { createAirPanel } from './air';
 import { createPlanCard } from './plan';
 import { createDroneFeeds } from './droneFeeds';
+import { createCopilot } from './copilot';
 import type { WaveMark } from './timeline';
 import { createFooter, createPlaybackIsland, createTimeIsland, createViewsIsland } from './bottombar';
 import { bindKeyboard } from './keyboard';
@@ -78,6 +79,18 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
   pb.setActive(false);
   const views = createViewsIsland(hd, (params.get('cam') as CameraPresetId | null) ?? 'overview');
   const foot = createFooter();
+  // M5 Copilot: chat drawer over the right column (Impact / AIR hide while it is open, the inspector moves beside it).
+  const copilot = createCopilot(hd, (open) => {
+    app.classList.toggle('is-copilot', open);
+    if (open) highlightLauncher(false);
+  });
+  const highlightLauncher = (on: boolean) => copilot.launcher.classList.toggle('is-nudge', on);
+  const topRight = h('div', { class: 'ag-top__right' }, copilot.launcher);
+  const clockEl = top.el.querySelector('.ag-clock');
+  if (clockEl) {
+    top.el.replaceChild(topRight, clockEl);
+    topRight.append(clockEl);
+  } else top.el.append(topRight);
 
   const right = h('aside', { class: 'ag-col ag-col--right' }, impact.el, air.el, inspector.el);
   const app = h(
@@ -88,6 +101,7 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     h('aside', { class: 'ag-col ag-col--left' }, feed.el),
     right,
     m4,
+    copilot.el,
     h('div', { class: 'ag-bottom' }, tod.el, pb.el, views.el),
     foot.el,
     feeds.lightbox,
@@ -217,8 +231,32 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     closeInspector,
     toggleHud: () => app.classList.toggle('is-hud-hidden'),
   });
+  // M5: C toggles the Copilot drawer; Esc closes it (after the inspector, which bindKeyboard handles first).
+  window.addEventListener('keydown', (e) => {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || e.repeat) return;
+    const t = e.target;
+    if (t instanceof HTMLElement && (t.isContentEditable || t instanceof HTMLTextAreaElement || t instanceof HTMLSelectElement || (t instanceof HTMLInputElement && !['range', 'checkbox', 'radio', 'button', 'submit'].includes(t.type)))) return;
+    if (e.key === 'c' || e.key === 'C') {
+      e.preventDefault();
+      copilot.toggle();
+    } else if (e.key === 'Escape' && copilot.open) {
+      e.preventDefault();
+      copilot.setOpen(false, true);
+    }
+  });
 
   const ui: UiHandle = {
+    copilotSetMessages(messages, situation) {
+      copilot.setMessages(messages, situation);
+      // A new answer while the drawer is closed: nudge the launcher.
+      if (!copilot.open && messages.length && messages[messages.length - 1].role === 'assistant') highlightLauncher(true);
+    },
+    copilotSetThinking(thinking) {
+      copilot.setThinking(thinking);
+    },
+    copilotOpen(open) {
+      copilot.setOpen(open, false);
+    },
     showEvent(event: UsgsEvent, scenario: QuakeScenario) {
       state.event = event;
       state.scenario = scenario;

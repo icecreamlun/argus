@@ -4,6 +4,7 @@
  *   POST /api/reconstruct  → ReconstructionResult (ReconstructionRequest body, up to ~64 MB)
  *   GET  /api/replay?scenario=&hour=[&source=drone] → { chunks: [{ result, chunk }] } cached run (deterministic air=replay)
  *   POST /api/plan         → DronePlan (PlanRequest body; M4 Argon drone planner, text-only; 502 {error} on failure)
+ *   POST /api/chat         → ChatResponse (ChatRequest body; M5 Argus Copilot; 404 replay miss, 502 {error} on failure)
  *   GET|POST /api/m4run?scenario=&hour= → M4 run record (plans + commander decisions + sim times) for air=replay.
  *          Stored next to the heli run index (runs/<scenario>_h<h×10>/m4.json), so a new heli run (chunk 0) clears it.
  * The API key stays server-side (read via loadEnv without a VITE_ prefix; never sent to the client).
@@ -17,6 +18,8 @@ import { HttpError, listReplay, reconstruct, validateRequest, type ReconConfig }
 import { DRONE_PROMPT_VERSION, PROMPT_VERSION } from './prompt';
 import { plan, validatePlanRequest } from './plan';
 import { PLAN_PROMPT_VERSION } from './planPrompt';
+import { chat, validateChatRequest } from './chat';
+import { CHAT_PROMPT_VERSION } from './chatPrompt';
 
 const MAX_BODY = 64 * 1024 * 1024;
 
@@ -63,7 +66,7 @@ export function argusReconPlugin(cfg: ReconConfig): Plugin {
   const middleware: Connect.NextHandleFunction = (req, res, next) => {
     const url = (req.url ?? '').split('?')[0];
     if (url === '/api/health' && req.method === 'GET') {
-      sendJson(res, 200, { model: cfg.model, hasKey: !!cfg.apiKey, promptVersion: PROMPT_VERSION, dronePromptVersion: DRONE_PROMPT_VERSION, planPromptVersion: PLAN_PROMPT_VERSION });
+      sendJson(res, 200, { model: cfg.model, hasKey: !!cfg.apiKey, promptVersion: PROMPT_VERSION, dronePromptVersion: DRONE_PROMPT_VERSION, planPromptVersion: PLAN_PROMPT_VERSION, chatPromptVersion: CHAT_PROMPT_VERSION });
       return;
     }
     if (url === '/api/replay' && req.method === 'GET') {
@@ -88,6 +91,31 @@ export function argusReconPlugin(cfg: ReconConfig): Plugin {
         await writeFile(file, JSON.stringify(body, null, 1));
         sendJson(res, 200, { ok: true });
       })().catch((err: unknown) => sendJson(res, 500, { error: String((err as Error)?.message ?? err) }));
+      return;
+    }
+    if (url === '/api/chat') {
+      if (req.method !== 'POST') return sendJson(res, 405, { error: 'POST only' });
+      const t0 = Date.now();
+      (async () => {
+        let body: unknown;
+        try {
+          body = JSON.parse(await readBody(req));
+        } catch (e) {
+          throw e instanceof HttpError ? e : new HttpError(400, 'invalid JSON body');
+        }
+        const r = validateChatRequest(body);
+        const out = await chat(cfg, r, { fresh: /[?&]fresh=1\b/.test(req.url ?? '') });
+        console.log(
+          `[argon] chat turn ${r.messages.filter((m) => m.role === 'user').length}: ${out.mode} ${out.plan ? `${out.plan.assignments.length} assignments` : 'no plan'} in ${Date.now() - t0} ms` +
+            (out.notes?.length ? ` [${out.notes.join('; ')}]` : ''),
+        );
+        sendJson(res, 200, out);
+      })().catch((err: unknown) => {
+        const status = err instanceof HttpError ? err.status : 502;
+        const msg = String((err as Error)?.message ?? err).slice(0, 1000);
+        console.warn(`[argon] /api/chat ${status}: ${msg}`);
+        if (!res.headersSent) sendJson(res, status, { error: msg });
+      });
       return;
     }
     if (url === '/api/plan') {
