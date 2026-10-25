@@ -1,0 +1,148 @@
+{
+ "chunkIndex": 1211,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10425,
+ "buildings": [
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Blackened facade patches, light roof debris, upright; Pine and Battery clear."
+  },
+  {
+   "id": "B4966",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 0,
+   "notes": "Extensive facade damage, flames and smoke at base along Battery Street."
+  },
+  {
+   "id": "B4973",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Cracked blackened facade patches and roof debris, structure upright."
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Debris scattered on roof, facade intact and upright."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Low roofless rubble ruin next to 98 Battery St."
+  },
+  {
+   "id": "B5091",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Severe facade cracking and spalling on upper floors, roof debris."
+  },
+  {
+   "id": "B4981",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Minor roof staining, facade intact."
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5042",
+   "notes": "Clear in front of target B5042; fire/debris further north near B4966"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5042",
+   "notes": "Roadway open and clear of debris beside target B5042"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5042 (100 Battery St) has moderate facade and roof damage but remains upright with no visible people or trapped signs. Adjacent Pine Street and Battery Street right in front of B5042 are clear for access, though B4966 (311 California St) further north on Battery has active fire and heavy fac",
+ "hash": "4347cf372ee1f1f32f6948183db96707",
+ "usage": {
+  "promptTokens": 5525,
+  "outputTokens": 630,
+  "totalTokens": 6155
+ },
+ "notes": [
+  "ffmpeg 338 ms",
+  "input: video+hires",
+  "gemini 10087 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

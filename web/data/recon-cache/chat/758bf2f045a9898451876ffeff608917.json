@@ -1,0 +1,14 @@
+{
+ "reply": "**18 people are confirmed seen across 5 verified trapped sites** (43% of area scanned so far):\n\n1. **I-B3301 — 53 Waverly Pl (B3301):** **4 people seen** + trapped signs. Building **collapsed and on fire** (conf 0.95, ~59 occupants). *Highest priority.*\n2. **I-B5528 — Rincon Annex (B5528):** **4 people seen** + trapped signs. Moderate damage (conf 0.95, ~5,670 occupants).\n3. **I-B4584 — 2-storey commercial (B4584):** **4 people seen** + trapped signs. Extensive damage (conf 0.85, ~8 occupants).\n4. **I-B4902 — 447 Battery St (B4902):** **4 people seen** in trapped-classified site. Extensive damage (conf 0.80, ~60 occupants).\n5. **I-B4721 — California Bank and Trust (B4721, 75 Leidesdorff St):** **2 people trapped on the roof** signaling for help + trapped signs. Extensive damage with facade holes and slight lean (conf 0.95, ~812 occupants).\n\n**Uncertainties & Next Checks:**\n- **11 other verified collapses** (including **I-B3457** at 805 Clay St on fire, **I-B3583** with 81 occupants, and **I-B4750** with 70 occupants) have no visual survivor count yet.\n- **8 high-occupancy suspected collapses** remain unverified; task drones/helicopters to scan them before committing heavy USAR.",
+ "plan": null,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7737,
+ "hash": "758bf2f045a9898451876ffeff608917",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 7589,
+  "outputTokens": 437
+ }
+}

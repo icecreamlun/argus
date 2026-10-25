@@ -1,0 +1,234 @@
+{
+ "chunkIndex": 1210,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10517,
+ "buildings": [
+  {
+   "id": "B5381",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roofline and stepped facade completely intact, Market Street clear."
+  },
+  {
+   "id": "B5372",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Severe roof collapse, large hole in center, debris inside."
+  },
+  {
+   "id": "B5319",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked facade, roof staining, minor debris at base."
+  },
+  {
+   "id": "B5298",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Light facade staining and minor roof cracks."
+  },
+  {
+   "id": "B5323",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Blackened roof and facade patches, minor cracks."
+  },
+  {
+   "id": "B5299",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Darkened roof and wall staining, intact structure."
+  },
+  {
+   "id": "B5443",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5384",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5317",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5320",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5381",
+   "notes": "Completely clear of debris along B5381."
+  },
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5293",
+   "notes": "Open and clear of rubble."
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5323",
+   "notes": "Clear of debris near Market intersection."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 6,
+   "place": "Market Street and Main Street intersection",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 9,
+   "place": "Plaza east of B5381 and B5384",
+   "nearBuildingId": "B5381"
+  }
+ ],
+ "summary": "Target B5381 (5 Embarcadero Center) is undamaged with no trapped people, and surrounding streets including Market Street are completely clear for access. Adjacent building B5372 has extensive damage with a caved-in roof, while B5319 and B5323 show moderate damage. Two large crowds of about 40-45 peo",
+ "hash": "9752f6673e6e6b67a0d2f5625b3fe045",
+ "usage": {
+  "promptTokens": 5350,
+  "outputTokens": 682,
+  "totalTokens": 6032
+ },
+ "notes": [
+  "ffmpeg 468 ms",
+  "input: video+hires",
+  "gemini 10049 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

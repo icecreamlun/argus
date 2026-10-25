@@ -1,0 +1,161 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12299,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Tall office tower completely intact on all sides; Sutter Street clear."
+  },
+  {
+   "id": "B4849",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked facade, roof damage, and debris spilling onto Sutter Street."
+  },
+  {
+   "id": "B4869",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Low building heavily damaged with rubble between neighboring structures."
+  },
+  {
+   "id": "B4879",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Severe roof and wall damage with debris at base."
+  },
+  {
+   "id": "B4895",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Flatiron building shows cracked facade, scorch marks, and base rubble."
+  },
+  {
+   "id": "B4860",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Visible roof and facade damage with debris."
+  },
+  {
+   "id": "B4805",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof surface shows minor debris and light facade streaking."
+  },
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5040",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4839",
+   "notes": "Debris apron from damaged Market St buildings along north side; roadway passable."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4895",
+   "notes": "Clear of major rubble near 2nd Street intersection; crowd gathered."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 50,
+   "evidenceS": 3,
+   "place": "Market Street and 2nd Street intersection",
+   "nearBuildingId": "B4805"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 7,
+   "place": "Ecker Plaza / Market Street",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target building B4839 (1 Sansome St) is completely undamaged with no people or trapped signs visible. Adjacent buildings along the 544–562 Market Street block (B4849, B4869, B4879, B4895) have moderate to extensive damage with rubble spilling toward Sutter Street. Sutter Street has partial debris ne",
+ "hash": "aaf535d93d12f7874e321abf5b188bfe",
+ "usage": {
+  "promptTokens": 5605,
+  "outputTokens": 685,
+  "totalTokens": 6290
+ },
+ "notes": [
+  "ffmpeg 563 ms",
+  "input: video+hires",
+  "gemini 11736 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

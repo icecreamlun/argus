@@ -9,6 +9,11 @@
    "hash": "6432c2baae9d03a6c67d444fc99725fa",
    "question": "Which roads should police clear first?",
    "simS": 760
+  },
+  "我现在有10辆消防车20名警察2架直升机6辆救护车如何安排救援路线和优先级": {
+   "hash": "90361b21bc245fa72f2d00829607fc9b",
+   "question": "我现在有10辆消防车、20名警察、2架直升机、6辆救护车，如何安排救援路线和优先级？",
+   "simS": 894
   }
  }
 }

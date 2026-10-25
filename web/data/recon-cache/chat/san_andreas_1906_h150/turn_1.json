@@ -4,6 +4,11 @@
    "hash": "d957291b31b2595be50f1ee4a7f39b2f",
    "question": "我现在有10辆消防车、20名警察、2架直升机、6辆救护车，如何安排救援路线和优先级？",
    "simS": 760
+  },
+  "howmanypeopleareconfirmedtrappedandwhere": {
+   "hash": "758bf2f045a9898451876ffeff608917",
+   "question": "How many people are confirmed trapped, and where?",
+   "simS": 807
   }
  }
 }

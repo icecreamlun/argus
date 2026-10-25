@@ -34,6 +34,7 @@ import type {
   StructureType,
 } from '../contracts';
 import { OBSERVED_DAMAGE, setMockCity, truthState } from './mock';
+import { PREDICTION_SCALES } from '../quake/model';
 import { createPins, type PinSpec } from './pins';
 import { ruinShape } from '../quake/fx/rules';
 
@@ -431,6 +432,118 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     return { f1: classes ? f1 / classes : 0, bal: classes ? bal / classes : 0 };
   }
 
+  /** Core-area building indices: the fixed denominator of the city-wide metrics. */
+  let coreIdx: number[] | null = null;
+  let cityPredCache: { f1: number; xbd: number; cm: number[][] } | null = null;
+  function coreSet(): number[] {
+    if (!coreIdx) coreIdx = ctx.city.buildings.flatMap((b, i) => (b.context ? [] : [i]));
+    return coreIdx;
+  }
+  /** Building centroids (for the spatial correction kernel). */
+  let centroids: { x: Float64Array; z: Float64Array } | null = null;
+  function centroid(): { x: Float64Array; z: Float64Array } {
+    if (!centroids) {
+      const n = ctx.city.buildings.length;
+      const x = new Float64Array(n);
+      const z = new Float64Array(n);
+      ctx.city.buildings.forEach((b, i) => {
+        let sx = 0;
+        let sz = 0;
+        for (const p of b.footprint) (sx += p[0]), (sz += p[1]);
+        x[i] = sx / b.footprint.length;
+        z[i] = sz / b.footprint.length;
+      });
+      centroids = { x, z };
+    }
+    return centroids;
+  }
+
+  /** xBD class probabilities from P(DS ≥ ds). */
+  const probs4 = (e: ArrayLike<number>): number[] => {
+    const p = [1 - e[0], e[0] - e[1], e[1] - e[2], e[2] - e[3], e[3]].map((v) => Math.max(v, 1e-4));
+    return [p[0], p[1], p[2] + p[3], p[4]];
+  };
+  const argmax = (a: number[]) => a.indexOf(Math.max(...a));
+  const LN_K = PREDICTION_SCALES.map((v) => Math.log(v));
+  /** Spatial correction kernel: Gaussian σ (m) and prior weight toward "no correction". */
+  const CORR_SIGMA_M = 250;
+  const CORR_PRIOR_W = 0.3;
+
+  /**
+   * City-wide metrics over every core building (fixed denominator). Observed buildings use the model+Argon
+   * estimate; unobserved ones use the model prediction CORRECTED by nearby observations: each observation
+   * implies a demand scale (how much harder/softer the ground shook there than the median — posterior mean
+   * over PREDICTION_SCALES given Argon's call and confidence), smoothed with a Gaussian kernel, and the
+   * building's blind prediction is re-read at that scale. Ground motion is spatially correlated, so this is
+   * the same idea as a ShakeMap updated with field observations. Truth is used only to score.
+   */
+  function cityMetrics(eff: Map<string, Observed>): { predF1: number; predXbd: number; fusedF1: number; fusedXbd: number; n: number } {
+    const core = coreSet();
+    if (!cityPredCache) {
+      const cm = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+      let ok = 0;
+      for (const i of core) {
+        const tx = XBD[truthState(result!, i)];
+        const p = xbdPredicted(i);
+        cm[tx][p]++;
+        if (p === tx) ok++;
+      }
+      cityPredCache = { f1: classMetrics(cm).f1, xbd: core.length ? ok / core.length : 0, cm };
+    }
+    const { x: cx, z: cz } = centroid();
+    // Observation points: implied log demand scale + weight.
+    const pts: { x: number; z: number; lk: number; w: number }[] = [];
+    const obsIdx = new Map<number, Observed>();
+    for (const [id, o] of eff) {
+      const i = idx.get(id);
+      if (i === undefined) continue;
+      obsIdx.set(i, o);
+      const ek = result!.damage[i].predictedExceedanceK;
+      if (!ek) continue;
+      const ox = XBD[obsState(o.damage)];
+      const c = o.source === 'drone' ? Math.max(0.85, o.confidence) : Math.min(0.95, Math.max(0.3, o.confidence));
+      let s = 0;
+      let lk = 0;
+      const like = LN_K.map((_, j) => probs4(ek.slice(j * 4, j * 4 + 4))[ox] * c + (1 - c) / 4);
+      for (const v of like) s += v;
+      LN_K.forEach((k, j) => (lk += (k * like[j]) / s));
+      pts.push({ x: cx[i], z: cz[i], lk, w: c });
+    }
+    const cm = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+    let ok = 0;
+    const inv2s2 = 1 / (2 * CORR_SIGMA_M * CORR_SIGMA_M);
+    for (const i of core) {
+      const tx = XBD[truthState(result!, i)];
+      let est: number;
+      const o = obsIdx.get(i);
+      const ek = result!.damage[i].predictedExceedanceK;
+      if (o) est = xbdFused(i, o);
+      else if (!ek || !pts.length) est = xbdPredicted(i);
+      else {
+        let num = 0;
+        let den = CORR_PRIOR_W;
+        for (const q of pts) {
+          const dx = q.x - cx[i];
+          const dz = q.z - cz[i];
+          const d2 = dx * dx + dz * dz;
+          if (d2 > 9 * CORR_SIGMA_M * CORR_SIGMA_M) continue;
+          const g = q.w * Math.exp(-d2 * inv2s2);
+          num += g * q.lk;
+          den += g;
+        }
+        const lk = num / den; // shrinks to 0 (no correction) far from observations
+        let j = 0;
+        while (j < LN_K.length - 2 && lk > LN_K[j + 1]) j++;
+        const a = Math.min(1, Math.max(0, (lk - LN_K[j]) / (LN_K[j + 1] - LN_K[j])));
+        const e = [0, 1, 2, 3].map((m) => ek[j * 4 + m] * (1 - a) + ek[(j + 1) * 4 + m] * a);
+        est = argmax(probs4(e));
+      }
+      cm[tx][est]++;
+      if (est === tx) ok++;
+    }
+    return { predF1: cityPredCache.f1, predXbd: cityPredCache.xbd, fusedF1: classMetrics(cm).f1, fusedXbd: core.length ? ok / core.length : 0, n: core.length };
+  }
+
   /** Timeline metrics over an effective observation map (truth used for the audience chart only). */
   function metricsOf(eff: Map<string, Observed>): Omit<ReconHistoryPoint, 'simS' | 'source'> {
     const cmP = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
@@ -451,7 +564,13 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       if (ob === 4) collapses++;
       ppl += o.peopleVisible;
     }
+    const city = cityMetrics(eff);
     return {
+      cityPredictionF1: city.predF1,
+      cityFusedF1: city.fusedF1,
+      cityPredictionXbd: city.predXbd,
+      cityFusedXbd: city.fusedXbd,
+      cityBuildings: city.n,
       observed: eff.size,
       predictionF1: classMetrics(cmP).f1,
       reconF1: classMetrics(cmR).f1,
@@ -483,6 +602,10 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       mode: entries.length ? entries[entries.length - 1].res.mode : null,
       buildingsCovered: covered.size,
       history: history.slice(),
+      ...(result ? (() => {
+        const c = cityMetrics(effective);
+        return { cityPredictionF1: c.predF1, cityFusedF1: c.fusedF1, cityPredictionXbd: c.predXbd, cityFusedXbd: c.fusedXbd, cityBuildings: c.n };
+      })() : {}),
       droneObserved: [...effective.values()].filter((o) => o.source === 'drone').length,
     };
     const lastRev = revealed[revealed.length - 1];
@@ -565,6 +688,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       result = r;
       people = p;
       predCache = new Array(r.damage.length);
+      cityPredCache = null;
     },
     apply(res, chunk) {
       const key = entryKey(res, chunk);

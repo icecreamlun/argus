@@ -113,7 +113,7 @@ export function createAirPanel(city: CityData) {
       h('span', { class: 'ag-air__arrow' }, icon('arrowRight')),
       h('div', { class: 'ag-air__fig' }, reconNum, h('span', { class: 'ag-air__figLabel ag-air__figLabel--argon' }, 'Model + Argon')),
     ),
-    h('div', { class: 'ag-air__foot' }, h('span', { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed. Macro-F1 = mean per-class F1 (the xBD challenge damage score)' }, 'xBD macro-F1 · vs ground truth (sim)'), within),
+    h('div', { class: 'ag-air__foot' }, h('span', { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed. Macro-F1 = mean per-class F1 (the xBD challenge damage score)' }, 'xBD macro-F1 · whole core area · vs ground truth (sim)'), within),
     timeline.el,
     h(
       'div',
@@ -192,12 +192,20 @@ export function createAirPanel(city: CityData) {
       compare.classList.toggle('is-empty', !has);
       // Headline: xBD 4-class accuracy (falls back to the exact 5-state figure); exact HAZUS state stays secondary.
       // Headline: xBD macro-F1 of the model alone vs the model corrected by Argon (falls back to accuracy).
-      const headP = st.predictionF1 ?? st.predictionXbd ?? st.predictionAccuracy;
-      const headR = st.fusedF1 ?? st.reconXbd ?? st.reconAccuracy;
+      // Headline: whole-core-area xBD macro-F1 (fixed denominator) — model alone vs model corrected by Argon.
+      const headP = st.cityPredictionF1 ?? st.predictionF1 ?? st.predictionXbd ?? st.predictionAccuracy;
+      const headR = st.cityFusedF1 ?? st.fusedF1 ?? st.reconXbd ?? st.reconAccuracy;
       setText(predNum, has ? pct(headP) : '–');
       setText(reconNum, has ? pct(headR) : '–');
       setText(sumAcc.querySelector('b')!, has ? pct(headR) : '–');
-      setText(within, has && st.reconF1 !== undefined ? `Argon alone ${pct(st.reconF1)} · accuracy ${pct(st.predictionXbd ?? 0)} → ${pct(st.fusedXbd ?? 0)}` : '');
+      setText(
+        within,
+        has && st.cityFusedF1 !== undefined
+          ? `${fmtInt(st.cityBuildings ?? 0)} buildings · on the ${fmtInt(st.buildingsObserved)} Argon saw: ${pct(st.predictionF1 ?? 0)} → ${pct(st.fusedF1 ?? 0)}`
+          : has && st.reconF1 !== undefined
+            ? `Argon alone ${pct(st.reconF1)} · accuracy ${pct(st.predictionXbd ?? 0)} → ${pct(st.fusedXbd ?? 0)}`
+            : '',
+      );
       within.title = has
         ? `xBD 4-class. Balanced accuracy: model ${pct(st.predictionBal ?? 0)}, Argon ${pct(st.reconBal ?? 0)}, model+Argon ${pct(st.fusedBal ?? 0)}. Exact HAZUS state: ${pct(st.predictionAccuracy)} → Argon ${pct(st.reconAccuracy)}.`
         : '';

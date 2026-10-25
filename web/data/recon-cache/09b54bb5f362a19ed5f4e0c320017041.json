@@ -1,0 +1,116 @@
+{
+ "chunkIndex": 1223,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10438,
+ "buildings": [
+  {
+   "id": "B5344",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Target intact on all sides; roofline straight, Main Street clear of debris"
+  },
+  {
+   "id": "B5301",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5376",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5319",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5334",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5391",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5344",
+   "notes": "Roadway open and free of structural debris along target"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 6,
+   "place": "Main Street and Drumm Street intersection",
+   "nearBuildingId": "B5319"
+  }
+ ],
+ "summary": "Target B5344 (215 Market St) is completely undamaged with intact facades and roof across all orbited sides, and no trapped individuals or hazards are visible. Surrounding buildings B5301, B5357, B5334, B5319, B5376, and B5391 also appear intact. Main Street is clear of debris, though a crowd of appr",
+ "hash": "09b54bb5f362a19ed5f4e0c320017041",
+ "usage": {
+  "promptTokens": 5000,
+  "outputTokens": 301,
+  "thoughtsTokens": 340,
+  "totalTokens": 5641
+ },
+ "notes": [
+  "ffmpeg 596 ms",
+  "input: video+hires",
+  "gemini 9841 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

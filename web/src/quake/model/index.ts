@@ -187,6 +187,9 @@ function anchorIndex(city: CityData): Int32Array {
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
+/** Demand scales at which the blind prediction is also evaluated (predictedExceedanceK). */
+export const PREDICTION_SCALES = [0.5, 0.71, 1, 1.41, 2] as const;
+
 /** Residual-free fields: the median ground motion a predictor can compute before any observation. */
 const ZERO_FIELDS = { a: () => 0, b: () => 0, liq: () => 0, meanA: 0, meanB: 0 };
 
@@ -320,6 +323,17 @@ export function createQuakeModel(): QuakeModel & { lastRunMs: number } {
           neighbours60: nb.n60,
           footprintArea: geo.area[i],
         }).ex.map((v) => Math.round(v * 1000) / 1000) as [number, number, number, number];
+        // Same blind prediction at a few demand scales (for spatial correction from observations).
+        const k: number[] = [];
+        for (const sc of PREDICTION_SCALES) {
+          const ex = exceedanceFor({
+            b, structural: sb, pgaG: pm.pgaG * sc, pgvCms: pm.pgvCms * sc, vs30: sh.vs30 ?? 300, magnitude: src.M,
+            liquefied: pm.pLiq > 0.5, sArrivalS: shaking[i].sArrivalS, durationS: shaking[i].durationS, hour, seed,
+            downhill: nb.dir, slope: nb.slope, toStreet: [0, 0], neighbours60: nb.n60, footprintArea: geo.area[i],
+          }).ex;
+          for (const v of ex) k.push(Math.round(v * 1000) / 1000);
+        }
+        d.predictedExceedanceK = k;
         damage[i] = d;
         ignBase[i] = dmg.ignBase;
         ignW[i] = dmg.ignWeighted;

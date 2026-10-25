@@ -1,0 +1,197 @@
+{
+ "chunkIndex": 1213,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 29173,
+ "buildings": [
+  {
+   "id": "B4721",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Extensive facade holes, leaning, two people on roof; Leidesdorff blocked"
+  },
+  {
+   "id": "B4694",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Blackened and cracked facade patches on east and south sides"
+  },
+  {
+   "id": "B4738",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened roof and upper facade damage"
+  },
+  {
+   "id": "B4750",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened roof and facade damage"
+  },
+  {
+   "id": "B4781",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Severe roof damage, partially collapsed upper floors, debris into alley"
+  },
+  {
+   "id": "B4835",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Facade staining and minor damage"
+  },
+  {
+   "id": "B4567",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Slight roof staining, structure intact"
+  },
+  {
+   "id": "B4668",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 1,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Collapsed or heavily damaged roof with person visible near base"
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4826",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4801",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4842",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "blocked",
+   "evidenceS": 4,
+   "nearBuildingId": "B4721",
+   "notes": "Blocked by heavy debris from B4721 and B4781"
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "partial",
+   "evidenceS": 9,
+   "nearBuildingId": "B4721",
+   "notes": "Partially obstructed by debris near B4721, crowd gathering"
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B4694",
+   "notes": "Clear roadway with crowd gathered near intersection"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B4738",
+   "notes": "Roadway appears clear of major debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 1,
+   "place": "Montgomery and California intersection",
+   "nearBuildingId": "B4694"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 9,
+   "place": "California Street north of B4721",
+   "nearBuildingId": "B4721"
+  }
+ ],
+ "summary": "Target B4721 (75 Leidesdorff St) has extensive damage with facade holes, a slight lean, and two people trapped on the roof signaling for help. Leidesdorff Street is blocked by debris, while California Street is partially open with a crowd of about 40 people gathered north of the building. Neighborin",
+ "hash": "e8ee7ec393df81f072c7ef3dc85e50ce",
+ "usage": {
+  "promptTokens": 5453,
+  "outputTokens": 806,
+  "totalTokens": 6259
+ },
+ "notes": [
+  "ffmpeg 789 ms",
+  "input: video+hires",
+  "gemini 28384 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

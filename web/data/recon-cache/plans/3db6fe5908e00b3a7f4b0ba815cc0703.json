@@ -1,0 +1,68 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "With AIR 1's scan complete and this being the final wave, we are deploying all three drones to maximize life-saving intelligence across high-risk targets. D1 will verify reports of trapped occupants at California Bank and Trust, 348 Pine St, and 100 Battery St, while D2 and D3 will survey densely occupied, unscanned blocks at Rincon Annex, the Pacific Gas and Electric Building block, and 50 Fremont Center where severe damage is predicted. No drones are held in reserve as this is the final operational wave.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5381",
+    "B5042",
+    "B4750",
+    "B4721"
+   ],
+   "purpose": "Confirm trapped occupants at 100 Battery St, 348 Pine St, and California Bank and Trust, and check Hyatt Regency.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5528",
+    "B5400",
+    "B5391",
+    "B5344"
+   ],
+   "areaCentre": [
+    256,
+    134
+   ],
+   "purpose": "Survey unscanned high-occupancy Rincon Annex and Pacific Gas & Electric block, and resolve Matson Building damage.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5276",
+    "B5230",
+    "B5221",
+    "B5245"
+   ],
+   "areaCentre": [
+    38,
+    340
+   ],
+   "purpose": "Sweep the unscanned SoMa steel block at 50 Fremont Center with over 3,100 occupants and high collapse risk.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5919,
+ "createdAtSimS": 411,
+ "hash": "3db6fe5908e00b3a7f4b0ba815cc0703",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5892,
+  "outputTokens": 332
+ },
+ "notes": []
+}

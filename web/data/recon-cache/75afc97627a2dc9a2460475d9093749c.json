@@ -1,0 +1,116 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14354,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Small structure reduced to rubble pile between high-rises; Sutter access partial."
+  },
+  {
+   "id": "B4869",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked facade and rubble pile along rear corner near alley."
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Damaged roof and facade cracks visible adjacent to collapsed B4813."
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B4813",
+   "notes": "Main roadway open with minor rubble at curb near B4869/B4813."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B4895",
+   "notes": "Roadway appears clear in front of 544-562 Market St."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) is collapsed into a rubble pile wedged between the surrounding high-rises and brick buildings. Adjacent buildings B4869 and B4849 show moderate damage, while high-rises B4759 and B4760 remain intact. No people or trapped signs are visible, and Sutter Street remains passable ",
+ "hash": "75afc97627a2dc9a2460475d9093749c",
+ "usage": {
+  "promptTokens": 5280,
+  "outputTokens": 395,
+  "thoughtsTokens": 457,
+  "totalTokens": 6132
+ },
+ "notes": [
+  "ffmpeg 627 ms",
+  "input: video+hires",
+  "gemini 13726 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

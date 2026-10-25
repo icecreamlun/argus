@@ -1,0 +1,206 @@
+{
+ "chunkIndex": 1212,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13087,
+ "buildings": [
+  {
+   "id": "B4750",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Target collapsed at base, heavy lean, debris blocks Pine Street."
+  },
+  {
+   "id": "B4738",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Blackened facade patches, rubble skirt along base, adjacent to B4750."
+  },
+  {
+   "id": "B4781",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Severe facade damage, holes, large debris apron into Pine Street."
+  },
+  {
+   "id": "B4721",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Dark scorched roof and upper facade patches, structural holes."
+  },
+  {
+   "id": "B4694",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Dark streaks and holes across upper floors and roof."
+  },
+  {
+   "id": "B4740",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Slight facade discolouration and minor debris at base."
+  },
+  {
+   "id": "B4778",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4801",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4842",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4834",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4835",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4826",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4708",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "blocked",
+   "evidenceS": 6,
+   "nearBuildingId": "B4750",
+   "notes": "Heavy rubble apron from B4750 and B4781 across roadway."
+  },
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "blocked",
+   "evidenceS": 4,
+   "nearBuildingId": "B4781",
+   "notes": "Debris in alley beside B4750 and B4781."
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4694",
+   "notes": "Roadway open with crowd gathering at intersection."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 10,
+   "place": "Montgomery Street",
+   "nearBuildingId": "B4694"
+  }
+ ],
+ "summary": "Target B4750 (348 Pine St) is collapsed with a severe lean and heavy debris blocking Pine Street; no people or trapped signs are visible at the target. Adjacent B4781 has extensive damage also spilling rubble onto Pine and Leidesdorff Streets, while B4738 shows moderate damage. A crowd of about 35 p",
+ "hash": "9cb370fec7ee83dcd5a1b4900896a729",
+ "usage": {
+  "promptTokens": 5812,
+  "outputTokens": 657,
+  "totalTokens": 6469
+ },
+ "notes": [
+  "ffmpeg 2140 ms",
+  "input: video+hires",
+  "gemini 10947 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

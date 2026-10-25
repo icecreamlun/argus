@@ -1,0 +1,155 @@
+{
+ "chunkIndex": 1122,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8818,
+ "buildings": [
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Intact roof and facade, Pine Street clear in front"
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Roofless ruin reduced to rubble pile with jagged wall stubs"
+  },
+  {
+   "id": "B5047",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Intact roof and facade, rubble at base from adjacent B5057"
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof intact, minor surface debris, adjacent to B5057 rubble"
+  },
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy roof staining and cracked facade patches, upright"
+  },
+  {
+   "id": "B5074",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracks and staining across roof, person standing on roof"
+  },
+  {
+   "id": "B5106",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roof surface staining, person standing on roof"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B4985",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5103",
+   "notes": "Roadway open and clear of debris next to B5103"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5042",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5106",
+   "notes": "Roadway open and clear of debris"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5103 (111 Pine St) is undamaged with Pine Street clear for access and no people visible. Nearby B5057 (32 Battery St) is completely collapsed into rubble, and B5042 (100 Battery St) has moderate damage. Single individuals are spotted on the high-rise rooftops of B5074 and B5106 (1 Front St) ",
+ "hash": "d4ad17d6fc1ec1229e7a3dd26fa2fcf5",
+ "usage": {
+  "promptTokens": 5062,
+  "outputTokens": 652,
+  "totalTokens": 5714
+ },
+ "notes": [
+  "ffmpeg 344 ms",
+  "input: video+hires",
+  "gemini 8474 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

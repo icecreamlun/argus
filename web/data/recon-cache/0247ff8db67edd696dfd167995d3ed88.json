@@ -1,0 +1,101 @@
+{
+ "chunkIndex": 1222,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9815,
+ "buildings": [
+  {
+   "id": "B5391",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked facade, roof debris, slight lean; adjacent streets clear"
+  },
+  {
+   "id": "B5376",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracks and scattered debris across parking deck roof"
+  },
+  {
+   "id": "B5357",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Light surface cracking and minor debris on roof"
+  },
+  {
+   "id": "B5334",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5391",
+   "notes": "Roadway open and free of debris"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5334",
+   "notes": "Roadway open and free of debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 6,
+   "place": "Beale Street sidewalk",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5391 (58 Main St) shows moderate damage with a cracked facade, roof debris, and a slight lean, though no people or trapped signs are visible. Nearby B5376 and B5357 have slight roof damage, while B5334 and B5428 appear intact. Main Street and Beale Street are clear for access, with a crowd o",
+ "hash": "0247ff8db67edd696dfd167995d3ed88",
+ "usage": {
+  "promptTokens": 4809,
+  "outputTokens": 389,
+  "thoughtsTokens": 174,
+  "totalTokens": 5372
+ },
+ "notes": [
+  "ffmpeg 614 ms",
+  "input: video+hires",
+  "gemini 9201 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

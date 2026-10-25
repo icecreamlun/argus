@@ -1,0 +1,156 @@
+{
+ "reply": "### 优先救援排序（共确认18人受困、12处坍塌、2处起火）\n1. **I-B3301 (53 Waverly Pl)**：坍塌且起火，**4人受困**（置信度0.95）。调派2辆消防车灭火营救、2辆救护车转运、5名警察清障。\n2. **I-B4721 (California Bank)**：严重受损微倾，**2人困于屋顶**，Leidesdorff街受阻。调1架直升机（3.4分）屋顶吊救，1辆消防车、1辆救护车及5名警察支援。\n3. **I-B3457 (805 Clay St) & 其余受困点**：I-B3457坍塌起火（派2辆消防车扑救防蔓延）；**I-B5528**（4人，5670人建筑）、**I-B4584**（4人）、**I-B4902**（4人）各派消防车与救护车救援。\n\n**不确定性与下一步**：**I-B3583**（81人已坍塌）及**I-B4958**（257人疑似坍塌）伤亡不明，派第2架直升机高空侦察；重型坍塌需立即申请USAR与云梯车增援。",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed and on fire with 4 confirmed trapped survivors"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4721",
+    "reason": "2 trapped on roof of leaning building, street blocked"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B3457",
+    "reason": "Collapsed building on fire, suppress to protect trapped survivors"
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B5528",
+    "reason": "4 confirmed trapped in 5670-occupant building"
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4584",
+    "reason": "4 confirmed trapped in extensively damaged building"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "Fire suppression and light rescue for 4 trapped"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B3457",
+    "task": "Extinguish collapse fire to prevent spread"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "Light rescue and triage for 4 trapped"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4584",
+    "task": "Rescue 4 trapped survivors"
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Rescue 4 trapped at 447 Battery St"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Hoist rescue 2 survivors trapped on roof"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B3583",
+    "task": "Aerial recon of 81-occupant collapse and unverified sites"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "Triage and transport casualties to Chinese Hospital"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B5528",
+    "task": "Patient transport from Rincon Annex"
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4721",
+    "task": "Medical transport for B4721 and nearby B4584"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3301",
+    "task": "Clear Waverly Place and Grant Ave access; crowd control"
+   },
+   {
+    "unitType": "police",
+    "count": 10,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4721",
+    "task": "Cordon leaning building, manage crowd, clear Battery St"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "2 segments blocked; open access to I-B3301 fire and trapped"
+   },
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "Blocked by debris; secure perimeter around leaning I-B4721"
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "Keep ambulance corridor open for I-B4902 and I-B4958"
+   },
+   {
+    "roadName": "Clay Street",
+    "unitType": "police",
+    "reason": "1 segment blocked; clear access for engines to I-B3457"
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "消防车均按灭火/轻型救援车(engine)调配，就近从各消防站及集结点出发。",
+   "当前无云梯车(truck)与重型搜救队(USAR)可用，已建议立即请求增援以处置坍塌建筑。",
+   "救护车在完成首批伤员转运后将轮转支援I-B4584与I-B4902。"
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 18968,
+ "hash": "90361b21bc245fa72f2d00829607fc9b",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8032,
+  "outputTokens": 1770
+ }
+}

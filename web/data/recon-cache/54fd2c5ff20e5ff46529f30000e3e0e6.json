@@ -1,0 +1,130 @@
+{
+ "chunkIndex": 1221,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8034,
+ "buildings": [
+  {
+   "id": "B5400",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Tall glass tower fully intact on all visible sides; streets clear"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5376",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5391",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5444",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 2,
+   "place": "plaza near B5357 and B5376",
+   "nearBuildingId": "B5376"
+  }
+ ],
+ "summary": "Target B5400 (77 Beale St) is completely undamaged across all inspected facades with no trapped people or debris. Surrounding streets including Mission, Beale, and Main Street are completely clear for access. A crowd of approximately 80 people is gathered in the open plaza northwest of the tower.",
+ "hash": "54fd2c5ff20e5ff46529f30000e3e0e6",
+ "usage": {
+  "promptTokens": 4922,
+  "outputTokens": 313,
+  "thoughtsTokens": 149,
+  "totalTokens": 5384
+ },
+ "notes": [
+  "ffmpeg 297 ms",
+  "input: video+hires",
+  "gemini 7737 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

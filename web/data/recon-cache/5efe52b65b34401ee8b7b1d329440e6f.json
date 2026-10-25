@@ -1,0 +1,208 @@
+{
+ "chunkIndex": 5,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 26636,
+ "buildings": [
+  {
+   "id": "B5403",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened cracked facade patches along Market Street"
+  },
+  {
+   "id": "B5323",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened facade patches and minor base debris"
+  },
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Completely collapsed into jagged wall stubs and rubble"
+  },
+  {
+   "id": "B5384",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Debris and surface damage on roof and facade"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5091",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5094",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5183",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5301",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5344",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5298",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5381",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5301",
+   "notes": "Roadway open with pedestrians gathered near 388 Market"
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5323",
+   "notes": "Roadway open and passable"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5381",
+   "notes": "All lanes open and clear of debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 55,
+   "evidenceS": 4,
+   "place": "Market Street",
+   "nearBuildingId": "B5301"
+  },
+  {
+   "approxCount": 160,
+   "evidenceS": 11,
+   "place": "Embarcadero Plaza",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 70,
+   "evidenceS": 12,
+   "place": "Park west of 4 The Embarcadero",
+   "nearBuildingId": "B5372"
+  }
+ ],
+ "summary": "Most high-rises along Market Street and Embarcadero Center appear intact, though B5403 (101 Market St) and B5323 (2 California St) show moderate facade damage. One 6-story office building (B5372) just west of 4 The Embarcadero has completely collapsed into a roofless ruin. Large crowds have evacuate",
+ "hash": "5efe52b65b34401ee8b7b1d329440e6f",
+ "usage": {
+  "promptTokens": 7026,
+  "outputTokens": 609,
+  "thoughtsTokens": 932,
+  "totalTokens": 8567
+ },
+ "notes": [
+  "ffmpeg 562 ms",
+  "input: video+hires",
+  "gemini 26074 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

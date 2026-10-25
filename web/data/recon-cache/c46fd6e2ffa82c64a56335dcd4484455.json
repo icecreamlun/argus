@@ -1,0 +1,195 @@
+{
+ "chunkIndex": 1121,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11510,
+ "buildings": [
+  {
+   "id": "B4987",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Intact roof and facade; adjacent Battery Street clear of debris."
+  },
+  {
+   "id": "B4960",
+   "damage": "extensive",
+   "confidence": 0.92,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Slight lean, extensive facade cracking, roof damage, person on roof."
+  },
+  {
+   "id": "B4995",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Severe facade blackening and holes, rubble spilling onto Bush Street."
+  },
+  {
+   "id": "B4935",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Facade damage and roof debris; rubble spilling onto Bush Street."
+  },
+  {
+   "id": "B4916",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked roof surface and weathered facade, upright structure."
+  },
+  {
+   "id": "B5057",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Blackened roof and facade patches, small debris skirt on Battery."
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Light debris on roof, facade intact and upright."
+  },
+  {
+   "id": "B4919",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4969",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4973",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5042",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B4904",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4987",
+   "notes": "Clear roadway in front of target B4987, slight debris near B5057."
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4981",
+   "notes": "Roadway open and clear of major debris."
+  },
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4995",
+   "notes": "Heavy debris apron from B4995 and B4935 partially blocking street."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 7,
+   "place": "Bush and Sansome intersection",
+   "nearBuildingId": "B4935"
+  }
+ ],
+ "summary": "Target B4987 (65 Battery St) is undamaged with clear access along Battery Street and Pine Street. Adjacent high-rise B4960 (235 Pine St) has extensive damage with one person trapped on the roof, and B4995 (100 Bush St) also shows extensive damage with debris partially blocking Bush Street. A crowd o",
+ "hash": "c46fd6e2ffa82c64a56335dcd4484455",
+ "usage": {
+  "promptTokens": 5665,
+  "outputTokens": 709,
+  "totalTokens": 6374
+ },
+ "notes": [
+  "ffmpeg 646 ms",
+  "input: video+hires",
+  "gemini 10864 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

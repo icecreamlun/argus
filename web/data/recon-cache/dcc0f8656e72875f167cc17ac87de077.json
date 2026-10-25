@@ -1,0 +1,134 @@
+{
+ "chunkIndex": 1231,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14575,
+ "buildings": [
+  {
+   "id": "B5230",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked roof and blackened facade patches with small base rubble skirt; Fremont clear"
+  },
+  {
+   "id": "B5221",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked roof, damaged facade patches and small rubble skirt at base"
+  },
+  {
+   "id": "B5286",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Surface cracks across roof and upper facade walls, structure upright and intact"
+  },
+  {
+   "id": "B5187",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked roof and facade damage with debris along 1st Street base"
+  },
+  {
+   "id": "B5188",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Roof staining and facade cracks with minor debris at base"
+  },
+  {
+   "id": "B5165",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5181",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FREMONT STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5230",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5221",
+   "notes": "Street open with minor curbside rubble near low-rise buildings"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 4,
+   "place": "Plaza north of 425 Market / Fremont Street",
+   "nearBuildingId": "B5237"
+  }
+ ],
+ "summary": "Target B5230 (50 Fremont St) has moderate damage with roof cracking, darkened facade patches, and a small rubble skirt at its base, with no people or trapped signs visible. Adjacent low-rise B5221 also shows moderate facade and roof damage, while high-rises B5165 and B5181 remain intact and a large ",
+ "hash": "dcc0f8656e72875f167cc17ac87de077",
+ "usage": {
+  "promptTokens": 5107,
+  "outputTokens": 549,
+  "thoughtsTokens": 410,
+  "totalTokens": 6066
+ },
+ "notes": [
+  "ffmpeg 616 ms",
+  "input: video+hires",
+  "gemini 13957 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

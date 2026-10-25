@@ -1,0 +1,152 @@
+{
+ "chunkIndex": 1230,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12925,
+ "buildings": [
+  {
+   "id": "B5276",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Central high-rise completely intact; surrounding streets clear of debris"
+  },
+  {
+   "id": "B5230",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof debris and light facade staining on low-rise annex"
+  },
+  {
+   "id": "B5221",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Weathered roof with minor facade cracks and light staining"
+  },
+  {
+   "id": "B5187",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Darkened facade and small rubble pile at base"
+  },
+  {
+   "id": "B5324",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5203",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5191",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5188",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "FREMONT STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway open and clear alongside target"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 10,
+   "place": "Fremont Street intersection",
+   "nearBuildingId": "B5276"
+  }
+ ],
+ "summary": "Target building B5276 (50 Fremont Center) is undamaged with all facades intact and no signs of fire or smoke. Adjacent annexes B5230 and B5221 show slight roof and facade damage, while nearby B5187 has moderate damage with minor base rubble. Mission, 1st, and Fremont Streets remain clear for emergen",
+ "hash": "f51b5f849d811ee565bef2bd12d301bb",
+ "usage": {
+  "promptTokens": 5114,
+  "outputTokens": 493,
+  "thoughtsTokens": 397,
+  "totalTokens": 6004
+ },
+ "notes": [
+  "ffmpeg 498 ms",
+  "input: video+hires",
+  "gemini 12427 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

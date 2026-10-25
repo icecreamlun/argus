@@ -42,7 +42,7 @@ export function createTimeline() {
   const el = h(
     'div',
     { class: 'ag-tl', hidden: true },
-    h('div', { class: 'ag-tl__head' }, h('span', { class: 'ag-label' }, 'Accuracy over time'), h('span', { class: 'ag-tl__unit' }, 'xBD macro-F1')),
+    h('div', { class: 'ag-tl__head' }, h('span', { class: 'ag-label' }, 'Accuracy over time'), h('span', { class: 'ag-tl__unit' }, 'xBD macro-F1 · whole core area')),
     h('div', { class: 'ag-tl__wrap' }, svgHost, tip),
     legend,
   );
@@ -144,7 +144,12 @@ export function createTimeline() {
     el,
     /** Live update. marks = approved waves (optional; inferred from drone points when empty). */
     set(history: ReconHistoryPoint[] | undefined, marks: WaveMark[] = []) {
-      const hist = (history ?? []).slice().sort((p, q) => p.simS - q.simS);
+      // Plot the fixed-set (whole core area) metrics when present: the denominator never changes, so the
+      // model line is flat and the corrected line only moves as observations correct the model.
+      const raw = (history ?? []).slice().sort((p, q) => p.simS - q.simS);
+      const hist = raw.map((p) => ({ ...p, predictionF1: p.cityPredictionF1 ?? p.predictionF1, fusedF1: p.cityFusedF1 ?? p.fusedF1 }));
+      // Start the corrected line on the model baseline (before the first result nothing is corrected yet).
+      if (hist.length && hist[0].cityPredictionF1 !== undefined) hist.unshift({ ...hist[0], simS: Math.max(0, hist[0].simS - 12), fusedF1: hist[0].predictionF1, observed: 0, collapsesConfirmed: 0, peopleSeen: 0 });
       el.hidden = hist.length === 0;
       if (!hist.length) {
         pts = [];

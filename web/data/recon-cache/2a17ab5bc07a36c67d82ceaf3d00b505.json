@@ -1,0 +1,109 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 17187,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Small debris skirt along base of octagonal structure"
+  },
+  {
+   "id": "B5504",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Light debris along waterfront base, tower intact"
+  },
+  {
+   "id": "B5522",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Damaged roof and facade with rubble around base"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FERRY PLAZA",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5587",
+   "notes": "Promenade open with no debris blocking access"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "All lanes open and clear of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "Roadway and tracks clear"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 13,
+   "notes": "Roadway open and clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 10,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 45,
+   "evidenceS": 14,
+   "place": "Embarcadero Plaza",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The Ferry Building (B5504) and Ferry Plaza retail structure (B5587) show only slight damage with minor basal debris, while B5566 appears intact. A small commercial building at Don Chee Way (B5522) sustained moderate damage, and unlabeled high-rises west of Steuart Street show heavier facade damage. ",
+ "hash": "2a17ab5bc07a36c67d82ceaf3d00b505",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 498,
+  "thoughtsTokens": 463,
+  "totalTokens": 7041
+ },
+ "notes": [
+  "ffmpeg 1148 ms",
+  "input: video+hires",
+  "gemini 16033 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

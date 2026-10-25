@@ -1,0 +1,273 @@
+{
+ "chunkIndex": 1,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 26117,
+ "buildings": [
+  {
+   "id": "B5384",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Light facade cracking, small debris along base"
+  },
+  {
+   "id": "B5372",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof broken in, heavy facade damage"
+  },
+  {
+   "id": "B5298",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Blackened facade patches, small rubble skirt"
+  },
+  {
+   "id": "B5307",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Darkened facade, small debris along Drumm St"
+  },
+  {
+   "id": "B5312",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Light facade wear, upright"
+  },
+  {
+   "id": "B5313",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Small facade patches, upright"
+  },
+  {
+   "id": "B5299",
+   "damage": "moderate",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Darkened roof and facade patches"
+  },
+  {
+   "id": "B5269",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened patches along upper facade"
+  },
+  {
+   "id": "B5014",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Holes in facade, exposed floors, roof damage"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavy blackened facade patches, debris at base"
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Blackened roof and facade patches, debris skirt"
+  },
+  {
+   "id": "B4893",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavy blackened facade patches, small rubble skirt"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roofless ruin, wall stubs, heavy rubble spill"
+  },
+  {
+   "id": "B4902",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roof broken in, rubble core, wall stubs"
+  },
+  {
+   "id": "B4868",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Exposed interior, broken roof, rubble"
+  },
+  {
+   "id": "B4854",
+   "damage": "extensive",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Damaged roof, rubble around base"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 0,
+   "notes": "Roadway open and clear"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "notes": "Roadway open and clear"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5014",
+   "notes": "Roadway clear between Embarcadero and Battery"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Heavy rubble from collapsed buildings across street"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Rubble spilling onto roadway at Washington intersection"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 70,
+   "evidenceS": 0,
+   "place": "Justin Herman Plaza / Steuart Street",
+   "nearBuildingId": "B5384"
+  }
+ ],
+ "summary": "Worst damage is at the intersection of Washington and Battery Streets where B4900 (401 Washington St) and B4902 (447 Battery St) have collapsed into roofless ruins, blocking Washington Street with heavy rubble. Extensive damage is also visible at B5014 (1 The Embarcadero) and B5372 near Drumm Street",
+ "hash": "e7df29d0ed1d12c4ac4fb4e2e5682557",
+ "usage": {
+  "promptTokens": 7236,
+  "outputTokens": 1228,
+  "totalTokens": 8464
+ },
+ "notes": [
+  "ffmpeg 399 ms",
+  "input: video+hires",
+  "gemini 25717 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

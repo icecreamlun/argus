@@ -470,6 +470,12 @@ export interface BuildingDamage {
    * (no hidden retrofits / defects), liquefaction only as an expectation. `exceedance` is the truth-world value.
    */
   predictedExceedance?: [number, number, number, number];
+  /**
+   * Blind prediction re-evaluated at demand scales PREDICTION_SCALES (quake/model): flattened
+   * [s0e1, s0e2, s0e3, s0e4, s1e1, …]. Lets observations correct the model spatially (if a neighbourhood
+   * shook harder than the median, its unobserved buildings move up the curve).
+   */
+  predictedExceedanceK?: number[];
   collapsed: boolean; // a subset of complete damage
   /** Fraction of the building's height lost (0..1) for collapse visuals. */
   collapseFraction: number;
@@ -900,6 +906,12 @@ export interface ReconStats {
   history?: ReconHistoryPoint[];
   /** M4: buildings observed by drones / confirmed collapses so far. */
   droneObserved?: number;
+  /** Fixed-set (whole core area) metrics, same definitions as ReconHistoryPoint.city*. */
+  cityPredictionF1?: number;
+  cityFusedF1?: number;
+  cityPredictionXbd?: number;
+  cityFusedXbd?: number;
+  cityBuildings?: number;
 }
 
 export interface BuildingComparison {
@@ -1041,6 +1053,16 @@ export interface ReconHistoryPoint {
   fusedXbd: number;
   collapsesConfirmed: number;
   peopleSeen: number;
+  /**
+   * Fixed-set metrics over EVERY core-area building (the denominator never changes): observed buildings use the
+   * model+Argon estimate, unobserved ones the model prediction. Model-only is therefore constant and the
+   * corrected curve can only move as observations replace predictions.
+   */
+  cityPredictionF1?: number;
+  cityFusedF1?: number;
+  cityPredictionXbd?: number;
+  cityFusedXbd?: number;
+  cityBuildings?: number;
 }
 
 export type PlanUiState = 'thinking' | 'hold' | 'proposed' | 'approved' | 'rejected' | 'executing' | 'done';
