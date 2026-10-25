@@ -11,7 +11,7 @@
 ![Real data](https://img.shields.io/badge/data-OSM%20·%20DataSF%20·%20USGS-2e7d32?style=flat-square)
 ![Human in the loop](https://img.shields.io/badge/human-in_the_loop-ff6d00?style=flat-square)
 
-<img src="docs/img/hero.jpg" alt="Argus Copilot routing rescue units across a damaged San Francisco, with resident reports and the Argon drone plan" width="100%"/>
+<img src="docs/img/hero.gif" alt="Argus Copilot routing rescue units across a damaged San Francisco, with resident reports and the Argon drone plan" width="100%"/>
 
 *Gemini 4 Argon Hackathon · San Francisco · Track 2: More Dimensions*
 
@@ -56,14 +56,14 @@ From the Ferry Building to Chinatown, built from open data rather than generated
 - Hand-modelled landmarks: the Ferry Building clock tower, the Transamerica Pyramid, the Chinatown Dragon Gate and Grant Avenue lanterns, the Bay Bridge with the Bay Lights, Coit Tower, Old St. Mary's and the Sentinel Building.
 - A physically based sky computed for San Francisco on the hackathon date, image-based lighting, ambient occlusion, bay water, and a horizon of real islands and hills.
 
-<img src="docs/img/digital-twin.jpg" alt="Digital twin of downtown San Francisco" width="100%"/>
+<img src="docs/img/digital-twin.gif" alt="Digital twin of downtown San Francisco" width="100%"/>
 
 ### 2. A physics-grounded earthquake
 - **USGS GeoJSON events** and a **ShakeAlert**-style warning. Three scenarios are included: the 1906 San Andreas M7.8 repeat, the Hayward M7.0 (USGS HayWired) and the Loma Prieta M6.9 repeat.
 - Finite-fault distances, a published California ground-motion model with a Vs30 site term and spatially correlated residuals, the Worden et al. (2012) intensity conversion, **HAZUS fragility curves** by structure type and code era, liquefaction on fill, collapse, debris, fires, casualties and blocked roads.
 - On screen: P- and S-wave fronts sweeping the city, buildings swaying at their own periods, collapse with dust and debris, fires, a cascading power outage, and ShakeMap and damage overlays.
 
-<img src="docs/img/shakealert-night.jpg" alt="ShakeAlert during a pre-dawn quake" width="100%"/>
+<img src="docs/img/shakealert-night.gif" alt="ShakeAlert during a pre-dawn quake" width="100%"/>
 
 ### 3. AIR 1: Gemini 4 Argon reads helicopter footage
 A police helicopter flies a fixed route over the damage. Its gimbal camera is rendered off-screen with a police-style **AR mapping overlay** (street names and building address tags), encoded as **1 fps video**, and sent to **gemini-4-argon**. Argon reconstructs, **blind** (it never sees the model's prediction):
@@ -74,7 +74,7 @@ A police helicopter flies a fixed route over the damage. Its gimbal camera is re
 
 <table><tr>
 <td width="38%"><img src="docs/img/heli-ar-feed.jpg" alt="What Argon sees: the AR-tagged helicopter feed"/><br/><sub>What Argon sees: the AIR 1 feed with AR tags</sub></td>
-<td><img src="docs/img/recon.jpg" alt="Reconstruction on the city and the AIR panel"/><br/><sub>Argon's reconstruction on the city; the model is corrected live</sub></td>
+<td><img src="docs/img/recon.gif" alt="Reconstruction on the city and the AIR panel"/><br/><sub>Argon's reconstruction on the city; the model is corrected live</sub></td>
 </tr></table>
 
 **Correcting the model, not just labelling footage.** Every observation tells Argus how much harder or softer the ground shook at that spot than the median. Ground motion is spatially correlated, so that correction spreads to nearby unobserved buildings, the same idea as a ShakeMap updated with field reports. Assessing **7% of the city** improves the damage picture for **all of it**.
@@ -83,8 +83,8 @@ A police helicopter flies a fixed route over the damage. Its gimbal camera is re
 After the helicopter pass, Argon reasons over **uncertainty**, never over truth: unscanned high-risk blocks, low-confidence calls, places where the model and the footage disagree, and people at risk. It proposes drone missions with a rationale. **The simulation pauses for the commander's Approve.** Three drones fly low orbits, the close-up video goes back to Argon, and a second wave follows.
 
 <table><tr>
-<td><img src="docs/img/argon-plan.jpg" alt="Argon's drone plan awaiting approval"/><br/><sub>Argon's plan, written in 5.6 s, waiting for Approve</sub></td>
-<td><img src="docs/img/drone-feeds.jpg" alt="Drones orbiting targets with live thumbnails"/><br/><sub>Drones on mission, live camera thumbnails</sub></td>
+<td><img src="docs/img/argon-plan.gif" alt="Argon's drone plan awaiting approval"/><br/><sub>Argon writes the drone plan in seconds; drones launch</sub></td>
+<td><img src="docs/img/drone-feeds.gif" alt="Drones orbiting targets with live thumbnails"/><br/><sub>Drones on mission, live camera thumbnails</sub></td>
 </tr></table>
 
 ### 5. Argus Copilot: ask, plan, route, dispatch
@@ -94,7 +94,7 @@ The commander types a question in plain language:
 
 Argus packages the live situation: Argon-verified incidents, unverified model risk, verified and likely blocked roads, and real SF facilities (SFFD stations 2, 13, 28 and 35, SFPD Central, Chinese Hospital, Saint Francis Memorial, staging areas and a helicopter landing zone), with ETAs computed on the road network. Gemini 4 Argon returns ranked priorities, unit assignments, route clearing and its assumptions. Argus then draws every route on the 3D city, around blocked streets. **Units move only after Dispatch.**
 
-<img src="docs/img/dispatch.jpg" alt="Units dispatched along routes with ETAs" width="100%"/>
+<img src="docs/img/dispatch.gif" alt="Units dispatched along routes with ETAs" width="100%"/>
 
 ### 6. Resident reports: the city talks back
 Simulated residents post short messages from a community app: *"Someone is trapped inside, we can hear them. My building at 27 Dashiell Hammett St…"*, or simply *"We're OK, just cracks."* The stream is noisy. People describe the building across the street, exaggerate, repeat each other and write in English, Chinese or Spanish. Every 30 seconds Gemini 4 Argon triages a batch: it links each report to a building, reads the damage and the number of trapped people, and rates credibility. The reports pop up as live cards and feed the fusion as a third, lower-weight evidence source. They sharpen the damage picture and leave drone planning and the Copilot unchanged.
