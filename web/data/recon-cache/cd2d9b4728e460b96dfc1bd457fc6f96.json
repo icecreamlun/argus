@@ -1,0 +1,104 @@
+{
+ "chunkIndex": 1212,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8573,
+ "buildings": [
+  {
+   "id": "B4783",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Target upright with slight roof/facade staining; California St clear in front"
+  },
+  {
+   "id": "B4721",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Severe facade damage, blackened patches, two people waving on damaged roof"
+  },
+  {
+   "id": "B4781",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and roof damage visible"
+  },
+  {
+   "id": "B4801",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened roof and facade patches"
+  },
+  {
+   "id": "B4835",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Dark staining and damage on roof and upper walls"
+  },
+  {
+   "id": "B4826",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B4783",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "partial",
+   "evidenceS": 9,
+   "nearBuildingId": "B4721",
+   "notes": "Narrow alley between B4783 and B4721"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4783 (433 California St) shows only slight damage with no trapped occupants and clear access along California Street. Immediately adjacent, B4721 (75 Leidesdorff St) has extensive damage with two people waving for help on its roof. Surrounding buildings along Pine and Sansome streets show mo",
+ "hash": "cd2d9b4728e460b96dfc1bd457fc6f96",
+ "usage": {
+  "promptTokens": 5412,
+  "outputTokens": 452,
+  "totalTokens": 5864
+ },
+ "notes": [
+  "ffmpeg 409 ms",
+  "input: video+hires",
+  "gemini 8164 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

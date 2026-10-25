@@ -1,0 +1,50 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "We are dispatching D1 to the Washington and Battery Streets collapse cluster (447 Battery St, 401 Washington St, 425 Washington St) where survivors have been spotted on the rubble, while also resolving the damage discrepancy at nearby One Maritime Plaza along the route. D2 will sweep the unscanned FiDi URM-infill block at One Sansome Street, which holds ~9,000 occupants and has a 65% predicted collapse risk. D3 is held in reserve for follow-up tasking and emerging reports.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5064",
+    "B4902",
+    "B4900",
+    "B4868"
+   ],
+   "purpose": "Confirm collapse severity and locate trapped survivors at Washington/Battery rubble piles, plus verify One Maritime Plaza damage.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Survey the unscanned One Sansome Street URM-infill block for catastrophic collapse among its 9,000 occupants.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5301,
+ "createdAtSimS": 134,
+ "hash": "2bf9c0ea0313fd441af1cefd63fdada2",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 4680,
+  "outputTokens": 262
+ },
+ "notes": []
+}

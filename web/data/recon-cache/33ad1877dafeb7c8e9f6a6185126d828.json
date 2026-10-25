@@ -1,0 +1,181 @@
+{
+ "chunkIndex": 1210,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8527,
+ "buildings": [
+  {
+   "id": "B5091",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade patches and spalling on multiple sides; Front and California streets clear."
+  },
+  {
+   "id": "B5042",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Slight roof and facade marks visible."
+  },
+  {
+   "id": "B5058",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roof staining and minor facade wear visible."
+  },
+  {
+   "id": "B5124",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Minor roof staining and light facade wear."
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5007",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5086",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5075",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5081",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5073",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5046",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B5036",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5091",
+   "notes": "Roadway open and clear of debris next to target B5091."
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5091",
+   "notes": "Roadway open and clear along the east side of B5091."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5091 (201 California St) has moderate facade damage with spalling and blackened patches on its upper walls, though it remains structurally upright with no fire or smoke. No people or trapped individuals are visible around the target. Both California Street and Front Street adjacent to B5091 ",
+ "hash": "33ad1877dafeb7c8e9f6a6185126d828",
+ "usage": {
+  "promptTokens": 5842,
+  "outputTokens": 443,
+  "totalTokens": 6285
+ },
+ "notes": [
+  "ffmpeg 423 ms",
+  "input: video+hires",
+  "gemini 8103 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

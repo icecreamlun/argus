@@ -594,7 +594,7 @@ const m4State = () =>
 await step('M4 drones (mock)', async () => {
   await page.locator('.ag-pb .ag-seg__btn[data-v="4"]').click();
   await A(() => window.__argus.trigger('san_andreas_1906'));
-  // Wave 1 is planned once ≥ 2 heli chunks are revealed (mock: ~T+80 s) → the sim pauses on the proposed card.
+  // Wave 1 is planned after the full helicopter pass (flight complete + all chunks back) → the sim pauses on the proposed card.
   await page.waitForSelector('.ag-plan[data-state="proposed"]', { timeout: 90000 });
   await page.waitForTimeout(600);
   let m = await m4State();
@@ -606,7 +606,11 @@ await step('M4 drones (mock)', async () => {
   await page.waitForTimeout(800);
   m = await m4State();
   check(m.schedule >= 1, `no drone missions scheduled after Approve (${m.schedule})`);
-  check(m.fxPlaying, 'sim did not resume after Approve');
+  // fx.playing turns false once the shaking ends (durationS); the aftermath clock keeps running, so check the clock.
+  const simA = m.sim;
+  await page.waitForTimeout(1200);
+  const simB = (await m4State()).sim;
+  check(simB > simA + 0.5, `sim did not resume after Approve (${simA.toFixed(1)} → ${simB.toFixed(1)})`);
   check(m.card === 'executing', `plan card '${m.card}' after Approve, expected executing`);
   check(m.feedsVisible, 'drone feed strip not shown after Approve');
   check(m.waves.includes('1:approved'), `wave 1 not recorded as approved (${m.waves})`);

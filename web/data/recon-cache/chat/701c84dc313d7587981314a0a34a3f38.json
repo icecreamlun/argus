@@ -1,0 +1,156 @@
+{
+ "reply": "**Situation:** 48 people seen across 8 verified trapped sites, 7 verified collapses, and 3 active fires (43% area scanned).\n\n**Top 3 Priorities:**\n1. **I-B4902 (447 Battery St) & I-B4900 (401 Washington St):** Verified collapses with 6 and 4 trapped survivors seen (0.95 confidence). Route SFFD-13 and STAGE-EMB engines plus ambulances immediately.\n2. **I-B3457 (805 Clay St) & I-B3301 (53 Waverly Pl):** Collapsed/extensively damaged buildings with active fire threatening occupants. Suppress fires from SFFD-2, SFFD-28, and STAGE-EMB.\n3. **I-B5269 (Embarcadero Center 3) & I-B4721 (75 Leidesdorff St):** 11 trapped at B5269; 2 trapped on the roof at B4721 (use HELI-P27 for rooftop hoist).\n\n**Uncertainties & Next Steps:**\n- No USAR or ladder trucks were specified; request mutual aid USAR/trucks immediately for heavy collapses.\n- Second helicopter will recon unverified high-occupancy collapses **I-B5057** (90 occ) and **I-B4958** (257 occ) before committing ground forces.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B4902",
+    "reason": "Collapsed building, 6 trapped survivors verified (0.95 confidence)."
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B3457",
+    "reason": "Collapsed building with active fire threatening trapped occupants."
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4900",
+    "reason": "Collapsed building, 4 trapped survivors verified (0.95 confidence)."
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B5269",
+    "reason": "11 trapped people verified in high-occupancy tower (2513 occupants)."
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4721",
+    "reason": "Extensive damage, 2 people trapped on roof signalling for help."
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4902",
+    "task": "Light rescue and medical triage for 6 trapped."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4900",
+    "task": "Light rescue at B4900 and adjacent B4902 collapse."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3457",
+    "task": "Extinguish fire in collapsed building and rescue."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B3301",
+    "task": "Suppress fire at 53 Waverly Pl (avoid blocked segments)."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B3670",
+    "task": "Fire suppression and search at 800 Grant Ave."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5269",
+    "task": "Rescue 11 trapped survivors at Embarcadero Center 3."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B4750",
+    "task": "Light rescue for 2 trapped at 348 Pine St."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Rooftop hoist rescue of 2 trapped survivors."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B5057",
+    "task": "Aerial recon of unverified collapses B5057 and B4958."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 3,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B4902",
+    "task": "Triage and transport casualties from B4902 and B4900."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 3,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B5269",
+    "task": "Triage and transport casualties from B5269 and B3457."
+   },
+   {
+    "unitType": "police",
+    "count": 20,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-CROWD-1",
+    "task": "Split 20 officers: crowd control (B4721/CROWD-1) and route clearing."
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Pine Street",
+    "unitType": "police",
+    "reason": "Clear verified blockage for access to I-B4750 and I-B4721."
+   },
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "Cordon and clear 2 blocked segments for I-B3301 fire access."
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "Keep ambulance corridor open to I-B4902 and I-B5057."
+   },
+   {
+    "roadName": "California Street",
+    "unitType": "police",
+    "reason": "Manage crowd of 40 and clear partial blockage near I-B4721."
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "Used 2 extra engines at SFFD-35 and 1 ambulance at HOSP-CHINESE to match commander's 10 engines and 6 ambulances.",
+   "No ladder trucks or USAR specified; requested mutual aid USAR/trucks for heavy collapses (B4902, B3457, B3583).",
+   "20 police officers from SFPD-CENTRAL are split across Pine St, Waverly Pl, Battery St, and I-CROWD-1."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 17571,
+ "hash": "701c84dc313d7587981314a0a34a3f38",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 7548,
+  "outputTokens": 1840
+ }
+}

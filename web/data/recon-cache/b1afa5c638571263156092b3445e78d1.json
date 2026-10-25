@@ -1,0 +1,247 @@
+{
+ "chunkIndex": 1,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 19540,
+ "buildings": [
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and debris along base"
+  },
+  {
+   "id": "B5372",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Circular upper structure broken in with exposed interior"
+  },
+  {
+   "id": "B5298",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Light facade streaking and minor roof marks"
+  },
+  {
+   "id": "B5307",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof staining and minor facade wear"
+  },
+  {
+   "id": "B5299",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Dark roof patches and facade scorching"
+  },
+  {
+   "id": "B5269",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 2,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Tower upright with blackened patches on lower facade"
+  },
+  {
+   "id": "B5014",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Large facade holes, exposed floors and roof damage"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Widespread blackened facade patches and roof debris"
+  },
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Blackened roof and upper facade scorching"
+  },
+  {
+   "id": "B4893",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Heavy blackened facade patches on multiple floors"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 3,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Roofless ruin reduced to rubble heap"
+  },
+  {
+   "id": "B4902",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 4,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed into low rubble core with wall stubs"
+  },
+  {
+   "id": "B4868",
+   "damage": "collapsed",
+   "confidence": 0.8,
+   "peopleVisible": 2,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Collapsed structure with broken walls and rubble"
+  },
+  {
+   "id": "B4854",
+   "damage": "collapsed",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Low ruin with collapsed roof and debris"
+  },
+  {
+   "id": "B5138",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B4815",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5384",
+   "notes": "Roadway open and clear of rubble"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5384",
+   "notes": "Roadway clear of debris"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5269",
+   "notes": "Roadway clear between high-rises"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "partial",
+   "evidenceS": 14,
+   "nearBuildingId": "B4900",
+   "notes": "Rubble spilling onto roadway near collapsed block"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 70,
+   "evidenceS": 1,
+   "place": "The Embarcadero Plaza",
+   "nearBuildingId": "B5384"
+  }
+ ],
+ "summary": "Severe collapses are concentrated on the block at Washington and Battery Streets (B4900, B4902, B4868, B4854), where several people are visible on the rubble needing rescue. Extensive structural damage is also seen at B5372 and B5014 along the Embarcadero Center corridor, with moderate facade damage",
+ "hash": "b1afa5c638571263156092b3445e78d1",
+ "usage": {
+  "promptTokens": 7236,
+  "outputTokens": 1092,
+  "thoughtsTokens": 413,
+  "totalTokens": 8741
+ },
+ "notes": [
+  "ffmpeg 437 ms",
+  "input: video+hires",
+  "gemini 19101 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

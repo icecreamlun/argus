@@ -1,0 +1,179 @@
+{
+ "chunkIndex": 1221,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11325,
+ "buildings": [
+  {
+   "id": "B5381",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Straight roofline, intact facade all sides, surrounding streets clear."
+  },
+  {
+   "id": "B5384",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Light surface cracks and minor rooftop debris, structure fully upright."
+  },
+  {
+   "id": "B5372",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked roof and upper walls, broken facade elements, still standing."
+  },
+  {
+   "id": "B5443",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Blackened and cracked facade patches on upper levels, building upright."
+  },
+  {
+   "id": "B5317",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roof broken in with exposed interior and visible flames on roof."
+  },
+  {
+   "id": "B5298",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked and discolored roof and facade, building upright."
+  },
+  {
+   "id": "B5302",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracked roof surface and facade wear, intact overall shape."
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and free of rubble along B5381."
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and clear of debris."
+  },
+  {
+   "street": "SPEAR STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway clear of debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 180,
+   "evidenceS": 1,
+   "place": "Plaza north of B5381 / Justin Herman Plaza",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 120,
+   "evidenceS": 10,
+   "place": "Park area east of B5381 along Market/Embarcadero",
+   "nearBuildingId": "B5381"
+  }
+ ],
+ "summary": "Target B5381 (5 Embarcadero Center) is undamaged with no visible people or trapped signs, and surrounding Market, Drumm, and Spear Streets are clear for access. Nearby B5317 has extensive roof collapse with active flames, while B5372, B5443, and B5298 show moderate damage. Large crowds of 120-180 pe",
+ "hash": "3ac767514fa3deb797e645c18c2d4b0c",
+ "usage": {
+  "promptTokens": 5187,
+  "outputTokens": 733,
+  "totalTokens": 5920
+ },
+ "notes": [
+  "ffmpeg 538 ms",
+  "input: video+hires",
+  "gemini 10787 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

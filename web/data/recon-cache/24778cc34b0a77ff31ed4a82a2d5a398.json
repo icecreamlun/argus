@@ -1,0 +1,126 @@
+{
+ "chunkIndex": 1211,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9738,
+ "buildings": [
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Blackened cracked facade, roof damage, Battery and Pine clear."
+  },
+  {
+   "id": "B5091",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Extensive facade cracks and dark patches, roof damage."
+  },
+  {
+   "id": "B4966",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 1,
+   "notes": "Collapsed into burning rubble pile spilling into street."
+  },
+  {
+   "id": "B4973",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened cracked facade, small rubble skirt at base."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Crushed into low rubble ruin with debris skirt."
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roof debris and slight facade streaking, upright."
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5042",
+   "notes": "Clear in front of target B5042, some fire debris further north."
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5042",
+   "notes": "Clear along target B5042."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5042 (100 Battery St) has moderate damage with a cracked, blackened facade and roof debris, with no people or trapped signs visible. Access along Battery Street and Pine Street directly beside B5042 is clear. Nearby B4966 (311 California St) is collapsed with active fire, and B5057 (32 Batte",
+ "hash": "24778cc34b0a77ff31ed4a82a2d5a398",
+ "usage": {
+  "promptTokens": 5113,
+  "outputTokens": 523,
+  "totalTokens": 5636
+ },
+ "notes": [
+  "ffmpeg 469 ms",
+  "input: video+hires",
+  "gemini 9269 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

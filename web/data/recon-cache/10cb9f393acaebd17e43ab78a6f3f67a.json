@@ -1,0 +1,90 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13619,
+ "buildings": [
+  {
+   "id": "B5064",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cross-braced tower facade completely intact and upright; Front and Clay Streets clear"
+  },
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 3,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Severe structural failure with large rubble apron; people on roof"
+  },
+  {
+   "id": "B5014",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked and blackened facade with roof damage along Clay Street"
+  },
+  {
+   "id": "B5116",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Heavy dark facade scorching and structural damage"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5064",
+   "notes": "Roadway open and clear of debris next to target"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5064",
+   "notes": "Roadway clear along south side of target"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "partial",
+   "evidenceS": 8,
+   "nearBuildingId": "B5064",
+   "notes": "Debris along sidewalk and edge of roadway near rubble"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5064 (300 Clay St) is undamaged with its cross-braced facade intact and no people or trapped signs visible on the tower. Surrounding access via Front Street and Clay Street is clear, with minor debris along Washington Street. Nearby B4900 (401 Washington St) has collapsed with roughly 3 peop",
+ "hash": "10cb9f393acaebd17e43ab78a6f3f67a",
+ "usage": {
+  "promptTokens": 5218,
+  "outputTokens": 452,
+  "thoughtsTokens": 390,
+  "totalTokens": 6060
+ },
+ "notes": [
+  "ffmpeg 378 ms",
+  "input: video+hires",
+  "gemini 13241 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,156 @@
+{
+ "reply": "**Pine Street Impact:** Pine Street already has 1 verified blocked segment in our Argon data. All current ETAs already route around it via California and Sansome Streets (both partially open).\n\n**If Pine Street closes completely (e.g., to foot/emergency access at 348 Pine):**\n1. **I-B4750 (348 Pine St — 2 trapped, extensive damage):** Approach via Sansome or Leidesdorff Street from SFFD-13 (2.6 min) and STAGE-EMB (3.6 min), and assign SFPD to clear Pine Street.\n2. **I-B4721 (75 Leidesdorff St — 2 trapped on roof):** Unaffected by road closure; HELI-P27 performs rooftop hoist (3.4 min air) while ground units stage on California Street.\n3. **Top Life-Safety Priorities Unchanged:**\n   - **I-B4902 (447 Battery, 6 trapped)** & **I-B4900 (401 Washington, 4 trapped):** Route from SFFD-13 (1.7–1.8 min) and STAGE-EMB.\n   - **I-B3457 (805 Clay)** & **I-B3301 (53 Waverly):** Active fires in collapsed/damaged buildings; suppress from SFFD-2 and SFFD-28.\n   - **I-B5269 (Embarcadero Ctr 3, 11 trapped):** Route from STAGE-EMB (1.8 min) and SFFD-35.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B4902",
+    "reason": "Collapsed building, 6 trapped survivors verified (0.95 confidence)."
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B3457",
+    "reason": "Collapsed building with active fire threatening occupants."
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4900",
+    "reason": "Collapsed building, 4 trapped survivors verified (0.95 confidence)."
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B5269",
+    "reason": "11 trapped survivors verified in high-occupancy building."
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4721",
+    "reason": "2 trapped on roof signalling for help; extensive damage."
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B4902",
+    "task": "Light rescue and medical for 6 trapped survivors."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4900",
+    "task": "Light rescue for 4 trapped survivors."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3457",
+    "task": "Extinguish fire in collapsed building and rescue."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B3301",
+    "task": "Suppress fire in extensively damaged building."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B5269",
+    "task": "Rescue 11 trapped survivors at Embarcadero Center 3."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B4750",
+    "task": "Rescue 2 trapped at 348 Pine via Sansome bypass."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Rooftop hoist rescue for 2 people on roof."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B5057",
+    "task": "Aerial recon of unverified collapses B5057 and B4958."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Triage and transport survivors from B4902 and B4900."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3457",
+    "task": "Medical transport for fire/collapse casualties at B3457/B3301."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B5269",
+    "task": "Medical transport for 11 trapped at B5269."
+   },
+   {
+    "unitType": "police",
+    "count": 20,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4750",
+    "task": "Clear Pine/Waverly blockages; cordon California St and B5269 crowds."
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Pine Street",
+    "unitType": "police",
+    "reason": "Clear blocked segment for direct access to I-B4750."
+   },
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "Clear 2 blocked segments for fire access to I-B3301."
+   },
+   {
+    "roadName": "California Street",
+    "unitType": "police",
+    "reason": "Manage 40-person crowd and keep bypass corridor open."
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "Keep partial/likely blocked corridor open to I-B4902."
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "8 of 10 engines available in listed facilities; 2 remaining staged for incoming fire/recon calls.",
+   "No USAR or ladder trucks specified by commander; request mutual aid USAR/trucks immediately.",
+   "ETAs already bypass verified Pine St blockage via California and Sansome Streets."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 41445,
+ "hash": "7874ff8a94c9f037995bb689e77c8ef1",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 7884,
+  "outputTokens": 1279
+ }
+}

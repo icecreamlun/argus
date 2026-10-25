@@ -1,0 +1,140 @@
+{
+ "chunkIndex": 1231,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8700,
+ "buildings": [
+  {
+   "id": "B5400",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Target high-rise intact on all sides; surrounding streets clear."
+  },
+  {
+   "id": "B5391",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracks and debris on roof; minor damage."
+  },
+  {
+   "id": "B5376",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Roof cracked with surface debris."
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5334",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5444",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5400",
+   "notes": "Clear of debris."
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5400",
+   "notes": "Clear of debris."
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5400",
+   "notes": "Clear of debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 60,
+   "evidenceS": 2,
+   "place": "plaza north of B5334",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5400 (77 Beale St) is completely intact with no visible damage, fire, or people in distress. Adjacent low-rises B5391 and B5376 show slight roof damage, while a crowd of about 60 is gathered in the plaza near B5334. Mission, Beale, and Main Streets around the target are completely clear for ",
+ "hash": "572a465727debf83aadf58c151fefac4",
+ "usage": {
+  "promptTokens": 4979,
+  "outputTokens": 421,
+  "totalTokens": 5400
+ },
+ "notes": [
+  "ffmpeg 602 ms",
+  "input: video+hires",
+  "gemini 8097 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

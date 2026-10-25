@@ -1,0 +1,202 @@
+{
+ "chunkIndex": 1220,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10845,
+ "buildings": [
+  {
+   "id": "B5269",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 11,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Light roof cracking; 11 people on roof waving; surrounding streets clear."
+  },
+  {
+   "id": "B5178",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Completely collapsed into a roofless rubble pile."
+  },
+  {
+   "id": "B5333",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 4,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Small kiosk at park edge, 4 people standing right next to it."
+  },
+  {
+   "id": "B5246",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Slight facade streaks and roof discolouration, structure intact."
+  },
+  {
+   "id": "B5293",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Blackened facade patches and roof damage, small debris at base."
+  },
+  {
+   "id": "B5313",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Light roof and facade discolouration, structure upright."
+  },
+  {
+   "id": "B5312",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Minor roof streaks, building intact."
+  },
+  {
+   "id": "B5307",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Noticeable roof and facade damage with debris at base."
+  },
+  {
+   "id": "B5298",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked facade patches, roof damage and small rubble skirt."
+  },
+  {
+   "id": "B5372",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Heavy roof damage, holes in facade and large debris apron."
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5280",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5269",
+   "notes": "Roadway completely open and free of debris around target."
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5269",
+   "notes": "Roadway clear along north side of target."
+  },
+  {
+   "street": "DAVIS STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5269",
+   "notes": "Roadway clear along west side of target."
+  },
+  {
+   "street": "SACRAMENTO STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5269",
+   "notes": "Roadway open between target and adjacent blocks."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 5,
+   "place": "Park north of Clay Street",
+   "nearBuildingId": "B5333"
+  }
+ ],
+ "summary": "Target B5269 (3 The Embarcadero) has only slight damage, but approximately 11 people are stranded on its upper and lower roofs waving for help; all surrounding streets (Drumm, Clay, Davis, Sacramento) are clear for rescue access. Nearby, B5178 has collapsed, B5372 has extensive damage, and a crowd o",
+ "hash": "d33e595167717d8b0e37baf88f91b5ab",
+ "usage": {
+  "promptTokens": 5336,
+  "outputTokens": 886,
+  "totalTokens": 6222
+ },
+ "notes": [
+  "ffmpeg 424 ms",
+  "input: video+hires",
+  "gemini 10421 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

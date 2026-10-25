@@ -1,0 +1,167 @@
+{
+ "chunkIndex": 1213,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13620,
+ "buildings": [
+  {
+   "id": "B4721",
+   "damage": "extensive",
+   "confidence": 0.92,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Severe facade damage, roof debris, two trapped people on roof; California blocked"
+  },
+  {
+   "id": "B4694",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Blackened facade patches and roof damage along Montgomery and Pine"
+  },
+  {
+   "id": "B4668",
+   "damage": "extensive",
+   "confidence": 0.82,
+   "peopleVisible": 5,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Heavy roof and facade damage with debris spilling onto California Street"
+  },
+  {
+   "id": "B4738",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Darkened facade and roof damage visible from orbit"
+  },
+  {
+   "id": "B4750",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked and blackened facade with minor roof debris"
+  },
+  {
+   "id": "B4781",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Facade discoloration and roof debris along Leidesdorff Street"
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4567",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4801",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4842",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4826",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4721",
+   "notes": "Debris apron from B4721 and B4668 obstructing roadway"
+  },
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "partial",
+   "evidenceS": 6,
+   "nearBuildingId": "B4721",
+   "notes": "Narrow alley partially obstructed by facade debris from B4721"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 2,
+   "place": "California Street intersection near Montgomery",
+   "nearBuildingId": "B4668"
+  }
+ ],
+ "summary": "Target B4721 (75 Leidesdorff St) has extensive facade and roof damage with two people trapped on the roof signalling for help. Adjacent B4694, B4738, B4750, and B4781 show moderate damage, while B4668 has extensive damage with a crowd of about 40 people gathered on California Street. Access via Cali",
+ "hash": "146e3eac9474019b0c46f6bd2bea7693",
+ "usage": {
+  "promptTokens": 5873,
+  "outputTokens": 599,
+  "thoughtsTokens": 320,
+  "totalTokens": 6792
+ },
+ "notes": [
+  "ffmpeg 644 ms",
+  "input: video+hires",
+  "gemini 12976 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

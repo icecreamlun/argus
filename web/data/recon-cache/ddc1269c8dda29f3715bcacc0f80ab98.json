@@ -1,0 +1,126 @@
+{
+ "chunkIndex": 1122,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8750,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Crushed between high-rises into rubble pile; Sutter Street access partially blocked"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Reduced to low rubble ruin between intact neighbours"
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked facade and roof debris, rubble in alley"
+  },
+  {
+   "id": "B4820",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Damaged roof and debris in narrow gap"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 7,
+   "nearBuildingId": "B4813",
+   "notes": "Rubble from B4813 spills onto road edge"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B4895",
+   "notes": "Clear in front of B4895 and B4879"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) is collapsed into a rubble pile wedged between the high-rises at 100 and 44 Montgomery St, with no people or trapped signs visible from the high orbit. Nearby B4869 (554 Market St) is also collapsed and B4849/B4820 show moderate damage, while surrounding towers B4759, B4760,",
+ "hash": "ddc1269c8dda29f3715bcacc0f80ab98",
+ "usage": {
+  "promptTokens": 5029,
+  "outputTokens": 481,
+  "totalTokens": 5510
+ },
+ "notes": [
+  "ffmpeg 307 ms",
+  "input: video+hires",
+  "gemini 8443 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,97 @@
+{
+ "chunkIndex": 1222,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11012,
+ "buildings": [
+  {
+   "id": "B5403",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and broken windows on north face; surrounding streets clear."
+  },
+  {
+   "id": "B5391",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Blackened facade patches and roof damage visible."
+  },
+  {
+   "id": "B5428",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Minor roof cracks on small civic structure in lot."
+  },
+  {
+   "id": "B5376",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SPEAR STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5403",
+   "notes": "Roadway open and clear of debris along B5403."
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5403",
+   "notes": "Roadway clear of debris east of B5403."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5403",
+   "notes": "Roadway clear of rubble; pedestrians gathering at intersection."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 9,
+   "place": "Market Street and Drumm Street intersection",
+   "nearBuildingId": "B5403"
+  }
+ ],
+ "summary": "Target B5403 (101 Market St) has moderate damage with blackened facade patches and broken windows on its north side, but remains upright with no trapped people visible. Adjacent B5391 also shows moderate facade damage and B5428 has slight roof cracking. Spear, Main, and Market Streets around B5403 a",
+ "hash": "265818625f6ae7852426d6d051d97ede",
+ "usage": {
+  "promptTokens": 4745,
+  "outputTokens": 431,
+  "thoughtsTokens": 199,
+  "totalTokens": 5375
+ },
+ "notes": [
+  "ffmpeg 456 ms",
+  "input: video+hires",
+  "gemini 10556 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,108 @@
+{
+ "chunkIndex": 1232,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11946,
+ "buildings": [
+  {
+   "id": "B5391",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked facade and roof with dark patches; Main Street access clear"
+  },
+  {
+   "id": "B5376",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Visible roof cracks and facade weathering, structure intact"
+  },
+  {
+   "id": "B5334",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Minor roof surface cracks, building upright and intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Light roof cracking, facade and roofline intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Minor roof cracks on low structure, intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5391",
+   "notes": "Roadway open and free of debris"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5334",
+   "notes": "Roadway clear of debris"
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B5391",
+   "notes": "Intersection and roadway clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 6,
+   "place": "Beale Street sidewalk",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5391 (58 Main St) shows moderate damage with roof and facade cracking, but remains upright with no visible casualties or trapped people. Adjacent buildings B5376, B5334, B5357, and B5428 show only slight roof cracking, while Main, Beale, and Mission Streets are completely clear for access. A",
+ "hash": "be4e24d8e48d0a150a882b00f32be5e4",
+ "usage": {
+  "promptTokens": 4808,
+  "outputTokens": 518,
+  "thoughtsTokens": 263,
+  "totalTokens": 5589
+ },
+ "notes": [
+  "ffmpeg 402 ms",
+  "input: video+hires",
+  "gemini 11544 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

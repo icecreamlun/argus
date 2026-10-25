@@ -1,0 +1,130 @@
+{
+ "chunkIndex": 1223,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14766,
+ "buildings": [
+  {
+   "id": "B5344",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Intact roofline and facades on all sides; Main Street clear of debris"
+  },
+  {
+   "id": "B5391",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Slight facade and roof staining/cracking; no rubble skirt"
+  },
+  {
+   "id": "B5319",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Slight surface cracking on roof and walls; upright with no rubble"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5376",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5334",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5301",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5344",
+   "notes": "Clear of debris alongside target; crowd gathered at Drumm intersection"
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5344",
+   "notes": "Roadway clear of debris; pedestrians gathered at Main Street intersection"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5334",
+   "notes": "Roadway open and clear of debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 6,
+   "place": "Main Street and Drumm Street intersection",
+   "nearBuildingId": "B5344"
+  }
+ ],
+ "summary": "Target B5344 (215 Market St) and its annex B5357 are undamaged with no trapped people, fire, or smoke. Adjacent high-rises B5301 and B5334 are also intact, while smaller buildings B5319 and B5391 show only slight surface cracking. Main, Drumm, and Beale Streets are clear of debris, though a crowd of",
+ "hash": "ee27c9447aa2bdc9ad2a3bd7c5128d2e",
+ "usage": {
+  "promptTokens": 4913,
+  "outputTokens": 470,
+  "thoughtsTokens": 357,
+  "totalTokens": 5740
+ },
+ "notes": [
+  "ffmpeg 670 ms",
+  "input: video+hires",
+  "gemini 14093 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

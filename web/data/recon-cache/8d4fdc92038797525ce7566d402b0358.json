@@ -1,0 +1,122 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11812,
+ "buildings": [
+  {
+   "id": "B4900",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 4,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 4,
+   "notes": "Target reduced to roofless wall stubs and rubble; Washington/Battery partially blocked."
+  },
+  {
+   "id": "B4902",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 6,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 4,
+   "notes": "Completely collapsed into a rubble pile with several people on debris."
+  },
+  {
+   "id": "B4868",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Blackened facade, broken roof patches, and debris apron onto Washington Street."
+  },
+  {
+   "id": "B4854",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Heavy charring across roof and facade, some structural cracking."
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened facade patches, surface cracks on roof, one person on roof."
+  },
+  {
+   "id": "B4878",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Surface cracks on roof and slight debris around base."
+  },
+  {
+   "id": "B4815",
+   "damage": "slight",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Minor roof staining and light surface cracking."
+  }
+ ],
+ "roads": [
+  {
+   "street": "WASHINGTON STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B4900",
+   "notes": "Heavy rubble apron from B4900 spilling across the roadway near intersection."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 8,
+   "nearBuildingId": "B4900",
+   "notes": "Debris from B4900 and B4902 encroaching onto the eastern lane."
+  },
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 4,
+   "nearBuildingId": "B4902",
+   "notes": "Narrow alley choked with rubble from collapsed B4902."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4900 (401 Washington St) and adjacent B4902 (447 Battery St) have both completely collapsed into rubble ruins with light smoke rising. Approximately 4 people are trapped on the ruins of B4900 and 6 people on the rubble of B4902, plus 1 person on the roof of B4906. Washington and Battery Stre",
+ "hash": "8d4fdc92038797525ce7566d402b0358",
+ "usage": {
+  "promptTokens": 5251,
+  "outputTokens": 652,
+  "totalTokens": 5903
+ },
+ "notes": [
+  "ffmpeg 662 ms",
+  "input: video+hires",
+  "gemini 11150 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

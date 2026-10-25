@@ -1,0 +1,151 @@
+{
+ "chunkIndex": 1120,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12331,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Central tower intact, two people on setback roof terrace; Sutter St clear"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Low roofless ruin filled with rubble between intact neighbors"
+  },
+  {
+   "id": "B4860",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Collapsed into low rubble pile behind 554 Market"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Collapsed low ruin with rubble adjacent to 544 Market"
+  },
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4849",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4839",
+   "notes": "Roadway open and free of debris beside target tower"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4895",
+   "notes": "Main roadway clear with pedestrians gathered near intersection"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 3,
+   "place": "Market Street and 2nd Street intersection",
+   "nearBuildingId": "B4849"
+  },
+  {
+   "approxCount": 30,
+   "evidenceS": 7,
+   "place": "Ecker Plaza",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target B4839 (1 Sansome St) appears structurally intact with no facade damage, though two people are visible on its upper setback terrace at s8-s10. Adjacent low-rise buildings B4869, B4860, and B4879 along Market Street have collapsed into rubble ruins. Sutter Street and Market Street remain clear ",
+ "hash": "d51ac5f7a9f7cba8d85cc4df7ec9c382",
+ "usage": {
+  "promptTokens": 5352,
+  "outputTokens": 490,
+  "thoughtsTokens": 410,
+  "totalTokens": 6252
+ },
+ "notes": [
+  "ffmpeg 549 ms",
+  "input: video+hires",
+  "gemini 11782 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

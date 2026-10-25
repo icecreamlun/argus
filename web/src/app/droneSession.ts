@@ -6,7 +6,8 @@
  *   buildPlanRequest(...) → 'thinking' card → dispatch=false: 'hold' card, retry on the next result;
  *   dispatch=true: PAUSE the sim + 'proposed' card → Approve: fleet.assign(missions, simS), resume, 'executing'
  *   card (progress from fleet.schedule()); Reject: resume, 'rejected' card (doesn't count as a wave).
- *   Wave 1 needs ≥ 2 heli chunks done; wave 2 needs wave 1 finished (every target's chunk applied). Max 2 waves.
+ *   Wave 1 waits for the full helicopter pass (flight complete, every sent chunk reconstructed; 60 s safety valve);
+ *   wave 2 needs wave 1 finished (every target's chunk applied). Max 2 waves.
  *
  * Drone capture (live): while playing, every drone orbiting a target captures one frame / 1.5 s sim (one capture
  * at a time, drones staggered) via scan.captureFrameAsync(dronePose); frames accumulate per (mission, target);
@@ -279,6 +280,8 @@ export function createDroneSession(deps: DroneSessionDeps, opts: { mode: AirMode
       });
   }
 
+  /** Sim time the helicopter pass was first seen complete (wave-1 safety valve). */
+  let heliCompleteAt: number | null = null;
   function heliDone(): number {
     return (recon.stats().history ?? []).filter((h) => h.source === 'heli').length;
   }
@@ -301,7 +304,20 @@ export function createDroneSession(deps: DroneSessionDeps, opts: { mode: AirMode
     const aw = approvedWaves();
     if (aw.length >= MAX_WAVES) return 0;
     if (!freeDrones(sim).length) return 0;
-    if (aw.length === 0) return heliDone() >= MIN_HELI_CHUNKS ? 1 : 0;
+    // Wave 1 waits for the whole helicopter pass: flight complete and every sent heli chunk reconstructed, so the
+    // plan is made on the full aerial picture (and the corrected-model gain is visible before drones launch).
+    // Safety valve: plan anyway once ≥ MIN_HELI_CHUNKS are back and the flight ended > 60 s ago.
+    if (aw.length === 0) {
+      const done = heliDone();
+      if (air.heliStatus(sim) !== 'complete' || done < MIN_HELI_CHUNKS) {
+        heliCompleteAt = null;
+        return 0;
+      }
+      if (heliCompleteAt === null) heliCompleteAt = sim;
+      const st = recon.stats();
+      const allBack = st.chunksDone >= st.chunksSent;
+      return allBack || sim - heliCompleteAt > 60 ? 1 : 0;
+    }
     return finishedWaves.has(aw[aw.length - 1].wave) ? 2 : 0;
   }
 
@@ -786,6 +802,7 @@ export function createDroneSession(deps: DroneSessionDeps, opts: { mode: AirMode
     },
     reset() {
       gen++;
+      heliCompleteAt = null;
       result = null;
       truth = null;
       planState = 'idle';

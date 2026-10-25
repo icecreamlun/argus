@@ -1,0 +1,63 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "In this final wave, we are deploying all three remaining drones to resolve critical life-safety questions and sweep high-occupancy unscanned blocks. D1 will verify trapped survivors and active fire along the California and Pine corridor, D2 will resolve high-occupancy damage disagreements near Embarcadero Center and the Federal Reserve, and D3 will survey unscanned high-risk blocks at Rincon Annex and the Pacific Gas & Electric Building. No drones are held in reserve as this is the final wave and AIR 1 has completed its scan.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5091",
+    "B5042",
+    "B4783",
+    "B4721"
+   ],
+   "purpose": "Assess fire at 201 California St and confirm trapped survivors at 100 Battery, 433 California, and California Bank and Trust.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5269",
+    "B5381",
+    "B5403",
+    "B5344"
+   ],
+   "purpose": "Resolve damage disagreements and check for trapped occupants at Embarcadero Center 3, Hyatt Regency, Federal Reserve, and Matson Building.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5528",
+    "B5400",
+    "B5391"
+   ],
+   "areaCentre": [
+    319,
+    154
+   ],
+   "purpose": "Survey unscanned, densely occupied structures at Rincon Annex and the SoMa steel block at Pacific Gas & Electric Building.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5628,
+ "createdAtSimS": 390,
+ "hash": "ff2f0ddc2c006fc98a437811ed9153c9",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5751,
+  "outputTokens": 341
+ },
+ "notes": []
+}

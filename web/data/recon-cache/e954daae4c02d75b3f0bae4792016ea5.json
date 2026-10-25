@@ -1,0 +1,53 @@
+{
+ "chunkIndex": 6,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5680,
+ "buildings": [
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5478",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway completely clear and unobstructed in front of Ferry Building"
+  }
+ ],
+ "crowds": [],
+ "summary": "Aerial pass over the waterfront at 1 The Embarcadero (Ferry Building) and Pier 1 before moving out over the bay. Both the Ferry Building (B5504) and Pier 1 (B5478) appear completely intact with no visible structural damage, debris, fire, or smoke. The Embarcadero roadway in front of the Ferry Buildi",
+ "hash": "e954daae4c02d75b3f0bae4792016ea5",
+ "usage": {
+  "promptTokens": 5969,
+  "outputTokens": 159,
+  "totalTokens": 6128
+ },
+ "notes": [
+  "ffmpeg 439 ms",
+  "input: video+hires",
+  "gemini 5241 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}
