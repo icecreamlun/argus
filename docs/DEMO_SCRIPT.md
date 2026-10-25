@@ -1,49 +1,43 @@
-# Argus — 90-second demo video script
+# Argus — 2-minute demo video script
 
-**Structure:** the numbers (0:00–0:22), why it matters (0:22–0:30), the loop (0:30–1:15), the close (1:15–1:30).
-About 240 words. Read at a confident, steady pace.
+**Flow (follows the live demo step by step):** pitch → the city → trigger the quake → the model → Argon + helicopter → drones and residents → Copilot → the numbers and lives.
+About 330 words for a fast speaker (~2.8 words per second).
 
 **Setup:** `cd web && npm run dev`, then open
-`http://127.0.0.1:5173/?cam=overview&tod=15&quake=san_andreas_1906&speed=4&air=replay`
-(replay mode: the recorded gemini-4-argon run, no waiting, works offline). Record at 1600×900 or larger.
+`http://127.0.0.1:5173/?cam=overview&tod=15&air=replay`
+(replay mode: the recorded gemini-4-argon run plays back instantly and works offline). Record at 1600×900 or larger at 4× playback, and trim in editing.
 
-| Time | On screen | Voiceover |
+| Time | On screen (what you do) | Voiceover |
 |---|---|---|
-| **0:00–0:12** | Cold open on the end state (`&t=760`): the AIR panel's big figures **33% → 43%**, then zoom in on the line *Buildings seen on video: 24% → 55%*. | *"A magnitude 7.8 hits San Francisco. The standard damage model scores thirty-three percent. Twelve minutes later, Argus — powered by Gemini 4 Argon — has the whole city at forty-three, and every building it has seen at fifty-five, up from twenty-four."* |
-| **0:12–0:22** | Quick cuts: recon pins *Collapsed · 6 people trapped* → the COMMUNITY REPORTS panel open (198) → the Copilot plan card *36 units · 8 sites*. | *"Along the way it read twenty-six video clips, triaged a hundred and ninety-eight resident reports, confirmed twenty-one collapses, and routed thirty-six rescue units to eight sites."* |
-| **0:22–0:30** | Slow push-in over the city at dawn. | *"1976, Tangshan. Two hundred and forty thousand people died. My parents were buried in that rubble, and rescuers didn't know where to look."* |
-| **0:30–0:38** | Restart at T+0: the USGS card slides in, the ShakeAlert banner fires, buildings collapse. | *"The moment USGS posts the quake, a physics model of five thousand six hundred real buildings predicts the damage — blind."* |
-| **0:38–0:48** | AIR 1 sweeps the city and the grey veil lifts behind it as recon pins appear. Inset: the AR-tagged helicopter frame. | *"A police helicopter streams video, and Argon reads every building — collapses, fires, people on rooftops. Each observation shows how hard that block really shook, so seeing seven percent of the city corrects all of it."* |
-| **0:48–0:58** | The Argon plan card types out its rationale → click **Approve** → drones lift off, three live thumbnails. | *"Then Argon finds where it is still blind and proposes drone missions. The commander approves. Twenty close-up orbits later, the picture sharpens again."* |
-| **0:58–1:05** | Open COMMUNITY REPORTS: new reports slide in and Argon's verdicts fade in (*Destroyed · 2 trapped · 85%*). | *"Residents report in from their phones. Argon triages every message and discounts the exaggeration and the duplicates."* |
-| **1:05–1:15** | Copilot: click the first quick prompt → the answer types out, routes flow around blocked streets with P1–P5 markers → click **Dispatch**: units move and ETAs count down. | *"And the commander simply asks: ten engines, twenty officers, two helicopters — what now? Argon ranks the trapped, routes every unit around blocked streets, and explains why."* |
-| **1:15–1:30** | The accuracy chart climbing from 33% to 43% with the W1 and W2 markers, then the ARGUS wordmark over the city at night. | *"Predict, see, correct, decide, act — one loop, Gemini 4 Argon at every step, a human approving every move. Argus: see the city, find the trapped."* |
+| **0:00–0:10** | Black, then a slow push-in over the city. | *"My parents were trapped in the 1976 Tangshan earthquake, and rescuers didn't know where to dig. Argus uses Gemini 4 Argon to tell them — in the first hour, building by building."* |
+| **0:10–0:28** | Orbit the overview, fly to the Ferry Building (`2`) and Chinatown (`3`), drag the time slider to dusk. | *"This is San Francisco, from the Ferry Building to Chinatown, rebuilt one-to-one from real data: nearly fifty-seven hundred buildings from OpenStreetMap, heights from the city's LiDAR survey, and year built and construction type from the assessor's records — plus every street, every street tree and the real terrain. Each building knows how it was built and how many people are inside."* |
+| **0:28–0:44** | Click **Simulate** on *San Andreas M7.8 — 1906 repeat*: the USGS card, the ShakeAlert banner, waves sweeping in, buildings swaying and collapsing. | *"Now I trigger a repeat of 1906 — magnitude 7.8, fourteen kilometres out. The event arrives in USGS format and ShakeAlert fires, but we're in the blind zone. Shaking is computed from fault distance and soil, every building sways at its own period, and the old brick comes down."* |
+| **0:44–0:58** | Toggle the **ShakeMap** overlay, then **Damage**. Point at the AIR panel's model figure. | *"Within minutes an operations centre has a model: FEMA's HAZUS curves turn shaking into damage odds for every building. But it's blind. It calls almost everything 'major damage' and can't tell which building stood. On the xBD damage scale it scores thirty-three percent."* |
+| **0:58–1:16** | AIR 1 sweeps in and the grey veil lifts behind it. Show the AR-tagged helicopter frame, then the recon pins appearing. | *"So Argus sends a police helicopter. Its address-tagged video streams to Gemini 4 Argon, which reconstructs every building it sees — collapses, fires, people on rooftops — in about twenty seconds a clip. Shaking is spatially correlated, so each observation corrects the model around it: seeing seven percent of the city sharpens all of it."* |
+| **1:16–1:30** | The Argon plan card → click **Approve** → drones lift off with live thumbnails. Then open COMMUNITY REPORTS. | *"Then Argon finds where it's still blind and proposes drone missions. I approve, and twenty close-up orbits follow. Meanwhile residents report from their phones; Argon triaged a hundred and ninety-eight messages and matched seventy-seven percent to the right building."* |
+| **1:30–1:42** | Open Copilot (`C`) and click the first quick prompt. Routes flow around blocked streets with P1–P5 markers → click **Dispatch**. | *"Finally I just ask: ten engines, twenty officers, two helicopters — what now? Argon ranks the trapped, routes every unit around blocked streets, and I dispatch."* |
+| **1:42–2:00** | The AIR panel **33% → 43%** with the chart climbing, then the *24% → 55%* line, then the ARGUS wordmark. | *"The result: the model alone, thirty-three percent. Corrected by Argon, forty-three for the whole city, and fifty-five on every building it saw — more than double. And Argon's eight rescue sites hold twenty-one trapped survivors; the model's top eight held ten. Same crews, twice the people within reach. That's Argus."* |
 
 ### Numbers used
 From the recorded live run (1906 repeat at 15:00), scored against the simulator's hidden truth.
 
-| Claim in the voiceover | Value |
+| Claim | Value |
 |---|---|
+| Buildings | 5,689 (OSM footprints; 1,550 with DataSF LiDAR heights; 4,784 with assessor year built and construction type), 3,730 streets, 7,777 street trees |
+| Quake | M7.8, epicentre 14 km WSW; ShakeAlert warning arrives after the shaking (blind zone) |
 | Whole core area (1,902 buildings), xBD macro-F1 | 33.4% model alone → 38.8% after the helicopter → **43.2%** at the end |
 | Buildings seen on video (121), scored on the same buildings | 23.7% → **55.0%** |
-| Video clips read by Argon | 26: 6 helicopter chunks (~20 s each) and 20 drone orbits (~12 s each) |
-| Resident reports | 198 triaged; 143 of 186 linked to the right building (77%); damage read correctly on 138 of those 143 (96.5%) |
-| Collapses confirmed by Argon | 21 |
-| Copilot plan | 36 units to 8 sites |
-| Seen by AIR 1 | 43% of the core area; 7% of buildings assessed one by one |
+| Video clips read by Argon | 6 helicopter chunks (~20 s each) and 20 drone orbits (~12 s each) |
+| Resident reports | 198 triaged; 143 of 186 linked to the right building (77%); damage read correctly on 96.5% of those |
+| Trapped survivors at the Copilot's 8 sites vs the model's top 8 sites | **21 vs 10** (model ranking = P(complete damage) × daytime occupants; same number of sites) |
 
 A new live run re-records the replay and changes these numbers. Keep them in sync with the replay you record from.
 
 ### Shot tips
-- Before recording, set playback to 4× (or use `speed=4` in the URL) so the helicopter pass and both drone waves fit into one take. Then cut it down in editing.
-- Best angles: the **Chinatown** preset (`3`) for reconstruction pins, **Overview** (`1`) for drones, and the camera's automatic fly-to when a Copilot plan appears.
-- To show the Approve click for real, record that segment in live mode (no `air=replay`). This re-records the replay. Replay mode approves recorded plans on its own.
-- Recorded Copilot questions (instant in replay):
-  1. *I have 10 fire engines, 20 police officers, 2 helicopters and 6 ambulances. How should I route them, and what are the priorities?*
-  2. *How many people are confirmed trapped, and where?*
-  3. *Which roads should police clear first?*
-  4. *Where should the helicopters go?*
-  5. *If Pine Street is cleared, what changes?*
+- Record at 4× (`speed=4` or the playback button) so the helicopter pass and both drone waves fit into one take. Then trim in editing.
+- Best angles: **Chinatown** (`3`) for reconstruction pins, **Overview** (`1`) for drones, and the automatic fly-to when a Copilot plan appears.
+- In replay mode the recorded plans are approved on their own. To click **Approve** on camera, record that part in live mode (no `air=replay`). Note that this re-records the replay.
+- Recorded Copilot questions (instant in replay): *I have 10 fire engines, 20 police officers, 2 helicopters and 6 ambulances. How should I route them, and what are the priorities?* · *How many people are confirmed trapped, and where?* · *Which roads should police clear first?* · *Where should the helicopters go?* · *If Pine Street is cleared, what changes?*
 
 ### Optional closing line (roadmap — future tense only)
 > *"Next, Argus will listen to 911 calls and news hotlines, and fuse them with what it sees from the air."*
