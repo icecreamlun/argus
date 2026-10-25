@@ -1,0 +1,381 @@
+import * as THREE from 'three';
+import './ui/styles.css';
+import type { AppContext, CameraPresetId, CityData, OverlayMode, QuakeResult, QuakeScenario, UpdateFn } from './contracts';
+import { createEventBus } from './events';
+import { loadHeightfield } from './terrain/heightfield';
+import { createEngine } from './engine';
+import { createStreets } from './city/streets';
+import { createBuildings } from './city/buildings';
+import { createLandmarks } from './city/landmarks';
+import { createQuakeModel, DEFAULT_SEED, scenarioAtHour } from './quake/model';
+import { createQuakeFx } from './quake/fx';
+import { createUI } from './ui';
+import { createQuakeSession, type QuakeSession } from './app/quakeSession';
+import { bootProgress, bootDone, bootFailed } from './app/bootScreen';
+import { createFireLightGate } from './app/fireLightGate';
+
+/**
+ * Debug / automation surface used by scripts/shot.mjs, scripts/e2e.mjs and the console.
+ * URL params: ?cam=<preset>&tod=<hours>&quake=<scenarioId>&t=<simSeconds>&overlay=<mode>&ui=0&select=<buildingId>&speed=<x>
+ */
+declare global {
+  interface Window {
+    __argus: {
+      ready: boolean;
+      error?: string;
+      ctx?: AppContext;
+      flyTo(preset: CameraPresetId, duration?: number): void;
+      setCamera(position: [number, number, number], target: [number, number, number]): void;
+      setTimeOfDay(h: number): void;
+      trigger(scenarioId: string): QuakeResult | null;
+      seek(simSeconds: number): void;
+      pause(): void;
+      resume(): void;
+      reset(): void;
+      setOverlay(mode: OverlayMode): void;
+      select(id: string | null): void;
+      renderOnce(): void;
+      result: QuakeResult | null;
+      /** Frames per second over the last full second. */
+      fps: number;
+      /** Frames rendered since boot (harness: wait for fresh frames after changing state). */
+      frame: number;
+      /** Currently selected building id. */
+      selected: string | null;
+      /** Boot timings (ms) for the harness. */
+      timings?: Record<string, number>;
+      /** Module handles for debugging from the console / harness. */
+      handles?: Record<string, unknown>;
+    };
+  }
+}
+
+const params = new URLSearchParams(location.search);
+
+window.__argus = {
+  ready: false,
+  flyTo: () => {},
+  setCamera: () => {},
+  setTimeOfDay: () => {},
+  trigger: () => null,
+  seek: () => {},
+  pause: () => {},
+  resume: () => {},
+  reset: () => {},
+  setOverlay: () => {},
+  select: () => {},
+  renderOnce: () => {},
+  result: null,
+  fps: 0,
+  frame: 0,
+  selected: null,
+};
+
+async function loadCity(): Promise<CityData> {
+  const res = await fetch('/data/city.json');
+  if (!res.ok) throw new Error(`city.json missing (${res.status}) — run the data pipeline (scripts/data/build_city.py)`);
+  return res.json();
+}
+
+/** Let the browser paint the boot screen between synchronous build steps. */
+const nextPaint = () => new Promise<void>((r) => requestAnimationFrame(() => setTimeout(r, 0)));
+
+async function boot() {
+  const timings: Record<string, number> = {};
+  const t0 = performance.now();
+  const mark = (k: string) => (timings[k] = Math.round(performance.now() - t0));
+  const viewport = document.getElementById('viewport')!;
+  const uiRoot = document.getElementById('ui-root')!;
+  const hudOff = params.get('ui') === '0';
+  if (hudOff) uiRoot.style.display = 'none';
+
+  bootProgress('Loading San Francisco data', 0.05);
+  const [city, terrain] = await Promise.all([loadCity(), loadHeightfield('/data')]);
+  mark('data');
+
+  bootProgress('Lighting the sky', 0.3);
+  await nextPaint();
+  const events = createEventBus();
+  const engine = createEngine(viewport);
+  engine.setGroundHeightSampler?.((x, z) => terrain.heightAt(x, z));
+  const cityRoot = new THREE.Group();
+  cityRoot.name = 'cityRoot';
+  engine.scene.add(cityRoot);
+  mark('engine');
+
+  const updates = new Set<UpdateFn>();
+  const ctx: AppContext = {
+    scene: engine.scene,
+    camera: engine.camera,
+    renderer: engine.renderer,
+    cityRoot,
+    city,
+    terrain,
+    env: engine.env,
+    events,
+    onUpdate(fn) {
+      updates.add(fn);
+      return () => updates.delete(fn);
+    },
+  };
+
+  bootProgress('Paving streets', 0.4);
+  await nextPaint();
+  const streets = createStreets(ctx);
+  cityRoot.add(streets.object);
+  mark('streets');
+
+  bootProgress(`Raising ${city.buildings.length.toLocaleString('en-US')} buildings`, 0.7);
+  await nextPaint();
+  const buildings = createBuildings(ctx);
+  cityRoot.add(buildings.object);
+  mark('buildings');
+
+  bootProgress('Placing landmarks', 0.85);
+  await nextPaint();
+  const landmarks = createLandmarks(ctx, buildings);
+  cityRoot.add(landmarks.object);
+  mark('landmarks');
+
+  const model = createQuakeModel();
+  const fx = createQuakeFx(ctx, { buildings, landmarks, streets, engine, model });
+  engine.scene.add(fx.object);
+  // FX's pooled fire lights only join the light list once a fire burns (saves ~2.5 ms/frame otherwise).
+  const fireGate = createFireLightGate(engine.scene, engine.camera, engine.renderer);
+  mark('fx');
+
+  // ── Quake playback state ──
+  let session: QuakeSession | null = null;
+  let paused = false;
+  let timeScale = Number(params.get('speed') ?? 1) || 1;
+  let alertShown = false;
+  let selectedId: string | null = null;
+  let selectedShownWithDamage = false;
+
+  const setPlaying = (p: boolean) => ui.setPlaying(p);
+
+  const triggerScenario = (scenario: QuakeScenario) => {
+    // Move occupancy AND the USGS origin time to the scene's clock (the event card shows the right time).
+    const s = scenario.id.startsWith('custom_') ? scenario : scenarioAtHour(scenario, engine.env.timeOfDay);
+    const result = model.run(city, s, DEFAULT_SEED);
+    session = createQuakeSession(result, buildings.indexOf);
+    window.__argus.result = result;
+    paused = false;
+    alertShown = false;
+    ui.hideShakeAlert();
+    ui.showEvent(s.event, s);
+    fx.play(result, { timeScale });
+    fireGate.prewarm();
+    setPlaying(true);
+    events.emit({ type: 'quake-started', event: s.event });
+    refreshSelection(true);
+    return result;
+  };
+
+  const pause = () => {
+    if (!session || paused) return;
+    paused = true;
+    fx.pause();
+    setPlaying(false);
+  };
+  const resume = () => {
+    if (!session || !paused) return;
+    paused = false;
+    // play() with the same result resumes and applies a speed chosen while paused.
+    fx.play(session.result, { timeScale });
+    setPlaying(true);
+  };
+  const reset = () => {
+    fx.reset();
+    fireGate.disable();
+    session = null;
+    paused = false;
+    alertShown = false;
+    window.__argus.result = null;
+    ui.hideShakeAlert();
+    ui.updateStats(null, 0);
+    setPlaying(false);
+    events.emit({ type: 'quake-reset' });
+    refreshSelection(true);
+  };
+  const setOverlay = (mode: OverlayMode) => {
+    fx.setOverlay(mode);
+    events.emit({ type: 'overlay-changed', overlay: mode });
+  };
+
+  const ui = createUI(
+    uiRoot,
+    { city, events },
+    {
+      onTriggerScenario(id) {
+        const s = model.scenarios.find((x) => x.id === id);
+        if (s) triggerScenario(s);
+      },
+      onTriggerCustom(lat, lon, depthKm, mag) {
+        triggerScenario(model.customScenario(lat, lon, depthKm, mag, engine.env.timeOfDay));
+      },
+      onReset: reset,
+      onTimeOfDay(h) {
+        engine.setTimeOfDay(h);
+      },
+      onOverlay: setOverlay,
+      onCameraPreset(id) {
+        engine.flyTo(id, 2.5);
+      },
+      onTimeScale(scale) {
+        timeScale = scale;
+        if (session && !paused) fx.play(session.result, { timeScale: scale });
+      },
+      onPauseToggle() {
+        if (paused) resume();
+        else pause();
+      },
+    },
+  );
+  ui.setScenarios(model.scenarios);
+  ui.setCameraPresets(engine.cameraPresets);
+  ui.setCityStats(city);
+  ui.setTimeOfDay(engine.env.timeOfDay);
+
+  // ── Live ShakeAlert countdown + progressive stats while a quake plays ──
+  events.on('quake-tick', ({ simSeconds }) => {
+    if (!session) return;
+    const { shakeAlert } = session.result;
+    const toShaking = session.sArrivalAtCentre - simSeconds;
+    const wantAlert = simSeconds >= shakeAlert.issuedAtS && simSeconds < session.alertEndsAt;
+    if (wantAlert) {
+      ui.showShakeAlert(toShaking, shakeAlert.expectedMmi);
+      alertShown = true;
+    } else if (alertShown) {
+      ui.hideShakeAlert();
+      alertShown = false;
+    }
+    ui.updateStats(session.statsAt(simSeconds), simSeconds);
+    refreshSelection(false);
+  });
+
+  // ── Selection / inspector ──
+  const select = (id: string | null) => {
+    selectedId = id;
+    window.__argus.selected = id;
+    buildings.setHighlight(id);
+    events.emit({ type: 'building-selected', id });
+    refreshSelection(true);
+  };
+  /** Re-show the inspector when the selected building's damage manifests (or on new/cleared results). */
+  function refreshSelection(force: boolean) {
+    if (!selectedId) {
+      if (force) ui.showBuilding(null);
+      return;
+    }
+    const i = buildings.indexOf(selectedId);
+    if (i < 0) return;
+    const r = session?.result;
+    const withDamage = !!r && r.damage[i].failTimeS <= fx.simSeconds;
+    if (!force && withDamage === selectedShownWithDamage) return;
+    selectedShownWithDamage = withDamage;
+    ui.showBuilding({ record: city.buildings[i], shaking: r?.shaking[i], damage: withDamage ? r!.damage[i] : undefined });
+  }
+  // The inspector's close button / Esc deselects through the bus: drop the highlight too.
+  events.on('building-selected', ({ id }) => {
+    if (id === null && selectedId !== null) {
+      selectedId = null;
+      window.__argus.selected = null;
+      buildings.setHighlight(null);
+    }
+  });
+
+  // Click (not drag) on the canvas picks a building; empty ground clears the selection.
+  const raycaster = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  let downAt: [number, number] | null = null;
+  const canvas = engine.renderer.domElement;
+  canvas.addEventListener('pointerdown', (e) => (downAt = e.button === 0 ? [e.clientX, e.clientY] : null));
+  canvas.addEventListener('pointerup', (e) => {
+    if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 4) return;
+    downAt = null;
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    raycaster.setFromCamera(ndc, engine.camera);
+    const id = buildings.pick(raycaster);
+    if (id !== selectedId) select(id);
+  });
+
+  // ── Frame loop ──
+  let frames = 0;
+  let acc = 0;
+  engine.start(events, (dt, elapsed) => {
+    updates.forEach((fn) => fn(dt, elapsed));
+    fireGate.update();
+    window.__argus.frame++;
+    frames++;
+    acc += dt;
+    if (acc >= 1) {
+      window.__argus.fps = Math.round(frames / acc);
+      frames = 0;
+      acc = 0;
+      // FX stops its aftermath clock ~10 min after the event; reflect that on the play button.
+      if (session && !paused && !fx.playing && fx.simSeconds > session.result.durationS + 599) {
+        paused = true;
+        setPlaying(false);
+      }
+    }
+  });
+  mark('ready');
+
+  Object.assign(window.__argus, {
+    ctx,
+    timings,
+    handles: { engine, streets, buildings, landmarks, model, fx, ui },
+    flyTo: (p: CameraPresetId, d = 0) => engine.flyTo(p, d),
+    setCamera: (position: [number, number, number], target: [number, number, number]) => engine.flyTo({ position, target }, 0),
+    setTimeOfDay: (h: number) => {
+      engine.setTimeOfDay(h);
+      ui.setTimeOfDay(h);
+    },
+    trigger: (id: string) => {
+      const s = model.scenarios.find((x) => x.id === id);
+      return s ? triggerScenario(s) : null;
+    },
+    seek: (t: number) => {
+      fx.seek(t);
+      refreshSelection(false);
+    },
+    pause,
+    resume,
+    reset,
+    setOverlay,
+    select,
+    renderOnce: () => engine.renderOnce(),
+  });
+
+  // ── URL params (screenshot harness / deep links) ──
+  const tod = params.get('tod');
+  if (tod) window.__argus.setTimeOfDay(Number(tod));
+  const cam = params.get('cam') as CameraPresetId | null;
+  if (cam) engine.flyTo(cam, 0);
+  const quake = params.get('quake');
+  if (quake) {
+    window.__argus.trigger(quake);
+    const t = params.get('t');
+    if (t) {
+      pause();
+      window.__argus.seek(Number(t));
+    }
+  }
+  const overlay = params.get('overlay') as OverlayMode | null;
+  if (overlay) setOverlay(overlay);
+  const sel = params.get('select');
+  if (sel) select(sel);
+
+  bootDone(hudOff);
+  window.__argus.ready = true;
+  // Compile the fire-lit shader variants in the background so the first fire never stalls a frame.
+  window.setTimeout(() => fireGate.prewarm(), 2000);
+}
+
+boot().catch((err) => {
+  console.error(err);
+  window.__argus.error = String(err?.stack ?? err);
+  bootFailed(String(err?.message ?? err));
+});
