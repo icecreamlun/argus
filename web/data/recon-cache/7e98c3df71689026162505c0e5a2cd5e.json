@@ -1,0 +1,188 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9115,
+ "buildings": [
+  {
+   "id": "B5091",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked facade patches, broken windows, light debris at base; streets clear."
+  },
+  {
+   "id": "B5042",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracks on roof and facade, minor debris around base."
+  },
+  {
+   "id": "B5124",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Stained and cracked roof, damaged facade with some debris at base."
+  },
+  {
+   "id": "B5127",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Heavy facade cracking, dark patches, debris at base."
+  },
+  {
+   "id": "B5037",
+   "damage": "extensive",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Darkened roof and damaged upper walls, possible partial roof failure."
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5007",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5086",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5075",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5021",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5036",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5091",
+   "notes": "Clear of major debris along B5091 frontage."
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5091",
+   "notes": "Open and passable next to B5091."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B5025",
+   "notes": "Debris and flames spilling from adjacent ruined block onto roadway."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5091 (201 California St) has moderate damage with facade cracking and broken windows, but remains upright with no visible people or trapped signs. Access along California Street and Front Street directly adjacent to B5091 is clear, though Battery Street one block west is partially obstructed",
+ "hash": "7e98c3df71689026162505c0e5a2cd5e",
+ "usage": {
+  "promptTokens": 5841,
+  "outputTokens": 550,
+  "totalTokens": 6391
+ },
+ "notes": [
+  "ffmpeg 592 ms",
+  "input: video+hires",
+  "gemini 8523 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

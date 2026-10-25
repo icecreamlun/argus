@@ -1,0 +1,50 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "Dispatching D1 to verify buildings in the Financial District where roof smoke signals and fires are reported—specifically 201 California St, 100 Battery St, 160 Sansome St, and California Bank and Trust. Dispatching D2 to conduct an initial damage survey of the unscanned, heavily occupied URM-infill block at One Sansome Street (~9,000 occupants, 65% collapse probability). D3 is held in reserve at Embarcadero Plaza for follow-up rescues or emerging fires.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5091",
+    "B5042",
+    "B4916",
+    "B4721"
+   ],
+   "purpose": "Assess active fire at 201 California St and confirm trapped survivors signalling on roofs along Battery, Sansome, and Leidesdorff.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Sweep the unscanned One Sansome Street URM-infill block to check for catastrophic collapse affecting ~9,000 occupants.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5006,
+ "createdAtSimS": 258,
+ "hash": "2bac84d195f1b9d5dd108494e76b3d2e",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5756,
+  "outputTokens": 267
+ },
+ "notes": []
+}

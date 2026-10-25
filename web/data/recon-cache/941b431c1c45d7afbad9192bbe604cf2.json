@@ -1,0 +1,173 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11961,
+ "buildings": [
+  {
+   "id": "B4916",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and broken windows; Sansome and Pine streets clear."
+  },
+  {
+   "id": "B4935",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Extensive blackened patches, facade holes, and roof damage."
+  },
+  {
+   "id": "B4904",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Light facade streaks and minor debris skirt along base."
+  },
+  {
+   "id": "B4842",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Heavy blackened facade patches and rubble pile on Sansome Street."
+  },
+  {
+   "id": "B4960",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Blackened facade patches; one person with pink flare on roof."
+  },
+  {
+   "id": "B4861",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Blackened facade patches visible on upper floors."
+  },
+  {
+   "id": "B4919",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Light facade streaks and minor surface wear."
+  },
+  {
+   "id": "B4841",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4973",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B4985",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B4916",
+   "notes": "Roadway open and clear of debris next to B4916."
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B4916",
+   "notes": "Clear in front of B4916; minor sidewalk rubble near B4842."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4985",
+   "notes": "Roadway open and clear."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 30,
+   "evidenceS": 0,
+   "place": "Intersection near Battery and Bush",
+   "nearBuildingId": "B4935"
+  }
+ ],
+ "summary": "Target B4916 (160 Sansome St) shows moderate damage with blackened facade patches and broken windows, with no people visible and clear access via Sansome and Pine Streets. Nearby B4935 has extensive facade and roof damage, while B4960 (235 Pine St) has moderate damage with one person signalling with",
+ "hash": "941b431c1c45d7afbad9192bbe604cf2",
+ "usage": {
+  "promptTokens": 5841,
+  "outputTokens": 685,
+  "totalTokens": 6526
+ },
+ "notes": [
+  "ffmpeg 523 ms",
+  "input: video+hires",
+  "gemini 11438 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,137 @@
+{
+ "chunkIndex": 1111,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9116,
+ "buildings": [
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Blackened and cracked facades on north/east, minor roof debris; streets clear."
+  },
+  {
+   "id": "B4966",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 1,
+   "notes": "Collapsed ruin with active fire along west base and heavy smoke."
+  },
+  {
+   "id": "B5025",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 10,
+   "notes": "Upright tower with active flames at east base along Battery Street."
+  },
+  {
+   "id": "B5032",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Upright 5-story building with light facade staining and minor roof marks."
+  },
+  {
+   "id": "B4973",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Severely damaged facade with blackened patches and roof debris."
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Upright 7-story building with scattered debris on roof."
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Low ruin with collapsed roof and rubble core."
+  },
+  {
+   "id": "B5091",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5042",
+   "notes": "Roadway open and clear of major debris along B5042."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5042",
+   "notes": "Clear alongside B5042; fire on sidewalk further north near B5025."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5042 (100 Battery St) has moderate facade damage with cracking and scorching on its north and east sides, but remains upright with no visible people or trapped signs. Access along Pine Street and Battery Street directly adjacent to B5042 is clear, though active fires burn at the base of near",
+ "hash": "7028d967f910cf143d4996ec2932fe31",
+ "usage": {
+  "promptTokens": 5417,
+  "outputTokens": 630,
+  "totalTokens": 6047
+ },
+ "notes": [
+  "ffmpeg 506 ms",
+  "input: video+hires",
+  "gemini 8610 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

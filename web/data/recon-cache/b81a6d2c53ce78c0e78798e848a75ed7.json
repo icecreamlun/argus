@@ -1,0 +1,401 @@
+{
+ "chunkIndex": 2,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 26454,
+ "buildings": [
+  {
+   "id": "B4848",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Blackened facade patches, roof damage, rubble at base"
+  },
+  {
+   "id": "B4906",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Scorched roof and upper facade, debris on Clay"
+  },
+  {
+   "id": "B4755",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Dark facade damage patches, debris along base"
+  },
+  {
+   "id": "B4753",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Facade damage and rubble skirt at street level"
+  },
+  {
+   "id": "B4815",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Light roof and facade marks, intact shape"
+  },
+  {
+   "id": "B4693",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Crushed dark ruin on ground next to plaza"
+  },
+  {
+   "id": "B4675",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Damaged roof and dark facade patches"
+  },
+  {
+   "id": "B4584",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 6,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavily damaged roof with people gathered on top"
+  },
+  {
+   "id": "B4538",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 5,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Damaged roof with people signalling near edge"
+  },
+  {
+   "id": "B4514",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked roof and facade damage along Montgomery"
+  },
+  {
+   "id": "B4402",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Slight facade marks, structure intact"
+  },
+  {
+   "id": "B4331",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Blackened roof and facade damage"
+  },
+  {
+   "id": "B4229",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Cracked roof slab, heavily blackened east facade"
+  },
+  {
+   "id": "B3892",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Facade scorching and rubble at base near park"
+  },
+  {
+   "id": "B3617",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 12,
+   "notes": "Collapsed into rubble heap with rising dust"
+  },
+  {
+   "id": "B3670",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": true,
+   "evidenceS": 12,
+   "notes": "Reduced to low rubble pile on Grant Ave"
+  },
+  {
+   "id": "B3668",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Roofless ruin and rubble heap"
+  },
+  {
+   "id": "B3656",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Collapsed into rubble apron along Walter U Lum"
+  },
+  {
+   "id": "B3785",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Broken roof and facade holes, debris in street"
+  },
+  {
+   "id": "B3722",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Damaged roof and blackened facade"
+  },
+  {
+   "id": "B3613",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Cracked roof and facade damage on Grant Ave"
+  },
+  {
+   "id": "B3591",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "Slight roof cracking, building upright"
+  },
+  {
+   "id": "B3457",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "Collapsed into burning rubble pile on Clay St"
+  },
+  {
+   "id": "B3301",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "Collapsed ruin with active flames on Waverly Pl"
+  },
+  {
+   "id": "B3299",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 14,
+   "notes": "Collapsed into rubble next to active fire"
+  },
+  {
+   "id": "B3463",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "Moderate roof and facade damage along Grant Ave"
+  },
+  {
+   "id": "B4420",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B4438",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MERCHANT STREET",
+   "status": "blocked",
+   "evidenceS": 0,
+   "nearBuildingId": "B4848",
+   "notes": "Heavy rubble across narrow street between buildings"
+  },
+  {
+   "street": "MARK TWAIN PLACE",
+   "status": "blocked",
+   "evidenceS": 1,
+   "nearBuildingId": "B4755",
+   "notes": "Crowded and debris-strewn alley"
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4402",
+   "notes": "Main carriageway open with minor curb debris"
+  },
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "partial",
+   "evidenceS": 12,
+   "nearBuildingId": "B3785",
+   "notes": "Rubble spilling into street from adjacent buildings"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "blocked",
+   "evidenceS": 12,
+   "nearBuildingId": "B3670",
+   "notes": "Blocked by collapsed building rubble at 800-808 Grant"
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B3457",
+   "notes": "Debris and fire from collapsed building blocking road"
+  },
+  {
+   "street": "WAVERLY PLACE",
+   "status": "blocked",
+   "evidenceS": 14,
+   "nearBuildingId": "B3301",
+   "notes": "Blocked by burning rubble from collapsed buildings"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 40,
+   "evidenceS": 1,
+   "place": "Mark Twain Place",
+   "nearBuildingId": "B4755"
+  },
+  {
+   "approxCount": 90,
+   "evidenceS": 3,
+   "place": "Transamerica Redwood Park",
+   "nearBuildingId": "B4693"
+  },
+  {
+   "approxCount": 120,
+   "evidenceS": 11,
+   "place": "Portsmouth Square",
+   "nearBuildingId": "B3892"
+  }
+ ],
+ "summary": "Severe earthquake damage across Chinatown and the Financial District, with multiple building collapses along Grant Avenue (B3617, B3670) and an active structure fire in collapsed buildings at Clay Street and Waverly Place (B3457, B3301). Roughly a dozen people are trapped and signalling for help on ",
+ "hash": "b81a6d2c53ce78c0e78798e848a75ed7",
+ "usage": {
+  "promptTokens": 12068,
+  "outputTokens": 1905,
+  "thoughtsTokens": 289,
+  "totalTokens": 14262
+ },
+ "notes": [
+  "ffmpeg 418 ms",
+  "input: video+hires",
+  "gemini 26035 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

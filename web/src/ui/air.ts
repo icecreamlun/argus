@@ -91,6 +91,11 @@ export function createAirPanel(city: CityData) {
   const argon = h('div', { class: 'ag-air__argon' }, modeBadge, argonLine, pending);
 
   // ── Comparison card ──
+  const footLabel = h(
+    'span',
+    { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed. Macro-F1 = mean per-class F1 (the xBD challenge damage score). Both figures are scored on the same buildings.' },
+    'xBD macro-F1 · buildings Argon assessed · vs ground truth (sim)',
+  );
   const predNum = h('span', { class: 'ag-air__bignum' }, '–');
   const reconNum = h('span', { class: 'ag-air__bignum ag-air__bignum--argon' }, '–');
   const within = h('span', { class: 'ag-air__within' }, '');
@@ -113,7 +118,7 @@ export function createAirPanel(city: CityData) {
       h('span', { class: 'ag-air__arrow' }, icon('arrowRight')),
       h('div', { class: 'ag-air__fig' }, reconNum, h('span', { class: 'ag-air__figLabel ag-air__figLabel--argon' }, 'Model + Argon')),
     ),
-    h('div', { class: 'ag-air__foot' }, h('span', { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed. Macro-F1 = mean per-class F1 (the xBD challenge damage score)' }, 'xBD macro-F1 · whole core area · vs ground truth (sim)'), within),
+    h('div', { class: 'ag-air__foot' }, footLabel, within),
     timeline.el,
     h(
       'div',
@@ -190,18 +195,21 @@ export function createAirPanel(city: CityData) {
 
       const has = st.buildingsObserved > 0;
       compare.classList.toggle('is-empty', !has);
-      // Headline: xBD 4-class accuracy (falls back to the exact 5-state figure); exact HAZUS state stays secondary.
-      // Headline: xBD macro-F1 of the model alone vs the model corrected by Argon (falls back to accuracy).
-      // Headline: whole-core-area xBD macro-F1 (fixed denominator) — model alone vs model corrected by Argon.
-      const headP = st.cityPredictionF1 ?? st.predictionF1 ?? st.predictionXbd ?? st.predictionAccuracy;
-      const headR = st.cityFusedF1 ?? st.fusedF1 ?? st.reconXbd ?? st.reconAccuracy;
-      setText(predNum, has ? pct(headP) : '–');
-      setText(reconNum, has ? pct(headR) : '–');
-      setText(sumAcc.querySelector('b')!, has ? pct(headR) : '–');
+      // Headline: xBD macro-F1 on the buildings Argon has assessed — model alone vs model+Argon on the SAME
+      // buildings. Hidden until ≥ HEAD_MIN are assessed (tiny samples swing wildly). The whole-core-area figure
+      // (fixed denominator) is the secondary line and the timeline.
+      const HEAD_MIN = 50;
+      const ready = st.buildingsObserved >= HEAD_MIN;
+      const headP = st.predictionF1 ?? st.predictionXbd ?? st.predictionAccuracy;
+      const headR = st.fusedF1 ?? st.reconXbd ?? st.reconAccuracy;
+      setText(predNum, has && ready ? pct(headP) : '–');
+      setText(reconNum, has && ready ? pct(headR) : '–');
+      setText(sumAcc.querySelector('b')!, has && ready ? pct(headR) : '–');
+      setText(footLabel, ready ? `xBD macro-F1 · ${fmtInt(st.buildingsObserved)} buildings Argon assessed · vs ground truth (sim)` : `Collecting evidence… ${fmtInt(st.buildingsObserved)}/${HEAD_MIN} buildings assessed`);
       setText(
         within,
         has && st.cityFusedF1 !== undefined
-          ? `${fmtInt(st.cityBuildings ?? 0)} buildings · on the ${fmtInt(st.buildingsObserved)} Argon saw: ${pct(st.predictionF1 ?? 0)} → ${pct(st.fusedF1 ?? 0)}`
+          ? `Whole core area (${fmtInt(st.cityBuildings ?? 0)} bldgs): ${pct(st.cityPredictionF1 ?? 0)} → ${pct(st.cityFusedF1)}`
           : has && st.reconF1 !== undefined
             ? `Argon alone ${pct(st.reconF1)} · accuracy ${pct(st.predictionXbd ?? 0)} → ${pct(st.fusedXbd ?? 0)}`
             : '',

@@ -1,0 +1,57 @@
+{
+ "chunkIndex": 1210,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6786,
+ "buildings": [
+  {
+   "id": "B5528",
+   "damage": "moderate",
+   "confidence": 0.92,
+   "peopleVisible": 3,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked roof, scorched facade patches, 3 people stranded on roof, streets clear"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SPEAR STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5528",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5528",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5528",
+   "notes": "Roadway open and clear of debris"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5528 (121 Spear St) has moderate damage with cracked roofing and blackened facade patches, but remains upright. Three people are visible stranded on the roof of B5528 requiring rooftop extraction. Surrounding streets (Spear, Steuart, and Mission) are completely clear for emergency vehicle ac",
+ "hash": "3c00c274027238672fe93c2b4afc54e5",
+ "usage": {
+  "promptTokens": 4729,
+  "outputTokens": 252,
+  "thoughtsTokens": 91,
+  "totalTokens": 5072
+ },
+ "notes": [
+  "ffmpeg 408 ms",
+  "input: video+hires",
+  "gemini 6378 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,174 @@
+{
+ "chunkIndex": 1221,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 16841,
+ "buildings": [
+  {
+   "id": "B4987",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Intact roof and walls; Battery Street in front is clear"
+  },
+  {
+   "id": "B4960",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked roof and blackened facade patches; one person on roof"
+  },
+  {
+   "id": "B4995",
+   "damage": "extensive",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Extensive facade holes, blackening, and heavy debris at base"
+  },
+  {
+   "id": "B5057",
+   "damage": "extensive",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Caved-in roof sections and blackened facade with debris skirt"
+  },
+  {
+   "id": "B4935",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Broken roof structure and blackened upper facade"
+  },
+  {
+   "id": "B4916",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Light roof cracking and minor facade streaks; structure intact"
+  },
+  {
+   "id": "B4919",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4969",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4973",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B5048",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4987",
+   "notes": "Roadway open and clear directly in front of B4987 and B4981"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B4981",
+   "notes": "Clear roadway between B4973, B4981, and B5048"
+  },
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B4995",
+   "notes": "Debris and dust along the base of B4995 and B4935"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 7,
+   "place": "Sansome Street near Bush Street",
+   "nearBuildingId": "B4935"
+  }
+ ],
+ "summary": "Target B4987 (65 Battery St) shows no structural damage and has clear road access along Battery Street with no people visible. Immediately adjacent high-rise B4960 (235 Pine St) has moderate damage with one person stranded on the rooftop requiring rescue. Nearby B4995, B5057, and B4935 show extensiv",
+ "hash": "b56bc92caba7922a3126efaf6bb633d3",
+ "usage": {
+  "promptTokens": 5408,
+  "outputTokens": 665,
+  "thoughtsTokens": 532,
+  "totalTokens": 6605
+ },
+ "notes": [
+  "ffmpeg 278 ms",
+  "input: video+hires",
+  "gemini 16562 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,73 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "With helicopter scanning complete and this being the final wave, we are deploying all three drones with none held in reserve to cover our highest-risk blind spots and disagreements. Drone 1 will survey the unscanned Rincon Annex and Pacific Gas & Electric steel block alongside the Federal Reserve Bank, while Drone 2 assesses the obscured 32 Battery St URM-infill block (up to 65% collapse risk). Drone 3 will sweep the unscanned 50 Fremont Center steel block in SoMa to check over 3,100 occupants facing severe damage predictions.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5528",
+    "B5400",
+    "B5391",
+    "B5403"
+   ],
+   "areaCentre": [
+    280,
+    115
+   ],
+   "purpose": "Survey unscanned Rincon Annex and PG&E steel block, and resolve damage disagreement at Federal Reserve Bank.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5057",
+    "B4987",
+    "B5048",
+    "B4981"
+   ],
+   "areaCentre": [
+    -149,
+    171
+   ],
+   "purpose": "Assess obscured 32 Battery St URM-infill block for potential collapses and trapped occupants.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5276",
+    "B5230",
+    "B5221",
+    "B5245"
+   ],
+   "areaCentre": [
+    38,
+    340
+   ],
+   "purpose": "Sweep unscanned 50 Fremont Center steel block to check for predicted extensive damage or collapse.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12656,
+ "createdAtSimS": 507,
+ "hash": "5b2c5ec8a03c366793bbb76912d7c785",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5978,
+  "outputTokens": 298,
+  "thoughtsTokens": 387
+ },
+ "notes": []
+}

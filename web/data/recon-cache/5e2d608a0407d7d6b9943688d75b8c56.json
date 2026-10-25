@@ -1,0 +1,162 @@
+{
+ "chunkIndex": 1123,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 14335,
+ "buildings": [
+  {
+   "id": "B4860",
+   "damage": "slight",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Target upright with intact roof, minor facade staining; Market St clear"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Collapsed into roofless ruin with jagged walls and interior rubble"
+  },
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Reduced to a low rubble pile between adjacent towers"
+  },
+  {
+   "id": "B4869",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Heavy facade damage and partially broken roof adjacent to collapsed B4879"
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Upright with intact roof but widespread cracked and blackened facade patches"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B4820",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B4860",
+   "notes": "Roadway open and clear of major debris in front of B4860"
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4879",
+   "notes": "Debris apron from collapsed B4879 and B4813 spills onto sidewalk edge"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 9,
+   "place": "Market Street sidewalk and plaza near B4805",
+   "nearBuildingId": "B4805"
+  },
+  {
+   "approxCount": 30,
+   "evidenceS": 6,
+   "place": "Plaza near 532 Market St",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target B4860 (560 Market St) has only slight damage with an intact roof and no trapped people visible. Immediately adjacent B4879 (550 Market St) and rear building B4813 have completely collapsed, while B4869 has extensive damage and B4849 has moderate facade damage. Market Street is clear for acces",
+ "hash": "5e2d608a0407d7d6b9943688d75b8c56",
+ "usage": {
+  "promptTokens": 5136,
+  "outputTokens": 589,
+  "thoughtsTokens": 528,
+  "totalTokens": 6253
+ },
+ "notes": [
+  "ffmpeg 486 ms",
+  "input: video+hires",
+  "gemini 13849 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

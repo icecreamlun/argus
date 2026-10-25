@@ -1,0 +1,138 @@
+{
+ "chunkIndex": 1233,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12753,
+ "buildings": [
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Intact roofline and facade, no debris; 1st and Mission Streets clear."
+  },
+  {
+   "id": "B5187",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Reduced to a low roofless rubble ruin between adjacent buildings."
+  },
+  {
+   "id": "B5221",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked roof and facade with small rubble skirt along base."
+  },
+  {
+   "id": "B5230",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Visible roof and facade cracking with minor debris at base."
+  },
+  {
+   "id": "B5188",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked facade and rubble around base next to collapsed B5187."
+  },
+  {
+   "id": "B5203",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Minor facade streaks and light debris near base."
+  },
+  {
+   "id": "B5276",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "High-rise structure intact with minor surface streaks on roof."
+  },
+  {
+   "id": "B5153",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5095",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5245",
+   "notes": "Roadway open and clear of major debris past target B5245."
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5245",
+   "notes": "Roadway completely clear in front of target B5245."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5245 (440 Mission St) is undamaged with no people or trapped signs visible, and both 1st Street and Mission Street are clear for access. Across 1st Street, B5187 (84 1st St) has completely collapsed into a rubble pile, while neighbouring B5188, B5221, and B5230 show moderate damage.",
+ "hash": "f5a40e9fb3a36ba6b3aead0ddfcd7df6",
+ "usage": {
+  "promptTokens": 4747,
+  "outputTokens": 604,
+  "thoughtsTokens": 384,
+  "totalTokens": 5735
+ },
+ "notes": [
+  "ffmpeg 453 ms",
+  "input: video+hires",
+  "gemini 12300 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

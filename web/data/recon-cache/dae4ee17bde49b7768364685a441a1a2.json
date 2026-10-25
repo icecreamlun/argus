@@ -1,0 +1,96 @@
+{
+ "chunkIndex": 1213,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6939,
+ "buildings": [
+  {
+   "id": "B5403",
+   "damage": "moderate",
+   "confidence": 0.92,
+   "peopleVisible": 25,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened and cracked facade patches, small rubble skirt; surrounding streets clear."
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5319",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5403",
+   "notes": "A little facade debris on sidewalk, road lanes open."
+  },
+  {
+   "street": "SPEAR STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5403",
+   "notes": "Roadway open and unobstructed next to target."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5403",
+   "notes": "People gathered on street/crosswalk, no structural debris blocking road."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 4,
+   "place": "Market Street and Main Street intersection",
+   "nearBuildingId": "B5403"
+  }
+ ],
+ "summary": "Target B5403 (101 Market St) shows moderate damage with blackened facade patches, cracks, and minor base debris, though it remains structurally upright. Approximately 25 people are gathered outside at the Market and Main Street intersection with no signs of trapped individuals. Surrounding roads inc",
+ "hash": "dae4ee17bde49b7768364685a441a1a2",
+ "usage": {
+  "promptTokens": 5058,
+  "outputTokens": 319,
+  "totalTokens": 5377
+ },
+ "notes": [
+  "ffmpeg 661 ms",
+  "input: video+hires",
+  "gemini 6278 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

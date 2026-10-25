@@ -1,0 +1,95 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8129,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "small rubble skirt at base, wall smudges"
+  },
+  {
+   "id": "B5522",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "roof broken in, rubble debris at base"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "roadway clear and open"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5522",
+   "notes": "roadway clear and open"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 9,
+   "place": "FERRY PLAZA",
+   "nearBuildingId": "B5587"
+  },
+  {
+   "approxCount": 60,
+   "evidenceS": 14,
+   "place": "THE EMBARCADERO PLAZA",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The Ferry Building (B5504) and Ferry Station Post Office (B5566) appear intact, while a small commercial structure (B5522) has extensive roof damage and B5587 shows moderate damage with base debris. Unlabelled buildings along Steuart Street show facade damage. Large crowds of evacuees have gathered ",
+ "hash": "7c438588be25b2ccdcf2820ab88093b7",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 360,
+  "totalTokens": 6440
+ },
+ "notes": [
+  "ffmpeg 886 ms",
+  "input: video+hires",
+  "gemini 7242 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

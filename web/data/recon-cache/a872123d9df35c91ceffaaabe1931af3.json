@@ -1,0 +1,53 @@
+{
+ "chunkIndex": 6,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6809,
+ "buildings": [
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5478",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5504",
+   "notes": "no debris on carriageway"
+  }
+ ],
+ "crowds": [],
+ "summary": "Ferry Building (B5504) and Pier 1 (B5478) appear intact with no visible structural damage, fire, or smoke. The Embarcadero is clear and passable in front of the Ferry Building. After s3, the helicopter moves out over the bay water with no further buildings visible.",
+ "hash": "a872123d9df35c91ceffaaabe1931af3",
+ "usage": {
+  "promptTokens": 5969,
+  "outputTokens": 131,
+  "totalTokens": 6100
+ },
+ "notes": [
+  "ffmpeg 652 ms",
+  "input: video+hires",
+  "gemini 6157 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

@@ -1,0 +1,160 @@
+{
+ "chunkIndex": 1223,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 23175,
+ "buildings": [
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roofline and facade intact, no debris; Pine and Battery clear at corner"
+  },
+  {
+   "id": "B4960",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked blackened facade, roof crater with one person in pink signalling"
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Reduced to a roofless rubble ruin spilling debris toward Battery Street"
+  },
+  {
+   "id": "B4987",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Collapsed into a dark rubble pile beside Battery Street"
+  },
+  {
+   "id": "B4916",
+   "damage": "moderate",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened and cracked facade patches across upper floors, building upright"
+  },
+  {
+   "id": "B4973",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Facade staining and cracks with light debris along Pine Street base"
+  },
+  {
+   "id": "B4904",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof puncture and facade cracking visible on upper levels"
+  },
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.82,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Damaged roof surface and facade cracking along Battery Street"
+  },
+  {
+   "id": "B4995",
+   "damage": "moderate",
+   "confidence": 0.82,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked roof and blackened facade sections on upper tower"
+  },
+  {
+   "id": "B5048",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4921",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B4981",
+   "notes": "Roadway open and clear of debris along B4981"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4981",
+   "notes": "Clear at B4981 corner but debris spills across road near B4987"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4981 (201 Pine St) is undamaged with no people visible and clear access via Pine Street and the north end of Battery Street. Immediately adjacent, B4960 (235 Pine St) has extensive damage with one trapped person on the roof signalling for help. Further south on Battery Street, B4987 and B505",
+ "hash": "793ce12d2f079cacc8303979685c1222",
+ "usage": {
+  "promptTokens": 5516,
+  "outputTokens": 717,
+  "thoughtsTokens": 845,
+  "totalTokens": 7078
+ },
+ "notes": [
+  "ffmpeg 439 ms",
+  "input: video+hires",
+  "gemini 22735 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

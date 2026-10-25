@@ -1,0 +1,155 @@
+{
+ "chunkIndex": 1113,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9890,
+ "buildings": [
+  {
+   "id": "B4721",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavy facade scorching, two people on roof; Leidesdorff St partly blocked."
+  },
+  {
+   "id": "B4750",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Severe roof and upper-floor damage, blackened walls, debris in alley."
+  },
+  {
+   "id": "B4738",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavy scorching and upper facade damage next to B4750."
+  },
+  {
+   "id": "B4781",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Darkened roof and upper walls with debris along base."
+  },
+  {
+   "id": "B4694",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Light facade staining on side facing B4721, structure intact."
+  },
+  {
+   "id": "B4668",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Collapsed into low rubble ruin with jagged walls."
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4801",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4842",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B4567",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4721",
+   "notes": "Debris along base of B4721 narrows alley."
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4721",
+   "notes": "Roadway open with pedestrians evacuating near Montgomery."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 6,
+   "place": "California St & Montgomery St intersection",
+   "nearBuildingId": "B4668"
+  }
+ ],
+ "summary": "Target B4721 (75 Leidesdorff St) has moderate facade and roof damage with 2 people stranded on the roof; Leidesdorff Street is partially obstructed by debris while California Street is clear. Nearby B4668 (400 Montgomery St) has collapsed, B4750 has extensive damage, and ~35 people are gathered at t",
+ "hash": "ec50be3c713da457dd8f9cc7d72d1dce",
+ "usage": {
+  "promptTokens": 5643,
+  "outputTokens": 580,
+  "totalTokens": 6223
+ },
+ "notes": [
+  "ffmpeg 382 ms",
+  "input: video+hires",
+  "gemini 9508 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,145 @@
+{
+ "chunkIndex": 1232,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11511,
+ "buildings": [
+  {
+   "id": "B5221",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked facade, light base debris, upright; 1st Street access clear"
+  },
+  {
+   "id": "B5230",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Stained roof, cracked facade patches, small debris skirt along base"
+  },
+  {
+   "id": "B5187",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Roofless ruin with jagged wall stubs around central rubble pile"
+  },
+  {
+   "id": "B5188",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked facade and minor base rubble adjacent to collapsed B5187"
+  },
+  {
+   "id": "B5191",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked and darkened facade with small rubble skirt at base"
+  },
+  {
+   "id": "B5203",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked facade and minor base debris along Mission Street"
+  },
+  {
+   "id": "B5153",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5165",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5221",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5203",
+   "notes": "Roadway open and clear"
+  },
+  {
+   "street": "FREMONT STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5230",
+   "notes": "Roadway open and clear"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5221 (2F Office) shows moderate damage with facade cracking and light base debris, with no people or trapped signs visible. Nearby B5187 (84 1st St) has completely collapsed into a rubble pile, while B5230, B5188, B5191, and B5203 show moderate facade damage. 1st Street, Mission Street, and ",
+ "hash": "d325fceb49e4a386e568499cfc8f4193",
+ "usage": {
+  "promptTokens": 5053,
+  "outputTokens": 583,
+  "thoughtsTokens": 283,
+  "totalTokens": 5919
+ },
+ "notes": [
+  "ffmpeg 300 ms",
+  "input: video+hires",
+  "gemini 11211 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

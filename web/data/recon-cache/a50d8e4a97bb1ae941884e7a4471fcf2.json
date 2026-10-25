@@ -1,0 +1,162 @@
+{
+ "chunkIndex": 1120,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15299,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 2,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Target tower intact, facade continuous, Sutter and Market Streets clear"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof completely broken in, hollowed interior with rubble pile"
+  },
+  {
+   "id": "B4860",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roof collapsed into rubble adjacent to 554 Market"
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Darkened roof with surface debris and damaged rear wall"
+  },
+  {
+   "id": "B4827",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B4957",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4839",
+   "notes": "Roadway open and clear of debris next to target"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4895",
+   "notes": "Roadway clear of rubble with pedestrians gathered"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 30,
+   "evidenceS": 3,
+   "place": "Market Street and 2nd Street",
+   "nearBuildingId": "B4805"
+  },
+  {
+   "approxCount": 25,
+   "evidenceS": 7,
+   "place": "Ecker Plaza near 532 Market St",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target B4839 (1 Sansome St) is undamaged with two people visible on the lower setback roof and no signs of distress. Adjacent low-rise buildings B4869 (554 Market St) and B4860 (560 Market St) have collapsed roofs, while B4849 (562 Market St) has moderate damage. Sutter Street and Market Street rema",
+ "hash": "a50d8e4a97bb1ae941884e7a4471fcf2",
+ "usage": {
+  "promptTokens": 5299,
+  "outputTokens": 519,
+  "thoughtsTokens": 514,
+  "totalTokens": 6332
+ },
+ "notes": [
+  "ffmpeg 276 ms",
+  "input: video+hires",
+  "gemini 15023 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

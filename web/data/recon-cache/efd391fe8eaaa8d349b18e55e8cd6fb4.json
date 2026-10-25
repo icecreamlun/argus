@@ -1,0 +1,115 @@
+{
+ "chunkIndex": 1122,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11170,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Roofless rubble pile between high-rises; Sutter Street access partially blocked"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Reduced to rubble pile along street"
+  },
+  {
+   "id": "B4849",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Leaning with roof damage and debris at base"
+  },
+  {
+   "id": "B4759",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Debris scattered on lower roof; structure upright and intact"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 6,
+   "nearBuildingId": "B4813",
+   "notes": "Debris from B4813 and B4869 spills onto roadway"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B4895",
+   "notes": "Roadway open next to B4895"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) has completely collapsed into a rubble pile in the canyon between high-rises, with no people or trapped signs visible. Neighboring B4869 is also collapsed and B4849 shows extensive damage, partially obstructing Sutter Street access.",
+ "hash": "efd391fe8eaaa8d349b18e55e8cd6fb4",
+ "usage": {
+  "promptTokens": 5027,
+  "outputTokens": 402,
+  "totalTokens": 5429
+ },
+ "notes": [
+  "ffmpeg 398 ms",
+  "input: video+hires",
+  "gemini 10772 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,108 @@
+{
+ "chunkIndex": 1211,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10162,
+ "buildings": [
+  {
+   "id": "B5400",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "High-rise facade intact on all visible sides; surrounding streets clear."
+  },
+  {
+   "id": "B5376",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5391",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway completely clear of debris."
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear of debris."
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5400",
+   "notes": "Roadway open and clear alongside target."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 2,
+   "place": "Courtyard plaza west of Main Street",
+   "nearBuildingId": "B5391"
+  }
+ ],
+ "summary": "Target B5400 (77 Beale St) is undamaged with all visible facades intact and no people or trapped signs observed. Surrounding Mission, Beale, and Main Streets are completely clear for access. Approximately 80 people are gathered in an open courtyard plaza near B5391.",
+ "hash": "5b614f4477567823a387d07a025af621",
+ "usage": {
+  "promptTokens": 4559,
+  "outputTokens": 301,
+  "thoughtsTokens": 323,
+  "totalTokens": 5183
+ },
+ "notes": [
+  "ffmpeg 260 ms",
+  "input: video+hires",
+  "gemini 9902 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

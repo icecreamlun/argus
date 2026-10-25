@@ -77,7 +77,7 @@ A police helicopter flies a fixed route over the damage. Its gimbal camera is re
 <td><img src="docs/img/recon.jpg" alt="Reconstruction on the city and the AIR panel"/><br/><sub>Argon's reconstruction on the city; the model is corrected live</sub></td>
 </tr></table>
 
-**Correcting the model, not just labelling footage.** Every observation tells Argus how much harder or softer the ground shook at that spot than the median. Ground motion is spatially correlated, so that correction spreads to nearby unobserved buildings, the same idea as a ShakeMap updated with field reports. Seeing **7% of the city** improves the damage picture for **all of it**.
+**Correcting the model, not just labelling footage.** Every observation tells Argus how much harder or softer the ground shook at that spot than the median. Ground motion is spatially correlated, so that correction spreads to nearby unobserved buildings, the same idea as a ShakeMap updated with field reports. Assessing **7% of the city** improves the damage picture for **all of it**.
 
 ### 4. Argon decides where to look next, and the commander approves
 After the helicopter pass, Argon reasons over **uncertainty**, never over truth: unscanned high-risk blocks, low-confidence calls, places where the model and the footage disagree, and people at risk. It proposes drone missions with a rationale. **The simulation pauses for the commander's Approve.** Three drones fly low orbits, the close-up video goes back to Argon, and a second wave follows.
@@ -100,10 +100,10 @@ Argus packages the live situation: Argon-verified incidents, unverified model ri
 
 Measured on the recorded live run (1906 repeat, 15:00 local), scored against the simulator's hidden ground truth on the **xBD** aerial damage scale (no damage / minor / major / destroyed):
 
-| | Model alone | + AIR 1 helicopter | + 2 drone waves |
-|---|---:|---:|---:|
-| **Whole core area** (1,902 buildings), xBD macro-F1 | 33% | 38% | **42%** |
-| Buildings Argon assessed, xBD macro-F1 | 28% | 51% | **55%** |
+| xBD macro-F1 | Model alone | Model + Argon |
+|---|---:|---:|
+| **Buildings Argon assessed** (135, scored on the same buildings) | 29% | **53%** |
+| **Whole core area** (1,902 buildings, including the ones nobody saw) | 33% | 37% after AIR 1 → **40%** after 2 drone waves |
 
 - **Drone targets:** Argon's close-up call was right on **14 of 20** targets; the model alone got 7.
 - **The model alone cannot tell intact from destroyed.** It labels nearly everything "major damage". Argon finds the buildings that are fine (no search needed) and the ones that fell (search first).
