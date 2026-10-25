@@ -26,7 +26,7 @@ export const UNIT_META: Record<UnitType, { label: string; plural: string; icon: 
 export const PRIORITY_COLORS = ['#d7261e', '#f2621b', '#e3a512', '#8a9097'];
 
 export const QUICK_PROMPTS = [
-  '我现在有10辆消防车、20名警察、2架直升机、6辆救护车，如何安排救援路线和优先级？',
+  'I have 10 fire engines, 20 police officers, 2 helicopters and 6 ambulances. How should I route them, and what are the priorities?',
   'How many people are confirmed trapped, and where?',
   'Which roads should police clear first?',
   'Where should the helicopters go?',
@@ -176,7 +176,7 @@ export function createCopilot(handlers: UiHandlers, onOpenChange: (open: boolean
   const input = h('textarea', {
     class: 'ag-cop__input',
     rows: 1,
-    placeholder: 'Ask about units, routes, priorities…  (可用中文)',
+    placeholder: 'Ask about units, routes, priorities…',
     'aria-label': 'Message Argus Copilot',
     spellcheck: 'false',
   }) as HTMLTextAreaElement;

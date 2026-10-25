@@ -9,6 +9,11 @@
    "hash": "758bf2f045a9898451876ffeff608917",
    "question": "How many people are confirmed trapped, and where?",
    "simS": 807
+  },
+  "ihave10fireengines20policeofficers2helicoptersand6ambulanceshowshouldiroutethemandwhatarethepriorities": {
+   "hash": "5e5b2117b65905522a0a8a38c7ef047f",
+   "question": "I have 10 fire engines, 20 police officers, 2 helicopters and 6 ambulances. How should I route them, and what are the priorities?",
+   "simS": 760
   }
  }
 }

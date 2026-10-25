@@ -1,0 +1,99 @@
+{
+ "reply": "**Top 4 Roads for Police to Clear First (splitting 20 officers):**\n\n1. **Waverly Place (2 segments verified blocked) & Clay Street (1 verified blocked):** Highest priority. Clears immediate fire/ambulance access to **I-B3301** (collapsed, active fire, 4 trapped; SFPD-CENTRAL ETA 3.1m) and **I-B3457** (collapsed, active fire; ETA 3.5m), plus **I-CROWD-1** (~200 people at Portsmouth Square).\n2. **Leidesdorff Street (1 verified blocked) & California Street (1 likely blocked, 1 partial):** Critical for **I-B4721** (leaning building, 2 on roof, ~40 people gathered north on California St; SFPD-CENTRAL ETA 3.7m) and collapsed **I-B3583** (717 California St).\n3. **Battery Street (1 verified, 1 likely blocked, 2 partial):** Opens the eastern corridor to **I-B4902** (447 Battery St, 4 trapped; STAGE-EMB ETA 2.7m) and **I-CROWD-2** (~160 people).\n4. **Pine Street (3 verified blocked, 1 partial):** Major east-west arterial blocked near collapsed **I-B4750** (348 Pine St; ETA 4.4m).\n\n**Uncertainty:** **California Street** and **Halleck Street** have model-predicted blockages—have police verify passability on arrival and cordon off leaning **I-B4721**.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed with fire and 4 trapped; Waverly Place blocked."
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4721",
+    "reason": "Leaning building, 2 on roof; Leidesdorff blocked, crowd on California."
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B3457",
+    "reason": "Collapsed building on fire; Clay Street verified blocked."
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B4902",
+    "reason": "4 trapped on Battery St; 1 verified and 1 likely blockage."
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4750",
+    "reason": "Collapsed (70 est. occupants); 3 verified blockages on Pine St."
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "police",
+    "count": 6,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3301",
+    "task": "Clear Waverly Place corridor and establish fire/ambulance access"
+   },
+   {
+    "unitType": "police",
+    "count": 5,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4721",
+    "task": "Cordon leaning structure, manage crowd, clear Leidesdorff and California"
+   },
+   {
+    "unitType": "police",
+    "count": 4,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B3457",
+    "task": "Clear Clay Street blockage and manage nearby Portsmouth Square crowd"
+   },
+   {
+    "unitType": "police",
+    "count": 5,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Clear Battery Street corridor and secure access from Embarcadero"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "2 verified blocked segments obstructing I-B3301 fire and rescue."
+   },
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "1 verified blocked segment at I-B4721; crowd on California St."
+   },
+   {
+    "roadName": "Clay Street",
+    "unitType": "police",
+    "reason": "1 verified blocked segment affecting I-B3457 fire and ambulance corridor."
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "1 verified, 1 likely blocked segment to I-B4902 trapped survivors."
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "Using your 20 police officers split between SFPD-CENTRAL (15) and STAGE-EMB (5).",
+   "Heavy debris on Pine Street or Leidesdorff Street may require SFFD trucks or public works to fully clear."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12036,
+ "hash": "aa78c596600efbf3f01482605fa1a558",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8435,
+  "outputTokens": 921
+ }
+}

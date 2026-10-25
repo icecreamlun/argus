@@ -1,0 +1,156 @@
+{
+ "reply": "**If Pine Street (currently 3 segments blocked, 1 partial) is cleared:**\n\n1. **Direct Access to I-B4750 (348 Pine St):** Verified collapse with 70 occupants (0.95 confidence). Current detour ETAs are 3.2m (SFFD-13) and 4.2m (STAGE-EMB). Clearing Pine St opens direct staging and heavy-rescue access to the building frontage.\n2. **Southern Bypass for I-B4721 (California Bank & Trust):** With Leidesdorff St blocked and California St partially blocked with a crowd of ~40 north of the building, an open Pine St provides a clean southern ambulance and engine corridor from **STAGE-EMB** (current ETA 3.3m) and **HOSP-STFRANCIS** (4.5m).\n3. **Faster East–West Ambulance Corridor:** Improves transport between Financial District incidents (**I-B4721**, **I-B4750**, **I-B4813**) and **HOSP-STFRANCIS** / **HOSP-CHINESE** without relying on congested California or Bush Streets.\n\n**What Does Not Change:**\n- **Top 3 life-safety priorities remain I-B3301 (fire + 4 trapped), I-B4721 (2 on roof; still needs helicopter hoist), and I-B3457 / I-B5528.**\n- Divert 1 engine from **STAGE-EMB** to **I-B4750** once Pine St is open.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed with active fire and 4 verified trapped (0.95 confidence)."
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4721",
+    "reason": "2 trapped on roof; Pine St opens southern ground staging."
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B3457",
+    "reason": "Collapsed building with active fire threatening survivors."
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B5528",
+    "reason": "4 verified trapped in high-occupancy building (5670 occupants)."
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4750",
+    "reason": "Verified collapse (70 occupants) directly accessible once Pine St clears."
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B3301",
+    "task": "Fire suppression and rescue of 4 trapped (ETA 2.6m)."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "Support fire attack and extrication (ETA 2.6m)."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "Triage and transport trapped survivors (ETA 2.3m)."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Rooftop hoist rescue for 2 trapped (air ETA 3.4m)."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4721",
+    "task": "Stage via Pine St for ground rescue and perimeter (ETA 3.3m)."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4750",
+    "task": "Search verified collapse directly on cleared Pine St (ETA 4.2m)."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B3457",
+    "task": "Extinguish fire in collapsed structure (ETA 3.9m)."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "Extricate 4 trapped survivors at Rincon Annex (ETA 2.6m)."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Extricate 4 trapped at 447 Battery St (ETA 2.7m)."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B5528",
+    "task": "Patient transport from Rincon Annex (ETA 3.0m)."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4721",
+    "task": "Use cleared Pine St corridor for medevac (ETA 4.5m)."
+   },
+   {
+    "unitType": "police",
+    "count": 20,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-B4750",
+    "task": "Split 5 each: Pine St, I-B3301, I-CROWD-1, I-CROWD-2."
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Pine Street",
+    "unitType": "police",
+    "reason": "Maintain newly cleared east-west corridor to I-B4750 and I-B4721."
+   },
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "Clear 2 blocked segments for I-B3301 fire and ambulance access."
+   },
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "Clear debris blocking ground access to I-B4721."
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "Keep corridor open for I-B4902 and I-B5528."
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "Using your 10 engines, 20 police, 2 helicopters, 6 ambulances.",
+   "2nd helicopter (HELI-P27) assigned to aerial recon of unverified I-B4804 and I-B4958.",
+   "Mutual aid requested for USAR and ladder trucks; pre-cleared road ETAs shown."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 22787,
+ "hash": "ba70393a8c922fe206e82fcb3a268b52",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8060,
+  "outputTokens": 1355
+ }
+}

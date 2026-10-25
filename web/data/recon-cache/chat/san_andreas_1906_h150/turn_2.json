@@ -1,8 +1,8 @@
 {
  "entries": {
   "howmanypeopleareconfirmedtrappedandwhere": {
-   "hash": "336d0bf78b30dbcc6558b0ab581c09c9",
-   "question": "How many people are confirmed trapped and where?",
+   "hash": "6e3e3a330497c042bc1de928d2a3e526",
+   "question": "How many people are confirmed trapped, and where?",
    "simS": 760
   },
   "whichroadsshouldpoliceclearfirst": {
@@ -14,6 +14,11 @@
    "hash": "90361b21bc245fa72f2d00829607fc9b",
    "question": "我现在有10辆消防车、20名警察、2架直升机、6辆救护车，如何安排救援路线和优先级？",
    "simS": 894
+  },
+  "ifpinestreetisclearedwhatchanges": {
+   "hash": "ba70393a8c922fe206e82fcb3a268b52",
+   "question": "If Pine Street is cleared, what changes?",
+   "simS": 760
   }
  }
 }

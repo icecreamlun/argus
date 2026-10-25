@@ -14,6 +14,11 @@
    "hash": "69b5029ba06dc500dcf620eed0f811a0",
    "question": "Where should the helicopters go?",
    "simS": 760
+  },
+  "whichroadsshouldpoliceclearfirst": {
+   "hash": "aa78c596600efbf3f01482605fa1a558",
+   "question": "Which roads should police clear first?",
+   "simS": 760
   }
  }
 }

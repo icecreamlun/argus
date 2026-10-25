@@ -1,0 +1,156 @@
+{
+ "reply": "**Top 3 Priorities (18 people seen, 5 verified trapped sites, 12 collapses, 2 fires):**\n1. **I-B3301 (53 Waverly Pl):** Collapsed with active fire and 4 people trapped (0.95 confidence). Route 2 engines (SFFD-13, SFFD-2; ETA 2.6m) and 2 ambulances (HOSP-CHINESE; ETA 2.3m).\n2. **I-B4721 (California Bank & Trust):** Extensive damage, 2 trapped on roof, Leidesdorff St blocked. Send 1 helicopter (HELI-P27; air ETA 3.4m) for hoist rescue, plus 1 engine (SFFD-28; ETA 4.0m).\n3. **I-B3457 (805 Clay St) & I-B5528 (Rincon Annex):** Active fire in collapsed I-B3457 (2 engines, ETA 3.9–4.2m) and 4 trapped at high-occupancy I-B5528 (2 engines from SFFD-35; ETA 2.6m).\n\n**Other Routing & Uncertainty:**\n- Engines & ambulances to remaining trapped sites **I-B4902** and **I-B4584**.\n- Split 20 police across **I-B3301**, **I-B4721**, **I-CROWD-1** (~200 people), and **I-CROWD-2** (~160 people) to clear Waverly Pl, Leidesdorff St, California St, and Battery St.\n- 57% of area is unscanned. Send 2nd helicopter to recon unverified **I-B4804** and **I-B4958** before committing heavy rescue. Request mutual-aid USAR and ladder trucks immediately.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B3301",
+    "reason": "Collapsed building with active fire and 4 verified trapped survivors."
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4721",
+    "reason": "Extensive damage, 2 trapped on roof, Leidesdorff St debris blockage."
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B3457",
+    "reason": "Verified building collapse with active fire threatening adjacent structures."
+   },
+   {
+    "rank": 4,
+    "incidentId": "I-B5528",
+    "reason": "4 verified trapped survivors in high-occupancy building (5670 occupants)."
+   },
+   {
+    "rank": 5,
+    "incidentId": "I-B4902",
+    "reason": "4 verified trapped survivors in extensively damaged 60-occupant building."
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-13",
+    "incidentId": "I-B3301",
+    "task": "Suppress fire and conduct initial light rescue for 4 trapped."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-2",
+    "incidentId": "I-B3301",
+    "task": "Support fire suppression and rescue at collapsed building."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "SFFD-35",
+    "incidentId": "I-B5528",
+    "task": "Extricate 4 trapped survivors at Rincon Annex."
+   },
+   {
+    "unitType": "engine",
+    "count": 3,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B4902",
+    "task": "Rescue 4 trapped at I-B4902 and nearby I-B4584."
+   },
+   {
+    "unitType": "engine",
+    "count": 1,
+    "fromFacilityId": "SFFD-28",
+    "incidentId": "I-B4721",
+    "task": "Stabilize perimeter and assist ground access at B4721."
+   },
+   {
+    "unitType": "engine",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B3457",
+    "task": "Extinguish collapse fire at 805 Clay St."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Rooftop hoist rescue of 2 survivors signaling on roof."
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4804",
+    "task": "Aerial recon of unverified collapses I-B4804, I-B4670, I-B4958."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-CHINESE",
+    "incidentId": "I-B3301",
+    "task": "Triage and transport burn/trauma patients to Chinese Hospital."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "STAGE-EMB",
+    "incidentId": "I-B5528",
+    "task": "Medical transport for rescued survivors at Rincon Annex."
+   },
+   {
+    "unitType": "ambulance",
+    "count": 2,
+    "fromFacilityId": "HOSP-STFRANCIS",
+    "incidentId": "I-B4721",
+    "task": "Standby medical transport for I-B4721 and I-B4902 survivors."
+   },
+   {
+    "unitType": "police",
+    "count": 20,
+    "fromFacilityId": "SFPD-CENTRAL",
+    "incidentId": "I-CROWD-1",
+    "task": "Split 5 officers each to I-CROWD-1, I-CROWD-2, I-B3301, I-B4721."
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Waverly Place",
+    "unitType": "police",
+    "reason": "2 segments verified blocked; secure fire and ambulance access to I-B3301."
+   },
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "1 segment verified blocked by debris; cordon leaning building I-B4721."
+   },
+   {
+    "roadName": "California Street",
+    "unitType": "police",
+    "reason": "Manage crowd of 40 and keep ambulance corridor open near I-B4721."
+   },
+   {
+    "roadName": "Battery Street",
+    "unitType": "police",
+    "reason": "1 verified and 1 likely blocked segment; clear access to I-B4902."
+   }
+  ],
+  "reassessInMinutes": 10,
+  "assumptions": [
+   "2 extra engines assumed at STAGE-EMB to match your 10-engine total.",
+   "No ladder trucks or USAR specified; request mutual-aid USAR and trucks immediately.",
+   "20 police from SFPD-CENTRAL split into 4 teams of 5 across key sites."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 19264,
+ "hash": "5e5b2117b65905522a0a8a38c7ef047f",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 7613,
+  "outputTokens": 1925
+ }
+}

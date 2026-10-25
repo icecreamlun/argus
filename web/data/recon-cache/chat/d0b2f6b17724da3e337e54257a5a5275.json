@@ -1,0 +1,60 @@
+{
+ "reply": "**Helicopter Routing (2 units at Pier 27, HELI-P27):**\n\n1. **Helicopter 1 → I-B4721 (California Bank and Trust, 75 Leidesdorff St) — Air ETA 3.4 min:**\n   - **Mission:** Rooftop hoist rescue & medevac.\n   - **Justification:** **2 people confirmed trapped on the roof** signaling for help (0.95 confidence). The building has extensive damage and a slight lean, and **Leidesdorff Street is verified blocked** by debris, preventing ladder access. Transport patients directly to **HOSP-STFRANCIS** or **HOSP-CHINESE**.\n\n2. **Helicopter 2 → Aerial Recon Loop starting at I-B4804 (400 California St, Air ETA 3.3 min) & I-B4958 (600 Battery St, Air ETA 3.2 min):**\n   - **Mission:** Rapid recon of unverified high-risk collapses and fire spread.\n   - **Justification:** **57% of the area is still unscanned.** Verify high-probability/high-occupancy unverified targets **I-B4804** (0.64 collapse prob, 55 occupants), **I-B4670** (30 Hotaling Pl, 0.60 prob, 69 occupants), and **I-B4958** (257 occupants) before committing scarce ground units, while monitoring fire plumes at **I-B3301** and **I-B3457**.",
+ "plan": {
+  "priorities": [
+   {
+    "rank": 1,
+    "incidentId": "I-B4721",
+    "reason": "2 trapped on roof of leaning building; Leidesdorff St blocked"
+   },
+   {
+    "rank": 2,
+    "incidentId": "I-B4804",
+    "reason": "Unverified 0.64 collapse prob (55 occupants); needs aerial recon"
+   },
+   {
+    "rank": 3,
+    "incidentId": "I-B4958",
+    "reason": "Unverified collapse with 257 est. occupants; needs aerial recon"
+   }
+  ],
+  "assignments": [
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4721",
+    "task": "Hoist rescue 2 people on roof (air ETA 3.4m)"
+   },
+   {
+    "unitType": "helicopter",
+    "count": 1,
+    "fromFacilityId": "HELI-P27",
+    "incidentId": "I-B4804",
+    "task": "Aerial recon of I-B4804, I-B4670, and I-B4958 (air ETA 3.3m)"
+   }
+  ],
+  "routeClearing": [
+   {
+    "roadName": "Leidesdorff Street",
+    "unitType": "police",
+    "reason": "Blocked below I-B4721; cordon leaning structure during hoist"
+   }
+  ],
+  "reassessInMinutes": 5,
+  "assumptions": [
+   "Focusing plan on the 2 helicopters at HELI-P27 per your question.",
+   "Ground units remain on prior assignments to I-B3301, I-B5528, I-B3457."
+  ]
+ },
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 26197,
+ "hash": "d0b2f6b17724da3e337e54257a5a5275",
+ "promptVersion": "argus-copilot-v3",
+ "notes": [],
+ "usage": {
+  "promptTokens": 8812,
+  "outputTokens": 699
+ }
+}
