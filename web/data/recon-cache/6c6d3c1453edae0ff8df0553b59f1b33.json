@@ -1,0 +1,213 @@
+{
+ "chunkIndex": 1213,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10295,
+ "buildings": [
+  {
+   "id": "B4960",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Facade holes and cracking, 1 person on roof; Pine St clear"
+  },
+  {
+   "id": "B4916",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Moderate facade cracking and roof wear, upright"
+  },
+  {
+   "id": "B4935",
+   "damage": "extensive",
+   "confidence": 0.92,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Large hole in roof and upper floor collapse, heavy facade damage"
+  },
+  {
+   "id": "B5057",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Low-rise commercial building collapsed into rubble"
+  },
+  {
+   "id": "B4904",
+   "damage": "slight",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Light facade streaking and minor roof wear"
+  },
+  {
+   "id": "B4973",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Darkened roof and minor facade distress"
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Darkened roof with minor surface debris"
+  },
+  {
+   "id": "B4969",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Severe roof damage and dark facade patches"
+  },
+  {
+   "id": "B4981",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4985",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4987",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5042",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B4919",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B4960",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 2,
+   "nearBuildingId": "B5057",
+   "notes": "Rubble along East side near B5057, lane partially obstructed"
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4916",
+   "notes": "Street open with light surface debris"
+  },
+  {
+   "street": "BUSH STREET",
+   "status": "partial",
+   "evidenceS": 9,
+   "nearBuildingId": "B4935",
+   "notes": "Debris spilling onto roadway from adjacent damaged towers"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 5,
+   "place": "Intersection / plaza South of Sansome and Bush",
+   "nearBuildingId": "B4935"
+  }
+ ],
+ "summary": "Target B4960 (235 Pine St) has extensive facade damage with one person trapped on the roof. Pine Street and Sansome Street provide clear access to the target, though nearby B4935 (100 Sansome St) also suffered extensive upper-floor collapse and B5057 (32 Battery St) is collapsed. A crowd of about 35",
+ "hash": "6c6d3c1453edae0ff8df0553b59f1b33",
+ "usage": {
+  "promptTokens": 5937,
+  "outputTokens": 772,
+  "totalTokens": 6709
+ },
+ "notes": [
+  "ffmpeg 460 ms",
+  "input: video+hires",
+  "gemini 9834 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

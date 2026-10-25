@@ -1,0 +1,100 @@
+{
+ "chunkIndex": 1222,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11225,
+ "buildings": [
+  {
+   "id": "B5391",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracked facade patches, roof debris; occluded after s3; Main St clear"
+  },
+  {
+   "id": "B5376",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Small cracks on facade and roof debris"
+  },
+  {
+   "id": "B5357",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Slight roof staining and minor facade cracks"
+  },
+  {
+   "id": "B5334",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Minor roof debris, facade appears mostly intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5391",
+   "notes": "Clear of debris near target building"
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5334",
+   "notes": "Clear roadway, crowd on sidewalk near B5334"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 6,
+   "place": "Beale Street sidewalk",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5391 (58 Main St) shows moderate damage with facade cracks and roof debris, though views after s3 are blocked by an adjacent high-rise; no people or trapped signs are visible on it. Neighboring buildings B5376, B5357, and B5334 have slight damage, with a crowd of about 25 gathered on the Bea",
+ "hash": "ba5f903dcf9ad52fc69d15724d0ebd6f",
+ "usage": {
+  "promptTokens": 4810,
+  "outputTokens": 451,
+  "totalTokens": 5261
+ },
+ "notes": [
+  "ffmpeg 504 ms",
+  "input: video+hires",
+  "gemini 10721 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

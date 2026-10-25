@@ -1,0 +1,166 @@
+{
+ "chunkIndex": 1222,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8439,
+ "buildings": [
+  {
+   "id": "B5094",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Tall white tower intact on all sides; Pine Street clear."
+  },
+  {
+   "id": "B5042",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof staining and facade cracks, light debris at base."
+  },
+  {
+   "id": "B5091",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Facade streaking and roof staining, minor base debris, upright."
+  },
+  {
+   "id": "B5048",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracked facade and roof debris, upright."
+  },
+  {
+   "id": "B5057",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Heavy roof damage and rubble, partial collapse."
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5007",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5094",
+   "notes": "Clear of debris between B5094 and B5103."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5048",
+   "notes": "Clear along B5025 and B5048."
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5091",
+   "notes": "Clear of debris near B5091 and B5025."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5094 (100 Pine St) is completely intact with no visible damage, fire, or trapped people, and Pine Street is clear for access. Nearby buildings B5042, B5091, and B5048 show slight facade/roof damage, while B5057 (32 Battery St) has extensive roof damage. An untagged building west of Battery S",
+ "hash": "5a0b7ec932c960f24bf9cdddd2a6d1f1",
+ "usage": {
+  "promptTokens": 5592,
+  "outputTokens": 563,
+  "totalTokens": 6155
+ },
+ "notes": [
+  "ffmpeg 298 ms",
+  "input: video+hires",
+  "gemini 8140 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

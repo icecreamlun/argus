@@ -1,0 +1,50 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "With the police helicopter's flight complete, we are launching two drones to cover critical gaps and high-priority hazards. Drone 1 will survey the unscanned FiDi URM-infill block at One Sansome Street, which holds over 9,000 occupants and a 65% predicted collapse risk. Drone 2 will verify an active fire at 201 California St and inspect trapped survivors reported at 100 Battery St, California Bank and Trust, and 350 Bush St, while Drone 3 remains in reserve for follow-ups.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Survey the unscanned One Sansome Street URM-infill block with ~9,000 occupants and high predicted collapse risk.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5091",
+    "B5042",
+    "B4721",
+    "B4463"
+   ],
+   "purpose": "Confirm fire at 201 California St and assess trapped occupants at 100 Battery St, California Bank, and 350 Bush St.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6476,
+ "createdAtSimS": 249,
+ "hash": "b75fea7241053c8921d043e965528388",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5613,
+  "outputTokens": 280
+ },
+ "notes": []
+}

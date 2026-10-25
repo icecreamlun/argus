@@ -1,0 +1,111 @@
+{
+ "chunkIndex": 1231,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7423,
+ "buildings": [
+  {
+   "id": "B5230",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked roof and facade, light rubble skirt; Fremont Street clear"
+  },
+  {
+   "id": "B5221",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked roof surface and facade streaks, light base debris"
+  },
+  {
+   "id": "B5286",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Visible roof cracks and spalling"
+  },
+  {
+   "id": "B5165",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5181",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FREMONT STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5230",
+   "notes": "Roadway open and clear of debris next to target B5230"
+  },
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5221",
+   "notes": "Roadway clear of debris south of B5221"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 100,
+   "evidenceS": 5,
+   "place": "Courtyard / plaza northwest of B5181",
+   "nearBuildingId": "B5181"
+  }
+ ],
+ "summary": "Target B5230 (50 Fremont St) has moderate damage with roof and facade cracking and a light rubble skirt, with no people or trapped signs visible. Adjoining B5221 also shows moderate damage, while high-rises B5165 and B5181 are intact. Fremont Street and 1st Street remain clear for emergency access.",
+ "hash": "cda9868fcc04769cd25f3d2b168b9285",
+ "usage": {
+  "promptTokens": 5059,
+  "outputTokens": 400,
+  "totalTokens": 5459
+ },
+ "notes": [
+  "ffmpeg 374 ms",
+  "input: video+hires",
+  "gemini 7049 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

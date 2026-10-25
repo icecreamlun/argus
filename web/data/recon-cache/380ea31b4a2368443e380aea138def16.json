@@ -1,0 +1,100 @@
+{
+ "chunkIndex": 1212,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7645,
+ "buildings": [
+  {
+   "id": "B5391",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked facade and roof damage, slight lean; adjacent Main Street clear."
+  },
+  {
+   "id": "B5376",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof damage and facade cracks visible on low parking structure."
+  },
+  {
+   "id": "B5428",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Roof staining and minor surface damage on small civic structure."
+  },
+  {
+   "id": "B5334",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5391",
+   "notes": "Roadway open and clear of debris near target."
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5334",
+   "notes": "Roadway open and clear of debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 6,
+   "place": "Beale Street sidewalk",
+   "nearBuildingId": "B5334"
+  }
+ ],
+ "summary": "Target B5391 (58 Main St) shows moderate damage with roof and facade cracking, but no people or trapped signs are visible. Adjacent B5376 also has moderate roof damage, while B5334 and B5357 appear intact. Both Main Street and Beale Street are clear for emergency access, with a crowd of about 25 peo",
+ "hash": "380ea31b4a2368443e380aea138def16",
+ "usage": {
+  "promptTokens": 4810,
+  "outputTokens": 383,
+  "totalTokens": 5193
+ },
+ "notes": [
+  "ffmpeg 324 ms",
+  "input: video+hires",
+  "gemini 7321 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

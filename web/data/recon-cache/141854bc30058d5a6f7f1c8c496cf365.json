@@ -1,0 +1,79 @@
+{
+ "chunkIndex": 1221,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9287,
+ "buildings": [
+  {
+   "id": "B5183",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Curved facade and roofline intact, no debris; Market and Front clear"
+  },
+  {
+   "id": "B5261",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5237",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5183",
+   "notes": "Roadway open and clear of debris along target"
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5183",
+   "notes": "Roadway clear of debris along western side of target"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 8,
+   "place": "Plaza adjacent to B5237",
+   "nearBuildingId": "B5237"
+  }
+ ],
+ "summary": "Target B5183 (388 Market St) is undamaged with no visible debris, fire, or people in distress. Surrounding buildings B5261 and B5237 are also intact, though a crowd of about 80 people has gathered beside B5237. Both Market Street and Front Street are completely clear for access.",
+ "hash": "141854bc30058d5a6f7f1c8c496cf365",
+ "usage": {
+  "promptTokens": 4700,
+  "outputTokens": 268,
+  "thoughtsTokens": 210,
+  "totalTokens": 5178
+ },
+ "notes": [
+  "ffmpeg 290 ms",
+  "input: video+hires",
+  "gemini 8997 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

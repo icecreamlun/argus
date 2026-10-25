@@ -1,0 +1,140 @@
+{
+ "chunkIndex": 1111,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9460,
+ "buildings": [
+  {
+   "id": "B4827",
+   "damage": "slight",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Slight roof surface wear, facade upright and intact, Bush Street clear."
+  },
+  {
+   "id": "B4731",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked roof surface with dark patch, upper facade intact."
+  },
+  {
+   "id": "B4833",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Heavy blackened facade patches on side, roof surface cracked."
+  },
+  {
+   "id": "B4957",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 70,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Intact circular pavilion surrounded by large crowd of people."
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Cracked roof and blackened facade patches."
+  },
+  {
+   "id": "B4860",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B4869",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BUSH STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B4827",
+   "notes": "Roadway open and clear of major debris along target."
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B4957",
+   "notes": "Street clear next to plaza."
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 11,
+   "nearBuildingId": "B4827",
+   "notes": "Roadway open and clear."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 70,
+   "evidenceS": 7,
+   "place": "Plaza at 532 Market St",
+   "nearBuildingId": "B4957"
+  }
+ ],
+ "summary": "Target B4827 (225 Bush St) has only slight roof surface wear with an intact facade and no trapped people. Neighbouring B4833 (220 Bush St) and B4731 (180 Montgomery St) show moderate damage with blackened facade patches and roof cracking. Bush, Sansome, and Sutter Streets are clear for access, and a",
+ "hash": "ca476b02e9c9784a1c6f5d08802d85a4",
+ "usage": {
+  "promptTokens": 5304,
+  "outputTokens": 565,
+  "totalTokens": 5869
+ },
+ "notes": [
+  "ffmpeg 293 ms",
+  "input: video+hires",
+  "gemini 9167 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

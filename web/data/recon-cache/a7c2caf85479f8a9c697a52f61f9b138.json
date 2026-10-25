@@ -1,0 +1,138 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12779,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Reduced to rubble heap between towers, debris spilling onto Sutter Street"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.88,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Collapsed into a low rubble pile between neighboring buildings"
+  },
+  {
+   "id": "B4860",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked and darkened facade next to collapsed B4813"
+  },
+  {
+   "id": "B4820",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Small building with debris and dark facade staining"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4869",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4849",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 7,
+   "nearBuildingId": "B4813",
+   "notes": "Debris apron from collapsed B4813 encroaching on roadway"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B4895",
+   "notes": "Roadway open and clear of major rubble"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) has completely collapsed into a rubble pile wedged between the surrounding high-rises, with no people or trapped signs visible from the air. Nearby B4879 (550 Market St) is also collapsed, while adjacent B4860 and B4820 show moderate damage. Sutter Street is partially obstru",
+ "hash": "a7c2caf85479f8a9c697a52f61f9b138",
+ "usage": {
+  "promptTokens": 5384,
+  "outputTokens": 444,
+  "thoughtsTokens": 381,
+  "totalTokens": 6209
+ },
+ "notes": [
+  "ffmpeg 258 ms",
+  "input: video+hires",
+  "gemini 12521 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

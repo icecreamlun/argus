@@ -1,0 +1,156 @@
+{
+ "chunkIndex": 1120,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13414,
+ "buildings": [
+  {
+   "id": "B5091",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked and darkened facade patches, minor base debris; streets clear."
+  },
+  {
+   "id": "B5037",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Reduced to a roofless rubble ruin with jagged wall stubs."
+  },
+  {
+   "id": "B5046",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Collapsed into a low rubble ruin alongside neighbouring structure."
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5007",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5042",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5090",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5075",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5058",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5036",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5091",
+   "notes": "Roadway open and clear of rubble along target frontage."
+  },
+  {
+   "street": "FRONT STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5091",
+   "notes": "Street clear and passable beside target building."
+  },
+  {
+   "street": "BATTERY STREET",
+   "status": "partial",
+   "evidenceS": 1,
+   "nearBuildingId": "B5025",
+   "notes": "Debris and fire spilling onto roadway from adjacent block."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5091 (201 California St) has moderate facade and roof cracking with no visible people or trapped signs, and both California Street and Front Street remain clear for access. Nearby on Sacramento Street, B5037 and B5046 have completely collapsed into rubble ruins.",
+ "hash": "4ceb3c7c52623ecfb66ba6c9005fc373",
+ "usage": {
+  "promptTokens": 5888,
+  "outputTokens": 402,
+  "thoughtsTokens": 482,
+  "totalTokens": 6772
+ },
+ "notes": [
+  "ffmpeg 619 ms",
+  "input: video+hires",
+  "gemini 12794 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

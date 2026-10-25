@@ -1,0 +1,134 @@
+{
+ "chunkIndex": 1113,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 16812,
+ "buildings": [
+  {
+   "id": "B4860",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Target collapsed into roofless ruin between neighbors; Sutter St edge has rubble"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Collapsed into rubble core between B4879 and B4860"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Crushed and collapsed low-rise with debris spilling toward Sutter St"
+  },
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Collapsed into a rubble pile in the rear alley area"
+  },
+  {
+   "id": "B4849",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Upright but heavy roof distress, facade cracks and rubble at rear base"
+  },
+  {
+   "id": "B4895",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Flatiron building upright with minor facade streaks and adjacent rubble"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4805",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 10,
+   "nearBuildingId": "B4860",
+   "notes": "Rubble apron along curb next to collapsed B4879/B4869/B4860, roadway mostly passable"
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 11,
+   "nearBuildingId": "B4860",
+   "notes": "Main roadway open with light curb debris near B4860"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 6,
+   "place": "Market Street",
+   "nearBuildingId": "B4805"
+  }
+ ],
+ "summary": "Target B4860 (560 Market St) and adjacent low-rises B4869 and B4879 have collapsed into rubble between B4895 and B4849, with B4813 also collapsed in the rear and B4849 sustaining extensive damage. No people or trapped signs are visible on the target rubble, though a crowd of about 25 is gathered fur",
+ "hash": "6688a443f669e99be5978aeb85c1245e",
+ "usage": {
+  "promptTokens": 5389,
+  "outputTokens": 623,
+  "thoughtsTokens": 491,
+  "totalTokens": 6503
+ },
+ "notes": [
+  "ffmpeg 339 ms",
+  "input: video+hires",
+  "gemini 16473 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

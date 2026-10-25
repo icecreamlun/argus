@@ -1,0 +1,133 @@
+{
+ "chunkIndex": 1113,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8769,
+ "buildings": [
+  {
+   "id": "B4860",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Roof broken in, rubble core, debris on Market St"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Reduced to rubble core between neighbours"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Crushed between neighbours, broken roof and walls"
+  },
+  {
+   "id": "B4895",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Cracks on facade, light rubble skirt at base"
+  },
+  {
+   "id": "B4849",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Blackened cracked facade patches, broken windows, rubble at base"
+  },
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Reduced to low rubble pile in courtyard"
+  },
+  {
+   "id": "B4820",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked facade and debris at base"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "partial",
+   "evidenceS": 10,
+   "nearBuildingId": "B4860",
+   "notes": "Debris apron along sidewalk and curb near collapsed buildings"
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "partial",
+   "evidenceS": 9,
+   "nearBuildingId": "B4879",
+   "notes": "Some rubble along building bases, roadway mostly open"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 6,
+   "place": "Market Street intersection",
+   "nearBuildingId": "B4820"
+  }
+ ],
+ "summary": "Target B4860 (560 Market St) and adjacent low-rise buildings B4869, B4879, and B4813 have collapsed into rubble cores between taller structures. Neighbouring B4849 and B4820 show moderate facade damage, while B4895 has slight damage. No people are visible on the rubble, though a crowd of about 35 is",
+ "hash": "5eb5900c6d20d4c253764934d233f099",
+ "usage": {
+  "promptTokens": 5330,
+  "outputTokens": 623,
+  "totalTokens": 5953
+ },
+ "notes": [
+  "ffmpeg 283 ms",
+  "input: video+hires",
+  "gemini 8486 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

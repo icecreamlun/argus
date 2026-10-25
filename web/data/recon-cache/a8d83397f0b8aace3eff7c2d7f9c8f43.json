@@ -1,0 +1,151 @@
+{
+ "chunkIndex": 1110,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 10505,
+ "buildings": [
+  {
+   "id": "B4839",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Target high-rise fully intact on all visible sides, adjacent streets clear"
+  },
+  {
+   "id": "B4827",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Large office building with roof debris and weathered patches"
+  },
+  {
+   "id": "B4849",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Darkened facade patches and broken windows, leaning slightly"
+  },
+  {
+   "id": "B4805",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracks and dark patches on facade, roof intact"
+  },
+  {
+   "id": "B4860",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Small building with roof damage and debris"
+  },
+  {
+   "id": "B4869",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Low building crushed into rubble pile between neighbors"
+  },
+  {
+   "id": "B4879",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Low structure collapsed into debris next to B4895"
+  },
+  {
+   "id": "B4895",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Flatiron building with facade damage and base rubble"
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4895",
+   "notes": "Some debris along curb near damaged buildings, roadway open"
+  },
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B4839",
+   "notes": "Roadway appears clear next to target"
+  },
+  {
+   "street": "2ND STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4805",
+   "notes": "Intersection occupied by evacuee crowd"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 3,
+   "place": "Market Street and 2nd Street intersection",
+   "nearBuildingId": "B4805"
+  }
+ ],
+ "summary": "Target B4839 (1 Sansome St) is completely intact with no visible damage, fire, or trapped people. Adjacent low-rise buildings along Market Street (B4869, B4879, B4849) suffer extensive damage to complete collapse, while a crowd of ~45 people gathers at Market and 2nd Street. Access along Market and ",
+ "hash": "a8d83397f0b8aace3eff7c2d7f9c8f43",
+ "usage": {
+  "promptTokens": 5553,
+  "outputTokens": 702,
+  "totalTokens": 6255
+ },
+ "notes": [
+  "ffmpeg 681 ms",
+  "input: video+hires",
+  "gemini 9824 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

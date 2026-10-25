@@ -1,0 +1,144 @@
+{
+ "chunkIndex": 1223,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7546,
+ "buildings": [
+  {
+   "id": "B5276",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Tall office tower intact on all sides; Fremont and Mission clear."
+  },
+  {
+   "id": "B5187",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked facade and roof debris; 1st Street remains clear."
+  },
+  {
+   "id": "B5188",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Facade staining and roof damage visible."
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5203",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5324",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5221",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5191",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5230",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "FREMONT STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway open and clear of debris next to B5276."
+  },
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5245",
+   "notes": "Roadway clear along the block."
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway clear of debris adjacent to B5276."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target building B5276 (50 Fremont St) is completely intact with no visible structural damage, fire, smoke, or people in distress. Nearby smaller buildings B5187 and B5188 on 1st Street show moderate facade and roof damage, while all surrounding streets (Fremont, 1st, and Mission) remain clear for ac",
+ "hash": "e72c0e4ef8106a998ba6983fd843b59c",
+ "usage": {
+  "promptTokens": 5116,
+  "outputTokens": 415,
+  "totalTokens": 5531
+ },
+ "notes": [
+  "ffmpeg 581 ms",
+  "input: video+hires",
+  "gemini 6965 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

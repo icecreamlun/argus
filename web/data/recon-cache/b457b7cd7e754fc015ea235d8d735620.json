@@ -1,0 +1,137 @@
+{
+ "chunkIndex": 1232,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7780,
+ "buildings": [
+  {
+   "id": "B5221",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked facade, debris skirt on roof and base; 1st St clear."
+  },
+  {
+   "id": "B5230",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracks and debris across roof, facade stained with small rubble skirt."
+  },
+  {
+   "id": "B5187",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Reduced to low roofless rubble ruin next to 78 1st St."
+  },
+  {
+   "id": "B5188",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked facade and damaged side adjacent to collapsed B5187."
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5165",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5203",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5191",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5153",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5221",
+   "notes": "Roadway open and free of major debris."
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5203",
+   "notes": "Roadway clear around 1st St intersection."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5221 (2F Office) shows moderate damage with roof debris and facade cracking, but no people or trapped signs are visible. Nearby B5187 (84 1st St) has completely collapsed into a rubble ruin, while B5230 and B5188 have moderate damage. 1st Street and Mission Street remain clear for emergency ",
+ "hash": "b457b7cd7e754fc015ea235d8d735620",
+ "usage": {
+  "promptTokens": 5053,
+  "outputTokens": 440,
+  "totalTokens": 5493
+ },
+ "notes": [
+  "ffmpeg 836 ms",
+  "input: video+hires",
+  "gemini 6944 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

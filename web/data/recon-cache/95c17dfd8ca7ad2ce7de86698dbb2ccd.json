@@ -1,0 +1,234 @@
+{
+ "chunkIndex": 1210,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 16429,
+ "buildings": [
+  {
+   "id": "B5381",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Large stepped hotel fully intact, roofline and facades clean; Market Street clear."
+  },
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Collapsed into jagged wall stubs and central rubble pile."
+  },
+  {
+   "id": "B5384",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Low roof shows minor surface staining/debris next to collapsed B5372."
+  },
+  {
+   "id": "B5319",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 30,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracks and dark patches on facade, crowd gathered on street in front."
+  },
+  {
+   "id": "B5443",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5320",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5316",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5317",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5313",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5298",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B5323",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "intact"
+  },
+  {
+   "id": "B5299",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5381",
+   "notes": "Roadway open and clear of debris along B5381, crowd at Main St intersection."
+  },
+  {
+   "street": "SACRAMENTO ALLEY",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5381",
+   "notes": "Pedestrian alley between B5381 and B5384 appears clear."
+  },
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5323",
+   "notes": "Clear of debris near B5381 and B5323."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 50,
+   "evidenceS": 6,
+   "place": "Market Street and Main Street intersection",
+   "nearBuildingId": "B5319"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 10,
+   "place": "Plaza east of B5381 / 4 The Embarcadero",
+   "nearBuildingId": "B5381"
+  }
+ ],
+ "summary": "Target B5381 (5 Embarcadero Center) is completely undamaged with no people on the structure and clear access along Market Street and California Street. Nearby B5372 (6F Office) has collapsed into a rubble core, and B5319 (Citibank) shows moderate facade damage. Large crowds of 40–50 people have gath",
+ "hash": "95c17dfd8ca7ad2ce7de86698dbb2ccd",
+ "usage": {
+  "promptTokens": 5657,
+  "outputTokens": 626,
+  "totalTokens": 6283
+ },
+ "notes": [
+  "ffmpeg 314 ms",
+  "input: video+hires",
+  "gemini 16113 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

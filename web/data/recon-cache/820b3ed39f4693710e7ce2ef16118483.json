@@ -1,0 +1,229 @@
+{
+ "chunkIndex": 1123,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 17121,
+ "buildings": [
+  {
+   "id": "B4463",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "19-floor glass office tower intact and upright; Bush St clear, Belden Place blocked."
+  },
+  {
+   "id": "B4648",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Roof cracks and dark scorched/cracked patches on west facade."
+  },
+  {
+   "id": "B4428",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Low building next to target reduced to roofless wall stubs around rubble."
+  },
+  {
+   "id": "B4415",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "1-floor building in alley with broken-in roof and rubble interior."
+  },
+  {
+   "id": "B4418",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "1-floor alley structure collapsed into rubble between walls."
+  },
+  {
+   "id": "B4335",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked facade and roof distress along Kearny and Belden."
+  },
+  {
+   "id": "B4199",
+   "damage": "extensive",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Severely damaged facade and roof with debris along Kearny St."
+  },
+  {
+   "id": "B4324",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4315",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4312",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4309",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  },
+  {
+   "id": "B4302",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4298",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4293",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4367",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B4371",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BUSH STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4463",
+   "notes": "Clear roadway in front of 350 Bush St."
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B4463",
+   "notes": "Clear roadway on north side of block."
+  },
+  {
+   "street": "BELDEN PLACE",
+   "status": "blocked",
+   "evidenceS": 8,
+   "nearBuildingId": "B4463",
+   "notes": "Narrow alley obstructed by rubble from collapsed low structures."
+  },
+  {
+   "street": "KEARNY STREET",
+   "status": "partial",
+   "evidenceS": 8,
+   "nearBuildingId": "B4335",
+   "notes": "Debris along western curb from damaged retail buildings."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4463 (350 Bush St) is undamaged and structurally intact with no people or trapped signs visible. Adjacent low-rise structures on its west side (B4428, B4415, B4418) have collapsed into rubble, blocking Belden Place, while main access via Bush Street and Pine Street remains clear.",
+ "hash": "820b3ed39f4693710e7ce2ef16118483",
+ "usage": {
+  "promptTokens": 6193,
+  "outputTokens": 709,
+  "thoughtsTokens": 316,
+  "totalTokens": 7218
+ },
+ "notes": [
+  "ffmpeg 398 ms",
+  "input: video+hires",
+  "gemini 16723 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

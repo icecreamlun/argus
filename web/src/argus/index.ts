@@ -85,8 +85,8 @@ interface Entry {
 }
 const entryKey = (res: ReconstructionResult, chunk: ScanChunk) =>
   chunk.source === 'drone' ? `drone:${chunk.missionId ?? chunk.droneId ?? ''}:${res.chunkIndex}` : `heli:${res.chunkIndex}`;
-/** Fusion: a drone close-up is trusted at least this much (Argon's own confidence otherwise). */
-const DRONE_MIN_CONFIDENCE = 0.85;
+/** Fusion: each source's call counts as independent evidence weighted by Argon's own confidence (no source overrides another). */
+const conf01 = (c: number) => Math.min(0.95, Math.max(0.3, c));
 interface Predicted {
   mostLikely: DamageState;
   pCollapse: number;
@@ -158,6 +158,8 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
   // Effective (revealed) state, rebuilt when the revealed set changes.
   let revealKey = '';
   let effective = new Map<string, Observed>();
+  /** Per building: the best call from each source (heli, drone) — all of it is fused, none overrides. */
+  let evidence = new Map<string, Observed[]>();
   let effRoads: (ObservedRoad & { chunkIndex: number })[] = [];
   let effCrowds: (ObservedCrowd & { chunkIndex: number })[] = [];
   let covered = new Set<string>();
@@ -201,6 +203,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     revealed = rev;
     statsCache = null;
     effective = new Map();
+    evidence = new Map();
     effRoads = [];
     effCrowds = [];
     covered = new Set();
@@ -210,6 +213,15 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       for (const b of e.res.buildings) {
         if (!idx.has(b.id)) continue;
         covered.add(b.id);
+        // Evidence for fusion: the most confident call per source (drone calls only for the mission's targets).
+        if (!(e.source === 'drone' && e.chunk.targetBuildingIds?.length && !e.chunk.targetBuildingIds.includes(b.id))) {
+          const list = evidence.get(b.id) ?? [];
+          const k = list.findIndex((x) => x.source === e.source);
+          const ob = { ...b, source: e.source } as Observed;
+          if (k < 0) list.push(ob);
+          else if (b.confidence >= list[k].confidence) list[k] = ob;
+          evidence.set(b.id, list);
+        }
         const prev = effective.get(b.id);
         // Drone close-ups outrank helicopter observations regardless of confidence; within the same source,
         // later chunks win unless clearly less confident.
@@ -396,20 +408,21 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     return best;
   }
 
-  /** Model corrected by Argon: xBD prior (model) × likelihood of Argon's call given its confidence → argmax. */
+  /**
+   * Model corrected by Argon: xBD prior (model) × Π over sources (heli, drone) of the likelihood of each call given
+   * its confidence → argmax. Agreeing sources reinforce; disagreeing ones are weighed against each other and the prior.
+   */
   function xbdFused(i: number, o: ObservedBuilding & { source?: 'heli' | 'drone' }): number {
     const q = predicted(i).probs;
-    const prior = [q[0], q[1], q[2] + q[3], q[4]].map((v) => Math.max(v, 1e-4));
-    const ox = XBD[obsState(o.damage)];
-    const conf = o.source === 'drone' ? Math.max(o.confidence, DRONE_MIN_CONFIDENCE) : o.confidence;
-    const c = Math.min(0.95, Math.max(0.3, conf));
-    let best = 0;
-    let bestP = -1;
-    for (let t = 0; t < 4; t++) {
-      const like = t === ox ? c : ((1 - c) / 3) * (Math.abs(t - ox) === 1 ? 1.5 : 0.75);
-      const post = prior[t] * like;
-      if (post > bestP) (bestP = post), (best = t);
+    const post = [q[0], q[1], q[2] + q[3], q[4]].map((v) => Math.max(v, 1e-4));
+    const calls = evidence.get(o.id) ?? [o as Observed];
+    for (const ev of calls) {
+      const ox = XBD[obsState(ev.damage)];
+      const c = conf01(ev.confidence);
+      for (let t = 0; t < 4; t++) post[t] *= t === ox ? c : ((1 - c) / 3) * (Math.abs(t - ox) === 1 ? 1.5 : 0.75);
     }
+    let best = 0;
+    for (let t = 1; t < 4; t++) if (post[t] > post[best]) best = t;
     return best;
   }
 
@@ -500,14 +513,16 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       obsIdx.set(i, o);
       const ek = result!.damage[i].predictedExceedanceK;
       if (!ek) continue;
-      const ox = XBD[obsState(o.damage)];
-      const c = o.source === 'drone' ? Math.max(0.85, o.confidence) : Math.min(0.95, Math.max(0.3, o.confidence));
-      let s = 0;
-      let lk = 0;
-      const like = LN_K.map((_, j) => probs4(ek.slice(j * 4, j * 4 + 4))[ox] * c + (1 - c) / 4);
-      for (const v of like) s += v;
-      LN_K.forEach((k, j) => (lk += (k * like[j]) / s));
-      pts.push({ x: cx[i], z: cz[i], lk, w: c });
+      for (const ev of evidence.get(id) ?? [o]) {
+        const ox = XBD[obsState(ev.damage)];
+        const c = conf01(ev.confidence);
+        let sum = 0;
+        let lk = 0;
+        const like = LN_K.map((_, j) => probs4(ek.slice(j * 4, j * 4 + 4))[ox] * c + (1 - c) / 4);
+        for (const v of like) sum += v;
+        LN_K.forEach((k, j) => (lk += (k * like[j]) / sum));
+        pts.push({ x: cx[i], z: cz[i], lk, w: c });
+      }
     }
     const cm = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
     let ok = 0;

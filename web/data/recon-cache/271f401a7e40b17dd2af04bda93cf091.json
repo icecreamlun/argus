@@ -1,0 +1,219 @@
+{
+ "chunkIndex": 1230,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 16152,
+ "buildings": [
+  {
+   "id": "B4584",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Target roof caved in, person on roof; Hotaling Place blocked by rubble."
+  },
+  {
+   "id": "B4514",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 4,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Collapsed into a low rubble pile, several people on debris."
+  },
+  {
+   "id": "B4524",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavily damaged roof and facade next to B4514 ruin."
+  },
+  {
+   "id": "B4532",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Collapsed or severely damaged structure with rubble spilling into alley."
+  },
+  {
+   "id": "B4538",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Blackened roof and facade damage, upright."
+  },
+  {
+   "id": "B4587",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof shows dark patches and debris, structure upright."
+  },
+  {
+   "id": "B4660",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof and upper walls heavily damaged, rubble in Hotaling Place."
+  },
+  {
+   "id": "B4670",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Moderate roof and facade damage."
+  },
+  {
+   "id": "B4675",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Facade and roof show moderate damage and blackening."
+  },
+  {
+   "id": "B4641",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof blackened with moderate damage."
+  },
+  {
+   "id": "B4562",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof blackened, moderate damage."
+  },
+  {
+   "id": "B4497",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Heavy roof and facade damage at corner."
+  },
+  {
+   "id": "B4724",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B4402",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "HOTALING PLACE",
+   "status": "blocked",
+   "evidenceS": 4,
+   "nearBuildingId": "B4584",
+   "notes": "Narrow alley choked with rubble between B4584 and B4660."
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4514",
+   "notes": "Debris apron from collapsed B4514 and B4532 on roadway."
+  },
+  {
+   "street": "WASHINGTON STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4587",
+   "notes": "Roadway open and clear of major debris."
+  },
+  {
+   "street": "JACKSON STREET",
+   "status": "partial",
+   "evidenceS": 8,
+   "nearBuildingId": "B4602",
+   "notes": "Debris and people along the street."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 60,
+   "evidenceS": 1,
+   "place": "Park north of Washington Street",
+   "nearBuildingId": "B4693"
+  },
+  {
+   "approxCount": 20,
+   "evidenceS": 8,
+   "place": "Jackson Street near Gold Street",
+   "nearBuildingId": "B4602"
+  }
+ ],
+ "summary": "Target B4584 has extensive damage with a caved-in roof and 1 person trapped on top; adjacent Hotaling Place is blocked by rubble. Immediately east, B4514 has collapsed with ~4 people on the rubble pile and B4532 has ~2 people on debris. Washington Street is clear for access, while Montgomery Street ",
+ "hash": "271f401a7e40b17dd2af04bda93cf091",
+ "usage": {
+  "promptTokens": 6245,
+  "outputTokens": 995,
+  "totalTokens": 7240
+ },
+ "notes": [
+  "ffmpeg 763 ms",
+  "input: video+hires",
+  "gemini 15389 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

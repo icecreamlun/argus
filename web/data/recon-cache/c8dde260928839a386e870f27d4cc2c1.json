@@ -1,0 +1,317 @@
+{
+ "chunkIndex": 4,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 22543,
+ "buildings": [
+  {
+   "id": "B3980",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 2,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Cracks across roof and blackened facade patches"
+  },
+  {
+   "id": "B4036",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Roof surface cracked with facade discoloration"
+  },
+  {
+   "id": "B4335",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Heavy dark patches and facade cracking"
+  },
+  {
+   "id": "B4367",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Darkened facade patches on upper floors"
+  },
+  {
+   "id": "B4463",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 3,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Extensive dark patches and cracks on facade"
+  },
+  {
+   "id": "B4579",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Widespread facade spalling and surface cracks"
+  },
+  {
+   "id": "B4721",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 3,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Severe facade blackening and roof damage, people signalling"
+  },
+  {
+   "id": "B4694",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Blackened patches across roof and upper walls"
+  },
+  {
+   "id": "B4648",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracks and dark patches along white facade"
+  },
+  {
+   "id": "B4781",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened roof and facade damage"
+  },
+  {
+   "id": "B4750",
+   "damage": "extensive",
+   "confidence": 0.9,
+   "peopleVisible": 3,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Heavily blackened facade and roof, people on roof"
+  },
+  {
+   "id": "B4801",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade cracks and minor roof damage"
+  },
+  {
+   "id": "B4842",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Facade cracking with debris pile at base"
+  },
+  {
+   "id": "B4904",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Numerous brown damaged patches across facade"
+  },
+  {
+   "id": "B4973",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Darkened facade and roof surface damage"
+  },
+  {
+   "id": "B4916",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "Widespread facade patching and roof cracks"
+  },
+  {
+   "id": "B4960",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Heavy facade spalling and roof cracking"
+  },
+  {
+   "id": "B5042",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Roof cracking and facade damage, person waving"
+  },
+  {
+   "id": "B4171",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5032",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  },
+  {
+   "id": "B5025",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 13,
+   "notes": "intact"
+  },
+  {
+   "id": "B5091",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  },
+  {
+   "id": "B5103",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 14,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B4377",
+   "notes": "Roadway open and clear of major debris"
+  },
+  {
+   "street": "SANSOME STREET",
+   "status": "partial",
+   "evidenceS": 8,
+   "nearBuildingId": "B4842",
+   "notes": "Debris apron spilling onto sidewalk and curb lane"
+  },
+  {
+   "street": "PINE STREET",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5048",
+   "notes": "Lower Pine Street clear of rubble"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 50,
+   "evidenceS": 0,
+   "place": "Plaza near 433 Kearny St",
+   "nearBuildingId": "B3947"
+  }
+ ],
+ "summary": "Widespread moderate to extensive facade and roof damage across the Financial District along Pine and Sansome streets, though no full structural collapses are observed. Multiple people are stranded on rooftops signalling for rescue at B4721 (75 Leidesdorff St), B4750 (348 Pine St), and B5042 (100 Bat",
+ "hash": "c8dde260928839a386e870f27d4cc2c1",
+ "usage": {
+  "promptTokens": 8907,
+  "outputTokens": 1269,
+  "thoughtsTokens": 775,
+  "totalTokens": 10951
+ },
+ "notes": [
+  "ffmpeg 386 ms",
+  "input: video+hires",
+  "gemini 22157 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

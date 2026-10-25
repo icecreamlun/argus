@@ -1,0 +1,50 @@
+{
+ "wave": 1,
+ "dispatch": true,
+ "rationale": "With AIR 1's pass complete, I am dispatching two drones to our highest-risk unassessed and trapped-occupant sites while holding D3 in reserve. D1 will survey the unscanned FiDi URM-infill block at One Sansome Street (~9,019 occupants, up to 65% collapse risk), and D2 will verify four nearby Financial District and Jackson Square buildings where trapped signs and collapses were spotted. D3 remains at Embarcadero Plaza for follow-up sorties or emerging fire and collapse reports.",
+ "missions": [
+  {
+   "id": "W1-D1",
+   "wave": 1,
+   "droneId": "D1",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B4839",
+    "B4827",
+    "B4813",
+    "B4860"
+   ],
+   "areaCentre": [
+    -286,
+    358
+   ],
+   "purpose": "Sweep unscanned One Sansome Street URM-infill block (~9,019 occupants) to identify any collapses or trapped survivors.",
+   "priority": 1
+  },
+  {
+   "id": "W1-D2",
+   "wave": 1,
+   "droneId": "D2",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B4902",
+    "B4630",
+    "B4721",
+    "B4750"
+   ],
+   "purpose": "Confirm collapse severity and locate trapped survivors at 447 Battery St, 559 Clay St, California Bank, and 348 Pine St.",
+   "priority": 2
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 5316,
+ "createdAtSimS": 248,
+ "hash": "5fb0b1ec659adbb8c1542a7216c4129e",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5429,
+  "outputTokens": 273
+ },
+ "notes": []
+}

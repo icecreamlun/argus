@@ -1,0 +1,137 @@
+{
+ "chunkIndex": 1233,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6992,
+ "buildings": [
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Intact roofline and facade, no debris; Mission St and 1st St clear"
+  },
+  {
+   "id": "B5187",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Roof completely collapsed into rubble core, jagged wall stubs"
+  },
+  {
+   "id": "B5221",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Extensive roof surface damage and facade cracking/darkening"
+  },
+  {
+   "id": "B5230",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Weathered or lightly damaged roof surface, facade cracked"
+  },
+  {
+   "id": "B5203",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5191",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5188",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5153",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5276",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5245",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 2,
+   "nearBuildingId": "B5245",
+   "notes": "Roadway open and clear of debris"
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5245 (440 Mission St) is completely undamaged with no visible people or trapped signs, and both Mission Street and 1st Street are clear for access. Nearby B5187 (84 1st St) has suffered a collapsed roof, while B5221 shows moderate damage and B5230 shows slight damage.",
+ "hash": "551736651ed2bbdf785b092e586b8d6d",
+ "usage": {
+  "promptTokens": 4747,
+  "outputTokens": 423,
+  "totalTokens": 5170
+ },
+ "notes": [
+  "ffmpeg 227 ms",
+  "input: video+hires",
+  "gemini 6765 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

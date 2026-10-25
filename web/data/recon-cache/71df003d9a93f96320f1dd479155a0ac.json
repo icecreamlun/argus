@@ -1,0 +1,206 @@
+{
+ "chunkIndex": 1232,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12565,
+ "buildings": [
+  {
+   "id": "B3457",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Blackened facade, broken windows, rubble skirt; Clay St partially blocked."
+  },
+  {
+   "id": "B3301",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 8,
+   "notes": "Active flames on roof and upper floors; person on roof."
+  },
+  {
+   "id": "B3411",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Slight facade cracks and minor debris along Clay St."
+  },
+  {
+   "id": "B3472",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Cracked facade and light debris at base."
+  },
+  {
+   "id": "B3492",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Corner debris and facade scorching."
+  },
+  {
+   "id": "B3495",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Scorched facade patches, broken windows, debris on Grant Ave."
+  },
+  {
+   "id": "B3591",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Damaged roof and facade, person on roof."
+  },
+  {
+   "id": "B3463",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Cracked facade and rubble spilling onto Clay and Grant."
+  },
+  {
+   "id": "B3402",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Minor facade damage and light street debris."
+  },
+  {
+   "id": "B3299",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": true,
+   "evidenceS": 7,
+   "notes": "Adjacent to B3301 fire, fire spreading to roof edge."
+  },
+  {
+   "id": "B3620",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Damaged roof and facade; person on roof at s10."
+  },
+  {
+   "id": "B3585",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B3661",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B3670",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B3457",
+   "notes": "Debris from B3457 and B3301 fire"
+  },
+  {
+   "street": "WAVERLY PLACE",
+   "status": "blocked",
+   "evidenceS": 8,
+   "nearBuildingId": "B3301",
+   "notes": "Heavy rubble and fire debris near B3301"
+  },
+  {
+   "street": "GRANT AVENUE",
+   "status": "partial",
+   "evidenceS": 2,
+   "nearBuildingId": "B3492",
+   "notes": "Rubble along curbs near B3492 and B3495"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 25,
+   "evidenceS": 4,
+   "place": "Sacramento Street near Waverly Place",
+   "nearBuildingId": "B3333"
+  }
+ ],
+ "summary": "Target B3457 (805 Clay St) has moderate damage with blackened facades and rubble partially blocking Clay Street, no people visible. Nearby B3301 (53 Waverly Pl) is heavily on fire with one person trapped on the roof and Waverly Place blocked. Additional people are spotted on the roofs of B3591 and B",
+ "hash": "71df003d9a93f96320f1dd479155a0ac",
+ "usage": {
+  "promptTokens": 6618,
+  "outputTokens": 904,
+  "totalTokens": 7522
+ },
+ "notes": [
+  "ffmpeg 466 ms",
+  "input: video+hires",
+  "gemini 12098 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

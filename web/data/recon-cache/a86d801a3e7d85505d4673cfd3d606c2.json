@@ -1,0 +1,206 @@
+{
+ "chunkIndex": 1122,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 11249,
+ "buildings": [
+  {
+   "id": "B4721",
+   "damage": "extensive",
+   "confidence": 0.95,
+   "peopleVisible": 2,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Visible lean, heavily cracked facade and roof, two people trapped on roof, debris on California St."
+  },
+  {
+   "id": "B4694",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened facade patches, broken windows, upright, small rubble at base."
+  },
+  {
+   "id": "B4750",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked and blackened facade, roof damage, upright."
+  },
+  {
+   "id": "B4738",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Blackened facade patches and broken windows, upright."
+  },
+  {
+   "id": "B4781",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Damaged roof and blackened facade patches, upright."
+  },
+  {
+   "id": "B4740",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Some facade staining and minor roof damage, upright."
+  },
+  {
+   "id": "B4778",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Darkened facade patches, minor roof debris, upright."
+  },
+  {
+   "id": "B4668",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Collapsed into low ruin with rubble pile, person on rubble."
+  },
+  {
+   "id": "B4783",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4801",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4817",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4842",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4837",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4567",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CALIFORNIA STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4721",
+   "notes": "Debris apron along the base of B4721 and into the street."
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B4694",
+   "notes": "Crowd gathered in the intersection with California St, roadway mostly clear of major rubble."
+  },
+  {
+   "street": "PINE STREET",
+   "status": "partial",
+   "evidenceS": 3,
+   "nearBuildingId": "B4750",
+   "notes": "Some light debris along curbs near damaged buildings."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 5,
+   "place": "California St & Montgomery St intersection",
+   "nearBuildingId": "B4668"
+  }
+ ],
+ "summary": "Target B4721 (75 Leidesdorff St) has extensive damage with a noticeable lean, heavy facade cracking, and two people trapped on the roof waving for help. Neighboring B4668 (400 Montgomery St) has collapsed with one person visible on the rubble, while B4694, B4750, B4738, and B4781 show moderate damag",
+ "hash": "a86d801a3e7d85505d4673cfd3d606c2",
+ "usage": {
+  "promptTokens": 5395,
+  "outputTokens": 785,
+  "totalTokens": 6180
+ },
+ "notes": [
+  "ffmpeg 556 ms",
+  "input: video+hires",
+  "gemini 10693 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

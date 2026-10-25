@@ -1,0 +1,250 @@
+{
+ "chunkIndex": 1233,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 13074,
+ "buildings": [
+  {
+   "id": "B3301",
+   "damage": "moderate",
+   "confidence": 0.95,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": true,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Heavy roof and facade flames, person on roof; streets partially blocked."
+  },
+  {
+   "id": "B3299",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": true,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked blackened facade, fire spreading from B3301, debris at base."
+  },
+  {
+   "id": "B3306",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Charred and cracked facade, rubble skirt along base."
+  },
+  {
+   "id": "B3314",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Blackened facade patches, damaged windows, debris along base."
+  },
+  {
+   "id": "B3224",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked facade and rubble apron along Clay Street."
+  },
+  {
+   "id": "B3161",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Person on roof, cracked facade and debris along base."
+  },
+  {
+   "id": "B3281",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked facade, dark charring, rubble skirt in street."
+  },
+  {
+   "id": "B3411",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked facade patches, light debris at base."
+  },
+  {
+   "id": "B3457",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Cracked and blackened facade patches, debris along base."
+  },
+  {
+   "id": "B3472",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Slight facade cracking and minor debris at base."
+  },
+  {
+   "id": "B3402",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "Blackened facade patches and rubble skirt along Waverly Place."
+  },
+  {
+   "id": "B3205",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked facade, debris spilling onto Clay Street."
+  },
+  {
+   "id": "B3148",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked facade and rubble along Clay Street."
+  },
+  {
+   "id": "B3333",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B3433",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3492",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B3495",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B3478",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "WAVERLY PLACE",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B3301",
+   "notes": "Debris aprons along curbs and burning rubble near B3301; narrow centre lane."
+  },
+  {
+   "street": "CLAY STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B3301",
+   "notes": "Rubble skirts on both sides and intersection debris near B3301."
+  },
+  {
+   "street": "SPOFFORD STREET",
+   "status": "blocked",
+   "evidenceS": 5,
+   "nearBuildingId": "B3205",
+   "notes": "Alley filled with rubble between B3205 and B3274."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 4,
+   "place": "Green lawn west of 29-37 Waverly Pl",
+   "nearBuildingId": "B3314"
+  }
+ ],
+ "summary": "Target B3301 (53 Waverly Pl) has moderate structural damage but is heavily engulfed in roof and facade flames with 1 person trapped on the roof; fire is spreading to adjacent B3299. Another person is visible on the roof of B3161 (857 Clay St), and ~35 people have gathered on the lawn west of B3314. ",
+ "hash": "0ac94a7956db8bea8a76bfce69ed7a1b",
+ "usage": {
+  "promptTokens": 6563,
+  "outputTokens": 1075,
+  "totalTokens": 7638
+ },
+ "notes": [
+  "ffmpeg 322 ms",
+  "input: video+hires",
+  "gemini 12752 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,102 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7857,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "Cracked facade and small rubble skirt at base"
+  },
+  {
+   "id": "B5566",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Slight facade streaks and minor base debris"
+  },
+  {
+   "id": "B5522",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "Cracked facade and rubble around base"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5522",
+   "notes": "Clear of debris"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5522",
+   "notes": "Clear of debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 10,
+   "place": "FERRY PLAZA",
+   "nearBuildingId": "B5504"
+  },
+  {
+   "approxCount": 50,
+   "evidenceS": 14,
+   "place": "Plaza across The Embarcadero",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The San Francisco Ferry Building (B5504) and The Embarcadero roadway appear intact and clear. Surrounding waterfront structures B5587 and B5522 show moderate facade damage with minor base debris, while B5566 has slight damage. No building collapses, fires, or trapped individuals were observed, thoug",
+ "hash": "bb3d77aefd0dd1d1dbe1c3018d100856",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 439,
+  "totalTokens": 6519
+ },
+ "notes": [
+  "ffmpeg 488 ms",
+  "input: video+hires",
+  "gemini 7369 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

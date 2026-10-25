@@ -1,0 +1,102 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6726,
+ "buildings": [
+  {
+   "id": "B5522",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "cracked facade with small rubble skirt"
+  },
+  {
+   "id": "B5587",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "roadway open and clear of debris"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 13,
+   "nearBuildingId": "B5522",
+   "notes": "roadway clear"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5522",
+   "notes": "roadway clear"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 9,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5587"
+  },
+  {
+   "approxCount": 45,
+   "evidenceS": 14,
+   "place": "The Embarcadero Plaza",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The Ferry Building (B5504), Ferry Station Post Office (B5566), and B5587 at Ferry Plaza appear intact with no visible structural damage. Moderate facade damage is seen on B5522 near Don Chee Way, as well as on several untagged buildings west of Steuart Street. The Embarcadero, Don Chee Way, and Steu",
+ "hash": "14d8bc11c3ee21ccc8f6fe37dda3da50",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 353,
+  "totalTokens": 6433
+ },
+ "notes": [
+  "ffmpeg 487 ms",
+  "input: video+hires",
+  "gemini 6239 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

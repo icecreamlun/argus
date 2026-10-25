@@ -1,0 +1,64 @@
+{
+ "wave": 2,
+ "dispatch": true,
+ "rationale": "This is the final wave, so we are deploying all three remaining drones to maximize life-saving intelligence across unscanned high-occupancy zones and unresolved collapse sites. D1 and D2 will sweep densely populated, unscanned blocks at Rincon Annex, PG&E, and 50 Fremont Center, while resolving high-occupancy discrepancies along Market and Pine Streets. D3 will verify reports of trapped survivors at 563 Clay St, a nearby commercial building, and the fire-threatened collapse cluster at 805 Clay St and 53 Waverly Pl, leaving zero drones in reserve.",
+ "missions": [
+  {
+   "id": "W2-D1",
+   "wave": 2,
+   "droneId": "D1",
+   "kind": "survey_area",
+   "targetBuildingIds": [
+    "B5528",
+    "B5400",
+    "B5391",
+    "B5474"
+   ],
+   "areaCentre": [
+    314,
+    213
+   ],
+   "purpose": "Survey unscanned high-occupancy buildings at Rincon Annex, the PG&E block, and the Park Tower block for major damage.",
+   "priority": 1
+  },
+  {
+   "id": "W2-D3",
+   "wave": 2,
+   "droneId": "D3",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B4584",
+    "B4653",
+    "B3457",
+    "B3301"
+   ],
+   "purpose": "Confirm trapped survivors and assess fire spread at 53 Waverly Pl, 805 Clay St, and 563 Clay St.",
+   "priority": 2
+  },
+  {
+   "id": "W2-D2",
+   "wave": 2,
+   "droneId": "D2",
+   "kind": "verify_building",
+   "targetBuildingIds": [
+    "B5381",
+    "B5183",
+    "B5094",
+    "B5276"
+   ],
+   "purpose": "Resolve damage discrepancies at Hyatt Regency, 388 Market, and 100 Pine Center, and sweep the 50 Fremont block.",
+   "priority": 3
+  }
+ ],
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 6971,
+ "createdAtSimS": 530,
+ "hash": "88927c3efa4e5c195e4317a859bcf04a",
+ "promptVersion": "argon-plan-v2",
+ "usage": {
+  "promptTokens": 5970,
+  "outputTokens": 364
+ },
+ "notes": []
+}

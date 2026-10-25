@@ -1,0 +1,129 @@
+{
+ "chunkIndex": 1211,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 7308,
+ "buildings": [
+  {
+   "id": "B5400",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "High-rise facade intact on all visible sides, surrounding streets clear."
+  },
+  {
+   "id": "B5376",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "Roof broken in, jagged wall stubs around rubble core."
+  },
+  {
+   "id": "B5444",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "Roof damaged with debris around perimeter."
+  },
+  {
+   "id": "B5357",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "intact"
+  },
+  {
+   "id": "B5391",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B5428",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5400",
+   "notes": "Clear roadway along target building"
+  },
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5400",
+   "notes": "Clear roadway"
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5400",
+   "notes": "Clear roadway"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 2,
+   "place": "Green lawn east of target",
+   "nearBuildingId": "B5391"
+  }
+ ],
+ "summary": "Target B5400 (77 Beale St) is intact with no visible structural damage, fire, or trapped people, and surrounding streets (Beale, Mission, Main) are clear for access. Nearby low-rise parking structure B5376 has collapsed, and B5444 (250 Howard St) shows moderate damage. Approximately 80 people have e",
+ "hash": "150c94039ef2d1c1316fabfaa004e804",
+ "usage": {
+  "promptTokens": 4922,
+  "outputTokens": 429,
+  "totalTokens": 5351
+ },
+ "notes": [
+  "ffmpeg 449 ms",
+  "input: video+hires",
+  "gemini 6859 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

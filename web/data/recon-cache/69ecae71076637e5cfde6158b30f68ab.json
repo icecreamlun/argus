@@ -1,0 +1,144 @@
+{
+ "chunkIndex": 1230,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 8575,
+ "buildings": [
+  {
+   "id": "B5276",
+   "damage": "none",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Tall office tower intact on all seen sides; adjacent streets clear."
+  },
+  {
+   "id": "B5230",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Low annex roof shows slight surface debris and marks."
+  },
+  {
+   "id": "B5221",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Low annex roof shows slight surface marks and debris."
+  },
+  {
+   "id": "B5188",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked blackened facade and damaged roof on 6-story building."
+  },
+  {
+   "id": "B5187",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked facade and slight roof damage on 4-story building."
+  },
+  {
+   "id": "B5324",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5245",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5203",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  },
+  {
+   "id": "B5191",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MISSION STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway open and clear of debris next to target."
+  },
+  {
+   "street": "1ST STREET",
+   "status": "clear",
+   "evidenceS": 6,
+   "nearBuildingId": "B5245",
+   "notes": "Roadway clear of debris along east side of block."
+  },
+  {
+   "street": "FREMONT STREET",
+   "status": "clear",
+   "evidenceS": 10,
+   "nearBuildingId": "B5276",
+   "notes": "Roadway open and clear of debris."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B5276 (50 Fremont Center) is completely intact with no visible damage, fire, smoke, or trapped people. Adjacent low annexes B5230 and B5221 have slight roof debris, while nearby B5188 and B5187 across 1st Street show moderate facade and roof damage. Mission, Fremont, and 1st Streets are all c",
+ "hash": "69ecae71076637e5cfde6158b30f68ab",
+ "usage": {
+  "promptTokens": 5066,
+  "outputTokens": 527,
+  "totalTokens": 5593
+ },
+ "notes": [
+  "ffmpeg 398 ms",
+  "input: video+hires",
+  "gemini 8177 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,220 @@
+{
+ "chunkIndex": 1231,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15284,
+ "buildings": [
+  {
+   "id": "B4653",
+   "damage": "collapsed",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Small two-story structure heavily damaged with blackened roof; Clay Street clear"
+  },
+  {
+   "id": "B4627",
+   "damage": "moderate",
+   "confidence": 0.9,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Scorched roof patches and facade cracks; one person in yellow on roof"
+  },
+  {
+   "id": "B4630",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 1,
+   "trappedSigns": true,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Blackened lower roof section with one person in orange standing on roof"
+  },
+  {
+   "id": "B4591",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Facade streaks and roof discoloration on corner building"
+  },
+  {
+   "id": "B4692",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "Roof debris and facade damage along Commercial Street"
+  },
+  {
+   "id": "B4673",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Darkened roof and damaged upper walls next to target"
+  },
+  {
+   "id": "B4687",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Cracked facade and roof debris on two-story corner building"
+  },
+  {
+   "id": "B4618",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Debris on roof and worn facade along Commercial Street"
+  },
+  {
+   "id": "B4659",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Damaged roof and stained facade on seven-story building"
+  },
+  {
+   "id": "B4699",
+   "damage": "extensive",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Heavily blackened caved-in roof along Sacramento Street"
+  },
+  {
+   "id": "B4690",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Darkened damaged roof and facade staining"
+  },
+  {
+   "id": "B4449",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4657",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4748",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 7,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "CLAY STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4653",
+   "notes": "Roadway north of target block appears open and free of major rubble"
+  },
+  {
+   "street": "MONTGOMERY STREET",
+   "status": "clear",
+   "evidenceS": 4,
+   "nearBuildingId": "B4627",
+   "notes": "Street west of block is clear with minor curb dust"
+  },
+  {
+   "street": "COMMERCIAL STREET",
+   "status": "partial",
+   "evidenceS": 4,
+   "nearBuildingId": "B4692",
+   "notes": "Narrow street south of block has light debris near buildings"
+  },
+  {
+   "street": "LEIDESDORFF STREET",
+   "status": "partial",
+   "evidenceS": 5,
+   "nearBuildingId": "B4687",
+   "notes": "Alleyway east of target block is narrow with minor debris"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 45,
+   "evidenceS": 3,
+   "place": "Park north of Clay Street",
+   "nearBuildingId": "B4687"
+  },
+  {
+   "approxCount": 60,
+   "evidenceS": 9,
+   "place": "Plaza near 535 Washington St",
+   "nearBuildingId": "B4693"
+  }
+ ],
+ "summary": "Target B4653 (563 Clay St) is collapsed/heavily damaged within the interior of the block, with no people directly on it. Immediately adjacent, one person is stranded on the roof of B4627 (538 Montgomery St) and another on the lower roof of B4630 (559 Clay St). Surrounding access on Montgomery Street",
+ "hash": "c371c591fd622f4c0b7d1c41345e1a18",
+ "usage": {
+  "promptTokens": 5805,
+  "outputTokens": 980,
+  "thoughtsTokens": 182,
+  "totalTokens": 6967
+ },
+ "notes": [
+  "ffmpeg 554 ms",
+  "input: video+hires",
+  "gemini 14730 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

@@ -1,0 +1,129 @@
+{
+ "chunkIndex": 1213,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9142,
+ "buildings": [
+  {
+   "id": "B5474",
+   "damage": "moderate",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Glass facade heavily scorched and cracked across all floors; Howard St clear."
+  },
+  {
+   "id": "B5529",
+   "damage": "none",
+   "confidence": 0.9,
+   "peopleVisible": 25,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Intact roof and walls, surrounded by crowd in park."
+  },
+  {
+   "id": "B5517",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 30,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 1,
+   "notes": "Roof shows minor cracking/scuffs, surrounded by large crowd in park."
+  },
+  {
+   "id": "B5444",
+   "damage": "slight",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof has dark staining and light surface debris, structure intact."
+  },
+  {
+   "id": "B5437",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 9,
+   "notes": "Roof covered in heavy rubble and cracks, facade intact."
+  },
+  {
+   "id": "B5395",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "intact"
+  },
+  {
+   "id": "B5441",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "HOWARD STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B5474",
+   "notes": "Roadway open and clear of debris next to B5474."
+  },
+  {
+   "street": "BEALE STREET",
+   "status": "clear",
+   "evidenceS": 5,
+   "nearBuildingId": "B5474",
+   "notes": "Roadway clear of debris adjacent to park and B5474."
+  },
+  {
+   "street": "MAIN STREET",
+   "status": "clear",
+   "evidenceS": 1,
+   "nearBuildingId": "B5529",
+   "notes": "Roadway open and clear of debris."
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 80,
+   "evidenceS": 1,
+   "place": "Park at 200 Main St",
+   "nearBuildingId": "B5517"
+  }
+ ],
+ "summary": "Target B5474 (250 Howard St) sustains moderate damage with widespread facade scorching and broken windows, though it remains upright with no fire or smoke. An estimated 80 people are gathered in the park around B5517 and B5529, with no trapped signs observed at the target. Howard, Beale, and Main St",
+ "hash": "0fd5ce1fd7b77252431bfdcffb215d74",
+ "usage": {
+  "promptTokens": 5250,
+  "outputTokens": 552,
+  "totalTokens": 5802
+ },
+ "notes": [
+  "ffmpeg 399 ms",
+  "input: video+hires",
+  "gemini 8743 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}

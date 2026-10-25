@@ -1,0 +1,127 @@
+{
+ "chunkIndex": 1112,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 9167,
+ "buildings": [
+  {
+   "id": "B4813",
+   "damage": "collapsed",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Reduced to a rubble pile in courtyard between towers; Sutter Street clear."
+  },
+  {
+   "id": "B4860",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Visible rubble and debris at the base along Market Street."
+  },
+  {
+   "id": "B4759",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 2,
+   "notes": "intact"
+  },
+  {
+   "id": "B4760",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 4,
+   "notes": "intact"
+  },
+  {
+   "id": "B4895",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4879",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4869",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B4849",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "SUTTER STREET",
+   "status": "clear",
+   "evidenceS": 7,
+   "nearBuildingId": "B4759",
+   "notes": "Roadway is clear and open between the high-rise towers."
+  },
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B4895",
+   "notes": "Street is open with minor debris near B4860."
+  }
+ ],
+ "crowds": [],
+ "summary": "Target B4813 (3F Office) has completely collapsed into a rubble pile nestled between the surrounding high-rise towers, with no people or trapped signs visible. Nearby B4860 shows moderate damage with debris at its base, while surrounding towers B4759, B4760, and B4895 are intact. Both Sutter Street ",
+ "hash": "96ecbe08577db81edad8ac625d58aefb",
+ "usage": {
+  "promptTokens": 5384,
+  "outputTokens": 332,
+  "thoughtsTokens": 260,
+  "totalTokens": 5976
+ },
+ "notes": [
+  "ffmpeg 271 ms",
+  "input: video+hires",
+  "gemini 8896 ms"
+ ],
+ "promptVersion": "argon-recon-drone-v1"
+}
