@@ -195,25 +195,18 @@ export function createAirPanel(city: CityData) {
 
       const has = st.buildingsObserved > 0;
       compare.classList.toggle('is-empty', !has);
-      // Headline: xBD macro-F1 on the buildings Argon has assessed — model alone vs model+Argon on the SAME
-      // buildings. Hidden until ≥ HEAD_MIN are assessed (tiny samples swing wildly). The whole-core-area figure
-      // (fixed denominator) is the secondary line and the timeline.
+      // Headline: whole-core-area xBD macro-F1 (fixed denominator: every core building) — model alone vs the
+      // model corrected by Argon. Hidden until ≥ HEAD_MIN buildings are seen on video (tiny samples are noise).
+      // The video-assessed figure (same buildings for both) is the secondary line.
       const HEAD_MIN = 50;
       const ready = st.buildingsObserved >= HEAD_MIN;
-      const headP = st.predictionF1 ?? st.predictionXbd ?? st.predictionAccuracy;
-      const headR = st.fusedF1 ?? st.reconXbd ?? st.reconAccuracy;
+      const headP = st.cityPredictionF1 ?? st.predictionF1 ?? st.predictionAccuracy;
+      const headR = st.cityFusedF1 ?? st.fusedF1 ?? st.reconAccuracy;
       setText(predNum, has && ready ? pct(headP) : '–');
       setText(reconNum, has && ready ? pct(headR) : '–');
       setText(sumAcc.querySelector('b')!, has && ready ? pct(headR) : '–');
-      setText(footLabel, ready ? `xBD macro-F1 · ${fmtInt(st.buildingsObserved)} buildings Argon assessed · vs ground truth (sim)` : `Collecting evidence… ${fmtInt(st.buildingsObserved)}/${HEAD_MIN} buildings assessed`);
-      setText(
-        within,
-        has && st.cityFusedF1 !== undefined
-          ? `Whole core area (${fmtInt(st.cityBuildings ?? 0)} bldgs): ${pct(st.cityPredictionF1 ?? 0)} → ${pct(st.cityFusedF1)}`
-          : has && st.reconF1 !== undefined
-            ? `Argon alone ${pct(st.reconF1)} · accuracy ${pct(st.predictionXbd ?? 0)} → ${pct(st.fusedXbd ?? 0)}`
-            : '',
-      );
+      setText(footLabel, ready ? `xBD macro-F1 · whole core area (${fmtInt(st.cityBuildings ?? 0)} bldgs) · vs ground truth (sim)` : `Collecting evidence… ${fmtInt(st.buildingsObserved)}/${HEAD_MIN} buildings seen`);
+      setText(within, has && ready ? `Buildings seen on video (${fmtInt(st.buildingsObserved)}): ${pct(st.predictionF1 ?? 0)} → ${pct(st.fusedF1 ?? 0)}` : '');
       within.title = has
         ? `xBD 4-class. Balanced accuracy: model ${pct(st.predictionBal ?? 0)}, Argon ${pct(st.reconBal ?? 0)}, model+Argon ${pct(st.fusedBal ?? 0)}. Exact HAZUS state: ${pct(st.predictionAccuracy)} → Argon ${pct(st.reconAccuracy)}.`
         : '';

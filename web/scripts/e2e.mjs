@@ -11,7 +11,7 @@
  * time-gate) → Reset → verify the city, HUD and AIR state are restored → M4 drones (air=mock: Argon plan card
  * pauses the sim, Approve via the button, drones fly, accuracy timeline gains a drone point, Reset clears it) →
  * M5 Copilot (air=mock: open the drawer, quick prompt → plan card, routes auto-shown, Show on map re-draws,
- * Dispatch moves units, Reset clears chat + layer) → M6 resident reports (air=mock: toasts pop as reports arrive,
+ * Dispatch moves units, Reset clears chat + layer) → M6 resident reports (air=mock: reports stay in the panel with an unread badge,
  * panel counts grow with sim time, seek back hides later ones, recon fuses them outside observations(), Reset clears).
  * Screenshots and an fps sample are taken at each checkpoint. Exits 1 on any failed check, console
  * error, page error or WebGL/shader warning. The dev server must be running.
@@ -725,6 +725,7 @@ const m6State = () =>
       received: items.length,
       analysed: items.filter((i) => i.analysis).length,
       toasts: document.querySelectorAll('.ag-rtoast').length,
+      unread: (() => { const u = document.querySelector('.ag-rep__unread'); return u && !u.hidden ? Number(u.textContent.replace('+', '')) || 0 : 0; })(),
       toastsAnalysed: document.querySelectorAll('.ag-rtoast .ag-rep__argon:not(.is-pending)').length,
       panelVisible: !!panel && !panel.hidden && panel.offsetParent !== null,
       panelCount: document.querySelector('.ag-reports .ag-rep__headCount')?.textContent?.trim() ?? null,
@@ -751,7 +752,8 @@ await step('M6 resident reports (mock)', async () => {
   await page.waitForFunction(() => (window.__argus.reports?.items().filter((i) => i.analysis).length ?? 0) >= 10, null, { timeout: 60000 });
   m = await m6State();
   await A(() => window.__argus.pause());
-  check(m.toasts >= 1 && m.toasts <= 3, `expected 1-3 report toasts while reports arrive, got ${m.toasts}`);
+  check(m.toasts === 0, `reports must stay inside the panel (no floating pop-ups), got ${m.toasts}`);
+  check(m.unread > 0, `collapsed panel shows no unread badge while reports arrive (${m.unread})`);
   check(m.panelVisible, 'COMMUNITY REPORTS panel not visible after reports arrived');
   check(m.received > 0 && m.analysed > 0, `no received / analysed reports (received ${m.received}, analysed ${m.analysed})`);
   check(m.citizen > 0 && m.citizenPts > 0, `recon did not fuse resident reports (citizen ${m.citizen}, history points ${m.citizenPts})`);

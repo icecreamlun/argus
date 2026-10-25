@@ -11,7 +11,7 @@
 ![Real data](https://img.shields.io/badge/data-OSM%20·%20DataSF%20·%20USGS-2e7d32?style=flat-square)
 ![Human in the loop](https://img.shields.io/badge/human-in_the_loop-ff6d00?style=flat-square)
 
-<img src="docs/img/hero-copilot.jpg" alt="Argus Copilot routing rescue units across a damaged San Francisco" width="100%"/>
+<img src="docs/img/hero.jpg" alt="Argus Copilot routing rescue units across a damaged San Francisco, with resident reports and the Argon drone plan" width="100%"/>
 
 *Gemini 4 Argon Hackathon · San Francisco · Track 2: More Dimensions*
 
@@ -105,7 +105,7 @@ Measured on the recorded live run (1906 repeat, 15:00 local), scored against the
 
 | xBD macro-F1 | Model alone | Model + Argon |
 |---|---:|---:|
-| **Whole core area** (1,902 buildings, including the ones nobody saw) | 33% | 38% after AIR 1 → 42% after drone wave 1 → **43%** at the end |
+| **Whole core area** (1,902 buildings, including the ones nobody saw) — *the headline* | 33% | 38% after AIR 1 → 42% after drone wave 1 → **43%** at the end |
 | **Buildings seen on video** (111, scored on the same buildings) | 24% | **46%** |
 | Whole core area *without* resident reports | 33% | 39% |
 

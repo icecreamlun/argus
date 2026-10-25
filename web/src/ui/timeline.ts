@@ -147,7 +147,8 @@ export function createTimeline() {
     set(history: ReconHistoryPoint[] | undefined, marks: WaveMark[] = []) {
       // Plot the fixed-set (whole core area) metrics when present: the denominator never changes, so the
       // model line is flat and the corrected line only moves as observations correct the model.
-      const raw = (history ?? []).slice().sort((p, q) => p.simS - q.simS);
+      // Same evidence threshold as the headline: plot once ≥ 50 buildings have been seen on video.
+      const raw = (history ?? []).slice().sort((p, q) => p.simS - q.simS).filter((p) => p.observed >= 50);
       const hist = raw.map((p) => ({ ...p, predictionF1: p.cityPredictionF1 ?? p.predictionF1, fusedF1: p.cityFusedF1 ?? p.fusedF1 }));
       // Start the corrected line on the model baseline (before the first result nothing is corrected yet).
       if (hist.length && hist[0].cityPredictionF1 !== undefined) hist.unshift({ ...hist[0], simS: Math.max(0, hist[0].simS - 12), fusedF1: hist[0].predictionF1, observed: 0, collapsesConfirmed: 0, peopleSeen: 0 });

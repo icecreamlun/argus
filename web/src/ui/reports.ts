@@ -1,5 +1,5 @@
 /**
- * M6 "Resident reports" UI: toasts as community-app reports arrive (top-left of the scene, beside the Seismic
+ * M6 "Resident reports" UI (reports stay inside the panel — no floating pop-ups): previously toasts as community-app reports arrive (top-left of the scene, beside the Seismic
  * feed) and a compact collapsible COMMUNITY REPORTS panel in the left column. Each report shows its text, then an
  * Argon row that fills in when gemini-4-argon has linked it to a building (damage / trapped / credibility / note).
  * Reports are a low-weight evidence source: the drone planner and the Copilot never see them.
@@ -209,6 +209,21 @@ export function createReports(city: CityData, onSelect: (item: ReportItem) => vo
   // ── Panel ──
   const panel = createPanel({ id: 'reports', title: 'Community reports', icon: 'phone', className: 'ag-reports' });
   panel.el.dataset.active = 'false';
+  // Reports live INSIDE this panel (no floating pop-ups): collapsed by default, a quiet unread badge on the
+  // header while closed, and the list animates new reports in only when the commander opens it.
+  panel.setCollapsed(true, false);
+  const unreadBadge = h('span', { class: 'ag-rep__unread', hidden: true, title: 'New resident reports' }, '0');
+  let unread = 0;
+  const renderUnread = () => {
+    unreadBadge.hidden = unread === 0 || !panel.collapsed;
+    setText(unreadBadge, unread > 99 ? '99+' : String(unread));
+    panel.el.classList.toggle('has-unread', !unreadBadge.hidden);
+  };
+  panel.head.querySelector('.ag-panel__title')?.append(unreadBadge);
+  panel.head.addEventListener('click', () => requestAnimationFrame(() => {
+    if (!panel.collapsed) unread = 0;
+    renderUnread();
+  }));
   const modeBadge = h('span', { class: 'ag-rep__mode', dataset: { mode: 'none' } }, '–');
   const headCount = h('span', { class: 'ag-rep__headCount' }, '0');
   panel.meta.append(headCount, modeBadge);
@@ -261,6 +276,12 @@ export function createReports(city: CityData, onSelect: (item: ReportItem) => vo
     return li;
   }
 
+  /** Keyed rows: existing reports update in place (the Argon line fades in), new ones slide in at the top. */
+  const rows = new Map<string, { li: HTMLElement; sig: string }>();
+  const itemSig = (it: ReportItem) =>
+    it.analysis ? `${it.analysis.buildingId}:${it.analysis.damage}:${it.analysis.peopleTrapped}:${it.analysis.credibility}` : 'pending';
+  let firstFill = true;
+
   function set(items: ReportItem[], stats: ReportsStats) {
     const active = items.length > 0 || stats.received > 0;
     panel.el.dataset.active = String(active);
@@ -274,12 +295,42 @@ export function createReports(city: CityData, onSelect: (item: ReportItem) => vo
     setText(modeBadge, stats.mode ? MODE[stats.mode] ?? stats.mode : '–');
     modeBadge.title = stats.mode === 'gemini' ? 'gemini-4-argon (live)' : stats.mode === 'replay' ? 'Recorded gemini-4-argon answers' : stats.mode === 'mock' ? 'Offline mock analysis' : '';
     empty.hidden = items.length > 0;
-    // Re-render the list only when it changed.
+
     const latest = [...items].sort((a, b) => b.report.simS - a.report.simS || b.report.id.localeCompare(a.report.id)).slice(0, LIST_MAX);
-    const sig = latest.map((it) => `${it.report.id}${it.analysis ? `:${it.analysis.buildingId}:${it.analysis.damage}:${it.analysis.peopleTrapped}:${it.analysis.credibility}` : ''}`).join('|');
+    const sig = latest.map((it) => `${it.report.id}:${itemSig(it)}`).join('|');
     if (sig === lastSig) return;
     lastSig = sig;
-    list.replaceChildren(...latest.map(row));
+
+    const keep = new Set(latest.map((it) => it.report.id));
+    for (const [id, r] of rows) if (!keep.has(id)) (r.li.remove(), rows.delete(id));
+    // Animate only genuinely new arrivals, and only when the list is visible (a seek / first fill is instant).
+    const animate = !panel.collapsed && !firstFill;
+    let prev: HTMLElement | null = null;
+    for (const it of latest) {
+      const id = it.report.id;
+      const s2 = itemSig(it);
+      let r = rows.get(id);
+      if (!r) {
+        r = { li: row(it), sig: s2 };
+        rows.set(id, r);
+        if (animate) r.li.classList.add('is-new');
+      } else if (r.sig !== s2) {
+        const fresh = row(it);
+        const argonOld = r.li.querySelector('.ag-rep__argon');
+        const argonNew = fresh.querySelector('.ag-rep__argon');
+        if (argonOld && argonNew) {
+          argonNew.classList.add('is-fill');
+          argonOld.replaceWith(argonNew);
+        }
+        r.li.dataset.severity = severityOf(it);
+        r.sig = s2;
+      }
+      // Keep DOM order == latest order without re-creating nodes.
+      const want: ChildNode | null = prev ? prev.nextSibling : list.firstChild;
+      if (want !== r.li) list.insertBefore(r.li, want);
+      prev = r.li;
+    }
+    firstFill = items.length === 0;
     if (flashId) highlightRow(flashId, false);
   }
 
@@ -302,6 +353,11 @@ export function createReports(city: CityData, onSelect: (item: ReportItem) => vo
   function reset() {
     for (const id of [...toasts.keys()]) dismiss(id);
     pending = [];
+    unread = 0;
+    renderUnread();
+    rows.clear();
+    list.replaceChildren();
+    firstFill = true;
     seen.clear();
     seenAnalysed.clear();
     flashId = null;
@@ -313,8 +369,13 @@ export function createReports(city: CityData, onSelect: (item: ReportItem) => vo
     panel,
     el: panel.el,
     toastsEl,
-    /** Toast a report (analysis null = just received; call again with the analysis to fill the Argon row). */
-    show: queue,
+    /** A report arrived (or its analysis did): no pop-up — counts as unread while the panel is closed. */
+    show(item: ReportItem) {
+      if (seen.has(item.report.id)) return;
+      seen.add(item.report.id);
+      if (panel.collapsed) unread++;
+      renderUnread();
+    },
     set,
     reset,
   };

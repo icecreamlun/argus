@@ -108,7 +108,6 @@ export function createUI(root: HTMLElement, ctx: { city: CityData; events: Event
     h('aside', { class: 'ag-col ag-col--left' }, feed.el, reports.el),
     right,
     m4,
-    reports.toastsEl,
     copilot.el,
     h('div', { class: 'ag-bottom' }, tod.el, pb.el, views.el),
     foot.el,
