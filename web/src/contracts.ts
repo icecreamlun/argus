@@ -464,6 +464,12 @@ export interface BuildingDamage {
   state: DamageState;
   /** P(state >= ds) for ds = 1..4 */
   exceedance: [number, number, number, number];
+  /**
+   * What the quake model can PREDICT minutes after the event, P(state >= ds) for ds = 1..4: median ground
+   * motion only (the within-event residual is unknowable in advance), database attributes as recorded
+   * (no hidden retrofits / defects), liquefaction only as an expectation. `exceedance` is the truth-world value.
+   */
+  predictedExceedance?: [number, number, number, number];
   collapsed: boolean; // a subset of complete damage
   /** Fraction of the building's height lost (0..1) for collapse visuals. */
   collapseFraction: number;
@@ -834,6 +840,19 @@ export interface ReconStats {
    */
   predictionXbd?: number;
   reconXbd?: number;
+  /**
+   * Optional (headline): the model CORRECTED by Argon — Bayesian fusion per observed building (model's xBD class
+   * probabilities as prior × Argon observation likelihood weighted by its confidence). Same buildings as above.
+   */
+  fusedXbd?: number;
+  /** xBD macro-F1 (mean per-class F1; the xBD challenge's damage score) for model / Argon / model+Argon. */
+  predictionF1?: number;
+  reconF1?: number;
+  fusedF1?: number;
+  /** Balanced accuracy (mean per-class recall) for model / Argon / model+Argon. */
+  predictionBal?: number;
+  reconBal?: number;
+  fusedBal?: number;
 }
 
 export interface BuildingComparison {

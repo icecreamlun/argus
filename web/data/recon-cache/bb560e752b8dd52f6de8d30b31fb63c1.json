@@ -1,0 +1,110 @@
+{
+ "chunkIndex": 0,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 12209,
+ "buildings": [
+  {
+   "id": "B5587",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "Cracked and weathered roof and facade panels"
+  },
+  {
+   "id": "B5566",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 8,
+   "notes": "intact"
+  },
+  {
+   "id": "B5522",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 12,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway open and clear of debris"
+  },
+  {
+   "street": "FERRY PLAZA",
+   "status": "clear",
+   "evidenceS": 9,
+   "nearBuildingId": "B5587",
+   "notes": "Waterfront walkway clear"
+  },
+  {
+   "street": "DON CHEE WAY",
+   "status": "clear",
+   "evidenceS": 12,
+   "nearBuildingId": "B5522",
+   "notes": "Clear of debris"
+  },
+  {
+   "street": "STEUART STREET",
+   "status": "clear",
+   "evidenceS": 14,
+   "nearBuildingId": "B5504",
+   "notes": "Roadway clear alongside park"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 10,
+   "evidenceS": 9,
+   "place": "Ferry Plaza",
+   "nearBuildingId": "B5587"
+  },
+  {
+   "approxCount": 60,
+   "evidenceS": 14,
+   "place": "The Embarcadero Plaza",
+   "nearBuildingId": "B5504"
+  }
+ ],
+ "summary": "The San Francisco Ferry Building (B5504) and Ferry Station Post Office (B5566) appear intact with no structural collapse or fire. Moderate facade and roof damage is visible on the waterfront retail building B5587 at Ferry Plaza, as well as on untagged buildings west of Steuart Street. About 60 peopl",
+ "hash": "bb560e752b8dd52f6de8d30b31fb63c1",
+ "usage": {
+  "promptTokens": 6080,
+  "outputTokens": 391,
+  "thoughtsTokens": 344,
+  "totalTokens": 6815
+ },
+ "notes": [
+  "ffmpeg 1084 ms",
+  "input: video+hires",
+  "gemini 11124 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

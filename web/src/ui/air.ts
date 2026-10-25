@@ -100,15 +100,15 @@ export function createAirPanel(city: CityData) {
   const compare = h(
     'div',
     { class: 'ag-air__cmp' },
-    h('div', { class: 'ag-air__cmpHead' }, h('span', { class: 'ag-label' }, 'Model prediction vs Argon reconstruction')),
+    h('div', { class: 'ag-air__cmpHead' }, h('span', { class: 'ag-label' }, 'Quake model, corrected by Argon footage')),
     h(
       'div',
       { class: 'ag-air__figs' },
-      h('div', { class: 'ag-air__fig' }, predNum, h('span', { class: 'ag-air__figLabel' }, 'Prediction')),
+      h('div', { class: 'ag-air__fig' }, predNum, h('span', { class: 'ag-air__figLabel' }, 'Model alone')),
       h('span', { class: 'ag-air__arrow' }, icon('arrowRight')),
-      h('div', { class: 'ag-air__fig' }, reconNum, h('span', { class: 'ag-air__figLabel ag-air__figLabel--argon' }, 'Argon')),
+      h('div', { class: 'ag-air__fig' }, reconNum, h('span', { class: 'ag-air__figLabel ag-air__figLabel--argon' }, 'Model + Argon')),
     ),
-    h('div', { class: 'ag-air__foot' }, h('span', { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed' }, 'xBD damage class · vs ground truth (sim)'), within),
+    h('div', { class: 'ag-air__foot' }, h('span', { title: 'xBD aerial damage scale: no damage / minor / major (moderate–extensive) / destroyed. Macro-F1 = mean per-class F1 (the xBD challenge damage score)' }, 'xBD macro-F1 · vs ground truth (sim)'), within),
     h(
       'div',
       { class: 'ag-air__table' },
@@ -180,13 +180,16 @@ export function createAirPanel(city: CityData) {
       const has = st.buildingsObserved > 0;
       compare.classList.toggle('is-empty', !has);
       // Headline: xBD 4-class accuracy (falls back to the exact 5-state figure); exact HAZUS state stays secondary.
-      const headP = st.predictionXbd ?? st.predictionAccuracy;
-      const headR = st.reconXbd ?? st.reconAccuracy;
+      // Headline: xBD macro-F1 of the model alone vs the model corrected by Argon (falls back to accuracy).
+      const headP = st.predictionF1 ?? st.predictionXbd ?? st.predictionAccuracy;
+      const headR = st.fusedF1 ?? st.reconXbd ?? st.reconAccuracy;
       setText(predNum, has ? pct(headP) : '–');
       setText(reconNum, has ? pct(headR) : '–');
       setText(sumAcc.querySelector('b')!, has ? pct(headR) : '–');
-      setText(within, has ? `exact state: ${pct(st.predictionAccuracy)} → ${pct(st.reconAccuracy)}` : '');
-      within.title = has ? `Exact HAZUS state (5 classes). Within one state: ${pct(st.predictionWithinOne)} → ${pct(st.reconWithinOne)}` : '';
+      setText(within, has && st.reconF1 !== undefined ? `Argon alone ${pct(st.reconF1)} · accuracy ${pct(st.predictionXbd ?? 0)} → ${pct(st.fusedXbd ?? 0)}` : '');
+      within.title = has
+        ? `xBD 4-class. Balanced accuracy: model ${pct(st.predictionBal ?? 0)}, Argon ${pct(st.reconBal ?? 0)}, model+Argon ${pct(st.fusedBal ?? 0)}. Exact HAZUS state: ${pct(st.predictionAccuracy)} → Argon ${pct(st.reconAccuracy)}.`
+        : '';
       setText(basis, has ? `${fmtInt(st.buildingsObserved)} buildings reconstructed${st.buildingsCovered ? ` of ${fmtInt(st.buildingsCovered)} in view` : ''}. Model = HAZUS most likely state; model complete = expected count.` : 'Comparison appears when the first chunk comes back.');
       setText(collapses.a, has ? fmtInt(st.collapsesPredicted) : '–');
       setText(collapses.b, has ? fmtInt(st.collapsesObserved) : '–');

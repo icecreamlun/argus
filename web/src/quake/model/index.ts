@@ -43,6 +43,7 @@ import { buildingGeo, buildingsNear, siteAt } from './spatial';
 import { roadIndex, towardNearestStreet, computeBlockages, type DebrisSource } from './roads';
 import { computeDamage, occupantsAt } from './damage';
 import { gaussian, streamFor } from './rng';
+import { exceedanceFor } from './damage';
 import {
   PRESET_SPECS,
   buildUsgsEvent,
@@ -186,6 +187,22 @@ function anchorIndex(city: CityData): Int32Array {
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
+/** Residual-free fields: the median ground motion a predictor can compute before any observation. */
+const ZERO_FIELDS = { a: () => 0, b: () => 0, liq: () => 0, meanA: 0, meanB: 0 };
+
+/**
+ * Hidden (truth-only) capacity factor per building: ~12 % are stronger than recorded (unrecorded retrofit,
+ * conservative construction), ~15 % weaker (unpermitted alterations, deterioration, poor workmanship).
+ * Demand is divided by this factor in the truth world only, so the blind prediction cannot know it.
+ */
+function hiddenCapacity(seed: number, key: string): number {
+  const r = streamFor(seed, key, 'hidden-capacity');
+  const u = r();
+  if (u < 0.12) return 1.3 + 0.25 * r();
+  if (u < 0.27) return 0.6 + 0.15 * r();
+  return 0.92 + 0.16 * r();
+}
+
 export function createQuakeModel(): QuakeModel & { lastRunMs: number } {
   const scenarios: ArgusScenario[] = PRESET_SPECS.map(scenarioFromSpec);
   /** Seed last used per scenario id, so the ShakeMap overlay matches the run on screen. */
@@ -219,8 +236,9 @@ export function createQuakeModel(): QuakeModel & { lastRunMs: number } {
       let collapsed = 0, fires = 0, trapped = 0, maxMmi = 0, occupants = 0, tEnd = 0;
       const scratch: number[] = [];
 
-      // Pass 1 — ground motion at every record.
+      // Pass 1 — ground motion at every record (truth: median × correlated residual; prediction: median only).
       const motion: SiteMotion[] = new Array(n);
+      const predicted: SiteMotion[] = new Array(n);
       const liq = new Uint8Array(n);
       for (let i = 0; i < n; i++) {
         const b = city.buildings[i];
@@ -230,6 +248,7 @@ export function createQuakeModel(): QuakeModel & { lastRunMs: number } {
         const rz = streamFor(seed, b.parentId ?? b.id, 'zeta');
         const m = siteMotion(src, fields, x, z, vs30, b.onFill ? 1 : 0, [gaussian(rz), gaussian(rz)]);
         motion[i] = m;
+        predicted[i] = siteMotion(src, ZERO_FIELDS, x, z, vs30, b.onFill ? 1 : 0);
         const liquefied = b.onFill && m.uLiq < m.pLiq;
         liq[i] = liquefied ? 1 : 0;
         const mmi = Math.min(10, m.mmiShaking + (liquefied ? LIQ_MMI_BUMP : 0));
@@ -259,11 +278,14 @@ export function createQuakeModel(): QuakeModel & { lastRunMs: number } {
         const m = motion[a];
         const sh = shaking[a];
         const nb = localSlope(city, geo, i, scratch);
+        // Truth only: what the building database does not know (unrecorded retrofits, unpermitted alterations,
+        // deterioration, workmanship). Expressed as a capacity factor applied to the demand.
+        const cap = hiddenCapacity(seed, sb.parentId ?? sb.id);
         const dmg = computeDamage({
           b,
           structural: sb,
-          pgaG: m.pgaG,
-          pgvCms: m.pgvCms,
+          pgaG: m.pgaG / cap,
+          pgvCms: m.pgvCms / cap,
           vs30: sh.vs30 ?? 300,
           magnitude: src.M,
           liquefied: liq[a] === 1,
@@ -278,6 +300,26 @@ export function createQuakeModel(): QuakeModel & { lastRunMs: number } {
           footprintArea: geo.area[i],
         });
         const d = dmg.damage;
+        // Blind prediction (what an operations centre could compute from the USGS event alone).
+        const pm = predicted[a];
+        d.predictedExceedance = exceedanceFor({
+          b,
+          structural: sb,
+          pgaG: pm.pgaG,
+          pgvCms: pm.pgvCms,
+          vs30: sh.vs30 ?? 300,
+          magnitude: src.M,
+          liquefied: pm.pLiq > 0.5,
+          sArrivalS: shaking[i].sArrivalS,
+          durationS: shaking[i].durationS,
+          hour,
+          seed,
+          downhill: nb.dir,
+          slope: nb.slope,
+          toStreet: towardNearestStreet(ridx, geo.cx[i], geo.cz[i]),
+          neighbours60: nb.n60,
+          footprintArea: geo.area[i],
+        }).ex.map((v) => Math.round(v * 1000) / 1000) as [number, number, number, number];
         damage[i] = d;
         ignBase[i] = dmg.ignBase;
         ignW[i] = dmg.ignWeighted;

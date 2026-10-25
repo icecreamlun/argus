@@ -1,0 +1,197 @@
+{
+ "chunkIndex": 5,
+ "model": "gemini-4-argon",
+ "mode": "gemini",
+ "latencyMs": 15124,
+ "buildings": [
+  {
+   "id": "B5403",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Dark facade patches and roof surface staining"
+  },
+  {
+   "id": "B5323",
+   "damage": "moderate",
+   "confidence": 0.85,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Cracked facade with dark streaks and roof stains"
+  },
+  {
+   "id": "B5298",
+   "damage": "slight",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Light roof staining and minor facade marks"
+  },
+  {
+   "id": "B5320",
+   "damage": "moderate",
+   "confidence": 0.75,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "Roof surface distress and facade staining"
+  },
+  {
+   "id": "B5381",
+   "damage": "slight",
+   "confidence": 0.9,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 5,
+   "notes": "Minor surface marks on rooftop, structure upright"
+  },
+  {
+   "id": "B5372",
+   "damage": "collapsed",
+   "confidence": 0.95,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roofless ruin with jagged wall stubs and rubble"
+  },
+  {
+   "id": "B5384",
+   "damage": "moderate",
+   "confidence": 0.8,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 6,
+   "notes": "Roof surface staining and debris near collapsed neighbour"
+  },
+  {
+   "id": "B5344",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 0,
+   "notes": "intact"
+  },
+  {
+   "id": "B5299",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5307",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 3,
+   "notes": "intact"
+  },
+  {
+   "id": "B5504",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 10,
+   "notes": "intact"
+  },
+  {
+   "id": "B5478",
+   "damage": "none",
+   "confidence": 0.7,
+   "peopleVisible": 0,
+   "trappedSigns": false,
+   "fire": false,
+   "smoke": false,
+   "evidenceS": 11,
+   "notes": "intact"
+  }
+ ],
+ "roads": [
+  {
+   "street": "MARKET STREET",
+   "status": "clear",
+   "evidenceS": 0,
+   "nearBuildingId": "B5344",
+   "notes": "Open with pedestrian crowd gathered on roadway"
+  },
+  {
+   "street": "DRUMM STREET",
+   "status": "clear",
+   "evidenceS": 3,
+   "nearBuildingId": "B5323",
+   "notes": "Roadway clear and unobstructed"
+  },
+  {
+   "street": "THE EMBARCADERO",
+   "status": "clear",
+   "evidenceS": 8,
+   "nearBuildingId": "B5504",
+   "notes": "All lanes open and clear to Ferry Building"
+  }
+ ],
+ "crowds": [
+  {
+   "approxCount": 35,
+   "evidenceS": 0,
+   "place": "MARKET STREET",
+   "nearBuildingId": "B5344"
+  },
+  {
+   "approxCount": 80,
+   "evidenceS": 6,
+   "place": "Embarcadero Plaza",
+   "nearBuildingId": "B5381"
+  },
+  {
+   "approxCount": 40,
+   "evidenceS": 7,
+   "place": "Park near B5384",
+   "nearBuildingId": "B5384"
+  }
+ ],
+ "summary": "B5372 (6F Office near Embarcadero Center) has completely collapsed into a roofless rubble ruin. Moderate facade and roof damage is visible on B5403 (101 Market St), B5323 (2 California St), B5320, and B5384, while the Ferry Building (B5504) and Pier 1 (B5478) appear intact. Large crowds have evacuat",
+ "hash": "f10ea702bcab8017b906f5482f5489ac",
+ "usage": {
+  "promptTokens": 6653,
+  "outputTokens": 738,
+  "thoughtsTokens": 538,
+  "totalTokens": 7929
+ },
+ "notes": [
+  "ffmpeg 284 ms",
+  "input: video+hires",
+  "gemini 14840 ms"
+ ],
+ "promptVersion": "argon-recon-v5"
+}

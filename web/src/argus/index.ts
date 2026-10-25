@@ -161,7 +161,7 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     const c = predCache[i];
     if (c) return c;
     const d = result!.damage[i];
-    const [e1, e2, e3, e4] = d.exceedance;
+    const [e1, e2, e3, e4] = d.predictedExceedance ?? d.exceedance;
     const probs: Predicted['probs'] = [1 - e1, e1 - e2, e2 - e3, e3 - e4, e4].map((p) => Math.max(0, p)) as Predicted['probs'];
     let mostLikely = 0 as DamageState;
     for (let s = 1; s < 5; s++) if (probs[s] > probs[mostLikely]) mostLikely = s as DamageState;
@@ -372,6 +372,41 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     return best;
   }
 
+  /** Model corrected by Argon: xBD prior (model) × likelihood of Argon's call given its confidence → argmax. */
+  function xbdFused(i: number, o: ObservedBuilding): number {
+    const q = predicted(i).probs;
+    const prior = [q[0], q[1], q[2] + q[3], q[4]].map((v) => Math.max(v, 1e-4));
+    const ox = XBD[obsState(o.damage)];
+    const c = Math.min(0.95, Math.max(0.3, o.confidence));
+    let best = 0;
+    let bestP = -1;
+    for (let t = 0; t < 4; t++) {
+      const like = t === ox ? c : ((1 - c) / 3) * (Math.abs(t - ox) === 1 ? 1.5 : 0.75);
+      const post = prior[t] * like;
+      if (post > bestP) (bestP = post), (best = t);
+    }
+    return best;
+  }
+
+  /** Macro-F1 and balanced accuracy of a 4×4 confusion matrix (rows = truth, cols = estimate). */
+  function classMetrics(m: number[][]): { f1: number; bal: number } {
+    let f1 = 0;
+    let bal = 0;
+    let classes = 0;
+    for (let c = 0; c < 4; c++) {
+      const row = m[c].reduce((a, b) => a + b, 0);
+      if (!row) continue; // class absent from truth among observed buildings
+      classes++;
+      const tp = m[c][c];
+      const col = m.reduce((a, r) => a + r[c], 0);
+      const rec = tp / row;
+      const pre = col ? tp / col : 0;
+      bal += rec;
+      f1 += rec + pre ? (2 * rec * pre) / (rec + pre) : 0;
+    }
+    return { f1: classes ? f1 / classes : 0, bal: classes ? bal / classes : 0 };
+  }
+
   function computeStats(): ReconStats {
     const s: ReconStats = {
       chunksSent: Math.max(sent.size, entries.length),
@@ -404,6 +439,10 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     let p1 = 0;
     let r1 = 0;
     let expCollapse = 0;
+    let fx = 0;
+    const cmP = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+    const cmR = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
+    const cmF = [0, 1, 2, 3].map(() => [0, 0, 0, 0]);
     const surprises: (ReconStats['surprises'][number] & { w: number })[] = [];
     for (const [id, o] of effective) {
       const i = idx.get(id)!;
@@ -413,8 +452,14 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
       if (p === t) pe++;
       if (ob === t) re++;
       const tx = XBD[t];
-      if (xbdPredicted(i) === tx) px++;
+      const pxc = xbdPredicted(i);
+      const fxc = xbdFused(i, o);
+      if (pxc === tx) px++;
       if (XBD[ob] === tx) rx++;
+      if (fxc === tx) fx++;
+      cmP[tx][pxc]++;
+      cmR[tx][XBD[ob]]++;
+      cmF[tx][fxc]++;
       if (Math.abs(p - t) <= 1) p1++;
       if (Math.abs(ob - t) <= 1) r1++;
       if (ob === 4) s.collapsesObserved++;
@@ -432,6 +477,16 @@ export function createRecon(ctx: AppContext, deps: { buildings: BuildingsHandle;
     const n = Math.max(1, effective.size);
     s.predictionXbd = effective.size ? px / n : 0;
     s.reconXbd = effective.size ? rx / n : 0;
+    s.fusedXbd = effective.size ? fx / n : 0;
+    const mP = classMetrics(cmP);
+    const mR = classMetrics(cmR);
+    const mF = classMetrics(cmF);
+    s.predictionF1 = mP.f1;
+    s.reconF1 = mR.f1;
+    s.fusedF1 = mF.f1;
+    s.predictionBal = mP.bal;
+    s.reconBal = mR.bal;
+    s.fusedBal = mF.bal;
     s.predictionAccuracy = effective.size ? pe / n : 0;
     s.reconAccuracy = effective.size ? re / n : 0;
     s.predictionWithinOne = effective.size ? p1 / n : 0;
